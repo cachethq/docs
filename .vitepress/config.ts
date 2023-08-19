@@ -15,14 +15,16 @@ export default defineConfigWithTheme<ThemeConfig>({
   },
 
   head: [
-      ['script', {
-        src: 'https://cdn.usefathom.com/script.js',
-        'data-site': 'FDSKQOXU',
-        defer: true,
-      }],
+    ['script', {
+      src: 'https://cdn.usefathom.com/script.js',
+      'data-site': 'FDSKQOXU',
+      defer: true,
+    }],
   ],
 
   themeConfig: {
+    githubUrl: 'https://github.com/cachethq/cachet',
+    
     logo: {
       light: 'logo.svg',
       dark: 'logo-dark.svg',
