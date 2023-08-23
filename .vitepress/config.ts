@@ -5,14 +5,9 @@ import config from '@hempworks/pilgrim/config'
 export default defineConfigWithTheme<ThemeConfig>({
   extends: config,
   title: "Cachet",
-  description: "Cachet is an open-source status page system.",
+  description: "The open-source status page system.",
   srcDir: 'src',
   cleanUrls: true,
-
-  carbonAds: {
-    code: 'CWYDE2QJ',
-    placement: 'cachethqio',
-  },
 
   head: [
     ['script', {
@@ -20,19 +15,62 @@ export default defineConfigWithTheme<ThemeConfig>({
       'data-site': 'FDSKQOXU',
       defer: true,
     }],
+
+    ['link', {
+      rel: 'apple-touch-icon',
+      sizes: '180x180',
+      href: 'https://cachethq.io/apple-touch-icon.png',
+    }],
+    ['link', {
+      rel: 'icon',
+      sizes: '16x16',
+      type: 'image/png',
+      href: 'https://cachethq.io/favicon-16x16.png',
+    }],
+    ['link', {
+      rel: 'icon',
+      sizes: '32x32',
+      type: 'image/png',
+      href: 'https://cachethq.io/favicon-32x32.png',
+    }],
+    ['link', {
+      rel: 'manifest',
+      href: 'https://cachethq.io/site.webmanifest',
+    }],
+    ['link', {
+      rel: 'mask-icon',
+      href: 'https://cachethq.io/safari-pinned-tab.svg',
+    }],
+    ['meta', {
+      name: 'msapplication-TileColor',
+      content: '#04c147',
+    }],
+    // ['meta', {
+    //   property: 'og:image',
+    //   content: 'https://cachethq.io/social-share.png',
+    // }],
+    ['meta', {
+      property: 'twitter:card',
+      content: 'summary_large_image',
+    }],
+    // ['meta', {
+    //   property: 'twitter:image',
+    //   content: 'https://cachethq.io/social-share.png',
+    // }],
   ],
 
   themeConfig: {
     githubUrl: 'https://github.com/cachethq/cachet',
     
     logo: {
-      light: 'logo.svg',
-      dark: 'logo-dark.svg',
+      light: '/logo.svg',
+      dark: '/logo-dark.svg',
     },
 
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Demo', link: 'https://demo.cachethq.io' }
+      { text: 'Demo', link: 'https://demo.cachethq.io' },
+      { text: 'Blog', link: 'https://blog.cachethq.io' }
     ],
 
     sidebar: [
@@ -73,14 +111,6 @@ export default defineConfigWithTheme<ThemeConfig>({
       provider: 'local',
       options: {
         placeholder: 'Search Cachet Docs...',
-      },
-    },
-  },
-  vite: {
-    server: {
-      host: true,
-      fs: {
-        allow: ['../../'],
       },
     },
   },

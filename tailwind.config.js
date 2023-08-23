@@ -2,16 +2,16 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 import tailwindConfig from '@hempworks/pilgrim/tailwind.config'
 
 const primary = {
-//   50: '#f2f9ff',
-//   100: '#e6f3ff',
-//   200: '#bfdeff',
-//   300: '#99c9ff',
-//   400: '#4da0ff',
-    500: '#7ed321',
-//   600: '#006ee6',
-//   700: '#0059bf',
-//   800: '#004599',
-//   900: '#003872',
+    '50': '#e6f7ed',
+    '100': '#c1edce',
+    '200': '#9be3b1',
+    '300': '#74d994',
+    '400': '#4dce76',
+    '500': '#04c147', // Base Color
+    '600': '#03ad40',
+    '700': '#038f34',
+    '800': '#027227',
+    '900': '#01561a'
 }
 
 /** @type {import('tailwindcss').Config} */
