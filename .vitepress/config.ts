@@ -61,6 +61,10 @@ export default defineConfigWithTheme<ThemeConfig>({
 
   themeConfig: {
     githubUrl: 'https://github.com/cachethq/cachet',
+    editLink: {
+      pattern:
+      'https://github.com/cachethq/docs/edit/main/src/:path',
+    },
     
     logo: {
       light: '/logo.svg',
