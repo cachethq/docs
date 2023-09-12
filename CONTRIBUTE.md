@@ -9,17 +9,15 @@ Following these guidelines helps to communicate that you respect the time of the
 We welcome any type of contribution, not only code. You can help with
 
 - **QA**: file bug reports, the more details you can give the better (e.g. screenshots with the console open)
-- **Marketing**: writing blog posts, howto's, printing stickers, ...
-- **Community**: presenting the project at meetups, organizing a dedicated meetup for the local community, ...
 - **Code**: take a look at the [open issues](issues). Even if you can't write code, commenting on them, showing that you care about a given issue matters. It helps us triage them.
-- **Documentation**: add documentation for this project when contributing code, write best-practises or tips&tricks in general.
+- **Documentation**: add documentation for this project when contributing code, write best-practices or tips&tricks in general.
+- **Financial**: we welcome financial contributions by [sponsoring this project](https://github.com/sponsors/cachethq)
 
 ## Your First Contribution
 
 Working on your first Pull Request ever? You can learn how from this _free_ series, [How to Contribute to an Open Source Project on GitHub](https://app.egghead.io/playlists/how-to-contribute-to-an-open-source-project-on-github).
 
 Not too familiar with markdown? Have a look at this also free [Markdown tutorial](https://www.markdowntutorial.com/) to get started or refresh your memory.
-
 
 ## Submitting code
 
