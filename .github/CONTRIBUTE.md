@@ -2,7 +2,7 @@
 
 ## Introduction
 
-First, thank you for considering contributing to cachet! It's people like you that make the open source community such a great community! 😊
+First, thank you for considering contributing to Cachet! It's people like you that make the open source community such a great community! 😊
 
 Following these guidelines helps to communicate that you respect the time of the developers managing and developing this open source project. In return, they should reciprocate that respect in addressing your issue, assessing changes, and helping you finalize your pull requests.
 
@@ -34,7 +34,7 @@ Please review our [security policy](https://github.com/cachethq/cachet/security/
 
 ## Questions
 
-If you have any questions, create an [issue](issue) (protip: do a quick search first to see if someone else didn't ask the same question before!).
+If you have any questions, please create a new [issue](https://github.com/cachethq/docs/issues).
 
 
 <!-- This `CONTRIBUTING.md` is based on @nayafia's template https://github.com/nayafia/contributing-template -->

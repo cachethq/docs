@@ -7,11 +7,11 @@
 
 ## Introduction
 
-This package provides the documentation to Cachet Core and is deployed to https://docs.cachethq.io/.
+This repository contains the documentation for Cachet and is deployed to https://docs.cachethq.io/.
 
 ## Contributing to the documentation
 
-Please refer to our description on [CONTRIBUTE.md](CONTRIBUTE.md) for details on how to contribute to this project.
+Please refer to our description on [CONTRIBUTE.md](https://github.com/cachethq/docs/blob/main/.github/CONTRIBUTE.md) for details on how to contribute to this project.
 
 ## Security Vulnerabilities
 
@@ -19,4 +19,4 @@ Please review our [security policy](https://github.com/cachethq/cachet/security/
 
 ## License
 
-Cachet Core is open-sourced software licensed under the [MIT license](LICENSE.md).
+Cachet Docs is open-sourced software licensed under the [MIT license](LICENSE.md).
