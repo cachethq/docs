@@ -1,7 +1,7 @@
 # Integrations
 
 | Name                                | Link                                                                                                                 | Description                                                                                                     |
-| ----------------------------------- | -------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+|-------------------------------------|----------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
 | Cachet Monitor                      | [https://github.com/castawaylabs/cachet-monitor](https://github.com/castawaylabs/cachet-monitor)                     | For URL monitoring. Automatic incident updates                                                                  |
 | Sensu Cachet                        | [https://github.com/bimlendu/sensu-cachethq](https://github.com/bimlendu/sensu-cachethq)                             | Sensu handler for updating Cachet                                                                               |
 | Hubot Cachet                        | [https://github.com/willdurand/hubot-cachet](https://github.com/willdurand/hubot-cachet)                             | A hubot script to manage incidents/statuses with Cachet                                                         |

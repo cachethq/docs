@@ -4,7 +4,7 @@
 
 ## Statuses
 
-Unlike Incidents, Cachet starts listing Component statuses from **1**. When creating or updating a component, you'll need to specify a status for it.
+Unlike Incidents, Cachet indexes component statuses starting at `1`. When creating or updating a component, you'll need to specify a status for it.
 
 A status can be one of the following:
 

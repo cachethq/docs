@@ -4,7 +4,7 @@
 
 ## Do you provide installations?
 
-We offer a professional installation service. Send us an [email](mailto:support@cachethq.io?subject=Cachet%20Installation) with your requirements and we'll be happy to get everything setup for you!
+We offer a professional installation service. [Email us](mailto:support@cachethq.io?subject=Cachet%20Installation) with your requirements, and we'll be happy to get everything set up for you!
 
 ## How do I reset a forgotten password?
 

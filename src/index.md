@@ -16,4 +16,4 @@ It can't be avoided, sometimes you just need to perform maintenance. With Cachet
 
 ### Metrics
  
-Within the dashboard you're able to setup metrics - a way to measure something, whether it's uptime, error rates or something completely random like "cups of coffee drank today".
+Within the dashboard you're able to set up metrics - a way to measure something, whether it's uptime, error rates or something completely random like "cups of coffee drank today".
