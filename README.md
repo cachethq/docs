@@ -11,7 +11,7 @@ This repository contains the documentation for Cachet and is deployed to https:/
 
 ## Contributing to the documentation
 
-Please refer to our description on [CONTRIBUTE.md](https://github.com/cachethq/docs/blob/main/.github/CONTRIBUTE.md) for details on how to contribute to this project.
+Please refer to our description on [CONTRIBUTING.md](https://github.com/cachethq/docs/blob/main/.github/CONTRIBUTING.md) for details on how to contribute to this project.
 
 ## Security Vulnerabilities
 
