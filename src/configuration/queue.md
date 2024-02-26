@@ -68,6 +68,6 @@ This setup is not ideal for larger installs with hundreds of subscribers as each
 
 To set this up change the `.env` file with the following setting:
 
-```dotenv
+```ini
 QUEUE_DRIVER=sync
 ```

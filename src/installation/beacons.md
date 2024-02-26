@@ -21,6 +21,6 @@ We report the following information to our server:
 
 To disable the beacon, you may modify your `.env` file:
 
-```dotenv
+```ini
 CACHET_BEACON=false
 ```

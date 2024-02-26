@@ -6,7 +6,7 @@
 
 Your `.env` file will need to include the following setting keys.
 
-```dotenv
+```ini
 MAIL_DRIVER=smtp
 MAIL_HOST=mailtrap.io
 MAIL_PORT=587
@@ -35,7 +35,7 @@ Create an account with [Mailgun](https://mailgun.com).
 
 Edit your `.env` file with the following variables.
 
-```dotenv
+```ini
 MAIL_DRIVER=mailgun
 MAIL_HOST=smtp.mailgun.org
 MAIL_PORT=587
@@ -54,7 +54,7 @@ Create an account with [Spark Post](https://www.sparkpost.com/).
 
 Edit your `.env` file with the following variables.
 
-```dotenv
+```ini
 MAIL_DRIVER=smtp
 MAIL_HOST=smtp.sparkpostmail.com
 MAIL_PORT=587

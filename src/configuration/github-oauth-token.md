@@ -16,7 +16,7 @@ To get around this you can create a GitHub oAuth Token and set it in your `.env`
 
 Cachet's Emoji support is disabled by default. To enable Emoji you'll need to modify your `.env` file
 
-```dotenv
+```ini
 CACHET_EMOJI=true
 ```
 
@@ -24,7 +24,7 @@ CACHET_EMOJI=true
 
 1. Create a new [Personal Access Token](https://github.com/settings/tokens/new?description=Cachet&scopes=user). Make sure you give the token a name and select the `user` scopes.
 2. Click "Generate token" and copy and update your `.env` file:
-  ```dotenv
+  ```ini
     GITHUB_TOKEN=my-new-token
   ```
 3. After changing the configuration you'll now need to run the following:
