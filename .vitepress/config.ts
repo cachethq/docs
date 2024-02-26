@@ -9,6 +9,10 @@ export default defineConfigWithTheme<ThemeConfig>({
   srcDir: 'src',
   cleanUrls: true,
 
+  sitemap: {
+    hostname: 'https://docs.cachethq.io',
+  },
+
   head: [
     ['script', {
       src: 'https://cdn.usefathom.com/script.js',
