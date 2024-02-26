@@ -110,6 +110,14 @@ export default defineConfigWithTheme<ThemeConfig>({
           { text: 'Subscribers', link: '/configuration/subscribers' },
         ],
       },
+      {
+        text: 'API',
+        items: [
+          { text: 'Introduction', link: '/api/' },
+          { text: 'Advanced Usage', link: '/api/advanced' },
+          { text: 'Timezone Header', link: '/api/timezone-header' },
+        ]
+      }
     ],
     search: {
       provider: 'local',
