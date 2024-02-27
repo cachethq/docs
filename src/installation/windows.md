@@ -9,16 +9,16 @@ Cachet is constantly evolving, therefore we advise you to download and checkout 
 ## Download with Git
 
 ```shell
-$ cd /var/www
-$ git clone https://github.com/cachethq/Cachet.git
-$ cd Cachet
-$ git tag -l
+cd /var/www
+git clone https://github.com/cachethq/Cachet.git
+cd Cachet
+git tag -l
 
 v0.1.0-alpha
 v1.0.0
 v1.1.0
 
-$ git checkout v1.1.0
+git checkout v1.1.0
 ```
 
 ### Configuring a database
