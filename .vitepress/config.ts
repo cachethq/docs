@@ -78,7 +78,8 @@ export default defineConfigWithTheme<ThemeConfig>({
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Demo', link: 'https://demo.cachethq.io' },
-      { text: 'Blog', link: 'https://blog.cachethq.io' }
+      { text: 'Blog', link: 'https://blog.cachethq.io' },
+      { text: 'Sponsor', link: 'https://github.com/cachethq/cachet?sponsor=1' },
     ],
 
     sidebar: [
