@@ -13,6 +13,10 @@ export default defineConfigWithTheme<ThemeConfig>({
     hostname: 'https://docs.cachethq.io',
   },
 
+  markdown: {
+    theme: "github-light",
+  },
+
   head: [
     ['script', {
       src: 'https://cdn.usefathom.com/script.js',
