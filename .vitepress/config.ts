@@ -13,10 +13,6 @@ export default defineConfigWithTheme<ThemeConfig>({
     hostname: 'https://docs.cachethq.io',
   },
 
-  markdown: {
-    theme: "github-light",
-  },
-
   head: [
     ['script', {
       src: 'https://cdn.usefathom.com/script.js',
@@ -101,7 +97,7 @@ export default defineConfigWithTheme<ThemeConfig>({
       {
         text: 'Installation',
         items: [
-          { text: 'Installation', link: '/installation.html' },
+          { text: 'Installation', link: '/installation/guide.html' },
           { text: 'Installation with Docker', link: '/installation/docker.html' },
           { text: 'Installation with Windows', link: '/installation/windows.html' },
           { text: 'Upgrading', link: '/installation/upgrading.html' },
@@ -122,9 +118,9 @@ export default defineConfigWithTheme<ThemeConfig>({
       {
         text: 'API',
         items: [
-          { text: 'Introduction', link: '/api/' },
-          { text: 'Advanced Usage', link: '/api/advanced' },
-          { text: 'Timezone Header', link: '/api/timezone-header' },
+          { text: 'Introduction', link: '/api/introduction.html' },
+          { text: 'Advanced Usage', link: '/api/advanced.html' },
+          { text: 'Timezone Header', link: '/api/timezone-header.html' },
         ]
       }
     ],
