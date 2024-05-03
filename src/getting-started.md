@@ -6,7 +6,7 @@
 
 ## Installation Service
 
-We offer a professional installation service. [Email us](mailto:support@cachethq.io?subject=Cachet%20Installation) with your requirements and we'll be happy to get everything setup for you!
+We offer a professional installation service. [Email us](mailto:support@cachethq.io?subject=Cachet%20Installation) with your requirements, and we'll be happy to get everything setup for you!
 
 :::tip
 
