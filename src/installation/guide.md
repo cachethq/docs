@@ -29,10 +29,10 @@ The tags below are examples of what will be shown. You should always run `git ch
 :::
 
 ```bash
-$ cd /var/www # Or wherever you chose to install web applications to
-$ git clone https://github.com/cachethq/Cachet.git
-$ cd Cachet
-$ git tag -l
+cd /var/www # Or wherever you chose to install web applications to
+git clone https://github.com/cachethq/Cachet.git
+cd Cachet
+git tag -l
 
 v0.1.0-alpha
 v1.0.0
@@ -40,7 +40,7 @@ v1.1.0
 v2.0.0
 v2.1.0
 
-$ git checkout v2.1.0
+git checkout v2.1.0
 ```
 
 ### Configuring a database
@@ -109,7 +109,7 @@ Cachet comes with an installation command that will do the following for you:
 - Run seeders (of which there are none)
 
 ```shell
-$ php artisan app:install
+php artisan app:install
 ```
 
 :::warning `APP_KEY` Changes
