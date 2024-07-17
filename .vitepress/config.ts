@@ -82,6 +82,11 @@ export default defineConfigWithTheme<ThemeConfig>({
       { text: 'Sponsor', link: 'https://github.com/cachethq/cachet?sponsor=1' },
     ],
 
+    versions: [
+      { text: '3.x', link: '/', current: true },
+      { text: '2.x', link: 'https://github.com/cachethq/docs/tree/2.x' },
+    ],
+
     sidebar: [
       {
         text: 'Getting Started',
