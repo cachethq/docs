@@ -4,6 +4,12 @@
 
 [[toc]]
 
+:::tip Documentation Updates
+We're in the process of upgrading these docs for v3.x of Cachet.
+
+For v2.x documentation, [see here](https://github.com/cachethq/docs/tree/2.x).
+:::
+
 ## Features
 
 ### JSON API
