@@ -89,11 +89,11 @@ curl -u username@example.com:password -H "Content-Type: application/json" -d '{"
 
 ### Metrics
 
-- `GET /api/v1/incidents/metrics`
-- `GET /api/v1/incidents/metrics/{metricId}`
-- `DELETE /api/v1/incidents/metrics/{metricId}`
-- `GET /api/v1/incidents/metrics/{metricId}/points`
-- `PUT /api/v1/incidents/metrics/{metricId}`
-- `POST /api/v1/incidents/metrics/{metricId}/points`
-- `PUT /api/v1/incidents/metrics/{metricId}/points/{metricPointId}`
-- `DELETE /api/v1/incidents/metrics/{metricId}/points/{metricPointId}`
+- `GET /api/v1/metrics`
+- `GET /api/v1/metrics/{metricId}`
+- `DELETE /api/v1/metrics/{metricId}`
+- `GET /api/v1/metrics/{metricId}/points`
+- `PUT /api/v1/metrics/{metricId}`
+- `POST /api/v1/metrics/{metricId}/points`
+- `PUT /api/v1/metrics/{metricId}/points/{metricPointId}`
+- `DELETE /api/v1/metrics/{metricId}/points/{metricPointId}`
