@@ -124,8 +124,8 @@ export default defineConfigWithTheme<ThemeConfig>({
         text: 'API',
         items: [
           { text: 'Introduction', link: '/api/introduction.html' },
-          { text: 'Advanced Usage', link: '/api/advanced.html' },
-          { text: 'Timezone Header', link: '/api/timezone-header.html' },
+          { text: 'Authentication', link: '/api/authentication.html' },
+          { text: 'Endpoints', link: '/api/endpoints.html' },
         ]
       }
     ],
