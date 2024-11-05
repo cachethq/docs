@@ -53,4 +53,4 @@ This is commonly achieved by running Nginx with your certificates on your Docker
 ## Notes
 
 - **cachethq/docker** runs on port 8000 by default. This is exposed on host port 80 when using docker-compose.
-- The master` branch and `cachethq/docker:latest` Docker automated build are a work in progress / development version of the upstream https://github.com/CachetHQ/Cachet project. As such, `master` or `latest` should not be used in a production environment as it may change at anytime. We strongly recommend specifying a stable [Cachet Release](https://github.com/cachethq/cachet/releases) at build time as mentioned in step 3 above.
+- The `master` branch and `cachethq/docker:latest` Docker automated build are a work in progress / development version of the upstream https://github.com/CachetHQ/Cachet project. As such, `master` or `latest` should not be used in a production environment as it may change at anytime. We strongly recommend specifying a stable [Cachet Release](https://github.com/cachethq/cachet/releases) at build time as mentioned in step 3 above.
