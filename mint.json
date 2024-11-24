@@ -1,0 +1,82 @@
+{
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "Cachet",
+  "logo": {
+    "dark": "/logo/dark.svg",
+    "light": "/logo/light.svg"
+  },
+  "favicon": "/favicon.png",
+  "background": {
+    "style": "grid"
+  },
+  "colors": {
+    "primary": "#04C147",
+    "light": "#04C147",
+    "dark": "#04C147",
+    "anchors": {
+      "from": "#04C147",
+      "to": "#04C147"
+    }
+  },
+  "font": {
+    "headings": {
+      "family": "Figtree"
+    },
+    "body": {
+      "family": "Figtree"
+    }
+  },
+  "topbarLinks": [
+    {
+      "name": "Support",
+      "url": "mailto:vapor@laravel.com"
+    }
+  ],
+  "topbarCtaButton": {
+    "name": "Demo",
+    "url": "https://v3.cachethq.io"
+  },
+  "anchors": [
+    {
+      "name": "Blog",
+      "icon": "newspaper",
+      "url": "https://blog.cachethq.io"
+    }
+  ],
+  "navigation": [
+    {
+      "group": "Get Started",
+      "pages": [
+        "introduction",
+        "component-statuses",
+        "incident-statuses",
+        "integrations",
+        "faq"
+      ]
+    }, {
+      "group": "Installation",
+      "pages": [
+        "installation/guide",
+        "installation/docker",
+        "installation/windows",
+        "installation/upgrading",
+        "installation/beacons"
+      ]
+    }, {
+      "group": "Configuration",
+      "pages": [
+        "configuration/prerequisites",
+        "configuration/github-oauth-token",
+        "configuration/cors",
+        "configuration/mail",
+        "configuration/queue",
+        "configuration/subscribers"
+      ]
+    }
+  ],
+  "footerSocials": {
+    "x": "https://x.com/cachethq",
+    "github": "https://github.com/cachethq",
+    "linkedin": "https://linkedin.com/company/cachethq"
+  }
+}
