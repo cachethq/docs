@@ -23,12 +23,6 @@
       "family": "Lexend"
     }
   },
-  "topbarLinks": [
-    {
-      "name": "Support",
-      "url": "mailto:support@cachethq.io"
-    }
-  ],
   "topbarCtaButton": {
     "name": "Demo",
     "url": "https://v3.cachethq.io"
