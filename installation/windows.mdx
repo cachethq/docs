@@ -65,9 +65,9 @@ REDIS_PORT=null
 GITHUB_TOKEN=null
 ```
 
-:::tip SQLite
-If you're using SQLite then your `.env` file should not contain a `DB_HOST` key. You'll also need to `touch ./database/database.sqlite` and give it the required permissions.
-:::
+<Tip>
+    If you're using SQLite then your `.env` file should not contain a `DB_HOST` key. You'll also need to `touch ./database/database.sqlite` and give it the required permissions.
+</Tip>
 
 After installation, don't forget to set `APP_DEBUG` to `false` to avoid other people to see your application info!
 
@@ -104,9 +104,9 @@ Cachet comes with an installation command that will:
 php artisan app:install
 ```
 
-:::warning `APP_KEY` Changes
-Never change the `APP_KEY` after installation on production environment. This will result in all encrypted/hashed data being lost.
-:::
+<Warning>
+    Never change the `APP_KEY` after installation on production environment. This will result in all encrypted/hashed data being lost.
+</Warning>
 
 ## `php.ini` Config
 

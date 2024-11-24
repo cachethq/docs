@@ -56,9 +56,9 @@ Close the file and the cron job will now begin running, processing any confirmat
 
 If you cannot add a queue job, another alternative is to process all of the *jobs* immediately after they are created.
 
-:::warning Not suitable for larger installations!
-This setup is not ideal for larger installs with hundreds of subscribers as each email can take a few seconds to send and would slow down your interaction with the system.
-:::
+<Warning>
+    This setup is not ideal for larger installs with hundreds of subscribers as each email can take a few seconds to send and would slow down your interaction with the system.
+</Warning>
 
 To set this up change the `.env` file with the following setting:
 
