@@ -36,6 +36,7 @@
     {
       "name": "API Reference",
       "url": "api-reference",
+      "openapi": "/api-reference/openapi.yaml",
       "icon": "square-terminal"
     }
   ],
