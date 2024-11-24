@@ -38,6 +38,11 @@
       "name": "Blog",
       "icon": "newspaper",
       "url": "https://blog.cachethq.io"
+    },
+    {
+      "name": "API Reference",
+      "url": "api-reference",
+      "icon": "square-terminal"
     }
   ],
   "navigation": [
@@ -68,6 +73,13 @@
         "configuration/mail",
         "configuration/queue",
         "configuration/subscribers"
+      ]
+    }, {
+      "group": "API Documentation",
+      "pages": [
+        "api-reference/introduction",
+        "api-reference/authentication",
+        "api-reference/endpoints"
       ]
     }
   ],
