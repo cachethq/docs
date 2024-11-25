@@ -62,9 +62,7 @@
       "pages": [
         "v3.x/introduction",
         "v3.x/installation",
-        "v3.x/migration-guide",
-        "v3.x/credits",
-        "v3.x/trademarks"
+        "v3.x/migration-guide"
       ]
     }, {
       "group": "Guide",
@@ -126,6 +124,12 @@
         "v2.x/configuration/queue",
         "v2.x/configuration/subscribers"
       ]
+    }, {
+      "group": "Other",
+      "pages": [
+        "credits",
+        "trademarks"
+      ]
     }
   ],
   "analytics": {
@@ -133,6 +137,16 @@
       "siteId": "FDSKQOXU"
     }
   },
+  "redirects": [
+    {
+      "source": "/v3.x/credits",
+      "destination": "/credits"
+    },
+    {
+      "source": "/v3.x/trademarks",
+      "destination": "/trademarks"
+    }
+  ],
   "footerSocials": {
     "x": "https://x.com/cachethq",
     "github": "https://github.com/cachethq",
