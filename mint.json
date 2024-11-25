@@ -74,7 +74,9 @@
       "pages": [
         "api-reference/introduction",
         "api-reference/authentication",
-        "api-reference/pagination"
+        "api-reference/pagination",
+        "api-reference/filtering",
+        "api-reference/rate-limiting"
       ]
     }
   ],

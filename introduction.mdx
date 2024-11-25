@@ -1,10 +1,7 @@
 ---
 title: Introduction
 description: 'Cachet is a beautiful and powerful open source status page system.'
-icon: 'hand-wave'
 ---
-
-🚦 The open-source status page system.
 
 <Info>
     We're in the process of upgrading these docs for v3.x of Cachet.
@@ -14,14 +11,16 @@ icon: 'hand-wave'
 
 ## Key Features
 
-### JSON API
+<AccordionGroup>
+    <Accordion title="JSON API" icon="code">
+        Sometimes it's simply not possible to manually update your status page with incidents and component status changes. That's why Cachet is bundled with a simple, but powerful, JSON API.
+    </Accordion>
 
-Sometimes it's simply not possible to manually update your status page with incidents and component status changes. That's why Cachet is bundled with a simple, but powerful, JSON API.
+    <Accordion title="Scheduled Maintenance" icon="clock">
+        It can't be avoided, sometimes you just need to perform maintenance. With Cachet, you can schedule events ahead of time. Once the maintenance time has passed, the incident drops into the timeline for posterity.
+    </Accordion>
 
-### Scheduled Maintenance
-
-It can't be avoided, sometimes you just need to perform maintenance. With Cachet, you can schedule events ahead of time. Once the maintenance time has passed, the incident drops into the timeline for posterity.
-
-### Metrics
- 
-Within the dashboard you're able to set up metrics - a way to measure something, whether it's uptime, error rates or something completely random like "cups of coffee drank today".
+    <Accordion title="Metrics" icon="chart-line">
+        Within the dashboard you're able to set up metrics - a way to measure something, whether it's uptime, error rates or something completely random like "cups of coffee drank today".
+    </Accordion>
+</AccordionGroup>
