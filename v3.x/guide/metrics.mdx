@@ -1,0 +1,37 @@
+---
+title: 'Metrics'
+description: 'Learn how to manage metrics in Cachet.'
+icon: 'chart-line'
+---
+
+<Note>
+    Cachet v3.x does not currently show metrics on the status page.
+</Note>
+
+## Metrics
+
+Cachet allows you to track arbitrary metrics on your status page. A metric can represent anything measurable,
+such as the number of users on your platform, the number of requests per second, or even random things like
+the amount of cups of tea brewed.
+
+A metric consists of:
+
+- **Name**: The name of the metric, e.g. `Users Online`.
+- **Suffix**: The suffix of the metric, e.g. `users`.
+- **Description**: A description of the metric, e.g. `The number of users currently online`.
+- **Default View**: How to display the metric, e.g. Last hour, Today, Week, Month.
+- **Default Value**: The default value of the metric when missing points, e.g. `0`.
+- **Display Chart**: Whether to plot the metric in a chart on the status page.
+- **Places**: The number of decimal places to display.
+- **Metric Type**: The type of calculation to perform on the metric, e.g. sum or average.
+- **Threshold**: The threshold determines when a new point should be created or the last point updated.
+- **Visible**: Whether the metric is visible to users, guests or always hidden.
+
+## Metric Points
+
+A metric is made up of multiple points which are added over time. Each point consists of:
+
+- **Value**: The value of the metric at this point in time.
+- **Timestamp**: The time the metric was recorded.
+
+For performance, if a metric point is created within the threshold of an existing point, the existing point will be updated with the new value.

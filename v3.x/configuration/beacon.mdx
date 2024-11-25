@@ -1,0 +1,28 @@
+---
+title: 'Beacon'
+description: "Learn how to configure Cachet's beacon."
+icon: 'lighthouse'
+---
+
+Cachet's "beacon" system is an optional telemetry system that allows you to send anonymous usage data to Cachet.
+This data helps us understand how Cachet is being used and how we can improve it.
+
+## Configuration
+
+By default, Cachet's beacon is turned off. You can opt into it by setting the `CACHET_BEACON` environment variable to `true`.
+
+```ini .env
+CACHET_BEACON=true
+```
+
+<Tip>
+    If you're limiting outbound requests on your server and you'd like to opt into the beacon, you'll need to allow outbound requests to `https://cachethq.io`.
+</Tip>
+
+## What data is collected?
+
+- **Install ID**: An anonymous identifier for your Cachet installation.
+- **Cachet Version**: The version of Cachet you're running.
+- **Docker**: Whether you're running Cachet in a Docker container.
+- **Database**: The type of database you're using.
+- **Usage Data**: How you're using Cachet, such as the number of incidents, components, subscribers, etc.

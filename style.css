@@ -1,3 +1,12 @@
 h1, h2, h3, h4 {
     font-weight: 600 !important;
 }
+
+#navigation-items div ul li {
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+}
+
+span > img {
+    /*padding: 0.5rem;*/
+}

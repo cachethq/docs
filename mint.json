@@ -9,6 +9,11 @@
   "background": {
     "style": "grid"
   },
+  "api": {
+    "playground": {
+      "mode": "simple"
+    }
+  },
   "colors": {
     "primary": "#04C147",
     "light": "#04C147",
@@ -23,10 +28,20 @@
       "family": "Lexend"
     }
   },
+  "topbarLinks": [
+    {
+      "name": "Sponsor Cachet",
+      "url": "https://github.com/cachethq/cachet?sponsor=1"
+    }
+  ],
   "topbarCtaButton": {
     "name": "Demo",
     "url": "https://v3.cachethq.io"
   },
+  "versions": [
+    "v3.x",
+    "v2.x"
+  ],
   "anchors": [
     {
       "name": "Blog",
@@ -43,34 +58,36 @@
   "navigation": [
     {
       "group": "Get Started",
+      "version": "v3.x",
       "pages": [
-        "introduction",
-        "component-statuses",
-        "incident-statuses",
-        "integrations",
-        "faq"
+        "v3.x/introduction",
+        "v3.x/installation",
+        "v3.x/migration-guide",
+        "v3.x/credits",
+        "v3.x/trademarks"
       ]
     }, {
-      "group": "Installation",
+      "group": "Guide",
+      "version": "v3.x",
       "pages": [
-        "installation/guide",
-        "installation/docker",
-        "installation/windows",
-        "installation/upgrading",
-        "installation/beacons"
+        "v3.x/guide/incidents",
+        "v3.x/guide/components",
+        "v3.x/guide/schedules",
+        "v3.x/guide/metrics",
+        "v3.x/guide/subscribers"
       ]
     }, {
       "group": "Configuration",
+      "version": "v3.x",
       "pages": [
-        "configuration/prerequisites",
-        "configuration/github-oauth-token",
-        "configuration/cors",
-        "configuration/mail",
-        "configuration/queue",
-        "configuration/subscribers"
+        "v3.x/configuration/cachet",
+        "v3.x/configuration/customization",
+        "v3.x/configuration/theme",
+        "v3.x/configuration/beacon"
       ]
     }, {
       "group": "API Documentation",
+      "version": "v3.x",
       "pages": [
         "api-reference/introduction",
         "api-reference/authentication",
@@ -78,8 +95,44 @@
         "api-reference/filtering",
         "api-reference/rate-limiting"
       ]
+    }, {
+      "group": "Get Started",
+      "version": "v2.x",
+      "pages": [
+        "v2.x/introduction",
+        "v2.x/component-statuses",
+        "v2.x/incident-statuses",
+        "v2.x/client-libraries",
+        "v2.x/faq"
+      ]
+    }, {
+      "group": "Installation",
+      "version": "v2.x",
+      "pages": [
+        "v2.x/installation/guide",
+        "v2.x/installation/docker",
+        "v2.x/installation/windows",
+        "v2.x/installation/upgrading",
+        "v2.x/installation/beacons"
+      ]
+    }, {
+      "group": "Configuration",
+      "version": "v2.x",
+      "pages": [
+        "v2.x/configuration/prerequisites",
+        "v2.x/configuration/github-oauth-token",
+        "v2.x/configuration/cors",
+        "v2.x/configuration/mail",
+        "v2.x/configuration/queue",
+        "v2.x/configuration/subscribers"
+      ]
     }
   ],
+  "analytics": {
+    "fathom": {
+      "siteId": "FDSKQOXU"
+    }
+  },
   "footerSocials": {
     "x": "https://x.com/cachethq",
     "github": "https://github.com/cachethq",

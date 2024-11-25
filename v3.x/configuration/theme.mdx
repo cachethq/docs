@@ -1,0 +1,38 @@
+---
+title: 'Theme'
+description: 'Learn how to configure and theme Cachet.'
+icon: 'swatchbook'
+---
+
+Cachet provides the ability to configure and theme the status page to match your brand. To customize your status page,
+navigate to the "Manage Theme" section under Settings found in your Cachet dashboard.
+
+## Banner Image
+
+To override the default banner image shown at the top of a status page, navigate to the "Manage Theme" section under Settings.
+
+You may upload a custom image by drag and dropping the file into the "Banner Image" field. Alternatively, you can click to select a file.
+
+<Frame caption="Cachet's 'Manage Theme' Dashboard">
+    <img className="block dark:hidden" src="/v3.x/images/manage-theme-light.png" alt="Manage Theme" />
+    <img className="hidden dark:block" src="/v3.x/images/manage-theme-dark.png" alt="Manage Theme" />
+</Frame>
+
+<Tip>
+    We recommend using an image with a 16:9 aspect ratio for the best results.
+</Tip>
+
+Once you've uploaded your image, click the "Save" button to apply the changes.
+By default, images are stored in `/storage/app/public`. To make the image accessible to the public, you'll need to run the following command:
+
+```bash
+php artisan storage:link
+```
+
+From here you may upload a custom banner image to be displayed on your status page. To use the default banner image, click the "X" button.
+
+## Theme
+
+<Warning>
+    The "Manage Theme" dashboard is currently incomplete. To customize your dashboard, we recommend applying custom CSS.
+</Warning>

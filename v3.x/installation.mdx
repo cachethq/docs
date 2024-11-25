@@ -1,0 +1,72 @@
+---
+title: 'Installation'
+description: 'Learn how to install Cachet on your server.'
+---
+
+<Warning>
+    Cachet v3.x is currently in development and not yet released. The following instructions are intended for development
+    purposes only and are subject to change.
+</Warning>
+
+## Prerequisites
+
+Cachet v3.x is written in PHP with Laravel 11.x and requires:
+
+- PHP 8.2 or 8.3
+- [Composer](https://getcomposer.org)
+- SQLite, MySQL, PostgreSQL, or SQL Server
+
+## Installing Cachet
+
+<Steps>
+    <Step title="Step 1">
+        Clone the Cachet repository:
+        ```bash
+        git clone -b 3.x git@github.com:cachethq/cachet.git
+        cd cachet
+        ```
+    </Step>
+    <Step title="Step 2">
+        Install the dependencies:
+        ```bash
+        composer install --no-dev -o
+        ```
+    </Step>
+    <Step title="Step 3">
+        Copy the `.env.example` file to `.env`:
+        ```bash
+        cp .env.example .env
+        ```
+    </Step>
+    <Step title="Step 4">
+        Generate an application key:
+        ```bash
+        php artisan key:generate
+        ```
+    </Step>
+    <Step title="Step 5">
+        Configure the `.env` file and set the values of your setup:
+        ```ini .env
+        CACHET_PATH=/
+
+        DB_CONNECTION=mysql
+        DB_HOST=127.0.0.1
+        DB_PORT=3306
+        DB_DATABASE=cachet
+        DB_USERNAME=root
+        DB_PASSWORD=
+        ```
+    </Step>
+    <Step title="Step 6">
+        Publish Cachet's assets:
+        ```bash
+        php artisan vendor:publish --tag=cachet
+        ```
+    </Step>
+    <Step title="Step 7">
+        Run the database migrations:
+        ```bash
+        php artisan migrate
+        ```
+    </Step>
+</Steps>
