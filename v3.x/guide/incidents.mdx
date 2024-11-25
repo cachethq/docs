@@ -56,8 +56,17 @@ To update an incident, head to the "Incidents" panel in the dashboard and click 
 Cachet allows you to create incident templates to help you quickly create incidents. Cachet supports creating incident
 templates with two templating languages:
 
-- **Twig**: A flexible, fast, and secure template engine for PHP.
-- **Blade**: The templating engine used in Laravel (which powers Cachet).
+<CardGroup>
+    <Card icon="symfony" title="Twig" defaultOpen={true} href="https://twig.symfony.com" horizontal img="https://twig.symfony.com/images/logo.png">
+        Twig is a flexible, fast, and secure template engine for PHP.\
+        Click to learn about Twig.
+    </Card>
 
-Incident Templates are particularly powerful when combined with the API as they allow you to create a new incident by passing
+    <Card icon="laravel" title="Laravel Blade" href="https://laravel.com/docs/blade" horizontal img="https://laravel.com/img/og-image.jpg">
+        Laravel Blade is the templating engine used in Laravel.\
+        Click to learn about Blade.
+    </Card>
+</CardGroup>
+
+Incident templates are particularly powerful when combined with the API as they allow you to create a new incident by passing
 a template and variables. An incident will be created with the template filled in with the variables you provide.
