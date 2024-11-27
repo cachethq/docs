@@ -84,6 +84,12 @@
         "v3.x/configuration/beacon"
       ]
     }, {
+      "group": "Integrations",
+      "version": "v3.x",
+      "pages": [
+        "v3.x/integrations/oh-dear"
+      ]
+    }, {
       "group": "API Documentation",
       "version": "v3.x",
       "pages": [
