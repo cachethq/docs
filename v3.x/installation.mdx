@@ -18,6 +18,8 @@ Cachet v3.x is written in PHP with Laravel 11.x and requires:
 
 ## Installing Cachet
 
+If you are looking to migrate from Cachet v2.x, please refer to the [migration guide](/v3.x/migration-guide).
+
 <Steps>
     <Step title="Step 1">
         Clone the Cachet repository:
@@ -33,18 +35,27 @@ Cachet v3.x is written in PHP with Laravel 11.x and requires:
         ```
     </Step>
     <Step title="Step 3">
+        Update the `cachethq/core` dependency:
+        ```bash
+        composer update cachethq/core
+        ```
+        <Note>
+            This is a temporary step until Cachet v3.x is released.
+        </Note>
+    </Step>
+    <Step title="Step 4">
         Copy the `.env.example` file to `.env`:
         ```bash
         cp .env.example .env
         ```
     </Step>
-    <Step title="Step 4">
+    <Step title="Step 5">
         Generate an application key:
         ```bash
         php artisan key:generate
         ```
     </Step>
-    <Step title="Step 5">
+    <Step title="Step 6">
         Configure the `.env` file and set the values of your setup:
         ```ini .env
         CACHET_PATH=/
@@ -57,13 +68,13 @@ Cachet v3.x is written in PHP with Laravel 11.x and requires:
         DB_PASSWORD=
         ```
     </Step>
-    <Step title="Step 6">
+    <Step title="Step 7">
         Publish Cachet's assets:
         ```bash
         php artisan vendor:publish --tag=cachet
         ```
     </Step>
-    <Step title="Step 7">
+    <Step title="Step 8">
         Run the database migrations:
         ```bash
         php artisan migrate
