@@ -16,11 +16,26 @@ A scheduled maintenance event consists of:
 - **Scheduled At**: The date and time when the maintenance will start.
 - **Completed At**: The date and time when the maintenance was completed.
 
-### Schedule Updates
+### Schedule Statuses
+
+Cachet automatically infers the status of a schedule based on the current date and time. The possible statuses are:
+
+- **Upcoming**: The maintenance is scheduled to start in the future.
+- **In Progress**: The maintenance is currently in progress.
+- **Complete**: The maintenance has been completed.
+
+## Schedule Updates
 
 Sometimes, you may need to provide updates to a schedule. Perhaps the maintenance is taking longer than expected, or
-you simply need to provide more information.
+you need to provide more information.
 
-<Warning>
-    Schedule updates are currently a work in progress [#109](https://github.com/cachethq/core/pull/109).
-</Warning>
+A scheduled update consists of:
+
+- **Message**: A detailed description of the update.
+- **Completed At**: The date and time when the maintenance was completed.
+
+To update an incident, head to the "Incidents" panel in the dashboard and click "Record Update" on the incident you want to update.
+
+<Note>
+    Updates cannot be provided for "Completed" schedules.
+</Note>
