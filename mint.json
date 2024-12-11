@@ -156,9 +156,56 @@
       "destination": "/trademarks"
     }
   ],
-  "footerSocials": {
-    "x": "https://x.com/cachethq",
-    "github": "https://github.com/cachethq",
-    "linkedin": "https://linkedin.com/company/cachethq"
+  "footer": {
+    "links": [
+      {
+        "title": "Cachet",
+        "links": [
+          {
+            "label": "Cachet",
+            "url": "https://cachethq.io"
+          },
+          {
+            "label": "Blog",
+            "url": "https://blog.cachethq.io"
+          },
+          {
+            "label": "Sponsor Cachet",
+            "url": "https://github.com/sponsors/cachethq"
+          }
+        ]
+      },
+      {
+        "title": "Open Source",
+        "links": [
+          {
+            "label": "Cachet",
+            "url": "https://github.com/cachethq/cachet"
+          },
+          {
+            "label": "Cachet Core",
+            "url": "https://github.com/cachethq/core"
+          }
+        ]
+      },
+      {
+        "title": "Demo",
+        "links": [
+          {
+            "label": "Cachet v3.x",
+            "url": "https://dev.cachethq.io"
+          },
+          {
+            "label": "Cachet v2.4",
+            "url": "https://demo.cachethq.io"
+          }
+        ]
+      }
+    ],
+    "socials": {
+      "x": "https://x.com/cachethq",
+      "github": "https://github.com/cachethq",
+      "linkedin": "https://linkedin.com/company/cachethq"
+    }
   }
 }
