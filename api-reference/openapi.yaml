@@ -144,16 +144,44 @@ paths:
               - incidents
         -
           in: query
-          name: filters
-          description: 'Filter the resources.'
-          example: null
+          name: 'filters[name]'
+          description: 'Filter by name.'
+          example: 'My Component'
           required: false
           schema:
-            type: array
-            description: 'Filter the resources.'
-            example: null
-            items:
-              type: string
+            type: string
+            description: 'Filter by name.'
+            example: 'My Component'
+            nullable: false
+        -
+          in: query
+          name: 'filters[status]'
+          description: 'Filter by status.'
+          example: '1'
+          required: false
+          schema:
+            type: string
+            description: 'Filter by status.'
+            example: '1'
+            nullable: false
+            enum:
+              - '1'
+              - '2'
+              - '3'
+        -
+          in: query
+          name: 'filters[enabled]'
+          description: 'Filter by enabled status.'
+          example: '1'
+          required: false
+          schema:
+            type: string
+            description: 'Filter by enabled status.'
+            example: '1'
+            nullable: false
+            enum:
+              - '0'
+              - '1'
       responses:
         200:
           description: ''
@@ -168,8 +196,8 @@ paths:
                       type: components
                       attributes:
                         id: 1
-                        name: est
-                        description: 'Animi voluptatum fuga modi molestiae dolorem aut. Id et sed atque aliquam ut voluptas. Ullam in pariatur ad sit voluptas architecto repellat. Et dolore laboriosam assumenda.'
+                        name: autem
+                        description: 'Exercitationem nulla ipsa et blanditiis. Et optio eos deleniti magnam voluptatem reiciendis aliquam. Ut est dolores sit. Quo enim voluptates porro quis asperiores. Accusamus quod fuga provident et.'
                         link: null
                         order: 0
                         status: 2
@@ -177,17 +205,17 @@ paths:
                         meta: null
                         created:
                           human: '1 second ago'
-                          string: '2024-12-02 09:43:18'
+                          string: '2024-12-10 16:53:36'
                         updated:
                           human: '1 second ago'
-                          string: '2024-12-02 09:43:18'
+                          string: '2024-12-10 16:53:36'
                     -
                       id: '2'
                       type: components
                       attributes:
                         id: 2
-                        name: laborum
-                        description: 'Perspiciatis sit non velit vitae voluptatum et molestiae. Enim quidem minus in ut deserunt quia ut. Iusto eaque deserunt sint aut velit fuga. Sunt fugit maiores qui consectetur consequatur.'
+                        name: quia
+                        description: 'Dolorum inventore id nobis adipisci et. Incidunt magnam et labore vero voluptas. Mollitia quis vero officiis eius.'
                         link: null
                         order: 0
                         status: 2
@@ -195,10 +223,10 @@ paths:
                         meta: null
                         created:
                           human: '1 second ago'
-                          string: '2024-12-02 09:43:18'
+                          string: '2024-12-10 16:53:36'
                         updated:
                           human: '1 second ago'
-                          string: '2024-12-02 09:43:18'
+                          string: '2024-12-10 16:53:36'
                 properties:
                   data:
                     type: array
@@ -208,8 +236,8 @@ paths:
                         type: components
                         attributes:
                           id: 1
-                          name: est
-                          description: 'Animi voluptatum fuga modi molestiae dolorem aut. Id et sed atque aliquam ut voluptas. Ullam in pariatur ad sit voluptas architecto repellat. Et dolore laboriosam assumenda.'
+                          name: autem
+                          description: 'Exercitationem nulla ipsa et blanditiis. Et optio eos deleniti magnam voluptatem reiciendis aliquam. Ut est dolores sit. Quo enim voluptates porro quis asperiores. Accusamus quod fuga provident et.'
                           link: null
                           order: 0
                           status: 2
@@ -217,17 +245,17 @@ paths:
                           meta: null
                           created:
                             human: '1 second ago'
-                            string: '2024-12-02 09:43:18'
+                            string: '2024-12-10 16:53:36'
                           updated:
                             human: '1 second ago'
-                            string: '2024-12-02 09:43:18'
+                            string: '2024-12-10 16:53:36'
                       -
                         id: '2'
                         type: components
                         attributes:
                           id: 2
-                          name: laborum
-                          description: 'Perspiciatis sit non velit vitae voluptatum et molestiae. Enim quidem minus in ut deserunt quia ut. Iusto eaque deserunt sint aut velit fuga. Sunt fugit maiores qui consectetur consequatur.'
+                          name: quia
+                          description: 'Dolorum inventore id nobis adipisci et. Incidunt magnam et labore vero voluptas. Mollitia quis vero officiis eius.'
                           link: null
                           order: 0
                           status: 2
@@ -235,10 +263,10 @@ paths:
                           meta: null
                           created:
                             human: '1 second ago'
-                            string: '2024-12-02 09:43:18'
+                            string: '2024-12-10 16:53:36'
                           updated:
                             human: '1 second ago'
-                            string: '2024-12-02 09:43:18'
+                            string: '2024-12-10 16:53:36'
                     items:
                       type: object
                       properties:
@@ -256,10 +284,10 @@ paths:
                               example: 1
                             name:
                               type: string
-                              example: est
+                              example: autem
                             description:
                               type: string
-                              example: 'Animi voluptatum fuga modi molestiae dolorem aut. Id et sed atque aliquam ut voluptas. Ullam in pariatur ad sit voluptas architecto repellat. Et dolore laboriosam assumenda.'
+                              example: 'Exercitationem nulla ipsa et blanditiis. Et optio eos deleniti magnam voluptatem reiciendis aliquam. Ut est dolores sit. Quo enim voluptates porro quis asperiores. Accusamus quod fuga provident et.'
                             link:
                               type: string
                               example: null
@@ -283,7 +311,7 @@ paths:
                                   example: '1 second ago'
                                 string:
                                   type: string
-                                  example: '2024-12-02 09:43:18'
+                                  example: '2024-12-10 16:53:36'
                             updated:
                               type: object
                               properties:
@@ -292,7 +320,7 @@ paths:
                                   example: '1 second ago'
                                 string:
                                   type: string
-                                  example: '2024-12-02 09:43:18'
+                                  example: '2024-12-10 16:53:36'
       tags:
         - Components
       security: []
@@ -314,8 +342,8 @@ paths:
                     type: components
                     attributes:
                       id: 1
-                      name: occaecati
-                      description: 'Sunt qui at est dolor. Error repellat commodi hic. Et odit quas reprehenderit porro.'
+                      name: placeat
+                      description: 'Dolores ad eaque omnis commodi. Est inventore rerum itaque similique. Minima commodi qui odit dolores. Incidunt perspiciatis quasi doloremque nemo. Et dignissimos et molestiae omnis aut unde voluptatem.'
                       link: null
                       order: 0
                       status: 2
@@ -323,10 +351,10 @@ paths:
                       meta: null
                       created:
                         human: '1 second ago'
-                        string: '2024-12-02 09:43:18'
+                        string: '2024-12-10 16:53:36'
                       updated:
                         human: '1 second ago'
-                        string: '2024-12-02 09:43:18'
+                        string: '2024-12-10 16:53:36'
                 properties:
                   data:
                     type: object
@@ -345,10 +373,10 @@ paths:
                             example: 1
                           name:
                             type: string
-                            example: occaecati
+                            example: placeat
                           description:
                             type: string
-                            example: 'Sunt qui at est dolor. Error repellat commodi hic. Et odit quas reprehenderit porro.'
+                            example: 'Dolores ad eaque omnis commodi. Est inventore rerum itaque similique. Minima commodi qui odit dolores. Incidunt perspiciatis quasi doloremque nemo. Et dignissimos et molestiae omnis aut unde voluptatem.'
                           link:
                             type: string
                             example: null
@@ -372,7 +400,7 @@ paths:
                                 example: '1 second ago'
                               string:
                                 type: string
-                                example: '2024-12-02 09:43:18'
+                                example: '2024-12-10 16:53:36'
                           updated:
                             type: object
                             properties:
@@ -381,65 +409,29 @@ paths:
                                 example: '1 second ago'
                               string:
                                 type: string
-                                example: '2024-12-02 09:43:18'
+                                example: '2024-12-10 16:53:36'
       tags:
         - Components
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                name:
-                  type: string
-                  description: 'Must not be greater than 255 characters.'
-                  example: of
-                  nullable: false
-                description:
-                  type: string
-                  description: ''
-                  example: 'Aliquam nisi placeat aut mollitia vel et.'
-                  nullable: false
-                status:
-                  type: integer
-                  description: 'The status of the component. See [Component Statuses](/v3.x/guide/components#component-statuses) for more information.'
-                  example: 1
-                  nullable: false
-                  enum:
-                    - 1
-                    - 2
-                    - 3
-                    - 4
-                    - 5
-                link:
-                  type: string
-                  description: ''
-                  example: reiciendis
-                  nullable: false
-                order:
-                  type: integer
-                  description: 'Must be at least 0.'
-                  example: 2
-                  nullable: false
-                enabled:
-                  type: boolean
-                  description: ''
-                  example: false
-                  nullable: false
-                component_group_id:
-                  type: integer
-                  description: 'The <code>id</code> of an existing record in the component_groups table. Must be at least 0.'
-                  example: 37
-                  nullable: false
-              required:
-                - name
   '/api/components/{id}':
     get:
       summary: 'Get Component'
       operationId: getComponent
       description: ''
-      parameters: []
+      parameters:
+        -
+          in: query
+          name: include
+          description: 'Include related resources.'
+          example: 'group,incidents'
+          required: false
+          schema:
+            type: string
+            description: 'Include related resources.'
+            example: 'group,incidents'
+            nullable: false
+            enum:
+              - group
+              - incidents
       responses:
         200:
           description: ''
@@ -453,8 +445,8 @@ paths:
                     type: components
                     attributes:
                       id: 1
-                      name: iste
-                      description: 'Enim sunt sint quae expedita est et sunt. Quia occaecati vel voluptates voluptatem ut fugit. Quos sed fugit est eum iusto illo.'
+                      name: vel
+                      description: 'Aut excepturi accusantium unde. Illum nulla non et maiores. Omnis adipisci eos dicta eos totam. Eum sit voluptas eum recusandae. Magni amet et quos quia.'
                       link: null
                       order: 0
                       status: 2
@@ -462,10 +454,10 @@ paths:
                       meta: null
                       created:
                         human: '1 second ago'
-                        string: '2024-12-02 09:43:18'
+                        string: '2024-12-10 16:53:36'
                       updated:
                         human: '1 second ago'
-                        string: '2024-12-02 09:43:18'
+                        string: '2024-12-10 16:53:36'
                 properties:
                   data:
                     type: object
@@ -484,10 +476,10 @@ paths:
                             example: 1
                           name:
                             type: string
-                            example: iste
+                            example: vel
                           description:
                             type: string
-                            example: 'Enim sunt sint quae expedita est et sunt. Quia occaecati vel voluptates voluptatem ut fugit. Quos sed fugit est eum iusto illo.'
+                            example: 'Aut excepturi accusantium unde. Illum nulla non et maiores. Omnis adipisci eos dicta eos totam. Eum sit voluptas eum recusandae. Magni amet et quos quia.'
                           link:
                             type: string
                             example: null
@@ -511,7 +503,7 @@ paths:
                                 example: '1 second ago'
                               string:
                                 type: string
-                                example: '2024-12-02 09:43:18'
+                                example: '2024-12-10 16:53:36'
                           updated:
                             type: object
                             properties:
@@ -520,7 +512,7 @@ paths:
                                 example: '1 second ago'
                               string:
                                 type: string
-                                example: '2024-12-02 09:43:18'
+                                example: '2024-12-10 16:53:36'
       tags:
         - Components
       security: []
@@ -542,8 +534,8 @@ paths:
                     type: components
                     attributes:
                       id: 1
-                      name: officia
-                      description: 'Enim odit eos sunt. Facilis dolores molestias atque dolorum. Sequi et vitae deserunt amet ea reiciendis. Ut beatae qui nisi explicabo odio.'
+                      name: earum
+                      description: 'Et qui voluptatum nam ducimus in. Ducimus rerum fuga architecto sapiente dolor. At eius possimus quaerat totam sunt. Iure itaque id voluptas qui numquam expedita quam iste.'
                       link: null
                       order: 0
                       status: 2
@@ -551,10 +543,10 @@ paths:
                       meta: null
                       created:
                         human: '1 second ago'
-                        string: '2024-12-02 09:43:18'
+                        string: '2024-12-10 16:53:36'
                       updated:
                         human: '1 second ago'
-                        string: '2024-12-02 09:43:18'
+                        string: '2024-12-10 16:53:36'
                 properties:
                   data:
                     type: object
@@ -573,10 +565,10 @@ paths:
                             example: 1
                           name:
                             type: string
-                            example: officia
+                            example: earum
                           description:
                             type: string
-                            example: 'Enim odit eos sunt. Facilis dolores molestias atque dolorum. Sequi et vitae deserunt amet ea reiciendis. Ut beatae qui nisi explicabo odio.'
+                            example: 'Et qui voluptatum nam ducimus in. Ducimus rerum fuga architecto sapiente dolor. At eius possimus quaerat totam sunt. Iure itaque id voluptas qui numquam expedita quam iste.'
                           link:
                             type: string
                             example: null
@@ -600,7 +592,7 @@ paths:
                                 example: '1 second ago'
                               string:
                                 type: string
-                                example: '2024-12-02 09:43:18'
+                                example: '2024-12-10 16:53:36'
                           updated:
                             type: object
                             properties:
@@ -609,57 +601,9 @@ paths:
                                 example: '1 second ago'
                               string:
                                 type: string
-                                example: '2024-12-02 09:43:18'
+                                example: '2024-12-10 16:53:36'
       tags:
         - Components
-      requestBody:
-        required: false
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                name:
-                  type: string
-                  description: 'Must not be greater than 255 characters.'
-                  example: kavxzfeljvor
-                  nullable: false
-                description:
-                  type: string
-                  description: ''
-                  example: 'Nemo aspernatur explicabo iure dignissimos neque aliquid tempore.'
-                  nullable: false
-                status:
-                  type: integer
-                  description: ''
-                  example: 4
-                  nullable: false
-                  enum:
-                    - 1
-                    - 2
-                    - 3
-                    - 4
-                    - 5
-                link:
-                  type: string
-                  description: ''
-                  example: non
-                  nullable: false
-                order:
-                  type: integer
-                  description: 'Must be at least 0.'
-                  example: 23
-                  nullable: false
-                component_group_id:
-                  type: integer
-                  description: 'The <code>id</code> of an existing record in the component_groups table. Must be at least 0.'
-                  example: 67
-                  nullable: false
-                enabled:
-                  type: boolean
-                  description: ''
-                  example: true
-                  nullable: false
     delete:
       summary: 'Delete Component'
       operationId: deleteComponent
@@ -675,7 +619,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the component.'
-        example: 11
+        example: 14
         required: true
         schema:
           type: integer
@@ -747,15 +691,15 @@ paths:
                     type: componentGroups
                     attributes:
                       id: 1
-                      name: suscipit
+                      name: et
                       order: 0
                       visible: 0
                       created:
                         human: '1 second ago'
-                        string: '2024-12-02 09:43:18'
+                        string: '2024-12-10 16:53:36'
                       updated:
                         human: '1 second ago'
-                        string: '2024-12-02 09:43:18'
+                        string: '2024-12-10 16:53:36'
                 properties:
                   data:
                     type: object
@@ -774,7 +718,7 @@ paths:
                             example: 1
                           name:
                             type: string
-                            example: suscipit
+                            example: et
                           order:
                             type: integer
                             example: 0
@@ -789,7 +733,7 @@ paths:
                                 example: '1 second ago'
                               string:
                                 type: string
-                                example: '2024-12-02 09:43:18'
+                                example: '2024-12-10 16:53:36'
                           updated:
                             type: object
                             properties:
@@ -798,7 +742,7 @@ paths:
                                 example: '1 second ago'
                               string:
                                 type: string
-                                example: '2024-12-02 09:43:18'
+                                example: '2024-12-10 16:53:36'
       tags:
         - 'Component Groups'
       security: []
@@ -820,15 +764,15 @@ paths:
                     type: componentGroups
                     attributes:
                       id: 1
-                      name: totam
+                      name: sint
                       order: 0
                       visible: 0
                       created:
                         human: '1 second ago'
-                        string: '2024-12-02 09:43:18'
+                        string: '2024-12-10 16:53:36'
                       updated:
                         human: '1 second ago'
-                        string: '2024-12-02 09:43:18'
+                        string: '2024-12-10 16:53:36'
                 properties:
                   data:
                     type: object
@@ -847,7 +791,7 @@ paths:
                             example: 1
                           name:
                             type: string
-                            example: totam
+                            example: sint
                           order:
                             type: integer
                             example: 0
@@ -862,7 +806,7 @@ paths:
                                 example: '1 second ago'
                               string:
                                 type: string
-                                example: '2024-12-02 09:43:18'
+                                example: '2024-12-10 16:53:36'
                           updated:
                             type: object
                             properties:
@@ -871,46 +815,28 @@ paths:
                                 example: '1 second ago'
                               string:
                                 type: string
-                                example: '2024-12-02 09:43:18'
+                                example: '2024-12-10 16:53:36'
       tags:
         - 'Component Groups'
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                name:
-                  type: string
-                  description: 'Must not be greater than 255 characters.'
-                  example: aqqrwbspdufkgirdjtrooxzl
-                  nullable: false
-                order:
-                  type: integer
-                  description: 'Must be at least 0.'
-                  example: 48
-                  nullable: false
-                visible:
-                  type: boolean
-                  description: ''
-                  example: true
-                  nullable: false
-                components:
-                  type: array
-                  description: 'The <code>id</code> of an existing record in the components table. Must be at least 0.'
-                  example:
-                    - 10
-                  items:
-                    type: integer
-              required:
-                - name
   '/api/component-groups/{id}':
     get:
       summary: 'Get Component Group'
       operationId: getComponentGroup
       description: ''
-      parameters: []
+      parameters:
+        -
+          in: query
+          name: include
+          description: 'Include related resources.'
+          example: components
+          required: false
+          schema:
+            type: string
+            description: 'Include related resources.'
+            example: components
+            nullable: false
+            enum:
+              - components
       responses:
         200:
           description: ''
@@ -924,15 +850,15 @@ paths:
                     type: componentGroups
                     attributes:
                       id: 1
-                      name: aut
+                      name: et
                       order: 0
                       visible: 0
                       created:
                         human: '1 second ago'
-                        string: '2024-12-02 09:43:18'
+                        string: '2024-12-10 16:53:36'
                       updated:
                         human: '1 second ago'
-                        string: '2024-12-02 09:43:18'
+                        string: '2024-12-10 16:53:36'
                 properties:
                   data:
                     type: object
@@ -951,7 +877,7 @@ paths:
                             example: 1
                           name:
                             type: string
-                            example: aut
+                            example: et
                           order:
                             type: integer
                             example: 0
@@ -966,7 +892,7 @@ paths:
                                 example: '1 second ago'
                               string:
                                 type: string
-                                example: '2024-12-02 09:43:18'
+                                example: '2024-12-10 16:53:36'
                           updated:
                             type: object
                             properties:
@@ -975,7 +901,7 @@ paths:
                                 example: '1 second ago'
                               string:
                                 type: string
-                                example: '2024-12-02 09:43:18'
+                                example: '2024-12-10 16:53:36'
       tags:
         - 'Component Groups'
       security: []
@@ -997,15 +923,15 @@ paths:
                     type: componentGroups
                     attributes:
                       id: 1
-                      name: aut
+                      name: aliquam
                       order: 0
                       visible: 0
                       created:
                         human: '1 second ago'
-                        string: '2024-12-02 09:43:18'
+                        string: '2024-12-10 16:53:36'
                       updated:
                         human: '1 second ago'
-                        string: '2024-12-02 09:43:18'
+                        string: '2024-12-10 16:53:36'
                 properties:
                   data:
                     type: object
@@ -1024,7 +950,7 @@ paths:
                             example: 1
                           name:
                             type: string
-                            example: aut
+                            example: aliquam
                           order:
                             type: integer
                             example: 0
@@ -1039,7 +965,7 @@ paths:
                                 example: '1 second ago'
                               string:
                                 type: string
-                                example: '2024-12-02 09:43:18'
+                                example: '2024-12-10 16:53:36'
                           updated:
                             type: object
                             properties:
@@ -1048,38 +974,9 @@ paths:
                                 example: '1 second ago'
                               string:
                                 type: string
-                                example: '2024-12-02 09:43:18'
+                                example: '2024-12-10 16:53:36'
       tags:
         - 'Component Groups'
-      requestBody:
-        required: false
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                name:
-                  type: string
-                  description: 'Must not be greater than 255 characters.'
-                  example: yqcwzzptxhjbjcykbq
-                  nullable: false
-                order:
-                  type: integer
-                  description: 'Must be at least 0.'
-                  example: 36
-                  nullable: false
-                visible:
-                  type: boolean
-                  description: ''
-                  example: true
-                  nullable: false
-                components:
-                  type: array
-                  description: 'The <code>id</code> of an existing record in the components table. Must be at least 0.'
-                  example:
-                    - 85
-                  items:
-                    type: integer
     delete:
       summary: 'Delete Component Group'
       operationId: deleteComponentGroup
@@ -1098,15 +995,15 @@ paths:
                     type: componentGroups
                     attributes:
                       id: 1
-                      name: voluptas
+                      name: quisquam
                       order: 0
                       visible: 0
                       created:
                         human: '1 second ago'
-                        string: '2024-12-02 09:43:18'
+                        string: '2024-12-10 16:53:36'
                       updated:
                         human: '1 second ago'
-                        string: '2024-12-02 09:43:18'
+                        string: '2024-12-10 16:53:36'
                 properties:
                   data:
                     type: object
@@ -1125,7 +1022,7 @@ paths:
                             example: 1
                           name:
                             type: string
-                            example: voluptas
+                            example: quisquam
                           order:
                             type: integer
                             example: 0
@@ -1140,7 +1037,7 @@ paths:
                                 example: '1 second ago'
                               string:
                                 type: string
-                                example: '2024-12-02 09:43:18'
+                                example: '2024-12-10 16:53:36'
                           updated:
                             type: object
                             properties:
@@ -1149,7 +1046,7 @@ paths:
                                 example: '1 second ago'
                               string:
                                 type: string
-                                example: '2024-12-02 09:43:18'
+                                example: '2024-12-10 16:53:36'
       tags:
         - 'Component Groups'
     parameters:
@@ -1157,7 +1054,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the component group.'
-        example: 4
+        example: 15
         required: true
         schema:
           type: integer
@@ -1233,9 +1130,9 @@ paths:
                       type: incidents
                       attributes:
                         id: 3
-                        guid: 7a6f24d8-9df7-454d-bf45-baf63730b544
-                        name: 'Aut voluptas doloremque repellendus harum consequatur.'
-                        message: 'Ut eligendi blanditiis aut quia aut sed qui exercitationem. Distinctio laborum et esse maiores dignissimos inventore culpa. Sit magni labore aut nam consequatur quidem. Nisi fugit architecto et odio enim non.'
+                        guid: f4818a90-70bb-42cf-a7d5-b6041f29989b
+                        name: 'Et odio voluptatem aliquam exercitationem sunt.'
+                        message: 'Laudantium cupiditate accusantium non nisi reprehenderit aut fuga. Eum autem veritatis neque tempore quibusdam ducimus. Et aliquam quia eum asperiores velit.'
                         component_id: null
                         visible: 1
                         stickied: false
@@ -1248,18 +1145,18 @@ paths:
                           string: null
                         created:
                           human: '1 second ago'
-                          string: '2024-12-02 09:43:18'
+                          string: '2024-12-10 16:53:36'
                         updated:
                           human: '1 second ago'
-                          string: '2024-12-02 09:43:18'
+                          string: '2024-12-10 16:53:36'
                     -
                       id: '4'
                       type: incidents
                       attributes:
                         id: 4
-                        guid: 90a4b059-7557-48f5-a2a1-b6243372f424
-                        name: 'Dolorem sit et est sit doloremque adipisci non.'
-                        message: 'Velit accusantium aspernatur et et modi. Commodi magni sed iusto optio molestiae minima nobis. Maiores assumenda et et error alias recusandae laudantium.'
+                        guid: d2774df4-c057-410c-a589-657e55b8dc3c
+                        name: 'Provident veritatis et vero.'
+                        message: 'Velit qui error velit optio eaque. Esse ad placeat autem ut labore unde. Ipsum nemo illum ut voluptatem magnam natus. Consequatur optio necessitatibus ipsam consequatur repellat. Aut maxime velit qui soluta ipsum.'
                         component_id: null
                         visible: 1
                         stickied: false
@@ -1272,10 +1169,10 @@ paths:
                           string: null
                         created:
                           human: '1 second ago'
-                          string: '2024-12-02 09:43:18'
+                          string: '2024-12-10 16:53:36'
                         updated:
                           human: '1 second ago'
-                          string: '2024-12-02 09:43:18'
+                          string: '2024-12-10 16:53:36'
                 properties:
                   data:
                     type: array
@@ -1285,9 +1182,9 @@ paths:
                         type: incidents
                         attributes:
                           id: 3
-                          guid: 7a6f24d8-9df7-454d-bf45-baf63730b544
-                          name: 'Aut voluptas doloremque repellendus harum consequatur.'
-                          message: 'Ut eligendi blanditiis aut quia aut sed qui exercitationem. Distinctio laborum et esse maiores dignissimos inventore culpa. Sit magni labore aut nam consequatur quidem. Nisi fugit architecto et odio enim non.'
+                          guid: f4818a90-70bb-42cf-a7d5-b6041f29989b
+                          name: 'Et odio voluptatem aliquam exercitationem sunt.'
+                          message: 'Laudantium cupiditate accusantium non nisi reprehenderit aut fuga. Eum autem veritatis neque tempore quibusdam ducimus. Et aliquam quia eum asperiores velit.'
                           component_id: null
                           visible: 1
                           stickied: false
@@ -1300,18 +1197,18 @@ paths:
                             string: null
                           created:
                             human: '1 second ago'
-                            string: '2024-12-02 09:43:18'
+                            string: '2024-12-10 16:53:36'
                           updated:
                             human: '1 second ago'
-                            string: '2024-12-02 09:43:18'
+                            string: '2024-12-10 16:53:36'
                       -
                         id: '4'
                         type: incidents
                         attributes:
                           id: 4
-                          guid: 90a4b059-7557-48f5-a2a1-b6243372f424
-                          name: 'Dolorem sit et est sit doloremque adipisci non.'
-                          message: 'Velit accusantium aspernatur et et modi. Commodi magni sed iusto optio molestiae minima nobis. Maiores assumenda et et error alias recusandae laudantium.'
+                          guid: d2774df4-c057-410c-a589-657e55b8dc3c
+                          name: 'Provident veritatis et vero.'
+                          message: 'Velit qui error velit optio eaque. Esse ad placeat autem ut labore unde. Ipsum nemo illum ut voluptatem magnam natus. Consequatur optio necessitatibus ipsam consequatur repellat. Aut maxime velit qui soluta ipsum.'
                           component_id: null
                           visible: 1
                           stickied: false
@@ -1324,10 +1221,10 @@ paths:
                             string: null
                           created:
                             human: '1 second ago'
-                            string: '2024-12-02 09:43:18'
+                            string: '2024-12-10 16:53:36'
                           updated:
                             human: '1 second ago'
-                            string: '2024-12-02 09:43:18'
+                            string: '2024-12-10 16:53:36'
                     items:
                       type: object
                       properties:
@@ -1345,13 +1242,13 @@ paths:
                               example: 3
                             guid:
                               type: string
-                              example: 7a6f24d8-9df7-454d-bf45-baf63730b544
+                              example: f4818a90-70bb-42cf-a7d5-b6041f29989b
                             name:
                               type: string
-                              example: 'Aut voluptas doloremque repellendus harum consequatur.'
+                              example: 'Et odio voluptatem aliquam exercitationem sunt.'
                             message:
                               type: string
-                              example: 'Ut eligendi blanditiis aut quia aut sed qui exercitationem. Distinctio laborum et esse maiores dignissimos inventore culpa. Sit magni labore aut nam consequatur quidem. Nisi fugit architecto et odio enim non.'
+                              example: 'Laudantium cupiditate accusantium non nisi reprehenderit aut fuga. Eum autem veritatis neque tempore quibusdam ducimus. Et aliquam quia eum asperiores velit.'
                             component_id:
                               type: string
                               example: null
@@ -1390,7 +1287,7 @@ paths:
                                   example: '1 second ago'
                                 string:
                                   type: string
-                                  example: '2024-12-02 09:43:18'
+                                  example: '2024-12-10 16:53:36'
                             updated:
                               type: object
                               properties:
@@ -1399,7 +1296,7 @@ paths:
                                   example: '1 second ago'
                                 string:
                                   type: string
-                                  example: '2024-12-02 09:43:18'
+                                  example: '2024-12-10 16:53:36'
       tags:
         - Incidents
       security: []
@@ -1421,9 +1318,9 @@ paths:
                     type: incidents
                     attributes:
                       id: 3
-                      guid: 9f5dd193-ba1f-4828-b22b-e4295aa699e7
-                      name: 'Dolore deserunt totam totam ipsa cupiditate voluptas est.'
-                      message: 'Veniam ullam doloremque aliquid doloremque totam officiis. Minus quasi autem soluta in dolore. Sed adipisci magni qui fuga dolor totam.'
+                      guid: 4edb658c-3181-43ae-b8e9-051779bfe050
+                      name: 'Consequatur occaecati voluptas corporis nostrum.'
+                      message: 'Voluptas omnis illum enim ut. Earum praesentium recusandae adipisci dolor. Quis vel in ut temporibus expedita. Neque odit enim quia qui maiores.'
                       component_id: null
                       visible: 1
                       stickied: false
@@ -1436,10 +1333,10 @@ paths:
                         string: null
                       created:
                         human: '1 second ago'
-                        string: '2024-12-02 09:43:18'
+                        string: '2024-12-10 16:53:36'
                       updated:
                         human: '1 second ago'
-                        string: '2024-12-02 09:43:18'
+                        string: '2024-12-10 16:53:36'
                 properties:
                   data:
                     type: object
@@ -1458,13 +1355,13 @@ paths:
                             example: 3
                           guid:
                             type: string
-                            example: 9f5dd193-ba1f-4828-b22b-e4295aa699e7
+                            example: 4edb658c-3181-43ae-b8e9-051779bfe050
                           name:
                             type: string
-                            example: 'Dolore deserunt totam totam ipsa cupiditate voluptas est.'
+                            example: 'Consequatur occaecati voluptas corporis nostrum.'
                           message:
                             type: string
-                            example: 'Veniam ullam doloremque aliquid doloremque totam officiis. Minus quasi autem soluta in dolore. Sed adipisci magni qui fuga dolor totam.'
+                            example: 'Voluptas omnis illum enim ut. Earum praesentium recusandae adipisci dolor. Quis vel in ut temporibus expedita. Neque odit enim quia qui maiores.'
                           component_id:
                             type: string
                             example: null
@@ -1503,7 +1400,7 @@ paths:
                                 example: '1 second ago'
                               string:
                                 type: string
-                                example: '2024-12-02 09:43:18'
+                                example: '2024-12-10 16:53:36'
                           updated:
                             type: object
                             properties:
@@ -1512,87 +1409,9 @@ paths:
                                 example: '1 second ago'
                               string:
                                 type: string
-                                example: '2024-12-02 09:43:18'
+                                example: '2024-12-10 16:53:36'
       tags:
         - Incidents
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                name:
-                  type: string
-                  description: 'Must not be greater than 255 characters.'
-                  example: mk
-                  nullable: false
-                message:
-                  type: string
-                  description: 'This field is required when <code>template</code> is not present.'
-                  example: neque
-                  nullable: false
-                template:
-                  type: string
-                  description: 'This field is required when <code>message</code> is not present.'
-                  example: nam
-                  nullable: false
-                status:
-                  type: integer
-                  description: ''
-                  example: 1
-                  nullable: false
-                  enum:
-                    - 0
-                    - 1
-                    - 2
-                    - 3
-                    - 4
-                visible:
-                  type: boolean
-                  description: ''
-                  example: false
-                  nullable: false
-                stickied:
-                  type: boolean
-                  description: ''
-                  example: true
-                  nullable: false
-                notifications:
-                  type: boolean
-                  description: ''
-                  example: false
-                  nullable: false
-                occurred_at:
-                  type: string
-                  description: ''
-                  example: sit
-                  nullable: true
-                template_vars:
-                  type: object
-                  description: ''
-                  example: null
-                  nullable: false
-                  properties: {  }
-                component_id:
-                  type: string
-                  description: 'The <code>id</code> of an existing record in the components table.'
-                  example: null
-                  nullable: false
-                component_status:
-                  type: integer
-                  description: 'This field is required when <code>component_id</code> is present.'
-                  example: 4
-                  nullable: true
-                  enum:
-                    - 1
-                    - 2
-                    - 3
-                    - 4
-                    - 5
-              required:
-                - name
-                - status
   '/api/incidents/{id}':
     get:
       summary: 'Get Incident'
@@ -1627,9 +1446,9 @@ paths:
                     type: incidents
                     attributes:
                       id: 3
-                      guid: 2255e50a-e03d-4556-8d47-2252cb6844ee
-                      name: 'Debitis nihil necessitatibus dolorem ipsum quas dolorum.'
-                      message: 'Harum error eaque enim eveniet. Sunt tempora laboriosam odit repudiandae. Cum totam dolores quia sapiente velit sapiente rem repellat. Aliquam voluptatem voluptatem velit quos deserunt.'
+                      guid: f7a30f54-be76-4e82-8880-6c1e73d0f1d6
+                      name: 'Dolore omnis enim nostrum sed doloribus et libero.'
+                      message: 'Aperiam dolorem omnis hic ullam ea. Sit pariatur ut iure iusto neque. At incidunt dolor vitae necessitatibus. Non esse fugiat voluptas quia.'
                       component_id: null
                       visible: 1
                       stickied: false
@@ -1642,10 +1461,10 @@ paths:
                         string: null
                       created:
                         human: '1 second ago'
-                        string: '2024-12-02 09:43:18'
+                        string: '2024-12-10 16:53:36'
                       updated:
                         human: '1 second ago'
-                        string: '2024-12-02 09:43:18'
+                        string: '2024-12-10 16:53:36'
                 properties:
                   data:
                     type: object
@@ -1664,13 +1483,13 @@ paths:
                             example: 3
                           guid:
                             type: string
-                            example: 2255e50a-e03d-4556-8d47-2252cb6844ee
+                            example: f7a30f54-be76-4e82-8880-6c1e73d0f1d6
                           name:
                             type: string
-                            example: 'Debitis nihil necessitatibus dolorem ipsum quas dolorum.'
+                            example: 'Dolore omnis enim nostrum sed doloribus et libero.'
                           message:
                             type: string
-                            example: 'Harum error eaque enim eveniet. Sunt tempora laboriosam odit repudiandae. Cum totam dolores quia sapiente velit sapiente rem repellat. Aliquam voluptatem voluptatem velit quos deserunt.'
+                            example: 'Aperiam dolorem omnis hic ullam ea. Sit pariatur ut iure iusto neque. At incidunt dolor vitae necessitatibus. Non esse fugiat voluptas quia.'
                           component_id:
                             type: string
                             example: null
@@ -1709,7 +1528,7 @@ paths:
                                 example: '1 second ago'
                               string:
                                 type: string
-                                example: '2024-12-02 09:43:18'
+                                example: '2024-12-10 16:53:36'
                           updated:
                             type: object
                             properties:
@@ -1718,7 +1537,7 @@ paths:
                                 example: '1 second ago'
                               string:
                                 type: string
-                                example: '2024-12-02 09:43:18'
+                                example: '2024-12-10 16:53:36'
       tags:
         - Incidents
       security: []
@@ -1740,9 +1559,9 @@ paths:
                     type: incidents
                     attributes:
                       id: 3
-                      guid: e1683a1d-ef25-4da2-a2ef-c6399a7a2905
-                      name: 'Debitis quia reprehenderit consequatur et.'
-                      message: 'Voluptate accusantium et repellendus earum possimus. Eligendi et dolores sequi ducimus qui doloremque voluptatibus. Quia vero ratione magni sit rerum ut.'
+                      guid: a9e9ca12-91cf-4707-b629-a6cb36ca5576
+                      name: 'Maxime repudiandae et dicta quia consequatur quasi.'
+                      message: 'Non et voluptatem minima voluptatum quis in. Est qui aut inventore voluptas exercitationem eligendi ipsa. Animi quos explicabo voluptatibus iusto aut.'
                       component_id: null
                       visible: 1
                       stickied: false
@@ -1755,10 +1574,10 @@ paths:
                         string: null
                       created:
                         human: '1 second ago'
-                        string: '2024-12-02 09:43:18'
+                        string: '2024-12-10 16:53:36'
                       updated:
                         human: '1 second ago'
-                        string: '2024-12-02 09:43:18'
+                        string: '2024-12-10 16:53:36'
                 properties:
                   data:
                     type: object
@@ -1777,13 +1596,13 @@ paths:
                             example: 3
                           guid:
                             type: string
-                            example: e1683a1d-ef25-4da2-a2ef-c6399a7a2905
+                            example: a9e9ca12-91cf-4707-b629-a6cb36ca5576
                           name:
                             type: string
-                            example: 'Debitis quia reprehenderit consequatur et.'
+                            example: 'Maxime repudiandae et dicta quia consequatur quasi.'
                           message:
                             type: string
-                            example: 'Voluptate accusantium et repellendus earum possimus. Eligendi et dolores sequi ducimus qui doloremque voluptatibus. Quia vero ratione magni sit rerum ut.'
+                            example: 'Non et voluptatem minima voluptatum quis in. Est qui aut inventore voluptas exercitationem eligendi ipsa. Animi quos explicabo voluptatibus iusto aut.'
                           component_id:
                             type: string
                             example: null
@@ -1822,7 +1641,7 @@ paths:
                                 example: '1 second ago'
                               string:
                                 type: string
-                                example: '2024-12-02 09:43:18'
+                                example: '2024-12-10 16:53:36'
                           updated:
                             type: object
                             properties:
@@ -1831,57 +1650,9 @@ paths:
                                 example: '1 second ago'
                               string:
                                 type: string
-                                example: '2024-12-02 09:43:18'
+                                example: '2024-12-10 16:53:36'
       tags:
         - Incidents
-      requestBody:
-        required: false
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                name:
-                  type: string
-                  description: 'Must not be greater than 255 characters.'
-                  example: xnovjd
-                  nullable: false
-                message:
-                  type: string
-                  description: ''
-                  example: sed
-                  nullable: false
-                status:
-                  type: integer
-                  description: ''
-                  example: 4
-                  nullable: false
-                  enum:
-                    - 0
-                    - 1
-                    - 2
-                    - 3
-                    - 4
-                visible:
-                  type: boolean
-                  description: ''
-                  example: true
-                  nullable: false
-                stickied:
-                  type: boolean
-                  description: ''
-                  example: false
-                  nullable: false
-                notifications:
-                  type: boolean
-                  description: ''
-                  example: false
-                  nullable: false
-                occurred_at:
-                  type: string
-                  description: ''
-                  example: quis
-                  nullable: true
     delete:
       summary: 'Delete Incident'
       operationId: deleteIncident
@@ -1945,18 +1716,17 @@ paths:
               - created_at
         -
           in: query
-          name: filters
-          description: 'Filter the resources.'
-          example:
-            - ea
+          name: include
+          description: 'Include related resources.'
+          example: incident
           required: false
           schema:
-            type: array
-            description: 'Filter the resources.'
-            example:
-              - ea
-            items:
-              type: string
+            type: string
+            description: 'Include related resources.'
+            example: incident
+            nullable: false
+            enum:
+              - incident
       responses:
         200:
           description: ''
@@ -1973,13 +1743,13 @@ paths:
                         id: 1
                         updateable_id: 3
                         updateable_type: incident
-                        message: 'Voluptatem eum at tempore. Rem aut perferendis ea in optio corporis aspernatur. Ut aut et rerum rerum quas. Earum corrupti cum laboriosam et et est soluta quam.'
+                        message: 'Modi delectus quod qui commodi. Consequatur qui ut cum et. Reprehenderit eligendi id in perspiciatis at dolor in.'
                         created:
                           human: '1 second ago'
-                          string: '2024-12-02 09:43:18'
+                          string: '2024-12-10 16:53:36'
                         updated:
                           human: '1 second ago'
-                          string: '2024-12-02 09:43:18'
+                          string: '2024-12-10 16:53:36'
                     -
                       id: '2'
                       type: updates
@@ -1987,13 +1757,13 @@ paths:
                         id: 2
                         updateable_id: 4
                         updateable_type: incident
-                        message: 'Tempora unde commodi cum quia porro voluptatum. Labore voluptates dolorum veritatis omnis tempore tempora. Quasi et et modi nihil dolorem dolore. Ut voluptates aut atque asperiores fugit voluptas.'
+                        message: 'Quo autem ut cum modi fugit. Non ad officiis repellendus dolores veniam aliquam sed ut. Eos omnis molestias ratione est molestiae dignissimos. Est sed adipisci corporis dicta.'
                         created:
                           human: '1 second ago'
-                          string: '2024-12-02 09:43:18'
+                          string: '2024-12-10 16:53:36'
                         updated:
                           human: '1 second ago'
-                          string: '2024-12-02 09:43:18'
+                          string: '2024-12-10 16:53:36'
                 properties:
                   data:
                     type: array
@@ -2005,13 +1775,13 @@ paths:
                           id: 1
                           updateable_id: 3
                           updateable_type: incident
-                          message: 'Voluptatem eum at tempore. Rem aut perferendis ea in optio corporis aspernatur. Ut aut et rerum rerum quas. Earum corrupti cum laboriosam et et est soluta quam.'
+                          message: 'Modi delectus quod qui commodi. Consequatur qui ut cum et. Reprehenderit eligendi id in perspiciatis at dolor in.'
                           created:
                             human: '1 second ago'
-                            string: '2024-12-02 09:43:18'
+                            string: '2024-12-10 16:53:36'
                           updated:
                             human: '1 second ago'
-                            string: '2024-12-02 09:43:18'
+                            string: '2024-12-10 16:53:36'
                       -
                         id: '2'
                         type: updates
@@ -2019,13 +1789,13 @@ paths:
                           id: 2
                           updateable_id: 4
                           updateable_type: incident
-                          message: 'Tempora unde commodi cum quia porro voluptatum. Labore voluptates dolorum veritatis omnis tempore tempora. Quasi et et modi nihil dolorem dolore. Ut voluptates aut atque asperiores fugit voluptas.'
+                          message: 'Quo autem ut cum modi fugit. Non ad officiis repellendus dolores veniam aliquam sed ut. Eos omnis molestias ratione est molestiae dignissimos. Est sed adipisci corporis dicta.'
                           created:
                             human: '1 second ago'
-                            string: '2024-12-02 09:43:18'
+                            string: '2024-12-10 16:53:36'
                           updated:
                             human: '1 second ago'
-                            string: '2024-12-02 09:43:18'
+                            string: '2024-12-10 16:53:36'
                     items:
                       type: object
                       properties:
@@ -2049,7 +1819,7 @@ paths:
                               example: incident
                             message:
                               type: string
-                              example: 'Voluptatem eum at tempore. Rem aut perferendis ea in optio corporis aspernatur. Ut aut et rerum rerum quas. Earum corrupti cum laboriosam et et est soluta quam.'
+                              example: 'Modi delectus quod qui commodi. Consequatur qui ut cum et. Reprehenderit eligendi id in perspiciatis at dolor in.'
                             created:
                               type: object
                               properties:
@@ -2058,7 +1828,7 @@ paths:
                                   example: '1 second ago'
                                 string:
                                   type: string
-                                  example: '2024-12-02 09:43:18'
+                                  example: '2024-12-10 16:53:36'
                             updated:
                               type: object
                               properties:
@@ -2067,7 +1837,7 @@ paths:
                                   example: '1 second ago'
                                 string:
                                   type: string
-                                  example: '2024-12-02 09:43:18'
+                                  example: '2024-12-10 16:53:36'
       tags:
         - 'Incident Updates'
       security: []
@@ -2091,13 +1861,13 @@ paths:
                       id: 1
                       updateable_id: 3
                       updateable_type: incident
-                      message: 'Eaque eos quibusdam qui. Aperiam culpa ipsam totam et rem. Soluta eveniet quas omnis.'
+                      message: 'Excepturi perspiciatis voluptatibus quos. Minus et officiis ut quisquam eius architecto deserunt. Quia necessitatibus eum sint explicabo nihil error. Voluptas quas porro vel magni quasi est temporibus.'
                       created:
                         human: '1 second ago'
-                        string: '2024-12-02 09:43:18'
+                        string: '2024-12-10 16:53:36'
                       updated:
                         human: '1 second ago'
-                        string: '2024-12-02 09:43:18'
+                        string: '2024-12-10 16:53:36'
                 properties:
                   data:
                     type: object
@@ -2122,7 +1892,7 @@ paths:
                             example: incident
                           message:
                             type: string
-                            example: 'Eaque eos quibusdam qui. Aperiam culpa ipsam totam et rem. Soluta eveniet quas omnis.'
+                            example: 'Excepturi perspiciatis voluptatibus quos. Minus et officiis ut quisquam eius architecto deserunt. Quia necessitatibus eum sint explicabo nihil error. Voluptas quas porro vel magni quasi est temporibus.'
                           created:
                             type: object
                             properties:
@@ -2131,7 +1901,7 @@ paths:
                                 example: '1 second ago'
                               string:
                                 type: string
-                                example: '2024-12-02 09:43:18'
+                                example: '2024-12-10 16:53:36'
                           updated:
                             type: object
                             properties:
@@ -2140,35 +1910,9 @@ paths:
                                 example: '1 second ago'
                               string:
                                 type: string
-                                example: '2024-12-02 09:43:18'
+                                example: '2024-12-10 16:53:36'
       tags:
         - 'Incident Updates'
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                status:
-                  type: integer
-                  description: ''
-                  example: 0
-                  nullable: false
-                  enum:
-                    - 0
-                    - 1
-                    - 2
-                    - 3
-                    - 4
-                message:
-                  type: string
-                  description: ''
-                  example: sit
-                  nullable: false
-              required:
-                - status
-                - message
     parameters:
       -
         in: path
@@ -2183,7 +1927,20 @@ paths:
       summary: 'Get Incident Update'
       operationId: getIncidentUpdate
       description: ''
-      parameters: []
+      parameters:
+        -
+          in: query
+          name: include
+          description: 'Include related resources.'
+          example: incident
+          required: false
+          schema:
+            type: string
+            description: 'Include related resources.'
+            example: incident
+            nullable: false
+            enum:
+              - incident
       responses:
         200:
           description: ''
@@ -2199,13 +1956,13 @@ paths:
                       id: 1
                       updateable_id: 3
                       updateable_type: incident
-                      message: 'Provident quas consequatur et vel iusto reiciendis et. Qui inventore voluptatibus qui. Temporibus tempore est laborum nulla cum.'
+                      message: 'Nisi nobis voluptatibus et reiciendis quia rerum inventore. Iste minima quaerat qui inventore voluptatem officiis ad.'
                       created:
                         human: '1 second ago'
-                        string: '2024-12-02 09:43:18'
+                        string: '2024-12-10 16:53:36'
                       updated:
                         human: '1 second ago'
-                        string: '2024-12-02 09:43:18'
+                        string: '2024-12-10 16:53:36'
                 properties:
                   data:
                     type: object
@@ -2230,7 +1987,7 @@ paths:
                             example: incident
                           message:
                             type: string
-                            example: 'Provident quas consequatur et vel iusto reiciendis et. Qui inventore voluptatibus qui. Temporibus tempore est laborum nulla cum.'
+                            example: 'Nisi nobis voluptatibus et reiciendis quia rerum inventore. Iste minima quaerat qui inventore voluptatem officiis ad.'
                           created:
                             type: object
                             properties:
@@ -2239,7 +1996,7 @@ paths:
                                 example: '1 second ago'
                               string:
                                 type: string
-                                example: '2024-12-02 09:43:18'
+                                example: '2024-12-10 16:53:36'
                           updated:
                             type: object
                             properties:
@@ -2248,7 +2005,7 @@ paths:
                                 example: '1 second ago'
                               string:
                                 type: string
-                                example: '2024-12-02 09:43:18'
+                                example: '2024-12-10 16:53:36'
       tags:
         - 'Incident Updates'
       security: []
@@ -2272,13 +2029,13 @@ paths:
                       id: 1
                       updateable_id: 3
                       updateable_type: incident
-                      message: 'Tempore consectetur consequatur nulla dolorum repellat et. Officia asperiores dolores qui fuga. Ut quo aut sed dolorem rem. Et velit rerum architecto occaecati debitis.'
+                      message: 'Nostrum commodi possimus qui qui. Dolore quis et omnis et ad. Quo recusandae at et corporis.'
                       created:
                         human: '1 second ago'
-                        string: '2024-12-02 09:43:18'
+                        string: '2024-12-10 16:53:36'
                       updated:
                         human: '1 second ago'
-                        string: '2024-12-02 09:43:18'
+                        string: '2024-12-10 16:53:36'
                 properties:
                   data:
                     type: object
@@ -2303,7 +2060,7 @@ paths:
                             example: incident
                           message:
                             type: string
-                            example: 'Tempore consectetur consequatur nulla dolorum repellat et. Officia asperiores dolores qui fuga. Ut quo aut sed dolorem rem. Et velit rerum architecto occaecati debitis.'
+                            example: 'Nostrum commodi possimus qui qui. Dolore quis et omnis et ad. Quo recusandae at et corporis.'
                           created:
                             type: object
                             properties:
@@ -2312,7 +2069,7 @@ paths:
                                 example: '1 second ago'
                               string:
                                 type: string
-                                example: '2024-12-02 09:43:18'
+                                example: '2024-12-10 16:53:36'
                           updated:
                             type: object
                             properties:
@@ -2321,32 +2078,9 @@ paths:
                                 example: '1 second ago'
                               string:
                                 type: string
-                                example: '2024-12-02 09:43:18'
+                                example: '2024-12-10 16:53:36'
       tags:
         - 'Incident Updates'
-      requestBody:
-        required: false
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                status:
-                  type: integer
-                  description: ''
-                  example: 3
-                  nullable: false
-                  enum:
-                    - 0
-                    - 1
-                    - 2
-                    - 3
-                    - 4
-                message:
-                  type: string
-                  description: ''
-                  example: voluptas
-                  nullable: false
     delete:
       summary: 'Delete Incident Update'
       operationId: deleteIncidentUpdate
@@ -2370,7 +2104,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the update.'
-        example: 5
+        example: 12
         required: true
         schema:
           type: integer
@@ -2419,18 +2153,37 @@ paths:
               - id
         -
           in: query
-          name: filters
-          description: 'Filter the resources.'
-          example:
-            - vel
+          name: 'filters[name]'
+          description: 'Filter by name.'
+          example: 'My Template'
           required: false
           schema:
-            type: array
-            description: 'Filter the resources.'
-            example:
-              - vel
-            items:
-              type: string
+            type: string
+            description: 'Filter by name.'
+            example: 'My Template'
+            nullable: false
+        -
+          in: query
+          name: 'filters[slug]'
+          description: 'Filter by slug.'
+          example: my-template
+          required: false
+          schema:
+            type: string
+            description: 'Filter by slug.'
+            example: my-template
+            nullable: false
+        -
+          in: query
+          name: 'filters[id]'
+          description: 'Filter by id.'
+          example: 1
+          required: false
+          schema:
+            type: integer
+            description: 'Filter by id.'
+            example: 1
+            nullable: false
       responses:
         200:
           description: ''
@@ -2445,31 +2198,31 @@ paths:
                       type: incidentTemplates
                       attributes:
                         id: 1
-                        name: 'qui dignissimos'
-                        slug: qui-dignissimos
+                        name: 'consequatur autem'
+                        slug: consequatur-autem
                         template: 'This is an incident template.'
                         engine: twig
                         created:
                           human: '1 second ago'
-                          string: '2024-12-02 09:43:18'
+                          string: '2024-12-10 16:53:36'
                         updated:
                           human: '1 second ago'
-                          string: '2024-12-02 09:43:18'
+                          string: '2024-12-10 16:53:36'
                     -
                       id: '2'
                       type: incidentTemplates
                       attributes:
                         id: 2
-                        name: 'optio dolores'
-                        slug: optio-dolores
+                        name: 'molestiae qui'
+                        slug: molestiae-qui
                         template: 'This is an incident template.'
                         engine: twig
                         created:
                           human: '1 second ago'
-                          string: '2024-12-02 09:43:18'
+                          string: '2024-12-10 16:53:36'
                         updated:
                           human: '1 second ago'
-                          string: '2024-12-02 09:43:18'
+                          string: '2024-12-10 16:53:36'
                 properties:
                   data:
                     type: array
@@ -2479,31 +2232,31 @@ paths:
                         type: incidentTemplates
                         attributes:
                           id: 1
-                          name: 'qui dignissimos'
-                          slug: qui-dignissimos
+                          name: 'consequatur autem'
+                          slug: consequatur-autem
                           template: 'This is an incident template.'
                           engine: twig
                           created:
                             human: '1 second ago'
-                            string: '2024-12-02 09:43:18'
+                            string: '2024-12-10 16:53:36'
                           updated:
                             human: '1 second ago'
-                            string: '2024-12-02 09:43:18'
+                            string: '2024-12-10 16:53:36'
                       -
                         id: '2'
                         type: incidentTemplates
                         attributes:
                           id: 2
-                          name: 'optio dolores'
-                          slug: optio-dolores
+                          name: 'molestiae qui'
+                          slug: molestiae-qui
                           template: 'This is an incident template.'
                           engine: twig
                           created:
                             human: '1 second ago'
-                            string: '2024-12-02 09:43:18'
+                            string: '2024-12-10 16:53:36'
                           updated:
                             human: '1 second ago'
-                            string: '2024-12-02 09:43:18'
+                            string: '2024-12-10 16:53:36'
                     items:
                       type: object
                       properties:
@@ -2521,10 +2274,10 @@ paths:
                               example: 1
                             name:
                               type: string
-                              example: 'qui dignissimos'
+                              example: 'consequatur autem'
                             slug:
                               type: string
-                              example: qui-dignissimos
+                              example: consequatur-autem
                             template:
                               type: string
                               example: 'This is an incident template.'
@@ -2539,7 +2292,7 @@ paths:
                                   example: '1 second ago'
                                 string:
                                   type: string
-                                  example: '2024-12-02 09:43:18'
+                                  example: '2024-12-10 16:53:36'
                             updated:
                               type: object
                               properties:
@@ -2548,7 +2301,7 @@ paths:
                                   example: '1 second ago'
                                 string:
                                   type: string
-                                  example: '2024-12-02 09:43:18'
+                                  example: '2024-12-10 16:53:36'
       tags:
         - 'Incident Templates'
       security: []
@@ -2570,16 +2323,16 @@ paths:
                     type: incidentTemplates
                     attributes:
                       id: 1
-                      name: 'dignissimos repudiandae'
-                      slug: dignissimos-repudiandae
+                      name: 'eos omnis'
+                      slug: eos-omnis
                       template: 'This is an incident template.'
                       engine: twig
                       created:
                         human: '1 second ago'
-                        string: '2024-12-02 09:43:18'
+                        string: '2024-12-10 16:53:36'
                       updated:
                         human: '1 second ago'
-                        string: '2024-12-02 09:43:18'
+                        string: '2024-12-10 16:53:36'
                 properties:
                   data:
                     type: object
@@ -2598,10 +2351,10 @@ paths:
                             example: 1
                           name:
                             type: string
-                            example: 'dignissimos repudiandae'
+                            example: 'eos omnis'
                           slug:
                             type: string
-                            example: dignissimos-repudiandae
+                            example: eos-omnis
                           template:
                             type: string
                             example: 'This is an incident template.'
@@ -2616,7 +2369,7 @@ paths:
                                 example: '1 second ago'
                               string:
                                 type: string
-                                example: '2024-12-02 09:43:18'
+                                example: '2024-12-10 16:53:36'
                           updated:
                             type: object
                             properties:
@@ -2625,42 +2378,9 @@ paths:
                                 example: '1 second ago'
                               string:
                                 type: string
-                                example: '2024-12-02 09:43:18'
+                                example: '2024-12-10 16:53:36'
       tags:
         - 'Incident Templates'
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                name:
-                  type: string
-                  description: 'Must not be greater than 255 characters.'
-                  example: j
-                  nullable: false
-                slug:
-                  type: string
-                  description: ''
-                  example: nulla
-                  nullable: false
-                template:
-                  type: string
-                  description: ''
-                  example: aut
-                  nullable: false
-                engine:
-                  type: string
-                  description: ''
-                  example: twig
-                  nullable: false
-                  enum:
-                    - blade
-                    - twig
-              required:
-                - name
-                - template
   '/api/incident-templates/{id}':
     get:
       summary: 'Get Incident Template'
@@ -2680,16 +2400,16 @@ paths:
                     type: incidentTemplates
                     attributes:
                       id: 1
-                      name: 'veniam voluptatem'
-                      slug: veniam-voluptatem
+                      name: 'perferendis sequi'
+                      slug: perferendis-sequi
                       template: 'This is an incident template.'
                       engine: twig
                       created:
                         human: '1 second ago'
-                        string: '2024-12-02 09:43:18'
+                        string: '2024-12-10 16:53:36'
                       updated:
                         human: '1 second ago'
-                        string: '2024-12-02 09:43:18'
+                        string: '2024-12-10 16:53:36'
                 properties:
                   data:
                     type: object
@@ -2708,10 +2428,10 @@ paths:
                             example: 1
                           name:
                             type: string
-                            example: 'veniam voluptatem'
+                            example: 'perferendis sequi'
                           slug:
                             type: string
-                            example: veniam-voluptatem
+                            example: perferendis-sequi
                           template:
                             type: string
                             example: 'This is an incident template.'
@@ -2726,7 +2446,7 @@ paths:
                                 example: '1 second ago'
                               string:
                                 type: string
-                                example: '2024-12-02 09:43:18'
+                                example: '2024-12-10 16:53:36'
                           updated:
                             type: object
                             properties:
@@ -2735,7 +2455,7 @@ paths:
                                 example: '1 second ago'
                               string:
                                 type: string
-                                example: '2024-12-02 09:43:18'
+                                example: '2024-12-10 16:53:36'
       tags:
         - 'Incident Templates'
       security: []
@@ -2757,16 +2477,16 @@ paths:
                     type: incidentTemplates
                     attributes:
                       id: 1
-                      name: 'tempora eos'
-                      slug: tempora-eos
+                      name: 'tempore quia'
+                      slug: tempore-quia
                       template: 'This is an incident template.'
                       engine: twig
                       created:
                         human: '1 second ago'
-                        string: '2024-12-02 09:43:18'
+                        string: '2024-12-10 16:53:36'
                       updated:
                         human: '1 second ago'
-                        string: '2024-12-02 09:43:18'
+                        string: '2024-12-10 16:53:36'
                 properties:
                   data:
                     type: object
@@ -2785,10 +2505,10 @@ paths:
                             example: 1
                           name:
                             type: string
-                            example: 'tempora eos'
+                            example: 'tempore quia'
                           slug:
                             type: string
-                            example: tempora-eos
+                            example: tempore-quia
                           template:
                             type: string
                             example: 'This is an incident template.'
@@ -2803,7 +2523,7 @@ paths:
                                 example: '1 second ago'
                               string:
                                 type: string
-                                example: '2024-12-02 09:43:18'
+                                example: '2024-12-10 16:53:36'
                           updated:
                             type: object
                             properties:
@@ -2812,39 +2532,9 @@ paths:
                                 example: '1 second ago'
                               string:
                                 type: string
-                                example: '2024-12-02 09:43:18'
+                                example: '2024-12-10 16:53:36'
       tags:
         - 'Incident Templates'
-      requestBody:
-        required: false
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                name:
-                  type: string
-                  description: 'Must not be greater than 255 characters.'
-                  example: hnzoqnpapjwzvwegaayde
-                  nullable: false
-                slug:
-                  type: string
-                  description: ''
-                  example: qui
-                  nullable: false
-                template:
-                  type: string
-                  description: ''
-                  example: explicabo
-                  nullable: false
-                engine:
-                  type: string
-                  description: ''
-                  example: blade
-                  nullable: false
-                  enum:
-                    - blade
-                    - twig
     delete:
       summary: 'Delete Incident Template'
       operationId: deleteIncidentTemplate
@@ -2860,7 +2550,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the incident template.'
-        example: 3
+        example: 7
         required: true
         schema:
           type: integer
@@ -2906,7 +2596,7 @@ paths:
             enum:
               - name
               - order
-              - 'id enabled'
+              - id
         -
           in: query
           name: include
@@ -2922,16 +2612,28 @@ paths:
               - points
         -
           in: query
-          name: filters
-          description: 'Filter the resources.'
-          example: null
+          name: 'filters[name]'
+          description: 'Filter by name.'
+          example: 'metric name'
           required: false
           schema:
-            type: array
-            description: 'Filter the resources.'
-            example: null
-            items:
-              type: string
+            type: string
+            description: 'Filter by name.'
+            example: 'metric name'
+            nullable: false
+        -
+          in: query
+          name: 'filters[calc_type]'
+          description: ''
+          example: 'sum,avg'
+          required: false
+          schema:
+            type: string
+            description: ''
+            example: 'sum,avg'
+            nullable: false
+            enum:
+              - 'Cachet\Enums\MetricTypeEnum Filter by calculation type'
       responses:
         200:
           description: ''
@@ -2957,13 +2659,12 @@ paths:
                         threshold: 5
                         order: 0
                         visible: 1
-                        status: null
                         created:
                           human: '1 second ago'
-                          string: '2024-12-02 09:43:18'
+                          string: '2024-12-10 16:53:36'
                         updated:
                           human: '1 second ago'
-                          string: '2024-12-02 09:43:18'
+                          string: '2024-12-10 16:53:36'
                     -
                       id: '2'
                       type: metrics
@@ -2980,13 +2681,12 @@ paths:
                         threshold: 5
                         order: 0
                         visible: 1
-                        status: null
                         created:
                           human: '1 second ago'
-                          string: '2024-12-02 09:43:18'
+                          string: '2024-12-10 16:53:36'
                         updated:
                           human: '1 second ago'
-                          string: '2024-12-02 09:43:18'
+                          string: '2024-12-10 16:53:36'
                 properties:
                   data:
                     type: array
@@ -3007,13 +2707,12 @@ paths:
                           threshold: 5
                           order: 0
                           visible: 1
-                          status: null
                           created:
                             human: '1 second ago'
-                            string: '2024-12-02 09:43:18'
+                            string: '2024-12-10 16:53:36'
                           updated:
                             human: '1 second ago'
-                            string: '2024-12-02 09:43:18'
+                            string: '2024-12-10 16:53:36'
                       -
                         id: '2'
                         type: metrics
@@ -3030,13 +2729,12 @@ paths:
                           threshold: 5
                           order: 0
                           visible: 1
-                          status: null
                           created:
                             human: '1 second ago'
-                            string: '2024-12-02 09:43:18'
+                            string: '2024-12-10 16:53:36'
                           updated:
                             human: '1 second ago'
-                            string: '2024-12-02 09:43:18'
+                            string: '2024-12-10 16:53:36'
                     items:
                       type: object
                       properties:
@@ -3085,9 +2783,6 @@ paths:
                             visible:
                               type: integer
                               example: 1
-                            status:
-                              type: string
-                              example: null
                             created:
                               type: object
                               properties:
@@ -3096,7 +2791,7 @@ paths:
                                   example: '1 second ago'
                                 string:
                                   type: string
-                                  example: '2024-12-02 09:43:18'
+                                  example: '2024-12-10 16:53:36'
                             updated:
                               type: object
                               properties:
@@ -3105,7 +2800,7 @@ paths:
                                   example: '1 second ago'
                                 string:
                                   type: string
-                                  example: '2024-12-02 09:43:18'
+                                  example: '2024-12-10 16:53:36'
       tags:
         - Metrics
       security: []
@@ -3138,13 +2833,12 @@ paths:
                       threshold: 5
                       order: 0
                       visible: 1
-                      status: null
                       created:
                         human: '1 second ago'
-                        string: '2024-12-02 09:43:18'
+                        string: '2024-12-10 16:53:36'
                       updated:
                         human: '1 second ago'
-                        string: '2024-12-02 09:43:18'
+                        string: '2024-12-10 16:53:36'
                 properties:
                   data:
                     type: object
@@ -3194,9 +2888,6 @@ paths:
                           visible:
                             type: integer
                             example: 1
-                          status:
-                            type: string
-                            example: null
                           created:
                             type: object
                             properties:
@@ -3205,7 +2896,7 @@ paths:
                                 example: '1 second ago'
                               string:
                                 type: string
-                                example: '2024-12-02 09:43:18'
+                                example: '2024-12-10 16:53:36'
                           updated:
                             type: object
                             properties:
@@ -3214,50 +2905,28 @@ paths:
                                 example: '1 second ago'
                               string:
                                 type: string
-                                example: '2024-12-02 09:43:18'
+                                example: '2024-12-10 16:53:36'
       tags:
         - Metrics
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                name:
-                  type: string
-                  description: 'Must not be greater than 255 characters.'
-                  example: pjkjvruwlvjwhauoe
-                  nullable: false
-                suffix:
-                  type: string
-                  description: 'Must not be greater than 255 characters.'
-                  example: alldebtmromcw
-                  nullable: false
-                description:
-                  type: string
-                  description: ''
-                  example: 'Illum non enim nemo voluptatem.'
-                  nullable: false
-                default_value:
-                  type: string
-                  description: ''
-                  example: null
-                  nullable: false
-                threshold:
-                  type: integer
-                  description: 'Must be at least 0. Must not be greater than 60.'
-                  example: 2
-                  nullable: false
-              required:
-                - name
-                - suffix
   '/api/metrics/{id}':
     get:
       summary: 'Get Metric'
       operationId: getMetric
       description: ''
-      parameters: []
+      parameters:
+        -
+          in: query
+          name: include
+          description: 'Include related resources.'
+          example: points
+          required: false
+          schema:
+            type: string
+            description: 'Include related resources.'
+            example: points
+            nullable: false
+            enum:
+              - points
       responses:
         200:
           description: ''
@@ -3282,13 +2951,12 @@ paths:
                       threshold: 5
                       order: 0
                       visible: 1
-                      status: null
                       created:
                         human: '1 second ago'
-                        string: '2024-12-02 09:43:18'
+                        string: '2024-12-10 16:53:36'
                       updated:
                         human: '1 second ago'
-                        string: '2024-12-02 09:43:18'
+                        string: '2024-12-10 16:53:36'
                 properties:
                   data:
                     type: object
@@ -3338,9 +3006,6 @@ paths:
                           visible:
                             type: integer
                             example: 1
-                          status:
-                            type: string
-                            example: null
                           created:
                             type: object
                             properties:
@@ -3349,7 +3014,7 @@ paths:
                                 example: '1 second ago'
                               string:
                                 type: string
-                                example: '2024-12-02 09:43:18'
+                                example: '2024-12-10 16:53:36'
                           updated:
                             type: object
                             properties:
@@ -3358,7 +3023,7 @@ paths:
                                 example: '1 second ago'
                               string:
                                 type: string
-                                example: '2024-12-02 09:43:18'
+                                example: '2024-12-10 16:53:36'
       tags:
         - Metrics
       security: []
@@ -3391,13 +3056,12 @@ paths:
                       threshold: 5
                       order: 0
                       visible: 1
-                      status: null
                       created:
                         human: '1 second ago'
-                        string: '2024-12-02 09:43:18'
+                        string: '2024-12-10 16:53:36'
                       updated:
                         human: '1 second ago'
-                        string: '2024-12-02 09:43:18'
+                        string: '2024-12-10 16:53:36'
                 properties:
                   data:
                     type: object
@@ -3447,9 +3111,6 @@ paths:
                           visible:
                             type: integer
                             example: 1
-                          status:
-                            type: string
-                            example: null
                           created:
                             type: object
                             properties:
@@ -3458,7 +3119,7 @@ paths:
                                 example: '1 second ago'
                               string:
                                 type: string
-                                example: '2024-12-02 09:43:18'
+                                example: '2024-12-10 16:53:36'
                           updated:
                             type: object
                             properties:
@@ -3467,41 +3128,9 @@ paths:
                                 example: '1 second ago'
                               string:
                                 type: string
-                                example: '2024-12-02 09:43:18'
+                                example: '2024-12-10 16:53:36'
       tags:
         - Metrics
-      requestBody:
-        required: false
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                name:
-                  type: string
-                  description: 'Must not be greater than 255 characters.'
-                  example: qfsbmcoleqiewibgkgfmytc
-                  nullable: false
-                suffix:
-                  type: string
-                  description: 'Must not be greater than 255 characters.'
-                  example: oahfrnsvtozrabvmuajxt
-                  nullable: false
-                description:
-                  type: string
-                  description: ''
-                  example: 'Minima sapiente consequatur assumenda nihil ea nesciunt aperiam.'
-                  nullable: false
-                default_value:
-                  type: string
-                  description: ''
-                  example: null
-                  nullable: false
-                threshold:
-                  type: integer
-                  description: 'Must be at least 0. Must not be greater than 60.'
-                  example: 6
-                  nullable: false
     delete:
       summary: 'Delete Metric'
       operationId: deleteMetric
@@ -3517,7 +3146,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the metric.'
-        example: 1
+        example: 11
         required: true
         schema:
           type: integer
@@ -3596,11 +3225,11 @@ paths:
                         value: 1
                         counter: 1
                         created:
-                          human: '11 seconds from now'
-                          string: '2024-12-02 09:43:30'
+                          human: '6 seconds ago'
+                          string: '2024-12-10 16:53:30'
                         updated:
                           human: '1 second ago'
-                          string: '2024-12-02 09:43:18'
+                          string: '2024-12-10 16:53:36'
                     -
                       id: '2'
                       type: metricPoints
@@ -3611,11 +3240,11 @@ paths:
                         value: 1
                         counter: 1
                         created:
-                          human: '11 seconds from now'
-                          string: '2024-12-02 09:43:30'
+                          human: '6 seconds ago'
+                          string: '2024-12-10 16:53:30'
                         updated:
                           human: '1 second ago'
-                          string: '2024-12-02 09:43:18'
+                          string: '2024-12-10 16:53:36'
                 properties:
                   data:
                     type: array
@@ -3630,11 +3259,11 @@ paths:
                           value: 1
                           counter: 1
                           created:
-                            human: '11 seconds from now'
-                            string: '2024-12-02 09:43:30'
+                            human: '6 seconds ago'
+                            string: '2024-12-10 16:53:30'
                           updated:
                             human: '1 second ago'
-                            string: '2024-12-02 09:43:18'
+                            string: '2024-12-10 16:53:36'
                       -
                         id: '2'
                         type: metricPoints
@@ -3645,11 +3274,11 @@ paths:
                           value: 1
                           counter: 1
                           created:
-                            human: '11 seconds from now'
-                            string: '2024-12-02 09:43:30'
+                            human: '6 seconds ago'
+                            string: '2024-12-10 16:53:30'
                           updated:
                             human: '1 second ago'
-                            string: '2024-12-02 09:43:18'
+                            string: '2024-12-10 16:53:36'
                     items:
                       type: object
                       properties:
@@ -3682,10 +3311,10 @@ paths:
                               properties:
                                 human:
                                   type: string
-                                  example: '11 seconds from now'
+                                  example: '6 seconds ago'
                                 string:
                                   type: string
-                                  example: '2024-12-02 09:43:30'
+                                  example: '2024-12-10 16:53:30'
                             updated:
                               type: object
                               properties:
@@ -3694,7 +3323,7 @@ paths:
                                   example: '1 second ago'
                                 string:
                                   type: string
-                                  example: '2024-12-02 09:43:18'
+                                  example: '2024-12-10 16:53:36'
       tags:
         - 'Metric Points'
       security: []
@@ -3721,11 +3350,11 @@ paths:
                       value: 1
                       counter: 1
                       created:
-                        human: '11 seconds from now'
-                        string: '2024-12-02 09:43:30'
+                        human: '6 seconds ago'
+                        string: '2024-12-10 16:53:30'
                       updated:
                         human: '1 second ago'
-                        string: '2024-12-02 09:43:18'
+                        string: '2024-12-10 16:53:36'
                 properties:
                   data:
                     type: object
@@ -3759,10 +3388,10 @@ paths:
                             properties:
                               human:
                                 type: string
-                                example: '11 seconds from now'
+                                example: '6 seconds ago'
                               string:
                                 type: string
-                                example: '2024-12-02 09:43:30'
+                                example: '2024-12-10 16:53:30'
                           updated:
                             type: object
                             properties:
@@ -3771,23 +3400,9 @@ paths:
                                 example: '1 second ago'
                               string:
                                 type: string
-                                example: '2024-12-02 09:43:18'
+                                example: '2024-12-10 16:53:36'
       tags:
         - 'Metric Points'
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                value:
-                  type: number
-                  description: ''
-                  example: 2998840.3319731
-                  nullable: false
-              required:
-                - value
     parameters:
       -
         in: path
@@ -3802,7 +3417,20 @@ paths:
       summary: 'Get Metric Point'
       operationId: getMetricPoint
       description: ''
-      parameters: []
+      parameters:
+        -
+          in: query
+          name: include
+          description: 'Include related resources.'
+          example: metric
+          required: false
+          schema:
+            type: string
+            description: 'Include related resources.'
+            example: metric
+            nullable: false
+            enum:
+              - metric
       responses:
         200:
           description: ''
@@ -3821,11 +3449,11 @@ paths:
                       value: 1
                       counter: 1
                       created:
-                        human: '11 seconds from now'
-                        string: '2024-12-02 09:43:30'
+                        human: '6 seconds ago'
+                        string: '2024-12-10 16:53:30'
                       updated:
                         human: '1 second ago'
-                        string: '2024-12-02 09:43:18'
+                        string: '2024-12-10 16:53:36'
                 properties:
                   data:
                     type: object
@@ -3859,10 +3487,10 @@ paths:
                             properties:
                               human:
                                 type: string
-                                example: '11 seconds from now'
+                                example: '6 seconds ago'
                               string:
                                 type: string
-                                example: '2024-12-02 09:43:30'
+                                example: '2024-12-10 16:53:30'
                           updated:
                             type: object
                             properties:
@@ -3871,7 +3499,7 @@ paths:
                                 example: '1 second ago'
                               string:
                                 type: string
-                                example: '2024-12-02 09:43:18'
+                                example: '2024-12-10 16:53:36'
       tags:
         - 'Metric Points'
       security: []
@@ -3890,7 +3518,7 @@ paths:
         in: path
         name: metric_id
         description: 'The ID of the metric.'
-        example: 2
+        example: 12
         required: true
         schema:
           type: integer
@@ -3898,7 +3526,7 @@ paths:
         in: path
         name: metricPoint_id
         description: 'The ID of the metricPoint.'
-        example: 8
+        example: 3
         required: true
         schema:
           type: integer
@@ -3961,18 +3589,18 @@ paths:
             enum:
               - components
               - updates
+              - user
         -
           in: query
-          name: filters
+          name: 'filters[name]'
           description: 'Filter the resources.'
-          example: null
+          example: name=api
           required: false
           schema:
-            type: array
+            type: string
             description: 'Filter the resources.'
-            example: null
-            items:
-              type: string
+            example: name=api
+            nullable: false
       responses:
         200:
           description: ''
@@ -3994,16 +3622,16 @@ paths:
                           value: 0
                         scheduled:
                           human: '6 days from now'
-                          string: '2024-12-09 09:43:18'
+                          string: '2024-12-17 16:53:36'
                         completed:
                           human: '1 week from now'
-                          string: '2024-12-16 09:43:18'
+                          string: '2024-12-24 16:53:36'
                         created:
                           human: '1 second ago'
-                          string: '2024-12-02 09:43:18'
+                          string: '2024-12-10 16:53:36'
                         updated:
                           human: '1 second ago'
-                          string: '2024-12-02 09:43:18'
+                          string: '2024-12-10 16:53:36'
                     -
                       id: '2'
                       type: schedules
@@ -4016,16 +3644,16 @@ paths:
                           value: 0
                         scheduled:
                           human: '6 days from now'
-                          string: '2024-12-09 09:43:18'
+                          string: '2024-12-17 16:53:36'
                         completed:
                           human: '1 week from now'
-                          string: '2024-12-16 09:43:18'
+                          string: '2024-12-24 16:53:36'
                         created:
                           human: '1 second ago'
-                          string: '2024-12-02 09:43:18'
+                          string: '2024-12-10 16:53:36'
                         updated:
                           human: '1 second ago'
-                          string: '2024-12-02 09:43:18'
+                          string: '2024-12-10 16:53:36'
                 properties:
                   data:
                     type: array
@@ -4042,16 +3670,16 @@ paths:
                             value: 0
                           scheduled:
                             human: '6 days from now'
-                            string: '2024-12-09 09:43:18'
+                            string: '2024-12-17 16:53:36'
                           completed:
                             human: '1 week from now'
-                            string: '2024-12-16 09:43:18'
+                            string: '2024-12-24 16:53:36'
                           created:
                             human: '1 second ago'
-                            string: '2024-12-02 09:43:18'
+                            string: '2024-12-10 16:53:36'
                           updated:
                             human: '1 second ago'
-                            string: '2024-12-02 09:43:18'
+                            string: '2024-12-10 16:53:36'
                       -
                         id: '2'
                         type: schedules
@@ -4064,16 +3692,16 @@ paths:
                             value: 0
                           scheduled:
                             human: '6 days from now'
-                            string: '2024-12-09 09:43:18'
+                            string: '2024-12-17 16:53:36'
                           completed:
                             human: '1 week from now'
-                            string: '2024-12-16 09:43:18'
+                            string: '2024-12-24 16:53:36'
                           created:
                             human: '1 second ago'
-                            string: '2024-12-02 09:43:18'
+                            string: '2024-12-10 16:53:36'
                           updated:
                             human: '1 second ago'
-                            string: '2024-12-02 09:43:18'
+                            string: '2024-12-10 16:53:36'
                     items:
                       type: object
                       properties:
@@ -4112,7 +3740,7 @@ paths:
                                   example: '6 days from now'
                                 string:
                                   type: string
-                                  example: '2024-12-09 09:43:18'
+                                  example: '2024-12-17 16:53:36'
                             completed:
                               type: object
                               properties:
@@ -4121,7 +3749,7 @@ paths:
                                   example: '1 week from now'
                                 string:
                                   type: string
-                                  example: '2024-12-16 09:43:18'
+                                  example: '2024-12-24 16:53:36'
                             created:
                               type: object
                               properties:
@@ -4130,7 +3758,7 @@ paths:
                                   example: '1 second ago'
                                 string:
                                   type: string
-                                  example: '2024-12-02 09:43:18'
+                                  example: '2024-12-10 16:53:36'
                             updated:
                               type: object
                               properties:
@@ -4139,7 +3767,7 @@ paths:
                                   example: '1 second ago'
                                 string:
                                   type: string
-                                  example: '2024-12-02 09:43:18'
+                                  example: '2024-12-10 16:53:36'
       tags:
         - Schedules
       security: []
@@ -4168,16 +3796,16 @@ paths:
                         value: 0
                       scheduled:
                         human: '6 days from now'
-                        string: '2024-12-09 09:43:18'
+                        string: '2024-12-17 16:53:36'
                       completed:
                         human: '1 week from now'
-                        string: '2024-12-16 09:43:18'
+                        string: '2024-12-24 16:53:36'
                       created:
                         human: '1 second ago'
-                        string: '2024-12-02 09:43:18'
+                        string: '2024-12-10 16:53:36'
                       updated:
                         human: '1 second ago'
-                        string: '2024-12-02 09:43:18'
+                        string: '2024-12-10 16:53:36'
                 properties:
                   data:
                     type: object
@@ -4217,7 +3845,7 @@ paths:
                                 example: '6 days from now'
                               string:
                                 type: string
-                                example: '2024-12-09 09:43:18'
+                                example: '2024-12-17 16:53:36'
                           completed:
                             type: object
                             properties:
@@ -4226,7 +3854,7 @@ paths:
                                 example: '1 week from now'
                               string:
                                 type: string
-                                example: '2024-12-16 09:43:18'
+                                example: '2024-12-24 16:53:36'
                           created:
                             type: object
                             properties:
@@ -4235,7 +3863,7 @@ paths:
                                 example: '1 second ago'
                               string:
                                 type: string
-                                example: '2024-12-02 09:43:18'
+                                example: '2024-12-10 16:53:36'
                           updated:
                             type: object
                             properties:
@@ -4244,64 +3872,30 @@ paths:
                                 example: '1 second ago'
                               string:
                                 type: string
-                                example: '2024-12-02 09:43:18'
+                                example: '2024-12-10 16:53:36'
       tags:
         - Schedules
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                name:
-                  type: string
-                  description: 'Must not be greater than 255 characters.'
-                  example: mvrfgzycobp
-                  nullable: false
-                message:
-                  type: string
-                  description: ''
-                  example: odit
-                  nullable: false
-                scheduled_at:
-                  type: string
-                  description: 'Must be a valid date.'
-                  example: '2024-12-02T09:43:18'
-                  nullable: false
-                components:
-                  type: array
-                  description: ''
-                  example: null
-                  items:
-                    type: object
-                    properties:
-                      id:
-                        type: integer
-                        description: 'This field is required when <code>components</code> is present.  The <code>id</code> of an existing record in the components table.'
-                        example: 15
-                        nullable: false
-                      status:
-                        type: integer
-                        description: 'This field is required when <code>components</code> is present.'
-                        example: 2
-                        nullable: false
-                        enum:
-                          - 1
-                          - 2
-                          - 3
-                          - 4
-                          - 5
-              required:
-                - name
-                - message
-                - scheduled_at
   '/api/schedules/{id}':
     get:
       summary: 'Get Schedule'
       operationId: getSchedule
       description: ''
-      parameters: []
+      parameters:
+        -
+          in: query
+          name: include
+          description: 'Include related resources.'
+          example: components
+          required: false
+          schema:
+            type: string
+            description: 'Include related resources.'
+            example: components
+            nullable: false
+            enum:
+              - components
+              - updates
+              - user
       responses:
         200:
           description: ''
@@ -4322,16 +3916,16 @@ paths:
                         value: 0
                       scheduled:
                         human: '6 days from now'
-                        string: '2024-12-09 09:43:18'
+                        string: '2024-12-17 16:53:36'
                       completed:
                         human: '1 week from now'
-                        string: '2024-12-16 09:43:18'
+                        string: '2024-12-24 16:53:36'
                       created:
                         human: '1 second ago'
-                        string: '2024-12-02 09:43:18'
+                        string: '2024-12-10 16:53:36'
                       updated:
                         human: '1 second ago'
-                        string: '2024-12-02 09:43:18'
+                        string: '2024-12-10 16:53:36'
                 properties:
                   data:
                     type: object
@@ -4371,7 +3965,7 @@ paths:
                                 example: '6 days from now'
                               string:
                                 type: string
-                                example: '2024-12-09 09:43:18'
+                                example: '2024-12-17 16:53:36'
                           completed:
                             type: object
                             properties:
@@ -4380,7 +3974,7 @@ paths:
                                 example: '1 week from now'
                               string:
                                 type: string
-                                example: '2024-12-16 09:43:18'
+                                example: '2024-12-24 16:53:36'
                           created:
                             type: object
                             properties:
@@ -4389,7 +3983,7 @@ paths:
                                 example: '1 second ago'
                               string:
                                 type: string
-                                example: '2024-12-02 09:43:18'
+                                example: '2024-12-10 16:53:36'
                           updated:
                             type: object
                             properties:
@@ -4398,7 +3992,7 @@ paths:
                                 example: '1 second ago'
                               string:
                                 type: string
-                                example: '2024-12-02 09:43:18'
+                                example: '2024-12-10 16:53:36'
       tags:
         - Schedules
       security: []
@@ -4427,16 +4021,16 @@ paths:
                         value: 0
                       scheduled:
                         human: '6 days from now'
-                        string: '2024-12-09 09:43:18'
+                        string: '2024-12-17 16:53:36'
                       completed:
                         human: '1 week from now'
-                        string: '2024-12-16 09:43:18'
+                        string: '2024-12-24 16:53:36'
                       created:
                         human: '1 second ago'
-                        string: '2024-12-02 09:43:18'
+                        string: '2024-12-10 16:53:36'
                       updated:
                         human: '1 second ago'
-                        string: '2024-12-02 09:43:18'
+                        string: '2024-12-10 16:53:36'
                 properties:
                   data:
                     type: object
@@ -4476,7 +4070,7 @@ paths:
                                 example: '6 days from now'
                               string:
                                 type: string
-                                example: '2024-12-09 09:43:18'
+                                example: '2024-12-17 16:53:36'
                           completed:
                             type: object
                             properties:
@@ -4485,7 +4079,7 @@ paths:
                                 example: '1 week from now'
                               string:
                                 type: string
-                                example: '2024-12-16 09:43:18'
+                                example: '2024-12-24 16:53:36'
                           created:
                             type: object
                             properties:
@@ -4494,7 +4088,7 @@ paths:
                                 example: '1 second ago'
                               string:
                                 type: string
-                                example: '2024-12-02 09:43:18'
+                                example: '2024-12-10 16:53:36'
                           updated:
                             type: object
                             properties:
@@ -4503,54 +4097,9 @@ paths:
                                 example: '1 second ago'
                               string:
                                 type: string
-                                example: '2024-12-02 09:43:18'
+                                example: '2024-12-10 16:53:36'
       tags:
         - Schedules
-      requestBody:
-        required: false
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                name:
-                  type: string
-                  description: 'Must not be greater than 255 characters.'
-                  example: rzbphdpkmsijghz
-                  nullable: false
-                message:
-                  type: string
-                  description: ''
-                  example: corporis
-                  nullable: false
-                scheduled_at:
-                  type: string
-                  description: 'Must be a valid date.'
-                  example: '2024-12-02T09:43:18'
-                  nullable: true
-                components:
-                  type: array
-                  description: ''
-                  example: null
-                  items:
-                    type: object
-                    properties:
-                      id:
-                        type: integer
-                        description: 'This field is required when <code>components</code> is present.  The <code>id</code> of an existing record in the components table.'
-                        example: 11
-                        nullable: false
-                      status:
-                        type: integer
-                        description: 'This field is required when <code>components</code> is present.'
-                        example: 2
-                        nullable: false
-                        enum:
-                          - 1
-                          - 2
-                          - 3
-                          - 4
-                          - 5
     delete:
       summary: 'Delete Schedule'
       operationId: deleteSchedule
@@ -4566,7 +4115,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the schedule.'
-        example: 3
+        example: 16
         required: true
         schema:
           type: integer
@@ -4614,18 +4163,17 @@ paths:
               - created_at
         -
           in: query
-          name: filters
-          description: 'Filter the resources.'
-          example:
-            - nobis
+          name: include
+          description: 'Include related resources.'
+          example: schedule
           required: false
           schema:
-            type: array
-            description: 'Filter the resources.'
-            example:
-              - nobis
-            items:
-              type: string
+            type: string
+            description: 'Include related resources.'
+            example: schedule
+            nullable: false
+            enum:
+              - schedule
       responses:
         200:
           description: ''
@@ -4642,13 +4190,13 @@ paths:
                         id: 1
                         updateable_id: 3
                         updateable_type: incident
-                        message: 'Repudiandae suscipit libero voluptatem omnis sed. Eum distinctio nihil laboriosam qui perferendis.'
+                        message: 'Qui corrupti accusantium blanditiis similique aut. Provident quo expedita tempore. Rerum dolorem eos necessitatibus qui.'
                         created:
                           human: '1 second ago'
-                          string: '2024-12-02 09:43:18'
+                          string: '2024-12-10 16:53:36'
                         updated:
                           human: '1 second ago'
-                          string: '2024-12-02 09:43:18'
+                          string: '2024-12-10 16:53:36'
                     -
                       id: '2'
                       type: updates
@@ -4656,13 +4204,13 @@ paths:
                         id: 2
                         updateable_id: 4
                         updateable_type: incident
-                        message: 'In ea ut ea saepe. Doloremque hic corporis odit et. Repellat iure delectus aliquam ex nihil sed totam.'
+                        message: 'Saepe tenetur harum eum quo. Molestiae iure consectetur dolor ut possimus aliquam. Omnis odio qui amet rerum ut. Temporibus sint quia nesciunt rem rem.'
                         created:
                           human: '1 second ago'
-                          string: '2024-12-02 09:43:18'
+                          string: '2024-12-10 16:53:36'
                         updated:
                           human: '1 second ago'
-                          string: '2024-12-02 09:43:18'
+                          string: '2024-12-10 16:53:36'
                 properties:
                   data:
                     type: array
@@ -4674,13 +4222,13 @@ paths:
                           id: 1
                           updateable_id: 3
                           updateable_type: incident
-                          message: 'Repudiandae suscipit libero voluptatem omnis sed. Eum distinctio nihil laboriosam qui perferendis.'
+                          message: 'Qui corrupti accusantium blanditiis similique aut. Provident quo expedita tempore. Rerum dolorem eos necessitatibus qui.'
                           created:
                             human: '1 second ago'
-                            string: '2024-12-02 09:43:18'
+                            string: '2024-12-10 16:53:36'
                           updated:
                             human: '1 second ago'
-                            string: '2024-12-02 09:43:18'
+                            string: '2024-12-10 16:53:36'
                       -
                         id: '2'
                         type: updates
@@ -4688,13 +4236,13 @@ paths:
                           id: 2
                           updateable_id: 4
                           updateable_type: incident
-                          message: 'In ea ut ea saepe. Doloremque hic corporis odit et. Repellat iure delectus aliquam ex nihil sed totam.'
+                          message: 'Saepe tenetur harum eum quo. Molestiae iure consectetur dolor ut possimus aliquam. Omnis odio qui amet rerum ut. Temporibus sint quia nesciunt rem rem.'
                           created:
                             human: '1 second ago'
-                            string: '2024-12-02 09:43:18'
+                            string: '2024-12-10 16:53:36'
                           updated:
                             human: '1 second ago'
-                            string: '2024-12-02 09:43:18'
+                            string: '2024-12-10 16:53:36'
                     items:
                       type: object
                       properties:
@@ -4718,7 +4266,7 @@ paths:
                               example: incident
                             message:
                               type: string
-                              example: 'Repudiandae suscipit libero voluptatem omnis sed. Eum distinctio nihil laboriosam qui perferendis.'
+                              example: 'Qui corrupti accusantium blanditiis similique aut. Provident quo expedita tempore. Rerum dolorem eos necessitatibus qui.'
                             created:
                               type: object
                               properties:
@@ -4727,7 +4275,7 @@ paths:
                                   example: '1 second ago'
                                 string:
                                   type: string
-                                  example: '2024-12-02 09:43:18'
+                                  example: '2024-12-10 16:53:36'
                             updated:
                               type: object
                               properties:
@@ -4736,7 +4284,7 @@ paths:
                                   example: '1 second ago'
                                 string:
                                   type: string
-                                  example: '2024-12-02 09:43:18'
+                                  example: '2024-12-10 16:53:36'
       tags:
         - 'Schedule Updates'
       security: []
@@ -4760,13 +4308,13 @@ paths:
                       id: 1
                       updateable_id: 3
                       updateable_type: incident
-                      message: 'At excepturi incidunt sed nobis consequatur temporibus molestiae inventore. Et velit labore et totam. Dolor corrupti facilis commodi quia velit soluta et. Ullam et omnis veritatis recusandae.'
+                      message: 'Et et commodi esse eum qui molestiae quam. Impedit ullam nisi nesciunt alias. Rerum cum omnis ut ea molestias. Esse quia omnis in numquam et eveniet iste.'
                       created:
                         human: '1 second ago'
-                        string: '2024-12-02 09:43:18'
+                        string: '2024-12-10 16:53:36'
                       updated:
                         human: '1 second ago'
-                        string: '2024-12-02 09:43:18'
+                        string: '2024-12-10 16:53:36'
                 properties:
                   data:
                     type: object
@@ -4791,7 +4339,7 @@ paths:
                             example: incident
                           message:
                             type: string
-                            example: 'At excepturi incidunt sed nobis consequatur temporibus molestiae inventore. Et velit labore et totam. Dolor corrupti facilis commodi quia velit soluta et. Ullam et omnis veritatis recusandae.'
+                            example: 'Et et commodi esse eum qui molestiae quam. Impedit ullam nisi nesciunt alias. Rerum cum omnis ut ea molestias. Esse quia omnis in numquam et eveniet iste.'
                           created:
                             type: object
                             properties:
@@ -4800,7 +4348,7 @@ paths:
                                 example: '1 second ago'
                               string:
                                 type: string
-                                example: '2024-12-02 09:43:18'
+                                example: '2024-12-10 16:53:36'
                           updated:
                             type: object
                             properties:
@@ -4809,23 +4357,9 @@ paths:
                                 example: '1 second ago'
                               string:
                                 type: string
-                                example: '2024-12-02 09:43:18'
+                                example: '2024-12-10 16:53:36'
       tags:
         - 'Schedule Updates'
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                message:
-                  type: string
-                  description: ''
-                  example: rem
-                  nullable: false
-              required:
-                - message
     parameters:
       -
         in: path
@@ -4840,7 +4374,20 @@ paths:
       summary: 'Get Schedule Update'
       operationId: getScheduleUpdate
       description: ''
-      parameters: []
+      parameters:
+        -
+          in: query
+          name: include
+          description: 'Include related resources.'
+          example: schedule
+          required: false
+          schema:
+            type: string
+            description: 'Include related resources.'
+            example: schedule
+            nullable: false
+            enum:
+              - schedule
       responses:
         200:
           description: ''
@@ -4856,13 +4403,13 @@ paths:
                       id: 1
                       updateable_id: 3
                       updateable_type: incident
-                      message: 'Ut non beatae sint. Eligendi fugit cumque nesciunt est nemo eos.'
+                      message: 'Deleniti temporibus minus corrupti totam. Dolore saepe quibusdam laudantium et accusamus. Est voluptas quidem delectus aliquid aut. Incidunt consectetur facilis ut quae consequuntur error voluptatem.'
                       created:
                         human: '1 second ago'
-                        string: '2024-12-02 09:43:18'
+                        string: '2024-12-10 16:53:36'
                       updated:
                         human: '1 second ago'
-                        string: '2024-12-02 09:43:18'
+                        string: '2024-12-10 16:53:36'
                 properties:
                   data:
                     type: object
@@ -4887,7 +4434,7 @@ paths:
                             example: incident
                           message:
                             type: string
-                            example: 'Ut non beatae sint. Eligendi fugit cumque nesciunt est nemo eos.'
+                            example: 'Deleniti temporibus minus corrupti totam. Dolore saepe quibusdam laudantium et accusamus. Est voluptas quidem delectus aliquid aut. Incidunt consectetur facilis ut quae consequuntur error voluptatem.'
                           created:
                             type: object
                             properties:
@@ -4896,7 +4443,7 @@ paths:
                                 example: '1 second ago'
                               string:
                                 type: string
-                                example: '2024-12-02 09:43:18'
+                                example: '2024-12-10 16:53:36'
                           updated:
                             type: object
                             properties:
@@ -4905,7 +4452,7 @@ paths:
                                 example: '1 second ago'
                               string:
                                 type: string
-                                example: '2024-12-02 09:43:18'
+                                example: '2024-12-10 16:53:36'
       tags:
         - 'Schedule Updates'
       security: []
@@ -4929,13 +4476,13 @@ paths:
                       id: 1
                       updateable_id: 3
                       updateable_type: incident
-                      message: 'Qui accusamus aperiam reprehenderit voluptatem quia qui. Illo error dolores est consequatur magni. Recusandae voluptate nesciunt sed ab id officia magni eius. Quisquam eum autem aut qui voluptas.'
+                      message: 'Sit mollitia et neque in. Nulla sit minus dolorem et et. Expedita rerum totam quo necessitatibus eum dolorem.'
                       created:
                         human: '1 second ago'
-                        string: '2024-12-02 09:43:18'
+                        string: '2024-12-10 16:53:36'
                       updated:
                         human: '1 second ago'
-                        string: '2024-12-02 09:43:18'
+                        string: '2024-12-10 16:53:36'
                 properties:
                   data:
                     type: object
@@ -4960,7 +4507,7 @@ paths:
                             example: incident
                           message:
                             type: string
-                            example: 'Qui accusamus aperiam reprehenderit voluptatem quia qui. Illo error dolores est consequatur magni. Recusandae voluptate nesciunt sed ab id officia magni eius. Quisquam eum autem aut qui voluptas.'
+                            example: 'Sit mollitia et neque in. Nulla sit minus dolorem et et. Expedita rerum totam quo necessitatibus eum dolorem.'
                           created:
                             type: object
                             properties:
@@ -4969,7 +4516,7 @@ paths:
                                 example: '1 second ago'
                               string:
                                 type: string
-                                example: '2024-12-02 09:43:18'
+                                example: '2024-12-10 16:53:36'
                           updated:
                             type: object
                             properties:
@@ -4978,21 +4525,9 @@ paths:
                                 example: '1 second ago'
                               string:
                                 type: string
-                                example: '2024-12-02 09:43:18'
+                                example: '2024-12-10 16:53:36'
       tags:
         - 'Schedule Updates'
-      requestBody:
-        required: false
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                message:
-                  type: string
-                  description: ''
-                  example: facilis
-                  nullable: false
     delete:
       summary: 'Delete Schedule Update'
       operationId: deleteScheduleUpdate
@@ -5008,7 +4543,7 @@ paths:
         in: path
         name: schedule_id
         description: 'The ID of the schedule.'
-        example: 13
+        example: 12
         required: true
         schema:
           type: integer
@@ -5016,7 +4551,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the update.'
-        example: 1
+        example: 14
         required: true
         schema:
           type: integer
