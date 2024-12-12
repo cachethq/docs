@@ -13,10 +13,10 @@
 
 # Cachet Documentation
 
-[Cachet](https://cachethq.io) is a beautiful and powerful open-source status page system that allows you to better communicate downtime and
+[Cachet](https://cachethq.io) is an easy-to-use and powerful open-source status page system. Cachet allows you effectively communicate downtime and
 system outages to your customers, teams, and shareholders.
 
-This repository contains the source code for the Cachet documentation, which is built using [Mintlify](https://mintlify.com).
+This repository contains the source code for the Cachet documentation which is built using [Mintlify](https://mintlify.com).
 
 ## Running Locally
 
