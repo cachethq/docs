@@ -11,6 +11,10 @@ span > img {
     /*padding: 0.5rem;*/
 }
 
+footer > div {
+    padding: 3rem 0 !important;
+}
+
 #carbonads {
     display: flex;
     max-width: 130px;
