@@ -31,8 +31,36 @@ php artisan storage:link
 
 From here you may upload a custom banner image to be displayed on your status page. To use the default banner image, click the "X" button.
 
-## Theme
+## Accents
 
-<Warning>
-    The "Manage Theme" dashboard is currently incomplete. To customize your dashboard, we recommend applying custom CSS.
-</Warning>
+Cachet provides a simple way to customize the colors of your status page through the use of accents. Accent colors
+are used to highlight important elements on the page, such as buttons and links.
+
+By default, Cachet provides common Tailwind colors as accent options. You may choose from the following options:
+
+- <div className="inline-block rounded-full size-4 bg-primary"></div> Cachet
+- <div className="inline-block rounded-full size-4" style={{backgroundColor: "rgb(239, 68, 68)"}}></div> Red
+- <div className="inline-block rounded-full size-4" style={{backgroundColor: "rgb(249, 115, 22)"}}></div> Orange
+- <div className="inline-block rounded-full size-4" style={{backgroundColor: "rgb(245, 158, 11)"}}></div> Amber
+- <div className="inline-block rounded-full size-4" style={{backgroundColor: "rgb(234, 179, 8)"}}></div> Yellow
+- <div className="inline-block rounded-full size-4" style={{backgroundColor: "rgb(132, 204, 22)"}}></div> Lime
+- <div className="inline-block rounded-full size-4" style={{backgroundColor: "rgb(34, 197, 94)"}}></div> Green
+- <div className="inline-block rounded-full size-4" style={{backgroundColor: "rgb(16, 185, 129)"}}></div> Emerald
+- <div className="inline-block rounded-full size-4" style={{backgroundColor: "rgb(20, 184, 166)"}}></div> Teal
+- <div className="inline-block rounded-full size-4" style={{backgroundColor: "rgb(6, 182, 212)"}}></div> Cyan
+- <div className="inline-block rounded-full size-4" style={{backgroundColor: "rgb(14, 165, 233)"}}></div> Sky
+- <div className="inline-block rounded-full size-4" style={{backgroundColor: "rgb(59, 130, 246)"}}></div> Blue
+- <div className="inline-block rounded-full size-4" style={{backgroundColor: "rgb(99, 102, 241)"}}></div> Indigo
+- <div className="inline-block rounded-full size-4" style={{backgroundColor: "rgb(139, 92, 246)"}}></div> Violet
+- <div className="inline-block rounded-full size-4" style={{backgroundColor: "rgb(168, 85, 247)"}}></div> Purple
+- <div className="inline-block rounded-full size-4" style={{backgroundColor: "rgb(217, 70, 239)"}}></div> Fuchsia
+- <div className="inline-block rounded-full size-4" style={{backgroundColor: "rgb(236, 72, 153)"}}></div> Pink
+- <div className="inline-block rounded-full size-4" style={{backgroundColor: "rgb(244, 63, 94)"}}></div> Rose
+
+By default, your chosen accent color will be paired with a base color which is used for the background of the status page.
+You can disable "Accent Pairing" and select your own background color from a list of Tailwind grays.
+
+### Custom Colors
+
+To customize Cachet to your liking, we recommend using the [Customization](/v3.x/configuration/customization) panel and
+configuring your own colors with CSS.

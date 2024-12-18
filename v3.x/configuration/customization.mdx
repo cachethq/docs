@@ -40,6 +40,43 @@ Add custom CSS to your status page to personalize the design. You do not need to
 
 CSS placed in this section is appended to Cachet's custom styles.
 
-<Info>
-    You may make use of Cachet's CSS variables but note they are not complete and are subject to change.
-</Info>
+### CSS Variables
+
+As part of Cachet's [Accent Colors](/v3.x/configuration/theme#accents) system, you can use
+[CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) to customize the colors
+of your status page. The following CSS variables are available:
+
+| Variable              | Description                                                       |
+|-----------------------|-------------------------------------------------------------------|
+| `--accent`            | The main accent color used as the background for primary buttons. |
+| `--accent-content`    | An often darker primary hue used for text content.                |
+| `--accent-foreground` | The color of text content on top of an accented background.       |
+| `--accent-background` | The background color of the status page.                          |
+
+Cachet will automatically generate a light and dark version of the accent color. When overriding colors, ensure you
+override both versions to maintain a consistent design:
+
+```css Custom CSS
+/* Light mode */
+:root {
+    --accent: 4, 193, 71;
+    --accent-content: 4, 193, 71;
+    --accent-foreground: 255, 255, 255;
+    --accent-background: 250, 250, 250;
+}
+
+/* Dark mode */
+@media(prefers-color-scheme: dark) {
+    :root {
+        --accent: 4, 193, 71;
+        --accent-content: 79, 212, 126;
+        --accent-foreground: 1, 58, 21;
+        --accent-background: 24, 24, 27;
+    }
+}
+```
+
+<Warning>
+    Cachet's status page will do its best to adapt its design to configured colors. However, some colors may not be
+    visible or may clash with the design. Please ensure you test your colors in both light and dark mode.
+</Warning>
