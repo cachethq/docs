@@ -19,6 +19,19 @@ CACHET_BEACON=true
     If you're limiting outbound requests on your server and you'd like to opt into the beacon, you'll need to allow outbound requests to `https://cachethq.io`.
 </Tip>
 
+### Configuring the scheduler
+
+Cachet automatically registers the `cachet:beacon` command to run daily at `00:00`. You will need to configure your server
+to run the scheduler every minute using a cron job. To do so, you can do this by adding the following cron entry:
+
+```bash /etc/crontab
+* * * * * php /path/to/cachet/artisan schedule:run >> /dev/null 2>&1
+```
+
+<Note>
+    Be sure to replace `/path/to/cachet` with the actual path to your Cachet installation.
+</Note>
+
 ## What data is collected?
 
 - **Install ID**: An anonymous identifier for your Cachet installation.

@@ -58,8 +58,6 @@ If you are looking to migrate from Cachet v2.x, please refer to the [migration g
     <Step title="Step 6">
         Configure the `.env` file and set the values of your setup:
         ```ini .env
-        CACHET_PATH=/
-
         DB_CONNECTION=mysql
         DB_HOST=127.0.0.1
         DB_PORT=3306
@@ -78,6 +76,12 @@ If you are looking to migrate from Cachet v2.x, please refer to the [migration g
         Run the database migrations:
         ```bash
         php artisan migrate
+        ```
+    </Step>
+    <Step title="Step 9">
+        Enable the scheduler by adding the following cron entry:
+        ```bash /etc/crontab
+        * * * * * php /path/to/cachet/artisan schedule:run >> /dev/null 2>&1
         ```
     </Step>
 </Steps>
