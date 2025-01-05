@@ -79,6 +79,12 @@ If you are looking to migrate from Cachet v2.x, please refer to the [migration g
         ```
     </Step>
     <Step title="Step 9">
+        Create the first user by following the prompts:
+        ```bash
+        php artisan cachet:make:user
+        ```
+    </Step>
+    <Step title="Step 10">
         Enable the scheduler by adding the following cron entry:
         ```bash /etc/crontab
         * * * * * php /path/to/cachet/artisan schedule:run >> /dev/null 2>&1
