@@ -75,6 +75,7 @@
         "v3.x/guide/schedules",
         "v3.x/guide/metrics",
         "v3.x/guide/subscribers",
+        "v3.x/guide/webhooks",
         "v3.x/guide/dashboard"
       ]
     }, {
