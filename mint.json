@@ -76,6 +76,7 @@
         "v3.x/guide/metrics",
         "v3.x/guide/subscribers",
         "v3.x/guide/webhooks",
+        "v3.x/guide/users",
         "v3.x/guide/dashboard"
       ]
     }, {
@@ -85,7 +86,8 @@
         "v3.x/configuration/cachet",
         "v3.x/configuration/customization",
         "v3.x/configuration/theme",
-        "v3.x/configuration/beacon"
+        "v3.x/configuration/beacon",
+        "v3.x/configuration/api-keys"
       ]
     }, {
       "group": "Integrations",
