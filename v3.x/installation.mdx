@@ -20,74 +20,78 @@ Cachet v3.x is written in PHP with Laravel 11.x and requires:
 
 If you are looking to migrate from Cachet v2.x, please refer to the [migration guide](/v3.x/migration-guide).
 
-<Steps>
-    <Step title="Step 1">
-        Clone the Cachet repository:
-        ```bash
-        git clone -b 3.x https://github.com/cachethq/cachet.git
-        cd cachet
-        ```
-    </Step>
-    <Step title="Step 2">
-        Install the dependencies:
-        ```bash
-        composer install --no-dev -o
-        ```
-    </Step>
-    <Step title="Step 3">
-        Update the `cachethq/core` dependency:
-        ```bash
-        composer update cachethq/core
-        ```
-        <Note>
-            This is a temporary step until Cachet v3.x is released.
-        </Note>
-    </Step>
-    <Step title="Step 4">
-        Copy the `.env.example` file to `.env`:
-        ```bash
-        cp .env.example .env
-        ```
-    </Step>
-    <Step title="Step 5">
-        Generate an application key:
-        ```bash
-        php artisan key:generate
-        ```
-    </Step>
-    <Step title="Step 6">
-        Configure the `.env` file and set the values of your setup:
-        ```ini .env
-        DB_CONNECTION=mysql
-        DB_HOST=127.0.0.1
-        DB_PORT=3306
-        DB_DATABASE=cachet
-        DB_USERNAME=root
-        DB_PASSWORD=
-        ```
-    </Step>
-    <Step title="Step 7">
-        Publish Cachet's assets:
-        ```bash
-        php artisan vendor:publish --tag=cachet
-        ```
-    </Step>
-    <Step title="Step 8">
-        Run the database migrations:
-        ```bash
-        php artisan migrate
-        ```
-    </Step>
-    <Step title="Step 9">
-        Create the first user by following the prompts:
-        ```bash
-        php artisan cachet:make:user
-        ```
-    </Step>
-    <Step title="Step 10">
-        Enable the scheduler by adding the following cron entry:
-        ```bash /etc/crontab
-        * * * * * php /path/to/cachet/artisan schedule:run >> /dev/null 2>&1
-        ```
-    </Step>
-</Steps>
+<Tabs>
+    <Tab title="Manual Setup">
+        <Steps>
+            <Step title="Step 1">
+                Clone the Cachet repository:
+                ```bash
+                git clone -b 3.x https://github.com/cachethq/cachet.git
+                cd cachet
+                ```
+            </Step>
+            <Step title="Step 2">
+                Install the dependencies:
+                ```bash
+                composer install --no-dev -o
+                ```
+            </Step>
+            <Step title="Step 3">
+                Update the `cachethq/core` dependency:
+                ```bash
+                composer update cachethq/core
+                ```
+                <Note>
+                    This is a temporary step until Cachet v3.x is released.
+                </Note>
+            </Step>
+            <Step title="Step 4">
+                Copy the `.env.example` file to `.env`:
+                ```bash
+                cp .env.example .env
+                ```
+            </Step>
+            <Step title="Step 5">
+                Generate an application key:
+                ```bash
+                php artisan key:generate
+                ```
+            </Step>
+            <Step title="Step 6">
+                Configure the `.env` file and set the values of your setup:
+                ```ini .env
+                DB_CONNECTION=mysql
+                DB_HOST=127.0.0.1
+                DB_PORT=3306
+                DB_DATABASE=cachet
+                DB_USERNAME=root
+                DB_PASSWORD=
+                ```
+            </Step>
+            <Step title="Step 7">
+                Publish Cachet's assets:
+                ```bash
+                php artisan vendor:publish --tag=cachet
+                ```
+            </Step>
+            <Step title="Step 8">
+                Run the database migrations:
+                ```bash
+                php artisan migrate
+                ```
+            </Step>
+            <Step title="Step 9">
+                Create the first user by following the prompts:
+                ```bash
+                php artisan cachet:make:user
+                ```
+            </Step>
+            <Step title="Step 10">
+                Enable the scheduler by adding the following cron entry:
+                ```bash /etc/crontab
+                * * * * * php /path/to/cachet/artisan schedule:run >> /dev/null 2>&1
+                ```
+            </Step>
+        </Steps>
+    </Tab>
+</Tabs>
