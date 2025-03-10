@@ -44,9 +44,7 @@
                         }
                     }
                 },
-                "security": [
-                    {}
-                ]
+                "security": []
             }
         },
         "\/version": {
@@ -85,9 +83,7 @@
                         }
                     }
                 },
-                "security": [
-                    {}
-                ]
+                "security": []
             }
         },
         "\/components": {
@@ -115,6 +111,25 @@
                         }
                     },
                     {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "How many items to show per page.",
+                        "schema": {
+                            "type": "integer",
+                            "default": 15
+                        },
+                        "example": 20
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Which page to show.",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 2
+                    },
+                    {
                         "name": "filter[status]",
                         "in": "query",
                         "description": "Filter by status",
@@ -140,25 +155,6 @@
                             "type": "boolean"
                         },
                         "example": "1"
-                    },
-                    {
-                        "name": "per_page",
-                        "in": "query",
-                        "description": "How many items to show per page.",
-                        "schema": {
-                            "type": "integer",
-                            "default": 15
-                        },
-                        "example": 20
-                    },
-                    {
-                        "name": "page",
-                        "in": "query",
-                        "description": "Which page to show.",
-                        "schema": {
-                            "type": "integer"
-                        },
-                        "example": 2
                     }
                 ],
                 "responses": {
@@ -260,9 +256,7 @@
                         }
                     }
                 },
-                "security": [
-                    {}
-                ]
+                "security": []
             },
             "post": {
                 "operationId": "cachet.api.components.store",
@@ -358,9 +352,7 @@
                         "$ref": "#\/components\/responses\/ModelNotFoundException"
                     }
                 },
-                "security": [
-                    {}
-                ]
+                "security": []
             },
             "put": {
                 "operationId": "cachet.api.components.update",
@@ -592,9 +584,7 @@
                         }
                     }
                 },
-                "security": [
-                    {}
-                ]
+                "security": []
             },
             "post": {
                 "operationId": "cachet.api.component-groups.store",
@@ -690,9 +680,7 @@
                         "$ref": "#\/components\/responses\/ModelNotFoundException"
                     }
                 },
-                "security": [
-                    {}
-                ]
+                "security": []
             },
             "put": {
                 "operationId": "cachet.api.component-groups.update",
@@ -790,27 +778,6 @@
                 ],
                 "parameters": [
                     {
-                        "name": "filter[name]",
-                        "in": "query",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "filter[status]",
-                        "in": "query",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "filter[occurred_at]",
-                        "in": "query",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
                         "name": "sort",
                         "in": "query",
                         "description": "Available sorts are `name`, `status`, `id`. You can sort by multiple options by separating them with a comma. To sort in descending order, use `-` sign in front of the sort, for example: `-name`.",
@@ -844,6 +811,27 @@
                             "type": "integer"
                         },
                         "example": 2
+                    },
+                    {
+                        "name": "filter[name]",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "filter[status]",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "filter[occurred_at]",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -945,9 +933,7 @@
                         }
                     }
                 },
-                "security": [
-                    {}
-                ]
+                "security": []
             },
             "post": {
                 "operationId": "cachet.api.incidents.store",
@@ -1043,9 +1029,7 @@
                         "$ref": "#\/components\/responses\/ModelNotFoundException"
                     }
                 },
-                "security": [
-                    {}
-                ]
+                "security": []
             },
             "put": {
                 "operationId": "cachet.api.incidents.update",
@@ -1152,13 +1136,6 @@
                         }
                     },
                     {
-                        "name": "filter[status]",
-                        "in": "query",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
                         "name": "sort",
                         "in": "query",
                         "description": "Available sorts are `status`, `created_at`. You can sort by multiple options by separating them with a comma. To sort in descending order, use `-` sign in front of the sort, for example: `-status`.",
@@ -1192,6 +1169,13 @@
                             "type": "integer"
                         },
                         "example": 2
+                    },
+                    {
+                        "name": "filter[status]",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -1296,9 +1280,7 @@
                         "$ref": "#\/components\/responses\/ModelNotFoundException"
                     }
                 },
-                "security": [
-                    {}
-                ]
+                "security": []
             },
             "post": {
                 "operationId": "cachet.api.incidents.updates.store",
@@ -1417,9 +1399,7 @@
                         "$ref": "#\/components\/responses\/ModelNotFoundException"
                     }
                 },
-                "security": [
-                    {}
-                ]
+                "security": []
             },
             "put": {
                 "operationId": "cachet.api.incidents.updates.update",
@@ -1543,24 +1523,6 @@
                         }
                     },
                     {
-                        "name": "filter[name]",
-                        "in": "query",
-                        "description": "Filter by name",
-                        "schema": {
-                            "type": "string"
-                        },
-                        "example": "My Template"
-                    },
-                    {
-                        "name": "filter[slug]",
-                        "in": "query",
-                        "description": "Filter by slug",
-                        "schema": {
-                            "type": "string"
-                        },
-                        "example": "my-template"
-                    },
-                    {
                         "name": "per_page",
                         "in": "query",
                         "description": "How many items to show per page.",
@@ -1578,6 +1540,24 @@
                             "type": "integer"
                         },
                         "example": 2
+                    },
+                    {
+                        "name": "filter[name]",
+                        "in": "query",
+                        "description": "Filter by name",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "My Template"
+                    },
+                    {
+                        "name": "filter[slug]",
+                        "in": "query",
+                        "description": "Filter by slug",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "my-template"
                     }
                 ],
                 "responses": {
@@ -1679,9 +1659,7 @@
                         }
                     }
                 },
-                "security": [
-                    {}
-                ]
+                "security": []
             },
             "post": {
                 "operationId": "cachet.api.incident-templates.store",
@@ -1769,9 +1747,7 @@
                         "$ref": "#\/components\/responses\/ModelNotFoundException"
                     }
                 },
-                "security": [
-                    {}
-                ]
+                "security": []
             },
             "put": {
                 "operationId": "cachet.api.incident-templates.update",
@@ -1885,23 +1861,6 @@
                         }
                     },
                     {
-                        "name": "filter[name]",
-                        "in": "query",
-                        "description": "Filter by name.",
-                        "schema": {
-                            "type": "string"
-                        },
-                        "example": "metric name"
-                    },
-                    {
-                        "name": "filter[calc_type]",
-                        "in": "query",
-                        "description": "Filter by calculation type.",
-                        "schema": {
-                            "$ref": "#\/components\/schemas\/MetricTypeEnum"
-                        }
-                    },
-                    {
                         "name": "per_page",
                         "in": "query",
                         "description": "How many items to show per page.",
@@ -1919,6 +1878,23 @@
                             "type": "integer"
                         },
                         "example": 2
+                    },
+                    {
+                        "name": "filter[name]",
+                        "in": "query",
+                        "description": "Filter by name.",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "metric name"
+                    },
+                    {
+                        "name": "filter[calc_type]",
+                        "in": "query",
+                        "description": "Filter by calculation type.",
+                        "schema": {
+                            "$ref": "#\/components\/schemas\/MetricTypeEnum"
+                        }
                     }
                 ],
                 "responses": {
@@ -2020,9 +1996,7 @@
                         }
                     }
                 },
-                "security": [
-                    {}
-                ]
+                "security": []
             },
             "post": {
                 "operationId": "cachet.api.metrics.store",
@@ -2118,9 +2092,7 @@
                         "$ref": "#\/components\/responses\/ModelNotFoundException"
                     }
                 },
-                "security": [
-                    {}
-                ]
+                "security": []
             },
             "put": {
                 "operationId": "cachet.api.metrics.update",
@@ -2365,9 +2337,7 @@
                         "$ref": "#\/components\/responses\/ModelNotFoundException"
                     }
                 },
-                "security": [
-                    {}
-                ]
+                "security": []
             },
             "post": {
                 "operationId": "cachet.api.metrics.points.store",
@@ -2486,9 +2456,7 @@
                         "$ref": "#\/components\/responses\/ModelNotFoundException"
                     }
                 },
-                "security": [
-                    {}
-                ]
+                "security": []
             },
             "delete": {
                 "operationId": "cachet.api.metrics.points.destroy",
@@ -2527,30 +2495,6 @@
                         "$ref": "#\/components\/responses\/AuthenticationException"
                     }
                 }
-            },
-            "put": {
-                "operationId": "cachet.api.metrics.points.update",
-                "tags": [
-                    "MetricPoint"
-                ],
-                "parameters": [
-                    {
-                        "name": "metric",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "metricPoint",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ]
             }
         },
         "\/schedules": {
@@ -2578,23 +2522,6 @@
                         }
                     },
                     {
-                        "name": "filter[name]",
-                        "in": "query",
-                        "description": "Filter the resources by name.",
-                        "schema": {
-                            "type": "string"
-                        },
-                        "example": "api"
-                    },
-                    {
-                        "name": "filter[status]",
-                        "in": "query",
-                        "description": "Filter the resources by status.",
-                        "schema": {
-                            "$ref": "#\/components\/schemas\/ScheduleStatusEnum"
-                        }
-                    },
-                    {
                         "name": "per_page",
                         "in": "query",
                         "description": "How many items to show per page.",
@@ -2612,23 +2539,125 @@
                             "type": "integer"
                         },
                         "example": 2
+                    },
+                    {
+                        "name": "filter[name]",
+                        "in": "query",
+                        "description": "Filter the resources by name.",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "api"
+                    },
+                    {
+                        "name": "filter[status]",
+                        "in": "query",
+                        "description": "Filter the resources by status.",
+                        "schema": {
+                            "$ref": "#\/components\/schemas\/ScheduleStatusEnum"
+                        }
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
+                        "description": "Paginated set of `Schedule`",
                         "content": {
                             "application\/json": {
                                 "schema": {
-                                    "type": "object"
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#\/components\/schemas\/Schedule"
+                                            }
+                                        },
+                                        "meta": {
+                                            "type": "object",
+                                            "properties": {
+                                                "current_page": {
+                                                    "type": "integer"
+                                                },
+                                                "from": {
+                                                    "type": [
+                                                        "integer",
+                                                        "null"
+                                                    ]
+                                                },
+                                                "path": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ],
+                                                    "description": "Base path for paginator generated URLs."
+                                                },
+                                                "per_page": {
+                                                    "type": "integer",
+                                                    "description": "Number of items shown per page."
+                                                },
+                                                "to": {
+                                                    "type": [
+                                                        "integer",
+                                                        "null"
+                                                    ],
+                                                    "description": "Number of the last item in the slice."
+                                                }
+                                            },
+                                            "required": [
+                                                "current_page",
+                                                "from",
+                                                "path",
+                                                "per_page",
+                                                "to"
+                                            ]
+                                        },
+                                        "links": {
+                                            "type": "object",
+                                            "properties": {
+                                                "first": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                },
+                                                "last": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                },
+                                                "prev": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                },
+                                                "next": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                }
+                                            },
+                                            "required": [
+                                                "first",
+                                                "last",
+                                                "prev",
+                                                "next"
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "data",
+                                        "links",
+                                        "meta"
+                                    ]
                                 }
                             }
                         }
                     }
                 },
-                "security": [
-                    {}
-                ]
+                "security": []
             },
             "post": {
                 "operationId": "cachet.api.schedules.store",
@@ -2724,9 +2753,7 @@
                         "$ref": "#\/components\/responses\/ModelNotFoundException"
                     }
                 },
-                "security": [
-                    {}
-                ]
+                "security": []
             },
             "put": {
                 "operationId": "cachet.api.schedules.update",
@@ -2970,9 +2997,7 @@
                         "$ref": "#\/components\/responses\/ModelNotFoundException"
                     }
                 },
-                "security": [
-                    {}
-                ]
+                "security": []
             },
             "post": {
                 "operationId": "cachet.api.schedules.updates.store",
@@ -3091,9 +3116,7 @@
                         "$ref": "#\/components\/responses\/ModelNotFoundException"
                     }
                 },
-                "security": [
-                    {}
-                ]
+                "security": []
             },
             "put": {
                 "operationId": "cachet.api.schedules.updates.update",
@@ -3245,9 +3268,7 @@
                         }
                     }
                 },
-                "security": [
-                    {}
-                ]
+                "security": []
             }
         }
     },
@@ -4866,7 +4887,8 @@
                         "type": [
                             "string",
                             "null"
-                        ]
+                        ],
+                        "format": "date-time"
                     },
                     "components": {
                         "type": [
