@@ -7,7 +7,7 @@
     },
     "servers": [
         {
-            "url": "http:\/\/localhost\/api"
+            "url": "http://localhost/api"
         }
     ],
     "security": [
@@ -16,7 +16,7 @@
         }
     ],
     "paths": {
-        "\/ping": {
+        "/ping": {
             "get": {
                 "operationId": "cachet.api.ping",
                 "summary": "Test the API",
@@ -27,7 +27,7 @@
                     "200": {
                         "description": "",
                         "content": {
-                            "application\/json": {
+                            "application/json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
@@ -47,7 +47,7 @@
                 "security": []
             }
         },
-        "\/version": {
+        "/version": {
             "get": {
                 "operationId": "cachet.api.version",
                 "summary": "Get Version",
@@ -58,7 +58,7 @@
                     "200": {
                         "description": "",
                         "content": {
-                            "application\/json": {
+                            "application/json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
@@ -86,7 +86,7 @@
                 "security": []
             }
         },
-        "\/components": {
+        "/components": {
             "get": {
                 "operationId": "cachet.api.components.index",
                 "summary": "List Components",
@@ -134,7 +134,7 @@
                         "in": "query",
                         "description": "Filter by status",
                         "schema": {
-                            "$ref": "#\/components\/schemas\/ComponentStatusEnum"
+                            "$ref": "#/components/schemas/ComponentStatusEnum"
                         },
                         "example": 1
                     },
@@ -161,14 +161,14 @@
                     "200": {
                         "description": "Paginated set of `Component`",
                         "content": {
-                            "application\/json": {
+                            "application/json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
                                         "data": {
                                             "type": "array",
                                             "items": {
-                                                "$ref": "#\/components\/schemas\/Component"
+                                                "$ref": "#/components/schemas/Component"
                                             }
                                         },
                                         "meta": {
@@ -268,9 +268,9 @@
                     "description": "`CreateComponentRequestData`",
                     "required": true,
                     "content": {
-                        "application\/json": {
+                        "application/json": {
                             "schema": {
-                                "$ref": "#\/components\/schemas\/CreateComponentRequestData"
+                                "$ref": "#/components/schemas/CreateComponentRequestData"
                             }
                         }
                     }
@@ -279,12 +279,12 @@
                     "200": {
                         "description": "`Component`",
                         "content": {
-                            "application\/json": {
+                            "application/json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
                                         "data": {
-                                            "$ref": "#\/components\/schemas\/Component"
+                                            "$ref": "#/components/schemas/Component"
                                         }
                                     },
                                     "required": [
@@ -295,15 +295,15 @@
                         }
                     },
                     "401": {
-                        "$ref": "#\/components\/responses\/AuthenticationException"
+                        "$ref": "#/components/responses/AuthenticationException"
                     },
                     "422": {
-                        "$ref": "#\/components\/responses\/ValidationException"
+                        "$ref": "#/components/responses/ValidationException"
                     }
                 }
             }
         },
-        "\/components\/{component}": {
+        "/components/{component}": {
             "get": {
                 "operationId": "cachet.api.components.show",
                 "summary": "Get Component",
@@ -333,12 +333,12 @@
                     "200": {
                         "description": "`Component`",
                         "content": {
-                            "application\/json": {
+                            "application/json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
                                         "data": {
-                                            "$ref": "#\/components\/schemas\/Component"
+                                            "$ref": "#/components/schemas/Component"
                                         }
                                     },
                                     "required": [
@@ -349,7 +349,7 @@
                         }
                     },
                     "404": {
-                        "$ref": "#\/components\/responses\/ModelNotFoundException"
+                        "$ref": "#/components/responses/ModelNotFoundException"
                     }
                 },
                 "security": []
@@ -374,9 +374,9 @@
                 "requestBody": {
                     "description": "`UpdateComponentRequestData`",
                     "content": {
-                        "application\/json": {
+                        "application/json": {
                             "schema": {
-                                "$ref": "#\/components\/schemas\/UpdateComponentRequestData"
+                                "$ref": "#/components/schemas/UpdateComponentRequestData"
                             }
                         }
                     }
@@ -385,12 +385,12 @@
                     "200": {
                         "description": "`Component`",
                         "content": {
-                            "application\/json": {
+                            "application/json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
                                         "data": {
-                                            "$ref": "#\/components\/schemas\/Component"
+                                            "$ref": "#/components/schemas/Component"
                                         }
                                     },
                                     "required": [
@@ -401,13 +401,13 @@
                         }
                     },
                     "404": {
-                        "$ref": "#\/components\/responses\/ModelNotFoundException"
+                        "$ref": "#/components/responses/ModelNotFoundException"
                     },
                     "401": {
-                        "$ref": "#\/components\/responses\/AuthenticationException"
+                        "$ref": "#/components/responses/AuthenticationException"
                     },
                     "422": {
-                        "$ref": "#\/components\/responses\/ValidationException"
+                        "$ref": "#/components/responses/ValidationException"
                     }
                 }
             },
@@ -433,15 +433,15 @@
                         "description": "No content"
                     },
                     "404": {
-                        "$ref": "#\/components\/responses\/ModelNotFoundException"
+                        "$ref": "#/components/responses/ModelNotFoundException"
                     },
                     "401": {
-                        "$ref": "#\/components\/responses\/AuthenticationException"
+                        "$ref": "#/components/responses/AuthenticationException"
                     }
                 }
             }
         },
-        "\/component-groups": {
+        "/component-groups": {
             "get": {
                 "operationId": "cachet.api.component-groups.index",
                 "summary": "List Component Groups",
@@ -489,14 +489,14 @@
                     "200": {
                         "description": "Paginated set of `ComponentGroup`",
                         "content": {
-                            "application\/json": {
+                            "application/json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
                                         "data": {
                                             "type": "array",
                                             "items": {
-                                                "$ref": "#\/components\/schemas\/ComponentGroup"
+                                                "$ref": "#/components/schemas/ComponentGroup"
                                             }
                                         },
                                         "meta": {
@@ -596,9 +596,9 @@
                     "description": "`CreateComponentGroupRequestData`",
                     "required": true,
                     "content": {
-                        "application\/json": {
+                        "application/json": {
                             "schema": {
-                                "$ref": "#\/components\/schemas\/CreateComponentGroupRequestData"
+                                "$ref": "#/components/schemas/CreateComponentGroupRequestData"
                             }
                         }
                     }
@@ -607,12 +607,12 @@
                     "200": {
                         "description": "`ComponentGroup`",
                         "content": {
-                            "application\/json": {
+                            "application/json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
                                         "data": {
-                                            "$ref": "#\/components\/schemas\/ComponentGroup"
+                                            "$ref": "#/components/schemas/ComponentGroup"
                                         }
                                     },
                                     "required": [
@@ -623,15 +623,15 @@
                         }
                     },
                     "401": {
-                        "$ref": "#\/components\/responses\/AuthenticationException"
+                        "$ref": "#/components/responses/AuthenticationException"
                     },
                     "422": {
-                        "$ref": "#\/components\/responses\/ValidationException"
+                        "$ref": "#/components/responses/ValidationException"
                     }
                 }
             }
         },
-        "\/component-groups\/{componentGroup}": {
+        "/component-groups/{componentGroup}": {
             "get": {
                 "operationId": "cachet.api.component-groups.show",
                 "summary": "Get Component Group",
@@ -661,12 +661,12 @@
                     "200": {
                         "description": "`ComponentGroup`",
                         "content": {
-                            "application\/json": {
+                            "application/json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
                                         "data": {
-                                            "$ref": "#\/components\/schemas\/ComponentGroup"
+                                            "$ref": "#/components/schemas/ComponentGroup"
                                         }
                                     },
                                     "required": [
@@ -677,7 +677,7 @@
                         }
                     },
                     "404": {
-                        "$ref": "#\/components\/responses\/ModelNotFoundException"
+                        "$ref": "#/components/responses/ModelNotFoundException"
                     }
                 },
                 "security": []
@@ -702,9 +702,9 @@
                 "requestBody": {
                     "description": "`UpdateComponentGroupRequestData`",
                     "content": {
-                        "application\/json": {
+                        "application/json": {
                             "schema": {
-                                "$ref": "#\/components\/schemas\/UpdateComponentGroupRequestData"
+                                "$ref": "#/components/schemas/UpdateComponentGroupRequestData"
                             }
                         }
                     }
@@ -713,12 +713,12 @@
                     "200": {
                         "description": "`ComponentGroup`",
                         "content": {
-                            "application\/json": {
+                            "application/json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
                                         "data": {
-                                            "$ref": "#\/components\/schemas\/ComponentGroup"
+                                            "$ref": "#/components/schemas/ComponentGroup"
                                         }
                                     },
                                     "required": [
@@ -729,13 +729,13 @@
                         }
                     },
                     "404": {
-                        "$ref": "#\/components\/responses\/ModelNotFoundException"
+                        "$ref": "#/components/responses/ModelNotFoundException"
                     },
                     "401": {
-                        "$ref": "#\/components\/responses\/AuthenticationException"
+                        "$ref": "#/components/responses/AuthenticationException"
                     },
                     "422": {
-                        "$ref": "#\/components\/responses\/ValidationException"
+                        "$ref": "#/components/responses/ValidationException"
                     }
                 }
             },
@@ -761,15 +761,15 @@
                         "description": "No content"
                     },
                     "404": {
-                        "$ref": "#\/components\/responses\/ModelNotFoundException"
+                        "$ref": "#/components/responses/ModelNotFoundException"
                     },
                     "401": {
-                        "$ref": "#\/components\/responses\/AuthenticationException"
+                        "$ref": "#/components/responses/AuthenticationException"
                     }
                 }
             }
         },
-        "\/incidents": {
+        "/incidents": {
             "get": {
                 "operationId": "cachet.api.incidents.index",
                 "summary": "List Incidents",
@@ -838,14 +838,14 @@
                     "200": {
                         "description": "Paginated set of `Incident`",
                         "content": {
-                            "application\/json": {
+                            "application/json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
                                         "data": {
                                             "type": "array",
                                             "items": {
-                                                "$ref": "#\/components\/schemas\/Incident"
+                                                "$ref": "#/components/schemas/Incident"
                                             }
                                         },
                                         "meta": {
@@ -945,9 +945,9 @@
                     "description": "`CreateIncidentRequestData`",
                     "required": true,
                     "content": {
-                        "application\/json": {
+                        "application/json": {
                             "schema": {
-                                "$ref": "#\/components\/schemas\/CreateIncidentRequestData"
+                                "$ref": "#/components/schemas/CreateIncidentRequestData"
                             }
                         }
                     }
@@ -956,12 +956,12 @@
                     "200": {
                         "description": "`Incident`",
                         "content": {
-                            "application\/json": {
+                            "application/json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
                                         "data": {
-                                            "$ref": "#\/components\/schemas\/Incident"
+                                            "$ref": "#/components/schemas/Incident"
                                         }
                                     },
                                     "required": [
@@ -972,15 +972,15 @@
                         }
                     },
                     "401": {
-                        "$ref": "#\/components\/responses\/AuthenticationException"
+                        "$ref": "#/components/responses/AuthenticationException"
                     },
                     "422": {
-                        "$ref": "#\/components\/responses\/ValidationException"
+                        "$ref": "#/components/responses/ValidationException"
                     }
                 }
             }
         },
-        "\/incidents\/{incident}": {
+        "/incidents/{incident}": {
             "get": {
                 "operationId": "cachet.api.incidents.show",
                 "summary": "Get Incident",
@@ -1010,12 +1010,12 @@
                     "200": {
                         "description": "`Incident`",
                         "content": {
-                            "application\/json": {
+                            "application/json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
                                         "data": {
-                                            "$ref": "#\/components\/schemas\/Incident"
+                                            "$ref": "#/components/schemas/Incident"
                                         }
                                     },
                                     "required": [
@@ -1026,7 +1026,7 @@
                         }
                     },
                     "404": {
-                        "$ref": "#\/components\/responses\/ModelNotFoundException"
+                        "$ref": "#/components/responses/ModelNotFoundException"
                     }
                 },
                 "security": []
@@ -1051,9 +1051,9 @@
                 "requestBody": {
                     "description": "`UpdateIncidentRequestData`",
                     "content": {
-                        "application\/json": {
+                        "application/json": {
                             "schema": {
-                                "$ref": "#\/components\/schemas\/UpdateIncidentRequestData"
+                                "$ref": "#/components/schemas/UpdateIncidentRequestData"
                             }
                         }
                     }
@@ -1062,12 +1062,12 @@
                     "200": {
                         "description": "`Incident`",
                         "content": {
-                            "application\/json": {
+                            "application/json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
                                         "data": {
-                                            "$ref": "#\/components\/schemas\/Incident"
+                                            "$ref": "#/components/schemas/Incident"
                                         }
                                     },
                                     "required": [
@@ -1078,13 +1078,13 @@
                         }
                     },
                     "404": {
-                        "$ref": "#\/components\/responses\/ModelNotFoundException"
+                        "$ref": "#/components/responses/ModelNotFoundException"
                     },
                     "401": {
-                        "$ref": "#\/components\/responses\/AuthenticationException"
+                        "$ref": "#/components/responses/AuthenticationException"
                     },
                     "422": {
-                        "$ref": "#\/components\/responses\/ValidationException"
+                        "$ref": "#/components/responses/ValidationException"
                     }
                 }
             },
@@ -1110,15 +1110,15 @@
                         "description": "No content"
                     },
                     "404": {
-                        "$ref": "#\/components\/responses\/ModelNotFoundException"
+                        "$ref": "#/components/responses/ModelNotFoundException"
                     },
                     "401": {
-                        "$ref": "#\/components\/responses\/AuthenticationException"
+                        "$ref": "#/components/responses/AuthenticationException"
                     }
                 }
             }
         },
-        "\/incidents\/{incident}\/updates": {
+        "/incidents/{incident}/updates": {
             "get": {
                 "operationId": "cachet.api.incidents.updates.index",
                 "summary": "List Incident Updates",
@@ -1182,14 +1182,14 @@
                     "200": {
                         "description": "Paginated set of `Update`",
                         "content": {
-                            "application\/json": {
+                            "application/json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
                                         "data": {
                                             "type": "array",
                                             "items": {
-                                                "$ref": "#\/components\/schemas\/Update"
+                                                "$ref": "#/components/schemas/Update"
                                             }
                                         },
                                         "meta": {
@@ -1277,7 +1277,7 @@
                         }
                     },
                     "404": {
-                        "$ref": "#\/components\/responses\/ModelNotFoundException"
+                        "$ref": "#/components/responses/ModelNotFoundException"
                     }
                 },
                 "security": []
@@ -1303,9 +1303,9 @@
                     "description": "`CreateIncidentUpdateRequestData`",
                     "required": true,
                     "content": {
-                        "application\/json": {
+                        "application/json": {
                             "schema": {
-                                "$ref": "#\/components\/schemas\/CreateIncidentUpdateRequestData"
+                                "$ref": "#/components/schemas/CreateIncidentUpdateRequestData"
                             }
                         }
                     }
@@ -1314,12 +1314,12 @@
                     "200": {
                         "description": "`Update`",
                         "content": {
-                            "application\/json": {
+                            "application/json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
                                         "data": {
-                                            "$ref": "#\/components\/schemas\/Update"
+                                            "$ref": "#/components/schemas/Update"
                                         }
                                     },
                                     "required": [
@@ -1330,18 +1330,18 @@
                         }
                     },
                     "404": {
-                        "$ref": "#\/components\/responses\/ModelNotFoundException"
+                        "$ref": "#/components/responses/ModelNotFoundException"
                     },
                     "401": {
-                        "$ref": "#\/components\/responses\/AuthenticationException"
+                        "$ref": "#/components/responses/AuthenticationException"
                     },
                     "422": {
-                        "$ref": "#\/components\/responses\/ValidationException"
+                        "$ref": "#/components/responses/ValidationException"
                     }
                 }
             }
         },
-        "\/incidents\/{incident}\/updates\/{update}": {
+        "/incidents/{incident}/updates/{update}": {
             "get": {
                 "operationId": "cachet.api.incidents.updates.show",
                 "summary": "Get Incident Update",
@@ -1380,12 +1380,12 @@
                     "200": {
                         "description": "`Update`",
                         "content": {
-                            "application\/json": {
+                            "application/json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
                                         "data": {
-                                            "$ref": "#\/components\/schemas\/Update"
+                                            "$ref": "#/components/schemas/Update"
                                         }
                                     },
                                     "required": [
@@ -1396,7 +1396,7 @@
                         }
                     },
                     "404": {
-                        "$ref": "#\/components\/responses\/ModelNotFoundException"
+                        "$ref": "#/components/responses/ModelNotFoundException"
                     }
                 },
                 "security": []
@@ -1430,9 +1430,9 @@
                 "requestBody": {
                     "description": "`EditIncidentUpdateRequestData`",
                     "content": {
-                        "application\/json": {
+                        "application/json": {
                             "schema": {
-                                "$ref": "#\/components\/schemas\/EditIncidentUpdateRequestData"
+                                "$ref": "#/components/schemas/EditIncidentUpdateRequestData"
                             }
                         }
                     }
@@ -1441,12 +1441,12 @@
                     "200": {
                         "description": "`Update`",
                         "content": {
-                            "application\/json": {
+                            "application/json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
                                         "data": {
-                                            "$ref": "#\/components\/schemas\/Update"
+                                            "$ref": "#/components/schemas/Update"
                                         }
                                     },
                                     "required": [
@@ -1457,13 +1457,13 @@
                         }
                     },
                     "404": {
-                        "$ref": "#\/components\/responses\/ModelNotFoundException"
+                        "$ref": "#/components/responses/ModelNotFoundException"
                     },
                     "401": {
-                        "$ref": "#\/components\/responses\/AuthenticationException"
+                        "$ref": "#/components/responses/AuthenticationException"
                     },
                     "422": {
-                        "$ref": "#\/components\/responses\/ValidationException"
+                        "$ref": "#/components/responses/ValidationException"
                     }
                 }
             },
@@ -1498,15 +1498,15 @@
                         "description": "No content"
                     },
                     "404": {
-                        "$ref": "#\/components\/responses\/ModelNotFoundException"
+                        "$ref": "#/components/responses/ModelNotFoundException"
                     },
                     "401": {
-                        "$ref": "#\/components\/responses\/AuthenticationException"
+                        "$ref": "#/components/responses/AuthenticationException"
                     }
                 }
             }
         },
-        "\/incident-templates": {
+        "/incident-templates": {
             "get": {
                 "operationId": "cachet.api.incident-templates.index",
                 "summary": "List Incident Templates",
@@ -1564,14 +1564,14 @@
                     "200": {
                         "description": "Paginated set of `IncidentTemplate`",
                         "content": {
-                            "application\/json": {
+                            "application/json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
                                         "data": {
                                             "type": "array",
                                             "items": {
-                                                "$ref": "#\/components\/schemas\/IncidentTemplate"
+                                                "$ref": "#/components/schemas/IncidentTemplate"
                                             }
                                         },
                                         "meta": {
@@ -1671,9 +1671,9 @@
                     "description": "`CreateIncidentTemplateRequestData`",
                     "required": true,
                     "content": {
-                        "application\/json": {
+                        "application/json": {
                             "schema": {
-                                "$ref": "#\/components\/schemas\/CreateIncidentTemplateRequestData"
+                                "$ref": "#/components/schemas/CreateIncidentTemplateRequestData"
                             }
                         }
                     }
@@ -1682,12 +1682,12 @@
                     "200": {
                         "description": "`IncidentTemplate`",
                         "content": {
-                            "application\/json": {
+                            "application/json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
                                         "data": {
-                                            "$ref": "#\/components\/schemas\/IncidentTemplate"
+                                            "$ref": "#/components/schemas/IncidentTemplate"
                                         }
                                     },
                                     "required": [
@@ -1698,15 +1698,15 @@
                         }
                     },
                     "401": {
-                        "$ref": "#\/components\/responses\/AuthenticationException"
+                        "$ref": "#/components/responses/AuthenticationException"
                     },
                     "422": {
-                        "$ref": "#\/components\/responses\/ValidationException"
+                        "$ref": "#/components/responses/ValidationException"
                     }
                 }
             }
         },
-        "\/incident-templates\/{incidentTemplate}": {
+        "/incident-templates/{incidentTemplate}": {
             "get": {
                 "operationId": "cachet.api.incident-templates.show",
                 "summary": "Get Incident Template",
@@ -1728,12 +1728,12 @@
                     "200": {
                         "description": "`IncidentTemplate`",
                         "content": {
-                            "application\/json": {
+                            "application/json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
                                         "data": {
-                                            "$ref": "#\/components\/schemas\/IncidentTemplate"
+                                            "$ref": "#/components/schemas/IncidentTemplate"
                                         }
                                     },
                                     "required": [
@@ -1744,7 +1744,7 @@
                         }
                     },
                     "404": {
-                        "$ref": "#\/components\/responses\/ModelNotFoundException"
+                        "$ref": "#/components/responses/ModelNotFoundException"
                     }
                 },
                 "security": []
@@ -1769,9 +1769,9 @@
                 "requestBody": {
                     "description": "`UpdateIncidentTemplateRequestData`",
                     "content": {
-                        "application\/json": {
+                        "application/json": {
                             "schema": {
-                                "$ref": "#\/components\/schemas\/UpdateIncidentTemplateRequestData"
+                                "$ref": "#/components/schemas/UpdateIncidentTemplateRequestData"
                             }
                         }
                     }
@@ -1780,12 +1780,12 @@
                     "200": {
                         "description": "`IncidentTemplate`",
                         "content": {
-                            "application\/json": {
+                            "application/json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
                                         "data": {
-                                            "$ref": "#\/components\/schemas\/IncidentTemplate"
+                                            "$ref": "#/components/schemas/IncidentTemplate"
                                         }
                                     },
                                     "required": [
@@ -1796,13 +1796,13 @@
                         }
                     },
                     "404": {
-                        "$ref": "#\/components\/responses\/ModelNotFoundException"
+                        "$ref": "#/components/responses/ModelNotFoundException"
                     },
                     "401": {
-                        "$ref": "#\/components\/responses\/AuthenticationException"
+                        "$ref": "#/components/responses/AuthenticationException"
                     },
                     "422": {
-                        "$ref": "#\/components\/responses\/ValidationException"
+                        "$ref": "#/components/responses/ValidationException"
                     }
                 }
             },
@@ -1828,15 +1828,15 @@
                         "description": "No content"
                     },
                     "404": {
-                        "$ref": "#\/components\/responses\/ModelNotFoundException"
+                        "$ref": "#/components/responses/ModelNotFoundException"
                     },
                     "401": {
-                        "$ref": "#\/components\/responses\/AuthenticationException"
+                        "$ref": "#/components/responses/AuthenticationException"
                     }
                 }
             }
         },
-        "\/metrics": {
+        "/metrics": {
             "get": {
                 "operationId": "cachet.api.metrics.index",
                 "summary": "List Metrics",
@@ -1893,7 +1893,7 @@
                         "in": "query",
                         "description": "Filter by calculation type.",
                         "schema": {
-                            "$ref": "#\/components\/schemas\/MetricTypeEnum"
+                            "$ref": "#/components/schemas/MetricTypeEnum"
                         }
                     }
                 ],
@@ -1901,14 +1901,14 @@
                     "200": {
                         "description": "Paginated set of `Metric`",
                         "content": {
-                            "application\/json": {
+                            "application/json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
                                         "data": {
                                             "type": "array",
                                             "items": {
-                                                "$ref": "#\/components\/schemas\/Metric"
+                                                "$ref": "#/components/schemas/Metric"
                                             }
                                         },
                                         "meta": {
@@ -2008,9 +2008,9 @@
                     "description": "`CreateMetricRequestData`",
                     "required": true,
                     "content": {
-                        "application\/json": {
+                        "application/json": {
                             "schema": {
-                                "$ref": "#\/components\/schemas\/CreateMetricRequestData"
+                                "$ref": "#/components/schemas/CreateMetricRequestData"
                             }
                         }
                     }
@@ -2019,12 +2019,12 @@
                     "200": {
                         "description": "`Metric`",
                         "content": {
-                            "application\/json": {
+                            "application/json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
                                         "data": {
-                                            "$ref": "#\/components\/schemas\/Metric"
+                                            "$ref": "#/components/schemas/Metric"
                                         }
                                     },
                                     "required": [
@@ -2035,15 +2035,15 @@
                         }
                     },
                     "401": {
-                        "$ref": "#\/components\/responses\/AuthenticationException"
+                        "$ref": "#/components/responses/AuthenticationException"
                     },
                     "422": {
-                        "$ref": "#\/components\/responses\/ValidationException"
+                        "$ref": "#/components/responses/ValidationException"
                     }
                 }
             }
         },
-        "\/metrics\/{metric}": {
+        "/metrics/{metric}": {
             "get": {
                 "operationId": "cachet.api.metrics.show",
                 "summary": "Get Metric",
@@ -2073,12 +2073,12 @@
                     "200": {
                         "description": "`Metric`",
                         "content": {
-                            "application\/json": {
+                            "application/json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
                                         "data": {
-                                            "$ref": "#\/components\/schemas\/Metric"
+                                            "$ref": "#/components/schemas/Metric"
                                         }
                                     },
                                     "required": [
@@ -2089,7 +2089,7 @@
                         }
                     },
                     "404": {
-                        "$ref": "#\/components\/responses\/ModelNotFoundException"
+                        "$ref": "#/components/responses/ModelNotFoundException"
                     }
                 },
                 "security": []
@@ -2115,9 +2115,9 @@
                     "description": "`UpdateMetricRequestData`",
                     "required": true,
                     "content": {
-                        "application\/json": {
+                        "application/json": {
                             "schema": {
-                                "$ref": "#\/components\/schemas\/UpdateMetricRequestData"
+                                "$ref": "#/components/schemas/UpdateMetricRequestData"
                             }
                         }
                     }
@@ -2126,12 +2126,12 @@
                     "200": {
                         "description": "`Metric`",
                         "content": {
-                            "application\/json": {
+                            "application/json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
                                         "data": {
-                                            "$ref": "#\/components\/schemas\/Metric"
+                                            "$ref": "#/components/schemas/Metric"
                                         }
                                     },
                                     "required": [
@@ -2142,13 +2142,13 @@
                         }
                     },
                     "404": {
-                        "$ref": "#\/components\/responses\/ModelNotFoundException"
+                        "$ref": "#/components/responses/ModelNotFoundException"
                     },
                     "401": {
-                        "$ref": "#\/components\/responses\/AuthenticationException"
+                        "$ref": "#/components/responses/AuthenticationException"
                     },
                     "422": {
-                        "$ref": "#\/components\/responses\/ValidationException"
+                        "$ref": "#/components/responses/ValidationException"
                     }
                 }
             },
@@ -2174,15 +2174,15 @@
                         "description": "No content"
                     },
                     "404": {
-                        "$ref": "#\/components\/responses\/ModelNotFoundException"
+                        "$ref": "#/components/responses/ModelNotFoundException"
                     },
                     "401": {
-                        "$ref": "#\/components\/responses\/AuthenticationException"
+                        "$ref": "#/components/responses/AuthenticationException"
                     }
                 }
             }
         },
-        "\/metrics\/{metric}\/points": {
+        "/metrics/{metric}/points": {
             "get": {
                 "operationId": "cachet.api.metrics.points.index",
                 "summary": "List Metric Points",
@@ -2239,14 +2239,14 @@
                     "200": {
                         "description": "Paginated set of `MetricPoint`",
                         "content": {
-                            "application\/json": {
+                            "application/json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
                                         "data": {
                                             "type": "array",
                                             "items": {
-                                                "$ref": "#\/components\/schemas\/MetricPoint"
+                                                "$ref": "#/components/schemas/MetricPoint"
                                             }
                                         },
                                         "meta": {
@@ -2334,7 +2334,7 @@
                         }
                     },
                     "404": {
-                        "$ref": "#\/components\/responses\/ModelNotFoundException"
+                        "$ref": "#/components/responses/ModelNotFoundException"
                     }
                 },
                 "security": []
@@ -2360,9 +2360,9 @@
                     "description": "`CreateMetricPointRequestData`",
                     "required": true,
                     "content": {
-                        "application\/json": {
+                        "application/json": {
                             "schema": {
-                                "$ref": "#\/components\/schemas\/CreateMetricPointRequestData"
+                                "$ref": "#/components/schemas/CreateMetricPointRequestData"
                             }
                         }
                     }
@@ -2371,12 +2371,12 @@
                     "201": {
                         "description": "`MetricPoint`",
                         "content": {
-                            "application\/json": {
+                            "application/json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
                                         "data": {
-                                            "$ref": "#\/components\/schemas\/MetricPoint"
+                                            "$ref": "#/components/schemas/MetricPoint"
                                         }
                                     },
                                     "required": [
@@ -2387,18 +2387,18 @@
                         }
                     },
                     "404": {
-                        "$ref": "#\/components\/responses\/ModelNotFoundException"
+                        "$ref": "#/components/responses/ModelNotFoundException"
                     },
                     "401": {
-                        "$ref": "#\/components\/responses\/AuthenticationException"
+                        "$ref": "#/components/responses/AuthenticationException"
                     },
                     "422": {
-                        "$ref": "#\/components\/responses\/ValidationException"
+                        "$ref": "#/components/responses/ValidationException"
                     }
                 }
             }
         },
-        "\/metrics\/{metric}\/points\/{metricPoint}": {
+        "/metrics/{metric}/points/{metricPoint}": {
             "get": {
                 "operationId": "cachet.api.metrics.points.show",
                 "summary": "Get Metric Point",
@@ -2437,12 +2437,12 @@
                     "200": {
                         "description": "`MetricPoint`",
                         "content": {
-                            "application\/json": {
+                            "application/json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
                                         "data": {
-                                            "$ref": "#\/components\/schemas\/MetricPoint"
+                                            "$ref": "#/components/schemas/MetricPoint"
                                         }
                                     },
                                     "required": [
@@ -2453,7 +2453,7 @@
                         }
                     },
                     "404": {
-                        "$ref": "#\/components\/responses\/ModelNotFoundException"
+                        "$ref": "#/components/responses/ModelNotFoundException"
                     }
                 },
                 "security": []
@@ -2489,15 +2489,15 @@
                         "description": "No content"
                     },
                     "404": {
-                        "$ref": "#\/components\/responses\/ModelNotFoundException"
+                        "$ref": "#/components/responses/ModelNotFoundException"
                     },
                     "401": {
-                        "$ref": "#\/components\/responses\/AuthenticationException"
+                        "$ref": "#/components/responses/AuthenticationException"
                     }
                 }
             }
         },
-        "\/schedules": {
+        "/schedules": {
             "get": {
                 "operationId": "cachet.api.schedules.index",
                 "summary": "List Schedules",
@@ -2554,7 +2554,7 @@
                         "in": "query",
                         "description": "Filter the resources by status.",
                         "schema": {
-                            "$ref": "#\/components\/schemas\/ScheduleStatusEnum"
+                            "$ref": "#/components/schemas/ScheduleStatusEnum"
                         }
                     }
                 ],
@@ -2562,14 +2562,14 @@
                     "200": {
                         "description": "Paginated set of `Schedule`",
                         "content": {
-                            "application\/json": {
+                            "application/json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
                                         "data": {
                                             "type": "array",
                                             "items": {
-                                                "$ref": "#\/components\/schemas\/Schedule"
+                                                "$ref": "#/components/schemas/Schedule"
                                             }
                                         },
                                         "meta": {
@@ -2669,9 +2669,9 @@
                     "description": "`CreateScheduleRequestData`",
                     "required": true,
                     "content": {
-                        "application\/json": {
+                        "application/json": {
                             "schema": {
-                                "$ref": "#\/components\/schemas\/CreateScheduleRequestData"
+                                "$ref": "#/components/schemas/CreateScheduleRequestData"
                             }
                         }
                     }
@@ -2680,12 +2680,12 @@
                     "200": {
                         "description": "`Schedule`",
                         "content": {
-                            "application\/json": {
+                            "application/json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
                                         "data": {
-                                            "$ref": "#\/components\/schemas\/Schedule"
+                                            "$ref": "#/components/schemas/Schedule"
                                         }
                                     },
                                     "required": [
@@ -2696,15 +2696,15 @@
                         }
                     },
                     "401": {
-                        "$ref": "#\/components\/responses\/AuthenticationException"
+                        "$ref": "#/components/responses/AuthenticationException"
                     },
                     "422": {
-                        "$ref": "#\/components\/responses\/ValidationException"
+                        "$ref": "#/components/responses/ValidationException"
                     }
                 }
             }
         },
-        "\/schedules\/{schedule}": {
+        "/schedules/{schedule}": {
             "get": {
                 "operationId": "cachet.api.schedules.show",
                 "summary": "Get Schedule",
@@ -2734,12 +2734,12 @@
                     "200": {
                         "description": "`Schedule`",
                         "content": {
-                            "application\/json": {
+                            "application/json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
                                         "data": {
-                                            "$ref": "#\/components\/schemas\/Schedule"
+                                            "$ref": "#/components/schemas/Schedule"
                                         }
                                     },
                                     "required": [
@@ -2750,7 +2750,7 @@
                         }
                     },
                     "404": {
-                        "$ref": "#\/components\/responses\/ModelNotFoundException"
+                        "$ref": "#/components/responses/ModelNotFoundException"
                     }
                 },
                 "security": []
@@ -2775,9 +2775,9 @@
                 "requestBody": {
                     "description": "`UpdateScheduleRequestData`",
                     "content": {
-                        "application\/json": {
+                        "application/json": {
                             "schema": {
-                                "$ref": "#\/components\/schemas\/UpdateScheduleRequestData"
+                                "$ref": "#/components/schemas/UpdateScheduleRequestData"
                             }
                         }
                     }
@@ -2786,12 +2786,12 @@
                     "200": {
                         "description": "`Schedule`",
                         "content": {
-                            "application\/json": {
+                            "application/json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
                                         "data": {
-                                            "$ref": "#\/components\/schemas\/Schedule"
+                                            "$ref": "#/components/schemas/Schedule"
                                         }
                                     },
                                     "required": [
@@ -2802,13 +2802,13 @@
                         }
                     },
                     "404": {
-                        "$ref": "#\/components\/responses\/ModelNotFoundException"
+                        "$ref": "#/components/responses/ModelNotFoundException"
                     },
                     "401": {
-                        "$ref": "#\/components\/responses\/AuthenticationException"
+                        "$ref": "#/components/responses/AuthenticationException"
                     },
                     "422": {
-                        "$ref": "#\/components\/responses\/ValidationException"
+                        "$ref": "#/components/responses/ValidationException"
                     }
                 }
             },
@@ -2834,15 +2834,15 @@
                         "description": "No content"
                     },
                     "404": {
-                        "$ref": "#\/components\/responses\/ModelNotFoundException"
+                        "$ref": "#/components/responses/ModelNotFoundException"
                     },
                     "401": {
-                        "$ref": "#\/components\/responses\/AuthenticationException"
+                        "$ref": "#/components/responses/AuthenticationException"
                     }
                 }
             }
         },
-        "\/schedules\/{schedule}\/updates": {
+        "/schedules/{schedule}/updates": {
             "get": {
                 "operationId": "cachet.api.schedules.updates.index",
                 "summary": "List Schedule Updates",
@@ -2899,14 +2899,14 @@
                     "200": {
                         "description": "Paginated set of `Update`",
                         "content": {
-                            "application\/json": {
+                            "application/json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
                                         "data": {
                                             "type": "array",
                                             "items": {
-                                                "$ref": "#\/components\/schemas\/Update"
+                                                "$ref": "#/components/schemas/Update"
                                             }
                                         },
                                         "meta": {
@@ -2994,7 +2994,7 @@
                         }
                     },
                     "404": {
-                        "$ref": "#\/components\/responses\/ModelNotFoundException"
+                        "$ref": "#/components/responses/ModelNotFoundException"
                     }
                 },
                 "security": []
@@ -3020,9 +3020,9 @@
                     "description": "`CreateScheduleUpdateRequestData`",
                     "required": true,
                     "content": {
-                        "application\/json": {
+                        "application/json": {
                             "schema": {
-                                "$ref": "#\/components\/schemas\/CreateScheduleUpdateRequestData"
+                                "$ref": "#/components/schemas/CreateScheduleUpdateRequestData"
                             }
                         }
                     }
@@ -3031,12 +3031,12 @@
                     "200": {
                         "description": "`Update`",
                         "content": {
-                            "application\/json": {
+                            "application/json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
                                         "data": {
-                                            "$ref": "#\/components\/schemas\/Update"
+                                            "$ref": "#/components/schemas/Update"
                                         }
                                     },
                                     "required": [
@@ -3047,18 +3047,18 @@
                         }
                     },
                     "404": {
-                        "$ref": "#\/components\/responses\/ModelNotFoundException"
+                        "$ref": "#/components/responses/ModelNotFoundException"
                     },
                     "401": {
-                        "$ref": "#\/components\/responses\/AuthenticationException"
+                        "$ref": "#/components/responses/AuthenticationException"
                     },
                     "422": {
-                        "$ref": "#\/components\/responses\/ValidationException"
+                        "$ref": "#/components/responses/ValidationException"
                     }
                 }
             }
         },
-        "\/schedules\/{schedule}\/updates\/{update}": {
+        "/schedules/{schedule}/updates/{update}": {
             "get": {
                 "operationId": "cachet.api.schedules.updates.show",
                 "summary": "Get Schedule Update",
@@ -3097,12 +3097,12 @@
                     "200": {
                         "description": "`Update`",
                         "content": {
-                            "application\/json": {
+                            "application/json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
                                         "data": {
-                                            "$ref": "#\/components\/schemas\/Update"
+                                            "$ref": "#/components/schemas/Update"
                                         }
                                     },
                                     "required": [
@@ -3113,7 +3113,7 @@
                         }
                     },
                     "404": {
-                        "$ref": "#\/components\/responses\/ModelNotFoundException"
+                        "$ref": "#/components/responses/ModelNotFoundException"
                     }
                 },
                 "security": []
@@ -3147,9 +3147,9 @@
                 "requestBody": {
                     "description": "`EditScheduleUpdateRequestData`",
                     "content": {
-                        "application\/json": {
+                        "application/json": {
                             "schema": {
-                                "$ref": "#\/components\/schemas\/EditScheduleUpdateRequestData"
+                                "$ref": "#/components/schemas/EditScheduleUpdateRequestData"
                             }
                         }
                     }
@@ -3158,12 +3158,12 @@
                     "200": {
                         "description": "`Update`",
                         "content": {
-                            "application\/json": {
+                            "application/json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
                                         "data": {
-                                            "$ref": "#\/components\/schemas\/Update"
+                                            "$ref": "#/components/schemas/Update"
                                         }
                                     },
                                     "required": [
@@ -3174,13 +3174,13 @@
                         }
                     },
                     "404": {
-                        "$ref": "#\/components\/responses\/ModelNotFoundException"
+                        "$ref": "#/components/responses/ModelNotFoundException"
                     },
                     "401": {
-                        "$ref": "#\/components\/responses\/AuthenticationException"
+                        "$ref": "#/components/responses/AuthenticationException"
                     },
                     "422": {
-                        "$ref": "#\/components\/responses\/ValidationException"
+                        "$ref": "#/components/responses/ValidationException"
                     }
                 }
             },
@@ -3215,15 +3215,15 @@
                         "description": "No content"
                     },
                     "404": {
-                        "$ref": "#\/components\/responses\/ModelNotFoundException"
+                        "$ref": "#/components/responses/ModelNotFoundException"
                     },
                     "401": {
-                        "$ref": "#\/components\/responses\/AuthenticationException"
+                        "$ref": "#/components/responses/AuthenticationException"
                     }
                 }
             }
         },
-        "\/status": {
+        "/status": {
             "get": {
                 "operationId": "cachet.api.status",
                 "summary": "Get System Status",
@@ -3234,7 +3234,7 @@
                     "200": {
                         "description": "",
                         "content": {
-                            "application\/json": {
+                            "application/json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
@@ -3382,7 +3382,7 @@
                                 "type": "object",
                                 "properties": {
                                     "data": {
-                                        "$ref": "#\/components\/schemas\/ComponentGroup"
+                                        "$ref": "#/components/schemas/ComponentGroup"
                                     }
                                 },
                                 "required": [
@@ -3395,7 +3395,7 @@
                                     "data": {
                                         "type": "array",
                                         "items": {
-                                            "$ref": "#\/components\/schemas\/Incident"
+                                            "$ref": "#/components/schemas/Incident"
                                         }
                                     }
                                 },
@@ -3488,7 +3488,7 @@
                                     "data": {
                                         "type": "array",
                                         "items": {
-                                            "$ref": "#\/components\/schemas\/Component"
+                                            "$ref": "#/components/schemas/Component"
                                         }
                                     }
                                 },
@@ -3568,7 +3568,7 @@
                     "status": {
                         "anyOf": [
                             {
-                                "$ref": "#\/components\/schemas\/ComponentStatusEnum"
+                                "$ref": "#/components/schemas/ComponentStatusEnum"
                             },
                             {
                                 "type": "null"
@@ -3615,7 +3615,7 @@
                     "status": {
                         "anyOf": [
                             {
-                                "$ref": "#\/components\/schemas\/IncidentStatusEnum"
+                                "$ref": "#/components/schemas/IncidentStatusEnum"
                             },
                             {
                                 "type": "null"
@@ -3668,7 +3668,7 @@
                     "component_status": {
                         "anyOf": [
                             {
-                                "$ref": "#\/components\/schemas\/ComponentStatusEnum"
+                                "$ref": "#/components/schemas/ComponentStatusEnum"
                             },
                             {
                                 "type": "null"
@@ -3694,7 +3694,7 @@
                     "engine": {
                         "anyOf": [
                             {
-                                "$ref": "#\/components\/schemas\/IncidentTemplateEngineEnum"
+                                "$ref": "#/components/schemas/IncidentTemplateEngineEnum"
                             },
                             {
                                 "type": "null"
@@ -3712,7 +3712,7 @@
                 "type": "object",
                 "properties": {
                     "status": {
-                        "$ref": "#\/components\/schemas\/IncidentStatusEnum"
+                        "$ref": "#/components/schemas/IncidentStatusEnum"
                     },
                     "message": {
                         "type": "string"
@@ -3756,7 +3756,7 @@
                     "calc_type": {
                         "anyOf": [
                             {
-                                "$ref": "#\/components\/schemas\/MetricTypeEnum"
+                                "$ref": "#/components/schemas/MetricTypeEnum"
                             },
                             {
                                 "type": "null"
@@ -3823,7 +3823,7 @@
                     "status": {
                         "anyOf": [
                             {
-                                "$ref": "#\/components\/schemas\/ScheduleStatusEnum"
+                                "$ref": "#/components/schemas/ScheduleStatusEnum"
                             },
                             {
                                 "type": "null"
@@ -3836,7 +3836,7 @@
                             "null"
                         ],
                         "items": {
-                            "$ref": "#\/components\/schemas\/ScheduleComponentRequestData"
+                            "$ref": "#/components/schemas/ScheduleComponentRequestData"
                         }
                     }
                 },
@@ -3866,7 +3866,7 @@
                     "status": {
                         "anyOf": [
                             {
-                                "$ref": "#\/components\/schemas\/IncidentStatusEnum"
+                                "$ref": "#/components/schemas/IncidentStatusEnum"
                             },
                             {
                                 "type": "null"
@@ -4018,7 +4018,7 @@
                                     "data": {
                                         "type": "array",
                                         "items": {
-                                            "$ref": "#\/components\/schemas\/Component"
+                                            "$ref": "#/components/schemas/Component"
                                         }
                                     }
                                 },
@@ -4032,7 +4032,7 @@
                                     "data": {
                                         "type": "array",
                                         "items": {
-                                            "$ref": "#\/components\/schemas\/Update"
+                                            "$ref": "#/components/schemas/Update"
                                         }
                                     }
                                 },
@@ -4044,7 +4044,7 @@
                                 "type": "object",
                                 "properties": {
                                     "data": {
-                                        "$ref": "#\/components\/schemas\/User"
+                                        "$ref": "#/components/schemas/User"
                                     }
                                 },
                                 "required": [
@@ -4265,7 +4265,7 @@
                                     "data": {
                                         "type": "array",
                                         "items": {
-                                            "$ref": "#\/components\/schemas\/MetricPoint"
+                                            "$ref": "#/components/schemas/MetricPoint"
                                         }
                                     }
                                 },
@@ -4360,7 +4360,7 @@
                                 "type": "object",
                                 "properties": {
                                     "data": {
-                                        "$ref": "#\/components\/schemas\/Metric"
+                                        "$ref": "#/components/schemas/Metric"
                                     }
                                 },
                                 "required": [
@@ -4504,7 +4504,7 @@
                                     "data": {
                                         "type": "array",
                                         "items": {
-                                            "$ref": "#\/components\/schemas\/Component"
+                                            "$ref": "#/components/schemas/Component"
                                         }
                                     }
                                 },
@@ -4518,7 +4518,7 @@
                                     "data": {
                                         "type": "array",
                                         "items": {
-                                            "$ref": "#\/components\/schemas\/Update"
+                                            "$ref": "#/components/schemas/Update"
                                         }
                                     }
                                 },
@@ -4542,7 +4542,7 @@
                         "type": "integer"
                     },
                     "status": {
-                        "$ref": "#\/components\/schemas\/ComponentStatusEnum"
+                        "$ref": "#/components/schemas/ComponentStatusEnum"
                     }
                 },
                 "required": [
@@ -4704,7 +4704,7 @@
                     "status": {
                         "anyOf": [
                             {
-                                "$ref": "#\/components\/schemas\/ComponentStatusEnum"
+                                "$ref": "#/components/schemas/ComponentStatusEnum"
                             },
                             {
                                 "type": "null"
@@ -4754,7 +4754,7 @@
                     "status": {
                         "anyOf": [
                             {
-                                "$ref": "#\/components\/schemas\/IncidentStatusEnum"
+                                "$ref": "#/components/schemas/IncidentStatusEnum"
                             },
                             {
                                 "type": "null"
@@ -4807,7 +4807,7 @@
                     "engine": {
                         "anyOf": [
                             {
-                                "$ref": "#\/components\/schemas\/IncidentTemplateEngineEnum"
+                                "$ref": "#/components/schemas/IncidentTemplateEngineEnum"
                             },
                             {
                                 "type": "null"
@@ -4876,7 +4876,7 @@
                     "status": {
                         "anyOf": [
                             {
-                                "$ref": "#\/components\/schemas\/ScheduleStatusEnum"
+                                "$ref": "#/components/schemas/ScheduleStatusEnum"
                             },
                             {
                                 "type": "null"
@@ -4896,7 +4896,7 @@
                             "null"
                         ],
                         "items": {
-                            "$ref": "#\/components\/schemas\/ScheduleComponentRequestData"
+                            "$ref": "#/components/schemas/ScheduleComponentRequestData"
                         }
                     }
                 },
@@ -4934,7 +4934,7 @@
             "ModelNotFoundException": {
                 "description": "Not found",
                 "content": {
-                    "application\/json": {
+                    "application/json": {
                         "schema": {
                             "type": "object",
                             "properties": {
@@ -4953,7 +4953,7 @@
             "AuthenticationException": {
                 "description": "Unauthenticated",
                 "content": {
-                    "application\/json": {
+                    "application/json": {
                         "schema": {
                             "type": "object",
                             "properties": {
@@ -4972,7 +4972,7 @@
             "ValidationException": {
                 "description": "Validation error",
                 "content": {
-                    "application\/json": {
+                    "application/json": {
                         "schema": {
                             "type": "object",
                             "properties": {
