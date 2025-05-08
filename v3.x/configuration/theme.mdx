@@ -31,6 +31,18 @@ php artisan storage:link
 
 From here you may upload a custom banner image to be displayed on your status page. To use the default banner image, click the "X" button.
 
+### Common issues
+
+#### Uploading images returns a `401 Unauthorized`
+
+This error is often seen when running Cachet behind a Reverse Proxy. To resolve this, you'll need to add your trusted
+proxy IPs Cachet's `.env` file.
+
+```dotenv
+# Replace with your reverse proxy IPs
+CACHET_TRUSTED_PROXIES="192.168.1.1,192.168.1.2"
+```
+
 ## Accents
 
 Cachet provides a simple way to customize the colors of your status page through the use of accents. Accent colors
