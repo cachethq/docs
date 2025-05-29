@@ -10,6 +10,38 @@
             "url": "http://localhost/api"
         }
     ],
+    "tags": [
+        {
+            "name": "Components"
+        },
+        {
+            "name": "Component Groups"
+        },
+        {
+            "name": "Incidents"
+        },
+        {
+            "name": "Incident Templates"
+        },
+        {
+            "name": "Metrics"
+        },
+        {
+            "name": "Schedules"
+        },
+        {
+            "name": "Incident Updates"
+        },
+        {
+            "name": "Schedule Updates"
+        },
+        {
+            "name": "Metric Points"
+        },
+        {
+            "name": "Cachet"
+        }
+    ],
     "security": [
         {
             "http": []
@@ -33,7 +65,9 @@
                                     "properties": {
                                         "data": {
                                             "type": "string",
-                                            "example": "Pong!"
+                                            "enum": [
+                                                "Pong!"
+                                            ]
                                         }
                                     },
                                     "required": [
@@ -67,7 +101,9 @@
                                             "properties": {
                                                 "version": {
                                                     "type": "string",
-                                                    "example": "'3.x-dev'"
+                                                    "enum": [
+                                                        "'3.x-dev'"
+                                                    ]
                                                 }
                                             },
                                             "required": [
@@ -3382,7 +3418,7 @@
                                 "type": "object",
                                 "properties": {
                                     "data": {
-                                        "$ref": "#/components/schemas/ComponentGroup"
+                                        "$ref": "#/components/schemas/ComponentGroupIdentifier"
                                     }
                                 },
                                 "required": [
@@ -3504,6 +3540,25 @@
                     "type"
                 ],
                 "title": "ComponentGroup"
+            },
+            "ComponentGroupIdentifier": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "componentGroups"
+                        ]
+                    },
+                    "id": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "type",
+                    "id"
+                ],
+                "title": "ComponentGroupIdentifier"
             },
             "ComponentStatusEnum": {
                 "type": "integer",
@@ -4044,7 +4099,7 @@
                                 "type": "object",
                                 "properties": {
                                     "data": {
-                                        "$ref": "#/components/schemas/User"
+                                        "$ref": "#/components/schemas/UserIdentifier"
                                     }
                                 },
                                 "required": [
@@ -4282,6 +4337,25 @@
                 ],
                 "title": "Metric"
             },
+            "MetricIdentifier": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "metrics"
+                        ]
+                    },
+                    "id": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "type",
+                    "id"
+                ],
+                "title": "MetricIdentifier"
+            },
             "MetricPoint": {
                 "type": "object",
                 "properties": {
@@ -4360,7 +4434,7 @@
                                 "type": "object",
                                 "properties": {
                                     "data": {
-                                        "$ref": "#/components/schemas/Metric"
+                                        "$ref": "#/components/schemas/MetricIdentifier"
                                     }
                                 },
                                 "required": [
@@ -4902,32 +4976,21 @@
                 },
                 "title": "UpdateScheduleRequestData"
             },
-            "User": {
+            "UserIdentifier": {
                 "type": "object",
                 "properties": {
-                    "id": {
-                        "type": "string"
-                    },
                     "type": {
                         "type": "string"
                     },
-                    "attributes": {
-                        "type": "object",
-                        "properties": {
-                            "id": {
-                                "type": "string"
-                            }
-                        },
-                        "required": [
-                            "id"
-                        ]
+                    "id": {
+                        "type": "string"
                     }
                 },
                 "required": [
-                    "id",
-                    "type"
+                    "type",
+                    "id"
                 ],
-                "title": "User"
+                "title": "UserIdentifier"
             }
         },
         "responses": {
