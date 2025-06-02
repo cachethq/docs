@@ -273,13 +273,20 @@
                                                         "null"
                                                     ]
                                                 }
-                                            },
-                                            "required": [
-                                                "first",
-                                                "last",
-                                                "prev",
-                                                "next"
-                                            ]
+                                            }
+                                        },
+                                        "included": {
+                                            "type": "array",
+                                            "items": {
+                                                "anyOf": [
+                                                    {
+                                                        "$ref": "#/components/schemas/ComponentGroup"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/Incident"
+                                                    }
+                                                ]
+                                            }
                                         }
                                     },
                                     "required": [
@@ -601,13 +608,13 @@
                                                         "null"
                                                     ]
                                                 }
-                                            },
-                                            "required": [
-                                                "first",
-                                                "last",
-                                                "prev",
-                                                "next"
-                                            ]
+                                            }
+                                        },
+                                        "included": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Component"
+                                            }
                                         }
                                     },
                                     "required": [
@@ -950,13 +957,23 @@
                                                         "null"
                                                     ]
                                                 }
-                                            },
-                                            "required": [
-                                                "first",
-                                                "last",
-                                                "prev",
-                                                "next"
-                                            ]
+                                            }
+                                        },
+                                        "included": {
+                                            "type": "array",
+                                            "items": {
+                                                "anyOf": [
+                                                    {
+                                                        "$ref": "#/components/schemas/Component"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/Update"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/User"
+                                                    }
+                                                ]
+                                            }
                                         }
                                     },
                                     "required": [
@@ -1294,13 +1311,7 @@
                                                         "null"
                                                     ]
                                                 }
-                                            },
-                                            "required": [
-                                                "first",
-                                                "last",
-                                                "prev",
-                                                "next"
-                                            ]
+                                            }
                                         }
                                     },
                                     "required": [
@@ -2013,13 +2024,13 @@
                                                         "null"
                                                     ]
                                                 }
-                                            },
-                                            "required": [
-                                                "first",
-                                                "last",
-                                                "prev",
-                                                "next"
-                                            ]
+                                            }
+                                        },
+                                        "included": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/MetricPoint"
+                                            }
                                         }
                                     },
                                     "required": [
@@ -2351,13 +2362,13 @@
                                                         "null"
                                                     ]
                                                 }
-                                            },
-                                            "required": [
-                                                "first",
-                                                "last",
-                                                "prev",
-                                                "next"
-                                            ]
+                                            }
+                                        },
+                                        "included": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Metric"
+                                            }
                                         }
                                     },
                                     "required": [
@@ -2674,13 +2685,20 @@
                                                         "null"
                                                     ]
                                                 }
-                                            },
-                                            "required": [
-                                                "first",
-                                                "last",
-                                                "prev",
-                                                "next"
-                                            ]
+                                            }
+                                        },
+                                        "included": {
+                                            "type": "array",
+                                            "items": {
+                                                "anyOf": [
+                                                    {
+                                                        "$ref": "#/components/schemas/Component"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/Update"
+                                                    }
+                                                ]
+                                            }
                                         }
                                     },
                                     "required": [
@@ -3011,13 +3029,7 @@
                                                         "null"
                                                     ]
                                                 }
-                                            },
-                                            "required": [
-                                                "first",
-                                                "last",
-                                                "prev",
-                                                "next"
-                                            ]
+                                            }
                                         }
                                     },
                                     "required": [
@@ -3332,19 +3344,28 @@
                         "type": "object",
                         "properties": {
                             "id": {
-                                "type": "string"
+                                "type": "integer"
                             },
                             "name": {
                                 "type": "string"
                             },
                             "description": {
-                                "type": "string"
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
                             },
                             "link": {
-                                "type": "string"
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
                             },
                             "order": {
-                                "type": "string"
+                                "type": [
+                                    "integer",
+                                    "null"
+                                ]
                             },
                             "status": {
                                 "type": "object",
@@ -3362,10 +3383,14 @@
                                 ]
                             },
                             "enabled": {
-                                "type": "string"
+                                "type": "boolean"
                             },
                             "meta": {
-                                "type": "string"
+                                "type": [
+                                    "array",
+                                    "null"
+                                ],
+                                "items": {}
                             },
                             "created": {
                                 "type": "object",
@@ -3464,16 +3489,16 @@
                         "type": "object",
                         "properties": {
                             "id": {
-                                "type": "string"
+                                "type": "integer"
                             },
                             "name": {
                                 "type": "string"
                             },
                             "order": {
-                                "type": "string"
+                                "type": "integer"
                             },
                             "visible": {
-                                "type": "string"
+                                "$ref": "#/components/schemas/ResourceVisibilityEnum"
                             },
                             "created": {
                                 "type": "object",
@@ -3965,7 +3990,7 @@
                         "type": "object",
                         "properties": {
                             "id": {
-                                "type": "string"
+                                "type": "integer"
                             },
                             "guid": {
                                 "type": "string"
@@ -3977,16 +4002,19 @@
                                 "type": "string"
                             },
                             "component_id": {
-                                "type": "string"
+                                "type": [
+                                    "integer",
+                                    "null"
+                                ]
                             },
                             "visible": {
-                                "type": "string"
+                                "$ref": "#/components/schemas/ResourceVisibilityEnum"
                             },
                             "stickied": {
-                                "type": "string"
+                                "type": "boolean"
                             },
                             "notifications": {
-                                "type": "string"
+                                "type": "integer"
                             },
                             "status": {
                                 "type": "object",
@@ -4142,7 +4170,7 @@
                         "type": "object",
                         "properties": {
                             "id": {
-                                "type": "string"
+                                "type": "integer"
                             },
                             "name": {
                                 "type": "string"
@@ -4154,7 +4182,7 @@
                                 "type": "string"
                             },
                             "engine": {
-                                "type": "string"
+                                "$ref": "#/components/schemas/IncidentTemplateEngineEnum"
                             },
                             "created": {
                                 "type": "object",
@@ -4228,7 +4256,7 @@
                         "type": "object",
                         "properties": {
                             "id": {
-                                "type": "string"
+                                "type": "integer"
                             },
                             "name": {
                                 "type": "string"
@@ -4237,31 +4265,37 @@
                                 "type": "string"
                             },
                             "description": {
-                                "type": "string"
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
                             },
                             "default_value": {
-                                "type": "string"
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
                             },
                             "calc_type": {
-                                "type": "string"
+                                "$ref": "#/components/schemas/MetricTypeEnum"
                             },
                             "display_chart": {
-                                "type": "string"
+                                "type": "boolean"
                             },
                             "places": {
-                                "type": "string"
+                                "type": "integer"
                             },
                             "default_view": {
-                                "type": "string"
+                                "$ref": "#/components/schemas/MetricViewEnum"
                             },
                             "threshold": {
-                                "type": "string"
+                                "type": "integer"
                             },
                             "order": {
-                                "type": "string"
+                                "type": "integer"
                             },
                             "visible": {
-                                "type": "string"
+                                "$ref": "#/components/schemas/ResourceVisibilityEnum"
                             },
                             "created": {
                                 "type": "object",
@@ -4372,19 +4406,19 @@
                         "type": "object",
                         "properties": {
                             "id": {
-                                "type": "string"
+                                "type": "integer"
                             },
                             "metric_id": {
-                                "type": "string"
+                                "type": "integer"
                             },
                             "calculated_value": {
                                 "type": "string"
                             },
                             "value": {
-                                "type": "string"
+                                "type": "number"
                             },
                             "counter": {
-                                "type": "string"
+                                "type": "integer"
                             },
                             "created": {
                                 "type": "object",
@@ -4458,6 +4492,25 @@
                 ],
                 "title": "MetricTypeEnum"
             },
+            "MetricViewEnum": {
+                "type": "integer",
+                "enum": [
+                    0,
+                    1,
+                    2,
+                    3
+                ],
+                "title": "MetricViewEnum"
+            },
+            "ResourceVisibilityEnum": {
+                "type": "integer",
+                "enum": [
+                    0,
+                    1,
+                    2
+                ],
+                "title": "ResourceVisibilityEnum"
+            },
             "Schedule": {
                 "type": "object",
                 "properties": {
@@ -4474,13 +4527,16 @@
                         "type": "object",
                         "properties": {
                             "id": {
-                                "type": "string"
+                                "type": "integer"
                             },
                             "name": {
                                 "type": "string"
                             },
                             "message": {
-                                "type": "string"
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
                             },
                             "status": {
                                 "type": "object",
@@ -4650,10 +4706,10 @@
                         "type": "object",
                         "properties": {
                             "id": {
-                                "type": "string"
+                                "type": "integer"
                             },
                             "updateable_id": {
-                                "type": "string"
+                                "type": "integer"
                             },
                             "updateable_type": {
                                 "type": "string"
@@ -4975,6 +5031,33 @@
                     }
                 },
                 "title": "UpdateScheduleRequestData"
+            },
+            "User": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "type": "string"
+                    },
+                    "attributes": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "id"
+                        ]
+                    }
+                },
+                "required": [
+                    "id",
+                    "type"
+                ],
+                "title": "User"
             },
             "UserIdentifier": {
                 "type": "object",
