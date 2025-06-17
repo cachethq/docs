@@ -12,6 +12,9 @@
     ],
     "tags": [
         {
+            "name": "Cachet"
+        },
+        {
             "name": "Components"
         },
         {
@@ -21,25 +24,22 @@
             "name": "Incidents"
         },
         {
+            "name": "Incident Updates"
+        },
+        {
             "name": "Incident Templates"
         },
         {
             "name": "Metrics"
         },
         {
-            "name": "Schedules"
-        },
-        {
-            "name": "Incident Updates"
-        },
-        {
-            "name": "Schedule Updates"
-        },
-        {
             "name": "Metric Points"
         },
         {
-            "name": "Cachet"
+            "name": "Schedules"
+        },
+        {
+            "name": "Schedule Updates"
         }
     ],
     "security": [
