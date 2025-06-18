@@ -10,9 +10,7 @@
     "style": "grid"
   },
   "api": {
-    "playground": {
-      "mode": "simple"
-    }
+    "baseUrl": "https://v3.cachethq.io/api"
   },
   "colors": {
     "primary": "#04C147",
