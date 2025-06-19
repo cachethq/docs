@@ -8,6 +8,10 @@
     "servers": [
         {
             "url": "http://localhost/api"
+        },
+        {
+            "url": "https://v3.cachethq.io",
+            "description": "The Cachet v3 demo server."
         }
     ],
     "tags": [
