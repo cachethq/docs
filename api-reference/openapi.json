@@ -201,7 +201,7 @@
                     "200": {
                         "description": "Paginated set of `Component`",
                         "content": {
-                            "application/json": {
+                            "application/vnd.api+json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
@@ -326,7 +326,7 @@
                     "200": {
                         "description": "`Component`",
                         "content": {
-                            "application/json": {
+                            "application/vnd.api+json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
@@ -380,7 +380,7 @@
                     "200": {
                         "description": "`Component`",
                         "content": {
-                            "application/json": {
+                            "application/vnd.api+json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
@@ -432,7 +432,7 @@
                     "200": {
                         "description": "`Component`",
                         "content": {
-                            "application/json": {
+                            "application/vnd.api+json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
@@ -536,7 +536,7 @@
                     "200": {
                         "description": "Paginated set of `ComponentGroup`",
                         "content": {
-                            "application/json": {
+                            "application/vnd.api+json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
@@ -654,7 +654,7 @@
                     "200": {
                         "description": "`ComponentGroup`",
                         "content": {
-                            "application/json": {
+                            "application/vnd.api+json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
@@ -708,7 +708,7 @@
                     "200": {
                         "description": "`ComponentGroup`",
                         "content": {
-                            "application/json": {
+                            "application/vnd.api+json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
@@ -760,7 +760,7 @@
                     "200": {
                         "description": "`ComponentGroup`",
                         "content": {
-                            "application/json": {
+                            "application/vnd.api+json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
@@ -885,7 +885,7 @@
                     "200": {
                         "description": "Paginated set of `Incident`",
                         "content": {
-                            "application/json": {
+                            "application/vnd.api+json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
@@ -1013,7 +1013,7 @@
                     "200": {
                         "description": "`Incident`",
                         "content": {
-                            "application/json": {
+                            "application/vnd.api+json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
@@ -1067,7 +1067,7 @@
                     "200": {
                         "description": "`Incident`",
                         "content": {
-                            "application/json": {
+                            "application/vnd.api+json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
@@ -1119,7 +1119,7 @@
                     "200": {
                         "description": "`Incident`",
                         "content": {
-                            "application/json": {
+                            "application/vnd.api+json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
@@ -1239,7 +1239,7 @@
                     "200": {
                         "description": "Paginated set of `Update`",
                         "content": {
-                            "application/json": {
+                            "application/vnd.api+json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
@@ -1365,7 +1365,7 @@
                     "200": {
                         "description": "`Update`",
                         "content": {
-                            "application/json": {
+                            "application/vnd.api+json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
@@ -1431,7 +1431,7 @@
                     "200": {
                         "description": "`Update`",
                         "content": {
-                            "application/json": {
+                            "application/vnd.api+json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
@@ -1492,7 +1492,7 @@
                     "200": {
                         "description": "`Update`",
                         "content": {
-                            "application/json": {
+                            "application/vnd.api+json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
@@ -1733,7 +1733,7 @@
                     "200": {
                         "description": "`IncidentTemplate`",
                         "content": {
-                            "application/json": {
+                            "application/vnd.api+json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
@@ -1779,7 +1779,7 @@
                     "200": {
                         "description": "`IncidentTemplate`",
                         "content": {
-                            "application/json": {
+                            "application/vnd.api+json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
@@ -1831,7 +1831,7 @@
                     "200": {
                         "description": "`IncidentTemplate`",
                         "content": {
-                            "application/json": {
+                            "application/vnd.api+json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
@@ -1952,7 +1952,7 @@
                     "200": {
                         "description": "Paginated set of `Metric`",
                         "content": {
-                            "application/json": {
+                            "application/vnd.api+json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
@@ -2070,7 +2070,7 @@
                     "200": {
                         "description": "`Metric`",
                         "content": {
-                            "application/json": {
+                            "application/vnd.api+json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
@@ -2124,7 +2124,7 @@
                     "200": {
                         "description": "`Metric`",
                         "content": {
-                            "application/json": {
+                            "application/vnd.api+json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
@@ -2177,7 +2177,7 @@
                     "200": {
                         "description": "`Metric`",
                         "content": {
-                            "application/json": {
+                            "application/vnd.api+json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
@@ -2290,7 +2290,7 @@
                     "200": {
                         "description": "Paginated set of `MetricPoint`",
                         "content": {
-                            "application/json": {
+                            "application/vnd.api+json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
@@ -2422,7 +2422,7 @@
                     "201": {
                         "description": "`MetricPoint`",
                         "content": {
-                            "application/json": {
+                            "application/vnd.api+json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
@@ -2488,7 +2488,7 @@
                     "200": {
                         "description": "`MetricPoint`",
                         "content": {
-                            "application/json": {
+                            "application/vnd.api+json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
@@ -2613,7 +2613,7 @@
                     "200": {
                         "description": "Paginated set of `Schedule`",
                         "content": {
-                            "application/json": {
+                            "application/vnd.api+json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
@@ -2738,7 +2738,7 @@
                     "200": {
                         "description": "`Schedule`",
                         "content": {
-                            "application/json": {
+                            "application/vnd.api+json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
@@ -2792,7 +2792,7 @@
                     "200": {
                         "description": "`Schedule`",
                         "content": {
-                            "application/json": {
+                            "application/vnd.api+json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
@@ -2844,7 +2844,7 @@
                     "200": {
                         "description": "`Schedule`",
                         "content": {
-                            "application/json": {
+                            "application/vnd.api+json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
@@ -2957,7 +2957,7 @@
                     "200": {
                         "description": "Paginated set of `Update`",
                         "content": {
-                            "application/json": {
+                            "application/vnd.api+json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
@@ -3083,7 +3083,7 @@
                     "200": {
                         "description": "`Update`",
                         "content": {
-                            "application/json": {
+                            "application/vnd.api+json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
@@ -3149,7 +3149,7 @@
                     "200": {
                         "description": "`Update`",
                         "content": {
-                            "application/json": {
+                            "application/vnd.api+json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
@@ -3210,7 +3210,7 @@
                     "200": {
                         "description": "`Update`",
                         "content": {
-                            "application/json": {
+                            "application/vnd.api+json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
