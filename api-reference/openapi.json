@@ -211,6 +211,35 @@
                                                 "$ref": "#/components/schemas/Component"
                                             }
                                         },
+                                        "links": {
+                                            "type": "object",
+                                            "properties": {
+                                                "first": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                },
+                                                "last": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                },
+                                                "prev": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                },
+                                                "next": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                }
+                                            }
+                                        },
                                         "meta": {
                                             "type": "object",
                                             "properties": {
@@ -250,35 +279,6 @@
                                                 "to"
                                             ]
                                         },
-                                        "links": {
-                                            "type": "object",
-                                            "properties": {
-                                                "first": {
-                                                    "type": [
-                                                        "string",
-                                                        "null"
-                                                    ]
-                                                },
-                                                "last": {
-                                                    "type": [
-                                                        "string",
-                                                        "null"
-                                                    ]
-                                                },
-                                                "prev": {
-                                                    "type": [
-                                                        "string",
-                                                        "null"
-                                                    ]
-                                                },
-                                                "next": {
-                                                    "type": [
-                                                        "string",
-                                                        "null"
-                                                    ]
-                                                }
-                                            }
-                                        },
                                         "included": {
                                             "type": "array",
                                             "items": {
@@ -295,8 +295,8 @@
                                     },
                                     "required": [
                                         "data",
-                                        "links",
-                                        "meta"
+                                        "meta",
+                                        "links"
                                     ]
                                 }
                             }
@@ -546,6 +546,35 @@
                                                 "$ref": "#/components/schemas/ComponentGroup"
                                             }
                                         },
+                                        "links": {
+                                            "type": "object",
+                                            "properties": {
+                                                "first": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                },
+                                                "last": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                },
+                                                "prev": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                },
+                                                "next": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                }
+                                            }
+                                        },
                                         "meta": {
                                             "type": "object",
                                             "properties": {
@@ -585,35 +614,6 @@
                                                 "to"
                                             ]
                                         },
-                                        "links": {
-                                            "type": "object",
-                                            "properties": {
-                                                "first": {
-                                                    "type": [
-                                                        "string",
-                                                        "null"
-                                                    ]
-                                                },
-                                                "last": {
-                                                    "type": [
-                                                        "string",
-                                                        "null"
-                                                    ]
-                                                },
-                                                "prev": {
-                                                    "type": [
-                                                        "string",
-                                                        "null"
-                                                    ]
-                                                },
-                                                "next": {
-                                                    "type": [
-                                                        "string",
-                                                        "null"
-                                                    ]
-                                                }
-                                            }
-                                        },
                                         "included": {
                                             "type": "array",
                                             "items": {
@@ -623,8 +623,8 @@
                                     },
                                     "required": [
                                         "data",
-                                        "links",
-                                        "meta"
+                                        "meta",
+                                        "links"
                                     ]
                                 }
                             }
@@ -895,6 +895,35 @@
                                                 "$ref": "#/components/schemas/Incident"
                                             }
                                         },
+                                        "links": {
+                                            "type": "object",
+                                            "properties": {
+                                                "first": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                },
+                                                "last": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                },
+                                                "prev": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                },
+                                                "next": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                }
+                                            }
+                                        },
                                         "meta": {
                                             "type": "object",
                                             "properties": {
@@ -934,35 +963,6 @@
                                                 "to"
                                             ]
                                         },
-                                        "links": {
-                                            "type": "object",
-                                            "properties": {
-                                                "first": {
-                                                    "type": [
-                                                        "string",
-                                                        "null"
-                                                    ]
-                                                },
-                                                "last": {
-                                                    "type": [
-                                                        "string",
-                                                        "null"
-                                                    ]
-                                                },
-                                                "prev": {
-                                                    "type": [
-                                                        "string",
-                                                        "null"
-                                                    ]
-                                                },
-                                                "next": {
-                                                    "type": [
-                                                        "string",
-                                                        "null"
-                                                    ]
-                                                }
-                                            }
-                                        },
                                         "included": {
                                             "type": "array",
                                             "items": {
@@ -982,8 +982,8 @@
                                     },
                                     "required": [
                                         "data",
-                                        "links",
-                                        "meta"
+                                        "meta",
+                                        "links"
                                     ]
                                 }
                             }
@@ -1249,6 +1249,35 @@
                                                 "$ref": "#/components/schemas/Update"
                                             }
                                         },
+                                        "links": {
+                                            "type": "object",
+                                            "properties": {
+                                                "first": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                },
+                                                "last": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                },
+                                                "prev": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                },
+                                                "next": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                }
+                                            }
+                                        },
                                         "meta": {
                                             "type": "object",
                                             "properties": {
@@ -1287,41 +1316,12 @@
                                                 "per_page",
                                                 "to"
                                             ]
-                                        },
-                                        "links": {
-                                            "type": "object",
-                                            "properties": {
-                                                "first": {
-                                                    "type": [
-                                                        "string",
-                                                        "null"
-                                                    ]
-                                                },
-                                                "last": {
-                                                    "type": [
-                                                        "string",
-                                                        "null"
-                                                    ]
-                                                },
-                                                "prev": {
-                                                    "type": [
-                                                        "string",
-                                                        "null"
-                                                    ]
-                                                },
-                                                "next": {
-                                                    "type": [
-                                                        "string",
-                                                        "null"
-                                                    ]
-                                                }
-                                            }
                                         }
                                     },
                                     "required": [
                                         "data",
-                                        "links",
-                                        "meta"
+                                        "meta",
+                                        "links"
                                     ]
                                 }
                             }
@@ -1615,7 +1615,7 @@
                     "200": {
                         "description": "Paginated set of `IncidentTemplate`",
                         "content": {
-                            "application/json": {
+                            "application/vnd.api+json": {
                                 "schema": {
                                     "type": "object",
                                     "properties": {
@@ -1623,6 +1623,35 @@
                                             "type": "array",
                                             "items": {
                                                 "$ref": "#/components/schemas/IncidentTemplate"
+                                            }
+                                        },
+                                        "links": {
+                                            "type": "object",
+                                            "properties": {
+                                                "first": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                },
+                                                "last": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                },
+                                                "prev": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                },
+                                                "next": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                }
                                             }
                                         },
                                         "meta": {
@@ -1663,47 +1692,12 @@
                                                 "per_page",
                                                 "to"
                                             ]
-                                        },
-                                        "links": {
-                                            "type": "object",
-                                            "properties": {
-                                                "first": {
-                                                    "type": [
-                                                        "string",
-                                                        "null"
-                                                    ]
-                                                },
-                                                "last": {
-                                                    "type": [
-                                                        "string",
-                                                        "null"
-                                                    ]
-                                                },
-                                                "prev": {
-                                                    "type": [
-                                                        "string",
-                                                        "null"
-                                                    ]
-                                                },
-                                                "next": {
-                                                    "type": [
-                                                        "string",
-                                                        "null"
-                                                    ]
-                                                }
-                                            },
-                                            "required": [
-                                                "first",
-                                                "last",
-                                                "prev",
-                                                "next"
-                                            ]
                                         }
                                     },
                                     "required": [
                                         "data",
-                                        "links",
-                                        "meta"
+                                        "meta",
+                                        "links"
                                     ]
                                 }
                             }
@@ -1962,6 +1956,35 @@
                                                 "$ref": "#/components/schemas/Metric"
                                             }
                                         },
+                                        "links": {
+                                            "type": "object",
+                                            "properties": {
+                                                "first": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                },
+                                                "last": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                },
+                                                "prev": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                },
+                                                "next": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                }
+                                            }
+                                        },
                                         "meta": {
                                             "type": "object",
                                             "properties": {
@@ -2001,35 +2024,6 @@
                                                 "to"
                                             ]
                                         },
-                                        "links": {
-                                            "type": "object",
-                                            "properties": {
-                                                "first": {
-                                                    "type": [
-                                                        "string",
-                                                        "null"
-                                                    ]
-                                                },
-                                                "last": {
-                                                    "type": [
-                                                        "string",
-                                                        "null"
-                                                    ]
-                                                },
-                                                "prev": {
-                                                    "type": [
-                                                        "string",
-                                                        "null"
-                                                    ]
-                                                },
-                                                "next": {
-                                                    "type": [
-                                                        "string",
-                                                        "null"
-                                                    ]
-                                                }
-                                            }
-                                        },
                                         "included": {
                                             "type": "array",
                                             "items": {
@@ -2039,8 +2033,8 @@
                                     },
                                     "required": [
                                         "data",
-                                        "links",
-                                        "meta"
+                                        "meta",
+                                        "links"
                                     ]
                                 }
                             }
@@ -2300,6 +2294,35 @@
                                                 "$ref": "#/components/schemas/MetricPoint"
                                             }
                                         },
+                                        "links": {
+                                            "type": "object",
+                                            "properties": {
+                                                "first": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                },
+                                                "last": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                },
+                                                "prev": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                },
+                                                "next": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                }
+                                            }
+                                        },
                                         "meta": {
                                             "type": "object",
                                             "properties": {
@@ -2339,35 +2362,6 @@
                                                 "to"
                                             ]
                                         },
-                                        "links": {
-                                            "type": "object",
-                                            "properties": {
-                                                "first": {
-                                                    "type": [
-                                                        "string",
-                                                        "null"
-                                                    ]
-                                                },
-                                                "last": {
-                                                    "type": [
-                                                        "string",
-                                                        "null"
-                                                    ]
-                                                },
-                                                "prev": {
-                                                    "type": [
-                                                        "string",
-                                                        "null"
-                                                    ]
-                                                },
-                                                "next": {
-                                                    "type": [
-                                                        "string",
-                                                        "null"
-                                                    ]
-                                                }
-                                            }
-                                        },
                                         "included": {
                                             "type": "array",
                                             "items": {
@@ -2377,8 +2371,8 @@
                                     },
                                     "required": [
                                         "data",
-                                        "links",
-                                        "meta"
+                                        "meta",
+                                        "links"
                                     ]
                                 }
                             }
@@ -2623,6 +2617,35 @@
                                                 "$ref": "#/components/schemas/Schedule"
                                             }
                                         },
+                                        "links": {
+                                            "type": "object",
+                                            "properties": {
+                                                "first": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                },
+                                                "last": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                },
+                                                "prev": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                },
+                                                "next": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                }
+                                            }
+                                        },
                                         "meta": {
                                             "type": "object",
                                             "properties": {
@@ -2662,35 +2685,6 @@
                                                 "to"
                                             ]
                                         },
-                                        "links": {
-                                            "type": "object",
-                                            "properties": {
-                                                "first": {
-                                                    "type": [
-                                                        "string",
-                                                        "null"
-                                                    ]
-                                                },
-                                                "last": {
-                                                    "type": [
-                                                        "string",
-                                                        "null"
-                                                    ]
-                                                },
-                                                "prev": {
-                                                    "type": [
-                                                        "string",
-                                                        "null"
-                                                    ]
-                                                },
-                                                "next": {
-                                                    "type": [
-                                                        "string",
-                                                        "null"
-                                                    ]
-                                                }
-                                            }
-                                        },
                                         "included": {
                                             "type": "array",
                                             "items": {
@@ -2707,8 +2701,8 @@
                                     },
                                     "required": [
                                         "data",
-                                        "links",
-                                        "meta"
+                                        "meta",
+                                        "links"
                                     ]
                                 }
                             }
@@ -2967,6 +2961,35 @@
                                                 "$ref": "#/components/schemas/Update"
                                             }
                                         },
+                                        "links": {
+                                            "type": "object",
+                                            "properties": {
+                                                "first": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                },
+                                                "last": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                },
+                                                "prev": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                },
+                                                "next": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                }
+                                            }
+                                        },
                                         "meta": {
                                             "type": "object",
                                             "properties": {
@@ -3005,41 +3028,12 @@
                                                 "per_page",
                                                 "to"
                                             ]
-                                        },
-                                        "links": {
-                                            "type": "object",
-                                            "properties": {
-                                                "first": {
-                                                    "type": [
-                                                        "string",
-                                                        "null"
-                                                    ]
-                                                },
-                                                "last": {
-                                                    "type": [
-                                                        "string",
-                                                        "null"
-                                                    ]
-                                                },
-                                                "prev": {
-                                                    "type": [
-                                                        "string",
-                                                        "null"
-                                                    ]
-                                                },
-                                                "next": {
-                                                    "type": [
-                                                        "string",
-                                                        "null"
-                                                    ]
-                                                }
-                                            }
                                         }
                                     },
                                     "required": [
                                         "data",
-                                        "links",
-                                        "meta"
+                                        "meta",
+                                        "links"
                                     ]
                                 }
                             }
@@ -3447,7 +3441,14 @@
                                 "type": "object",
                                 "properties": {
                                     "data": {
-                                        "$ref": "#/components/schemas/ComponentGroupIdentifier"
+                                        "anyOf": [
+                                            {
+                                                "$ref": "#/components/schemas/ComponentGroupIdentifier"
+                                            },
+                                            {
+                                                "type": "null"
+                                            }
+                                        ]
                                     }
                                 },
                                 "required": [
@@ -3460,7 +3461,7 @@
                                     "data": {
                                         "type": "array",
                                         "items": {
-                                            "$ref": "#/components/schemas/Incident"
+                                            "$ref": "#/components/schemas/IncidentIdentifier"
                                         }
                                     }
                                 },
@@ -3553,7 +3554,7 @@
                                     "data": {
                                         "type": "array",
                                         "items": {
-                                            "$ref": "#/components/schemas/Component"
+                                            "$ref": "#/components/schemas/ComponentIdentifier"
                                         }
                                     }
                                 },
@@ -3588,6 +3589,34 @@
                     "id"
                 ],
                 "title": "ComponentGroupIdentifier"
+            },
+            "ComponentGroupVisibilityEnum": {
+                "type": "integer",
+                "enum": [
+                    0,
+                    1,
+                    2
+                ],
+                "title": "ComponentGroupVisibilityEnum"
+            },
+            "ComponentIdentifier": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "components"
+                        ]
+                    },
+                    "id": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "type",
+                    "id"
+                ],
+                "title": "ComponentIdentifier"
             },
             "ComponentStatusEnum": {
                 "type": "integer",
@@ -4106,7 +4135,7 @@
                                     "data": {
                                         "type": "array",
                                         "items": {
-                                            "$ref": "#/components/schemas/Component"
+                                            "$ref": "#/components/schemas/ComponentIdentifier"
                                         }
                                     }
                                 },
@@ -4120,7 +4149,7 @@
                                     "data": {
                                         "type": "array",
                                         "items": {
-                                            "$ref": "#/components/schemas/Update"
+                                            "$ref": "#/components/schemas/UpdateIdentifier"
                                         }
                                     }
                                 },
@@ -4132,7 +4161,14 @@
                                 "type": "object",
                                 "properties": {
                                     "data": {
-                                        "$ref": "#/components/schemas/UserIdentifier"
+                                        "anyOf": [
+                                            {
+                                                "$ref": "#/components/schemas/UserIdentifier"
+                                            },
+                                            {
+                                                "type": "null"
+                                            }
+                                        ]
                                     }
                                 },
                                 "required": [
@@ -4147,6 +4183,25 @@
                     "type"
                 ],
                 "title": "Incident"
+            },
+            "IncidentIdentifier": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "incidents"
+                        ]
+                    },
+                    "id": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "type",
+                    "id"
+                ],
+                "title": "IncidentIdentifier"
             },
             "IncidentStatusEnum": {
                 "type": "integer",
@@ -4359,7 +4414,7 @@
                                     "data": {
                                         "type": "array",
                                         "items": {
-                                            "$ref": "#/components/schemas/MetricPoint"
+                                            "$ref": "#/components/schemas/MetricPointIdentifier"
                                         }
                                     }
                                 },
@@ -4473,7 +4528,14 @@
                                 "type": "object",
                                 "properties": {
                                     "data": {
-                                        "$ref": "#/components/schemas/MetricIdentifier"
+                                        "anyOf": [
+                                            {
+                                                "$ref": "#/components/schemas/MetricIdentifier"
+                                            },
+                                            {
+                                                "type": "null"
+                                            }
+                                        ]
                                     }
                                 },
                                 "required": [
@@ -4488,6 +4550,25 @@
                     "type"
                 ],
                 "title": "MetricPoint"
+            },
+            "MetricPointIdentifier": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "metricPoints"
+                        ]
+                    },
+                    "id": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "type",
+                    "id"
+                ],
+                "title": "MetricPointIdentifier"
             },
             "MetricTypeEnum": {
                 "type": "integer",
@@ -4639,7 +4720,7 @@
                                     "data": {
                                         "type": "array",
                                         "items": {
-                                            "$ref": "#/components/schemas/Component"
+                                            "$ref": "#/components/schemas/ComponentIdentifier"
                                         }
                                     }
                                 },
@@ -4653,7 +4734,7 @@
                                     "data": {
                                         "type": "array",
                                         "items": {
-                                            "$ref": "#/components/schemas/Update"
+                                            "$ref": "#/components/schemas/UpdateIdentifier"
                                         }
                                     }
                                 },
@@ -4872,6 +4953,25 @@
                     }
                 },
                 "title": "UpdateComponentRequestData"
+            },
+            "UpdateIdentifier": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "updates"
+                        ]
+                    },
+                    "id": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "type",
+                    "id"
+                ],
+                "title": "UpdateIdentifier"
             },
             "UpdateIncidentRequestData": {
                 "type": "object",
