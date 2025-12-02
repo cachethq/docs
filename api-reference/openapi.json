@@ -10,7 +10,7 @@
             "url": "http://localhost/api"
         },
         {
-            "url": "https://v3.cachethq.io",
+            "url": "https://v3.cachethq.io/api",
             "description": "The Cachet v3 demo server."
         }
     ],
@@ -329,6 +329,9 @@
                             }
                         }
                     },
+                    "403": {
+                        "$ref": "#/components/responses/MissingAbilityException"
+                    },
                     "401": {
                         "$ref": "#/components/responses/AuthenticationException"
                     },
@@ -435,6 +438,9 @@
                             }
                         }
                     },
+                    "403": {
+                        "$ref": "#/components/responses/MissingAbilityException"
+                    },
                     "404": {
                         "$ref": "#/components/responses/ModelNotFoundException"
                     },
@@ -466,6 +472,9 @@
                 "responses": {
                     "204": {
                         "description": "No content"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/MissingAbilityException"
                     },
                     "404": {
                         "$ref": "#/components/responses/ModelNotFoundException"
@@ -645,6 +654,9 @@
                             }
                         }
                     },
+                    "403": {
+                        "$ref": "#/components/responses/MissingAbilityException"
+                    },
                     "401": {
                         "$ref": "#/components/responses/AuthenticationException"
                     },
@@ -751,6 +763,9 @@
                             }
                         }
                     },
+                    "403": {
+                        "$ref": "#/components/responses/MissingAbilityException"
+                    },
                     "404": {
                         "$ref": "#/components/responses/ModelNotFoundException"
                     },
@@ -782,6 +797,9 @@
                 "responses": {
                     "204": {
                         "description": "No content"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/MissingAbilityException"
                     },
                     "404": {
                         "$ref": "#/components/responses/ModelNotFoundException"
@@ -992,6 +1010,9 @@
                             }
                         }
                     },
+                    "403": {
+                        "$ref": "#/components/responses/MissingAbilityException"
+                    },
                     "401": {
                         "$ref": "#/components/responses/AuthenticationException"
                     },
@@ -1098,6 +1119,9 @@
                             }
                         }
                     },
+                    "403": {
+                        "$ref": "#/components/responses/MissingAbilityException"
+                    },
                     "404": {
                         "$ref": "#/components/responses/ModelNotFoundException"
                     },
@@ -1129,6 +1153,9 @@
                 "responses": {
                     "204": {
                         "description": "No content"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/MissingAbilityException"
                     },
                     "404": {
                         "$ref": "#/components/responses/ModelNotFoundException"
@@ -1332,6 +1359,9 @@
                             }
                         }
                     },
+                    "403": {
+                        "$ref": "#/components/responses/MissingAbilityException"
+                    },
                     "404": {
                         "$ref": "#/components/responses/ModelNotFoundException"
                     },
@@ -1459,6 +1489,9 @@
                             }
                         }
                     },
+                    "403": {
+                        "$ref": "#/components/responses/MissingAbilityException"
+                    },
                     "404": {
                         "$ref": "#/components/responses/ModelNotFoundException"
                     },
@@ -1499,6 +1532,9 @@
                 "responses": {
                     "204": {
                         "description": "No content"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/MissingAbilityException"
                     },
                     "404": {
                         "$ref": "#/components/responses/ModelNotFoundException"
@@ -1682,6 +1718,9 @@
                             }
                         }
                     },
+                    "403": {
+                        "$ref": "#/components/responses/MissingAbilityException"
+                    },
                     "401": {
                         "$ref": "#/components/responses/AuthenticationException"
                     },
@@ -1780,6 +1819,9 @@
                             }
                         }
                     },
+                    "403": {
+                        "$ref": "#/components/responses/MissingAbilityException"
+                    },
                     "404": {
                         "$ref": "#/components/responses/ModelNotFoundException"
                     },
@@ -1811,6 +1853,9 @@
                 "responses": {
                     "204": {
                         "description": "No content"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/MissingAbilityException"
                     },
                     "404": {
                         "$ref": "#/components/responses/ModelNotFoundException"
@@ -2007,6 +2052,9 @@
                             }
                         }
                     },
+                    "403": {
+                        "$ref": "#/components/responses/MissingAbilityException"
+                    },
                     "401": {
                         "$ref": "#/components/responses/AuthenticationException"
                     },
@@ -2114,6 +2162,9 @@
                             }
                         }
                     },
+                    "403": {
+                        "$ref": "#/components/responses/MissingAbilityException"
+                    },
                     "404": {
                         "$ref": "#/components/responses/ModelNotFoundException"
                     },
@@ -2145,6 +2196,9 @@
                 "responses": {
                     "204": {
                         "description": "No content"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/MissingAbilityException"
                     },
                     "404": {
                         "$ref": "#/components/responses/ModelNotFoundException"
@@ -2347,6 +2401,9 @@
                             }
                         }
                     },
+                    "403": {
+                        "$ref": "#/components/responses/MissingAbilityException"
+                    },
                     "404": {
                         "$ref": "#/components/responses/ModelNotFoundException"
                     },
@@ -2448,6 +2505,9 @@
                 "responses": {
                     "204": {
                         "description": "No content"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/MissingAbilityException"
                     },
                     "404": {
                         "$ref": "#/components/responses/ModelNotFoundException"
@@ -2651,6 +2711,9 @@
                             }
                         }
                     },
+                    "403": {
+                        "$ref": "#/components/responses/MissingAbilityException"
+                    },
                     "401": {
                         "$ref": "#/components/responses/AuthenticationException"
                     },
@@ -2757,6 +2820,9 @@
                             }
                         }
                     },
+                    "403": {
+                        "$ref": "#/components/responses/MissingAbilityException"
+                    },
                     "404": {
                         "$ref": "#/components/responses/ModelNotFoundException"
                     },
@@ -2788,6 +2854,9 @@
                 "responses": {
                     "204": {
                         "description": "No content"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/MissingAbilityException"
                     },
                     "404": {
                         "$ref": "#/components/responses/ModelNotFoundException"
@@ -2984,6 +3053,9 @@
                             }
                         }
                     },
+                    "403": {
+                        "$ref": "#/components/responses/MissingAbilityException"
+                    },
                     "404": {
                         "$ref": "#/components/responses/ModelNotFoundException"
                     },
@@ -3111,6 +3183,9 @@
                             }
                         }
                     },
+                    "403": {
+                        "$ref": "#/components/responses/MissingAbilityException"
+                    },
                     "404": {
                         "$ref": "#/components/responses/ModelNotFoundException"
                     },
@@ -3151,6 +3226,9 @@
                 "responses": {
                     "204": {
                         "description": "No content"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/MissingAbilityException"
                     },
                     "404": {
                         "$ref": "#/components/responses/ModelNotFoundException"
@@ -3310,6 +3388,29 @@
                                 "required": [
                                     "human",
                                     "string"
+                                ]
+                            },
+                            "pivot": {
+                                "type": "object",
+                                "properties": {
+                                    "component_status": {
+                                        "type": "object",
+                                        "properties": {
+                                            "human": {
+                                                "type": "string"
+                                            },
+                                            "value": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "human",
+                                            "value"
+                                        ]
+                                    }
+                                },
+                                "required": [
+                                    "component_status"
                                 ]
                             }
                         },
@@ -3680,6 +3781,15 @@
                                 "type": "null"
                             }
                         ]
+                    },
+                    "components": {
+                        "type": [
+                            "array",
+                            "null"
+                        ],
+                        "items": {
+                            "$ref": "#/components/schemas/IncidentComponentRequestData"
+                        }
                     }
                 },
                 "required": [
@@ -3823,7 +3933,10 @@
                         "format": "date-time"
                     },
                     "completed_at": {
-                        "type": "string",
+                        "type": [
+                            "string",
+                            "null"
+                        ],
                         "format": "date-time"
                     },
                     "status": {
@@ -3849,8 +3962,7 @@
                 "required": [
                     "name",
                     "message",
-                    "scheduled_at",
-                    "completed_at"
+                    "scheduled_at"
                 ],
                 "title": "CreateScheduleRequestData"
             },
@@ -4075,6 +4187,22 @@
                     "type"
                 ],
                 "title": "Incident"
+            },
+            "IncidentComponentRequestData": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "status": {
+                        "$ref": "#/components/schemas/ComponentStatusEnum"
+                    }
+                },
+                "required": [
+                    "id",
+                    "status"
+                ],
+                "title": "IncidentComponentRequestData"
             },
             "IncidentIdentifier": {
                 "type": "object",
@@ -5076,6 +5204,25 @@
         "responses": {
             "ModelNotFoundException": {
                 "description": "Not found",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "message": {
+                                    "type": "string",
+                                    "description": "Error overview."
+                                }
+                            },
+                            "required": [
+                                "message"
+                            ]
+                        }
+                    }
+                }
+            },
+            "MissingAbilityException": {
+                "description": "Authorization error",
                 "content": {
                     "application/json": {
                         "schema": {
