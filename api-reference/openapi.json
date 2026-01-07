@@ -4039,12 +4039,6 @@
                             "message": {
                                 "type": "string"
                             },
-                            "component_id": {
-                                "type": [
-                                    "integer",
-                                    "null"
-                                ]
-                            },
                             "visible": {
                                 "$ref": "#/components/schemas/ResourceVisibilityEnum"
                             },
@@ -4053,6 +4047,9 @@
                             },
                             "notifications": {
                                 "type": "integer"
+                            },
+                            "components_count": {
+                                "type": "string"
                             },
                             "status": {
                                 "type": "object",
@@ -4120,7 +4117,6 @@
                             "guid",
                             "name",
                             "message",
-                            "component_id",
                             "visible",
                             "stickied",
                             "notifications",
