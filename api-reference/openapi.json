@@ -3845,12 +3845,6 @@
                 "properties": {
                     "value": {
                         "type": "number"
-                    },
-                    "timestamp": {
-                        "type": [
-                            "string",
-                            "null"
-                        ]
                     }
                 },
                 "required": [
@@ -3869,16 +3863,6 @@
                         "type": "string",
                         "maxLength": 255
                     },
-                    "calc_type": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/MetricTypeEnum"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ]
-                    },
                     "description": {
                         "type": [
                             "string",
@@ -3891,12 +3875,6 @@
                             "null"
                         ]
                     },
-                    "display_chart": {
-                        "type": [
-                            "boolean",
-                            "null"
-                        ]
-                    },
                     "threshold": {
                         "type": [
                             "integer",
@@ -3904,12 +3882,6 @@
                         ],
                         "minimum": 0,
                         "maximum": 60
-                    },
-                    "places": {
-                        "type": [
-                            "integer",
-                            "null"
-                        ]
                     }
                 },
                 "required": [
@@ -3938,16 +3910,6 @@
                             "null"
                         ],
                         "format": "date-time"
-                    },
-                    "status": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/ScheduleStatusEnum"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ]
                     },
                     "components": {
                         "type": [
@@ -5122,16 +5084,6 @@
                         "type": [
                             "string",
                             "null"
-                        ]
-                    },
-                    "status": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/ScheduleStatusEnum"
-                            },
-                            {
-                                "type": "null"
-                            }
                         ]
                     },
                     "scheduled_at": {
