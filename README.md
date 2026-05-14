@@ -20,3 +20,4 @@ Please review our [security policy](https://github.com/cachethq/cachet/security/
 ## License
 
 Cachet Docs is open-sourced software licensed under the [MIT license](LICENSE.md).
+Documentation update.
