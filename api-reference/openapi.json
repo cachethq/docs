@@ -829,7 +829,7 @@
                     {
                         "name": "include",
                         "in": "query",
-                        "description": "Available includes are `components`, `componentsCount`, `componentsExists`, `updates`, `updatesCount`, `updatesExists`, `user`, `userCount`, `userExists`. You can include multiple options by separating them with a comma.",
+                        "description": "Available includes are `components`, `componentsCount`, `componentsExists`, `components.group`, `components.groupCount`, `components.groupExists`, `updates`, `updatesCount`, `updatesExists`, `user`, `userCount`, `userExists`. You can include multiple options by separating them with a comma.",
                         "schema": {
                             "type": "string"
                         }
@@ -1042,7 +1042,7 @@
                     {
                         "name": "include",
                         "in": "query",
-                        "description": "Available includes are `components`, `componentsCount`, `componentsExists`, `updates`, `updatesCount`, `updatesExists`, `user`, `userCount`, `userExists`. You can include multiple options by separating them with a comma.",
+                        "description": "Available includes are `components`, `componentsCount`, `componentsExists`, `components.group`, `components.groupCount`, `components.groupExists`, `updates`, `updatesCount`, `updatesExists`, `user`, `userCount`, `userExists`. You can include multiple options by separating them with a comma.",
                         "schema": {
                             "type": "string"
                         }
@@ -2537,7 +2537,7 @@
                     {
                         "name": "include",
                         "in": "query",
-                        "description": "Available includes are `components`, `componentsCount`, `componentsExists`, `updates`, `updatesCount`, `updatesExists`, `user`, `userCount`, `userExists`. You can include multiple options by separating them with a comma.",
+                        "description": "Available includes are `components`, `componentsCount`, `componentsExists`, `components.group`, `components.groupCount`, `components.groupExists`, `updates`, `updatesCount`, `updatesExists`, `user`, `userCount`, `userExists`. You can include multiple options by separating them with a comma.",
                         "schema": {
                             "type": "string"
                         }
@@ -2743,7 +2743,7 @@
                     {
                         "name": "include",
                         "in": "query",
-                        "description": "Available includes are `components`, `componentsCount`, `componentsExists`, `updates`, `updatesCount`, `updatesExists`, `user`, `userCount`, `userExists`. You can include multiple options by separating them with a comma.",
+                        "description": "Available includes are `components`, `componentsCount`, `componentsExists`, `components.group`, `components.groupCount`, `components.groupExists`, `updates`, `updatesCount`, `updatesExists`, `user`, `userCount`, `userExists`. You can include multiple options by separating them with a comma.",
                         "schema": {
                             "type": "string"
                         }
@@ -3495,6 +3495,9 @@
                             "order": {
                                 "type": "integer"
                             },
+                            "collapsed": {
+                                "$ref": "#/components/schemas/ComponentGroupVisibilityEnum"
+                            },
                             "visible": {
                                 "$ref": "#/components/schemas/ResourceVisibilityEnum"
                             },
@@ -3533,6 +3536,7 @@
                             "id",
                             "name",
                             "order",
+                            "collapsed",
                             "visible",
                             "created",
                             "updated"
@@ -3643,6 +3647,16 @@
                             "null"
                         ]
                     },
+                    "collapsed": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/ComponentGroupVisibilityEnum"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
                     "components": {
                         "type": [
                             "array",
@@ -3720,14 +3734,7 @@
                         "maxLength": 255
                     },
                     "status": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/IncidentStatusEnum"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ]
+                        "$ref": "#/components/schemas/IncidentStatusEnum"
                     },
                     "message": {
                         "type": [
@@ -3793,7 +3800,8 @@
                     }
                 },
                 "required": [
-                    "name"
+                    "name",
+                    "status"
                 ],
                 "title": "CreateIncidentRequestData"
             },
@@ -4866,6 +4874,16 @@
                             "null"
                         ]
                     },
+                    "collapsed": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/ComponentGroupVisibilityEnum"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
                     "components": {
                         "type": [
                             "array",
@@ -5087,6 +5105,13 @@
                         ]
                     },
                     "scheduled_at": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "format": "date-time"
+                    },
+                    "completed_at": {
                         "type": [
                             "string",
                             "null"
