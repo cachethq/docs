@@ -3495,6 +3495,26 @@
                             "order": {
                                 "type": "integer"
                             },
+                            "order_column": {
+                                "anyOf": [
+                                    {
+                                        "$ref": "#/components/schemas/ResourceOrderColumnEnum"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "order_direction": {
+                                "anyOf": [
+                                    {
+                                        "$ref": "#/components/schemas/ResourceOrderDirectionEnum"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
                             "collapsed": {
                                 "$ref": "#/components/schemas/ComponentGroupVisibilityEnum"
                             },
@@ -3536,6 +3556,8 @@
                             "id",
                             "name",
                             "order",
+                            "order_column",
+                            "order_direction",
                             "collapsed",
                             "visible",
                             "created",
@@ -3651,6 +3673,26 @@
                         "anyOf": [
                             {
                                 "$ref": "#/components/schemas/ComponentGroupVisibilityEnum"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "order_column": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/ResourceOrderColumnEnum"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "order_direction": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/ResourceOrderDirectionEnum"
                             },
                             {
                                 "type": "null"
@@ -4574,6 +4616,25 @@
                 ],
                 "title": "MetricViewEnum"
             },
+            "ResourceOrderColumnEnum": {
+                "type": "string",
+                "enum": [
+                    "id",
+                    "last_updated",
+                    "name",
+                    "manual",
+                    "status"
+                ],
+                "title": "ResourceOrderColumnEnum"
+            },
+            "ResourceOrderDirectionEnum": {
+                "type": "string",
+                "enum": [
+                    "asc",
+                    "desc"
+                ],
+                "title": "ResourceOrderDirectionEnum"
+            },
             "ResourceVisibilityEnum": {
                 "type": "integer",
                 "enum": [
@@ -4878,6 +4939,26 @@
                         "anyOf": [
                             {
                                 "$ref": "#/components/schemas/ComponentGroupVisibilityEnum"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "order_column": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/ResourceOrderColumnEnum"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "order_direction": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/ResourceOrderDirectionEnum"
                             },
                             {
                                 "type": "null"
