@@ -821,9 +821,10 @@
                     {
                         "name": "sort",
                         "in": "query",
-                        "description": "Available sorts are `name`, `status`, `id`. You can sort by multiple options by separating them with a comma. To sort in descending order, use `-` sign in front of the sort, for example: `-name`.",
+                        "description": "Available sorts are `name`, `status`, `id`, `created_at`. You can sort by multiple options by separating them with a comma. To sort in descending order, use `-` sign in front of the sort, for example: `-name`.",
                         "schema": {
-                            "type": "string"
+                            "type": "string",
+                            "default": "-created_at"
                         }
                     },
                     {
@@ -868,7 +869,21 @@
                         }
                     },
                     {
-                        "name": "filter[occurred_at]",
+                        "name": "filter[occurs_after]",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "filter[occurs_before]",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "filter[occurs_on]",
                         "in": "query",
                         "schema": {
                             "type": "string"
@@ -3670,33 +3685,37 @@
                         ]
                     },
                     "collapsed": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/ComponentGroupVisibilityEnum"
-                            },
-                            {
-                                "type": "null"
-                            }
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "enum": [
+                            "0",
+                            "1",
+                            "2"
                         ]
                     },
                     "order_column": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/ResourceOrderColumnEnum"
-                            },
-                            {
-                                "type": "null"
-                            }
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "enum": [
+                            "id",
+                            "last_updated",
+                            "name",
+                            "manual",
+                            "status"
                         ]
                     },
                     "order_direction": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/ResourceOrderDirectionEnum"
-                            },
-                            {
-                                "type": "null"
-                            }
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "enum": [
+                            "asc",
+                            "desc"
                         ]
                     },
                     "components": {
@@ -3729,13 +3748,17 @@
                         ]
                     },
                     "status": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/ComponentStatusEnum"
-                            },
-                            {
-                                "type": "null"
-                            }
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "enum": [
+                            "1",
+                            "2",
+                            "3",
+                            "4",
+                            "5",
+                            "6"
                         ]
                     },
                     "link": {
@@ -3776,7 +3799,14 @@
                         "maxLength": 255
                     },
                     "status": {
-                        "$ref": "#/components/schemas/IncidentStatusEnum"
+                        "type": "string",
+                        "enum": [
+                            "0",
+                            "1",
+                            "2",
+                            "3",
+                            "4"
+                        ]
                     },
                     "message": {
                         "type": [
@@ -3822,13 +3852,17 @@
                         ]
                     },
                     "component_status": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/ComponentStatusEnum"
-                            },
-                            {
-                                "type": "null"
-                            }
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "enum": [
+                            "1",
+                            "2",
+                            "3",
+                            "4",
+                            "5",
+                            "6"
                         ]
                     },
                     "components": {
@@ -3858,13 +3892,13 @@
                         "type": "string"
                     },
                     "engine": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/IncidentTemplateEngineEnum"
-                            },
-                            {
-                                "type": "null"
-                            }
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "enum": [
+                            "blade",
+                            "twig"
                         ]
                     }
                 },
@@ -3878,7 +3912,14 @@
                 "type": "object",
                 "properties": {
                     "status": {
-                        "$ref": "#/components/schemas/IncidentStatusEnum"
+                        "type": "string",
+                        "enum": [
+                            "0",
+                            "1",
+                            "2",
+                            "3",
+                            "4"
+                        ]
                     },
                     "message": {
                         "type": "string"
@@ -3994,13 +4035,16 @@
                 "type": "object",
                 "properties": {
                     "status": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/IncidentStatusEnum"
-                            },
-                            {
-                                "type": "null"
-                            }
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "enum": [
+                            "0",
+                            "1",
+                            "2",
+                            "3",
+                            "4"
                         ]
                     },
                     "message": {
@@ -4203,7 +4247,15 @@
                         "type": "integer"
                     },
                     "status": {
-                        "$ref": "#/components/schemas/ComponentStatusEnum"
+                        "type": "string",
+                        "enum": [
+                            "1",
+                            "2",
+                            "3",
+                            "4",
+                            "5",
+                            "6"
+                        ]
                     }
                 },
                 "required": [
@@ -4805,7 +4857,15 @@
                         "type": "integer"
                     },
                     "status": {
-                        "$ref": "#/components/schemas/ComponentStatusEnum"
+                        "type": "string",
+                        "enum": [
+                            "1",
+                            "2",
+                            "3",
+                            "4",
+                            "5",
+                            "6"
+                        ]
                     }
                 },
                 "required": [
@@ -4936,33 +4996,37 @@
                         ]
                     },
                     "collapsed": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/ComponentGroupVisibilityEnum"
-                            },
-                            {
-                                "type": "null"
-                            }
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "enum": [
+                            "0",
+                            "1",
+                            "2"
                         ]
                     },
                     "order_column": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/ResourceOrderColumnEnum"
-                            },
-                            {
-                                "type": "null"
-                            }
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "enum": [
+                            "id",
+                            "last_updated",
+                            "name",
+                            "manual",
+                            "status"
                         ]
                     },
                     "order_direction": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/ResourceOrderDirectionEnum"
-                            },
-                            {
-                                "type": "null"
-                            }
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "enum": [
+                            "asc",
+                            "desc"
                         ]
                     },
                     "components": {
@@ -4995,13 +5059,17 @@
                         ]
                     },
                     "status": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/ComponentStatusEnum"
-                            },
-                            {
-                                "type": "null"
-                            }
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "enum": [
+                            "1",
+                            "2",
+                            "3",
+                            "4",
+                            "5",
+                            "6"
                         ]
                     },
                     "link": {
@@ -5064,13 +5132,16 @@
                         ]
                     },
                     "status": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/IncidentStatusEnum"
-                            },
-                            {
-                                "type": "null"
-                            }
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "enum": [
+                            "0",
+                            "1",
+                            "2",
+                            "3",
+                            "4"
                         ]
                     },
                     "visible": {
@@ -5117,13 +5188,13 @@
                         ]
                     },
                     "engine": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/IncidentTemplateEngineEnum"
-                            },
-                            {
-                                "type": "null"
-                            }
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "enum": [
+                            "blade",
+                            "twig"
                         ]
                     }
                 },
