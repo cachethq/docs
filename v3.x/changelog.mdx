@@ -3,24 +3,128 @@ title: 'Changelog'
 description: 'Learn about the changes in Cachet.'
 ---
 
-<Update label="2024-11-27">
+<Update label="July 2026">
     # Added
 
-    - (Core) Oh Dear integration [#134](https://github.com/cachethq/core/pull/134)
+    - (Core) Support for Laravel 13 [#368](https://github.com/cachethq/core/pull/368)
+</Update>
+
+<Update label="June 2026">
+    # Added
+
+    - (Core) Component monitoring [#211](https://github.com/cachethq/core/pull/211)
+    - (Core) Advanced component group ordering [#212](https://github.com/cachethq/core/pull/212)
+    - (Core) Affected components on the incident page [#363](https://github.com/cachethq/core/pull/363)
+    - (Core) API support for setting a component group's collapsed state [#356](https://github.com/cachethq/core/pull/356)
+    - (Core) Component groups nested under their relationships when querying schedules and incidents via the API [#357](https://github.com/cachethq/core/pull/357)
+    - (Core) Support for Laravel 12 [#245](https://github.com/cachethq/core/pull/245)
 
     # Changed
 
-    - (Core) Improved database seeder [`1f43fb`](https://github.com/cachethq/core/commit/1f43fb32696576036596914391f56feb79be76ff)
+    - (Core) Upgraded to Filament 5.x [#323](https://github.com/cachethq/core/pull/323)
+    - (Core) Completed maintenance now appears in the timeline [#334](https://github.com/cachethq/core/pull/334)
+    - (Core) Creating an incident now requires a status [#358](https://github.com/cachethq/core/pull/358)
 </Update>
 
-<Update label="2024-11-24">
+<Update label="May 2026">
+    # Changed
+
+    - (Core) Modernised status page design [#352](https://github.com/cachethq/core/pull/352)
+    - (Core) Cachet now marks an incident as fixed when its latest update is marked as fixed [#349](https://github.com/cachethq/core/pull/349)
+</Update>
+
+<Update label="March 2026">
+    # Changed
+
+    - (Core) Cachet now sets linked components to operational when an incident is fixed [#333](https://github.com/cachethq/core/pull/333)
+</Update>
+
+<Update label="February 2026">
+    # Changed
+
+    - (Core) Cachet now excludes disabled components from the system status calculation [#329](https://github.com/cachethq/core/pull/329)
+</Update>
+
+<Update label="December 2025">
     # Added
 
+    - (Core) Attach components to schedules [#307](https://github.com/cachethq/core/pull/307)
+</Update>
+
+<Update label="September 2025">
+    # Added
+
+    - (Core) Timezone switcher on the status page [#233](https://github.com/cachethq/core/pull/233)
+    - (Core) Option to show metrics even when they have no data [#297](https://github.com/cachethq/core/pull/297)
+</Update>
+
+<Update label="August 2025">
+    # Added
+
+    - (Core) "Under maintenance" status for components and systems [#287](https://github.com/cachethq/core/pull/287)
+    - (Core) Localization settings page [#285](https://github.com/cachethq/core/pull/285)
+
+    # Changed
+
+    - (Core) Upgraded to Filament 4.x [#292](https://github.com/cachethq/core/pull/292)
+</Update>
+
+<Update label="May 2025">
+    # Added
+
+    - (Core) Edit profile page [#276](https://github.com/cachethq/core/pull/276)
+    - (Core) Setting to control whether Cachet loads external dependencies [#278](https://github.com/cachethq/core/pull/278)
+</Update>
+
+<Update label="March 2025">
+    # Added
+
+    - (Core) Option to display metric graphs [#257](https://github.com/cachethq/core/pull/257)
+</Update>
+
+<Update label="February 2025">
+    # Added
+
+    - (Core) Metrics on the status page [#246](https://github.com/cachethq/core/pull/246)
+    - (Core) Display up to 10 years of incidents [`eeb71e`](https://github.com/cachethq/core/commit/eeb71ef4122ddc23d16228a80fa6caa21ee00e14)
+</Update>
+
+<Update label="January 2025">
+    # Added
+
+    - (Core) Webhooks [#165](https://github.com/cachethq/core/pull/165)
+    - (Core) User management [#153](https://github.com/cachethq/core/pull/153)
+    - (Core) Demo mode [#223](https://github.com/cachethq/core/pull/223)
+    - (Core) Render hooks [#151](https://github.com/cachethq/core/pull/151)
+    - (Core) API specification generation [#178](https://github.com/cachethq/core/pull/178)
+    - (Core) Preferred locale per user [#187](https://github.com/cachethq/core/pull/187)
+    - (Core) Support for the `HTTP_REMOTE_USER` header [#208](https://github.com/cachethq/core/pull/208)
+
+    # Changed
+
+    - (Core) Component groups are now sortable in the dashboard [#204](https://github.com/cachethq/core/pull/204)
+</Update>
+
+<Update label="December 2024">
+    # Added
+
+    - (Core) Accent colors [#143](https://github.com/cachethq/core/pull/143)
+    - (Core) Scheduled maintenance updates [#109](https://github.com/cachethq/core/pull/109)
+    - (Core) Attach components to incidents when creating them [#158](https://github.com/cachethq/core/pull/158)
+    - (Core) "Recent incidents only" setting [#157](https://github.com/cachethq/core/pull/157)
+    - (Core) `cachet:make:user` command [#139](https://github.com/cachethq/core/pull/139)
+</Update>
+
+<Update label="November 2024">
+    # Added
+
+    - (Core) Oh Dear integration [#134](https://github.com/cachethq/core/pull/134)
     - (Core) Scribe API annotations [#130](https://github.com/cachethq/core/pull/130)
 
     # Changed
 
+    - (Core) Improved database seeder [`1f43fb`](https://github.com/cachethq/core/commit/1f43fb32696576036596914391f56feb79be76ff)
     - (Core) Time-controlled status for scheduled maintenance [#119](https://github.com/cachethq/core/pull/119)
     - (Docs) [Mintlify](https://mintlify.com) now powers the documentation
-        - API reference for v3.x is available
+    - API reference for v3.x is available
 </Update>
