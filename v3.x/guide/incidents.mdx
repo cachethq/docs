@@ -4,7 +4,7 @@ description: 'Learn how to manage incidents in Cachet.'
 icon: 'traffic-cone'
 ---
 
-In Cachet, an incident represents any ongoing issue or event that affects the service. Incidents can be managed via
+In Cachet, an incident represents any ongoing issue or event that affects the service. You can manage incidents via
 the dashboard. Incidents consist of:
 
 - **Name**: A brief description of the incident.
@@ -17,7 +17,7 @@ The Cachet dashboard provides a simple interface to manage incidents. You can qu
 "New Incident" link in the top navigation bar. You can also view and manage existing incidents by clicking the "Incidents"
 link in the sidebar.
 
-### Incident Statuses
+### Incident statuses
 
 Incidents and updates in Cachet can have one of the following statuses:
 
@@ -27,7 +27,7 @@ Incidents and updates in Cachet can have one of the following statuses:
 - <Tooltip tip="Status ID: 3"><Icon icon="square-3" /></Tooltip> **Watching**: The incident or the resolution is being watched.
 - <Tooltip tip="Status ID: 4"><Icon icon="square-4" /></Tooltip> **Fixed**: The incident is fully resolved.
 
-## Incident Components
+## Incident components
 
 Incidents don't typically occur in isolation. They often affect one or more [components](/v3.x/guide/components) of the service. Cachet allows you
 to link incidents to components to provide more context about the incident.
@@ -35,10 +35,10 @@ to link incidents to components to provide more context about the incident.
 Once you’ve created an incident, you can link it to a component by editing the incident and clicking "Attach" in the "Components"
 panel on the incident page. When attaching a component, you may also select what status to update the component to.
 
-## Incident Updates
+## Incident updates
 
-Typically, incidents are ongoing events that require updates to keep users informed. Incident updates can be added to
-an incident to provide more information. Incident updates consist of:
+Typically, incidents are ongoing events that require updates to keep users informed. You can add updates to an
+incident to provide more information. Incident updates consist of:
 
 - **Message**: A detailed description of the update.
 - **Status**: The [status](#incident-statuses) of the incident after the update.
@@ -46,17 +46,17 @@ an incident to provide more information. Incident updates consist of:
 To update an incident, head to the "Incidents" panel in the dashboard and click "Record Update" on the incident you want to update.
 
 <Note>
-    Updates cannot be provided for "Fixed" incidents.
+    You cannot add updates to "Fixed" incidents.
 </Note>
 
-## Incident Templates
+## Incident templates
 
 Cachet allows you to build incident templates so you can create incidents quickly. Cachet supports creating incident
 templates with two templating languages:
 
 <CardGroup>
     <Card icon="symfony" title="Twig" defaultOpen={true} href="https://twig.symfony.com" horizontal img="https://twig.symfony.com/images/logo.png">
-        Twig is a flexible, fast, and secure template engine for PHP.\
+        Twig is a fast, secure template engine for PHP.\
         Click to learn about Twig.
     </Card>
 
@@ -67,4 +67,4 @@ templates with two templating languages:
 </CardGroup>
 
 Incident templates are particularly powerful when combined with the API as they allow you to create a new incident by passing
-a template and variables. An incident will be created with the template filled in with the variables you provide.
+a template and variables. Cachet creates the incident from the template, filled in with the variables you provide.

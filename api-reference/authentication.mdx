@@ -4,17 +4,17 @@ description: 'Learn how to authenticate with the Cachet API'
 ---
 
 <Tip>
-    Cachet is built on the belief that your service status is open and transparent, therefore all `GET` requests are public and require no authentication to access the information.
+    Cachet believes your service status should be open and transparent, so all `GET` requests are public and require no authentication.
 </Tip>
 
-Authenticated requests (those that `POST`, `PUT` or `DELETE`) require an **API Token**.
+Authenticated requests (those that `POST`, `PUT` or `DELETE`) require an **API token**.
 
-### API Token
+### API token
 
-API Tokens are the preferred method of authentication. 
+API tokens are the preferred method of authentication.
 
 Once you have your token you'll need to add a new request header of `Authorization: Bearer $TOKEN`:
 
 ```shell
-curl -H "Content-Type: application/json;" -H "Authorization: Bear YOUR_KEY_HERE" -d '{"name":"API","description":"An example description","status":1}' https://v3.cachethq.io/api/components
+curl -H "Content-Type: application/json;" -H "Authorization: Bearer YOUR_KEY_HERE" -d '{"name":"API","description":"An example description","status":1}' https://v3.cachethq.io/api/components
 ```

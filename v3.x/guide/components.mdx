@@ -4,8 +4,8 @@ description: 'Learn how to manage components in Cachet.'
 icon: 'traffic-light'
 ---
 
-In Cachet, a component represents any part of your system that can fail. Components are displayed on your status page
-and can be grouped together to form component groups.
+In Cachet, a component represents any part of your system that can fail. Cachet displays components on your status
+page, and you can group them into component groups.
 
 For example, you may have an "Ingest" component that represents your ingestion service, or a "Database" component that
 represents your database service.
@@ -20,18 +20,18 @@ A component has the following properties:
 - **Link**: A link to the component, such as a URL to the service.
 - **Enabled**: Whether the component is enabled or not.
 
-### Managing Components from the Dashboard
+### Managing components from the dashboard
 
-Cachet also provides a simple way of updating your component statuses directly from the Dashboard homepage. Here you can update the status quickly by clicking the appropriate status button rather than navigating through the "Components" page. 
+Cachet also provides a simple way of updating your component statuses directly from the dashboard homepage. Here you can update the status quickly by clicking the appropriate status button rather than navigating through the "Components" page. 
 
 <Frame caption="Update Component Statuses">
     <img className="block dark:hidden" src="/v3.x/images/component-dashboard-light.png" alt="Manage Components" />
     <img className="hidden dark:block" src="/v3.x/images/component-dashboard-dark.png" alt="Manage Components" />
 </Frame>
 
-### Component Statuses
+### Component statuses
 
-Components can have one of four statuses:
+Components can have one of five statuses:
 
 - <Tooltip tip="Status ID: 1"><Icon icon="square-1"/></Tooltip> **Operational**: The component is working as expected.
 - <Tooltip tip="Status ID: 2"><Icon icon="square-2"/></Tooltip> **Performance Issues**: The component is experiencing performance issues.
@@ -39,22 +39,22 @@ Components can have one of four statuses:
 - <Tooltip tip="Status ID: 4"><Icon icon="square-4"/></Tooltip> **Major Outage**: The component is experiencing a major outage.
 - <Tooltip tip="Status ID: 5"><Icon icon="square-5"/></Tooltip> **Unknown**: The component status is unknown.
 
-## Component Groups
+## Component groups
 
 To help organize your components, you can group them together into component groups. For example, you may have a
 "Services" component group that contains all of your service components.
 
-Cachet will automatically group any ungrouped components together. Ungrouped components are displayed beneath any
+Cachet will automatically group any ungrouped components together. Cachet displays ungrouped components beneath any
 component groups on your status page.
 
-## Re-ordering Components
+## Reordering components
 
 You may reorder components via the dashboard by dragging and dropping them into the desired order. To do this,
-head to the "Components" page in the dashboard, click the swap icon (up / down arrows) in the top left of the table to
-activate re-ordering mode, and then drag and drop the components into the desired order. Once you're happy with the new
+head to the "Components" page in the dashboard, click the swap icon (up and down arrows) in the top left of the table to
+activate reordering mode, and then drag and drop the components into the desired order. Once you're happy with the new
 order, click the check icon to save your changes.
 
-Components can also be reordered when editing a component group. The order will remain relative to the specific group.
+You can also reorder components when editing a component group. The order will remain relative to the specific group.
 
 <Frame>
     <img className="block dark:hidden" src="/v3.x/images/component-reordering-light.gif" alt="Reorder Components" />

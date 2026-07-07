@@ -7,12 +7,12 @@ icon: 'circle-check'
 Cachet provides the ability to customize various settings to suit your needs. To manage Cachet, navigate to the
 "Settings" section found in your Cachet dashboard.
 
-## Site Name
+## Site name
 
-You may change the name of your status page by updating the "Site Name" field. This is the name that will be displayed
-in the title and header of your status page.
+You may change the name of your status page by updating the "Site Name" field. Cachet displays this name in the title
+and header of your status page.
 
-## About Section
+## About section
 
 The "About" section allows you to provide a brief description of your status page. This is an ideal section to provide
 information about your organization, services, or status page.
@@ -23,59 +23,58 @@ information about your organization, services, or status page.
 
 ## Timezone
 
-The "Timezone" setting allows you to set the timezone for your status page. This is used to display the correct time
+The "Timezone" setting allows you to set the timezone for your status page. Cachet uses it to display the correct time
 for incidents and scheduled maintenance. The status page will always display timestamps in the user's local time.
 
-## Incident Days
+## Incident days
 
-This setting allows you to specify the number of days to display incidents on your status page. Incidents older than the
-specified number of days will be pushed into separate pages.
+This setting allows you to specify the number of days to display incidents on your status page. Cachet pushes incidents
+older than the specified number of days onto separate pages.
 
 We recommend that you set this value to a reasonable number of days to ensure that your status page remains performant
 and does not overload users with too much information.
 
-## Major Outage Threshold
+## Major outage threshold
 
-The "Major Outage Threshold" setting allows you to configure how many components (as a % of your total components) must
-be down before the system status is marked as "Major Outage".
+The "Major Outage Threshold" setting allows you to configure how many components (as a percentage of your total
+components) must be down before Cachet marks the system status as "Major Outage."
 
 When the number of down components exceeds the specified threshold, the status page will display a "Major Outage" banner.
 
-## Automatically Refresh Page
+## Automatically refresh page
 
-The "Automatically Refresh Page" setting allows you to enable or disable the automatic refresh of your status page. When enabled, the status page will automatically refresh at the specified interval.
+The "Automatically Refresh Page" setting controls whether your status page refreshes automatically. When enabled, the status page refreshes at the specified interval.
 
 The provided number will be the number of seconds between each refresh.
 
-## Other Settings
+## Other settings
 
 Cachet also provides additional settings to customize your status page.
 
 ### Support Cachet
 
-The "Support Cachet" setting allows you to enable or disable the "Powered by Cachet" link in the footer of your status page.
+The "Support Cachet" setting toggles the "Powered by Cachet" link in the footer of your status page.
 
 We’d really appreciate it if you could leave this enabled to help spread the word about Cachet 💚
 
-### Display Graphs
+### Display graphs
 
-The "Display Graphs" setting allows you to enable or disable the display of graphs on your status page. When enabled, the
-status page will display graphs for metrics such as uptime and response time.
+Enable the "Display Graphs" setting to display graphs for metrics, such as uptime and response time, on your status
+page.
 
 <Warning>
     Metrics are not fully supported in Cachet v3.x. This setting will have no effect until metrics are implemented.
 </Warning>
 
-### Show Timezone
+### Show timezone
 
-The "Show Timezone" setting allows you to enable or disable the display of the timezone on your status page. When enabled,
-the status page will display the timezone in the footer.
+When enabled, the "Show Timezone" setting displays your status page's timezone in the footer.
 
-### Only Show Disrupted Days
+### Only show disrupted days
 
-The "Only Show Disrupted Days" setting allows you to enable or disable the display of days with incidents on your status
-page. When enabled, the status page will only display days with incidents. By default, all days are displayed.
+Enable the "Only Show Disrupted Days" setting to show only the days with incidents on your status page. By default,
+the status page displays all days.
 
-### Show Dashboard Link
+### Show dashboard link
 
-The "Show Dashboard Link" setting allows you to enable or disable the display of the "Dashboard" link in the header of your status page. When enabled, the status page will display a link to the Cachet dashboard.
+The "Show Dashboard Link" setting controls the "Dashboard" link in the header of your status page. When enabled, the status page displays a link to the Cachet dashboard.

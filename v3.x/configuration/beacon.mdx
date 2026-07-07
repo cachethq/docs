@@ -5,7 +5,7 @@ icon: 'lighthouse'
 ---
 
 Cachet's "beacon" system is an optional telemetry system that allows you to send anonymous usage data to Cachet.
-This data helps us to understand how Cachet is being used and how we can improve it.
+This data helps us understand how you use Cachet and how we can improve it.
 
 ## Configuration
 
@@ -22,7 +22,7 @@ CACHET_BEACON=true
 ### Configuring the scheduler
 
 Cachet automatically registers the `cachet:beacon` command to run daily at `00:00`. You will need to configure your server
-to run the scheduler every minute using a cron job. To do so, you can do this by adding the following cron entry:
+to run the scheduler every minute using a cron job. To do so, add the following cron entry:
 
 ```bash /etc/crontab
 * * * * * php /path/to/cachet/artisan schedule:run >> /dev/null 2>&1
@@ -32,7 +32,9 @@ to run the scheduler every minute using a cron job. To do so, you can do this by
     Be sure to replace `/path/to/cachet` with the actual path to your Cachet installation.
 </Note>
 
-## What data is collected?
+## What data does Cachet collect?
+
+The beacon collects the following data:
 
 - **Install ID**: An anonymous identifier for your Cachet installation.
 - **Cachet Version**: The version of Cachet you're running.

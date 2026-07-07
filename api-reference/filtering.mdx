@@ -1,5 +1,5 @@
 ---
-title: 'Filtering & Sorting'
+title: 'Filtering and sorting'
 description: 'Learn how to filter and sort data in the Cachet API.'
 ---
 
@@ -7,7 +7,7 @@ description: 'Learn how to filter and sort data in the Cachet API.'
 
 Several endpoints support filtering to allow you to retrieve only the data you need.  For example, you can filter incidents by status:
 
-```
+```http
 GET /api/incidents?filter[status]=1
 ```
 
@@ -19,13 +19,13 @@ Each endpoint may support different fields for filtering. Check the documentatio
 
 You can sort the results of an endpoint by passing the `sort` parameter. The `sort` parameter should be a comma-separated list of fields to sort by. You can also specify the sort order by appending `asc` or `desc` to the field name.
 
-```
+```http
 GET /api/incidents?sort=id
 ```
 
 To reverse the sort order, you can prefix the field name with a hyphen.
 
-```
+```http
 GET /api/incidents?sort=-id
 ```
 

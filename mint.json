@@ -62,7 +62,8 @@
         "v3.x/installation",
         "v3.x/demo",
         "v3.x/development",
-        "v3.x/migration-guide"
+        "v3.x/migration-guide",
+        "v3.x/changelog"
       ]
     }, {
       "group": "Guide",
@@ -148,6 +149,10 @@
     }
   },
   "redirects": [
+    {
+      "source": "/v3.x/change-log",
+      "destination": "/v3.x/changelog"
+    },
     {
       "source": "/v3.x/credits",
       "destination": "/credits"
