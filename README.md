@@ -11,16 +11,16 @@
     </a>
 </p>
 
-# Cachet Documentation
+# Cachet documentation
 
-[Cachet](https://cachethq.io) is an easy-to-use and powerful open-source status page system. Cachet allows you effectively communicate downtime and
-system outages to your customers, teams, and shareholders.
+[Cachet](https://cachethq.io) is an open source status page system. Cachet allows you to effectively communicate downtime and
+system outages to your customers and stakeholders.
 
-This repository contains the source code for the Cachet documentation which is built using [Mintlify](https://mintlify.com).
+This repository contains the source code for the Cachet documentation, built with [Mintlify](https://mintlify.com).
 
-## Running Locally
+## Running locally
 
-The documentation is kindly hosted by [Mintlify](https://mintlify.com). To run the documentation locally:
+Mintlify kindly hosts the documentation. To run it locally:
 
 1. **Clone the repository:**
     ```bash
@@ -38,4 +38,4 @@ The documentation is kindly hosted by [Mintlify](https://mintlify.com). To run t
    
 ## Contributing
 
-Check out the [Mintlify Guide](https://mintlify.com/docs/) to learn more.
+Check out the [Mintlify guide](https://mintlify.com/docs/) to learn more.
