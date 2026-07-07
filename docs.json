@@ -1,0 +1,261 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "Cachet",
+  "colors": {
+    "primary": "#04C147",
+    "light": "#04C147",
+    "dark": "#04C147"
+  },
+  "favicon": "/favicon.png",
+  "navigation": {
+    "versions": [
+      {
+        "version": "v3.x",
+        "anchors": [
+          {
+            "anchor": "Documentation",
+            "icon": "book-open",
+            "groups": [
+              {
+                "group": "Getting Started",
+                "pages": [
+                  "v3.x/introduction",
+                  "v3.x/installation",
+                  "v3.x/demo",
+                  "v3.x/development",
+                  "v3.x/migration-guide",
+                  "v3.x/changelog"
+                ]
+              },
+              {
+                "group": "Guide",
+                "pages": [
+                  "v3.x/guide/incidents",
+                  "v3.x/guide/components",
+                  "v3.x/guide/schedules",
+                  "v3.x/guide/metrics",
+                  "v3.x/guide/subscribers",
+                  "v3.x/guide/webhooks",
+                  "v3.x/guide/users",
+                  "v3.x/guide/dashboard"
+                ]
+              },
+              {
+                "group": "Configuration",
+                "pages": [
+                  "v3.x/configuration/cachet",
+                  "v3.x/configuration/customization",
+                  "v3.x/configuration/theme",
+                  "v3.x/configuration/beacon",
+                  "v3.x/configuration/api-keys"
+                ]
+              },
+              {
+                "group": "Integrations",
+                "pages": [
+                  "v3.x/integrations/oh-dear"
+                ]
+              },
+              {
+                "group": "Other",
+                "pages": [
+                  "credits",
+                  "trademarks"
+                ]
+              }
+            ]
+          },
+          {
+            "anchor": "Blog",
+            "href": "https://blog.cachethq.io",
+            "icon": "newspaper"
+          },
+          {
+            "anchor": "API Reference",
+            "openapi": {
+              "source": "/api-reference/openapi.json",
+              "directory": "api-reference"
+            },
+            "icon": "square-terminal",
+            "groups": [
+              {
+                "group": "API Documentation",
+                "pages": [
+                  "api-reference/introduction",
+                  "api-reference/authentication",
+                  "api-reference/pagination",
+                  "api-reference/filtering",
+                  "api-reference/rate-limiting"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "version": "v2.x",
+        "anchors": [
+          {
+            "anchor": "Documentation",
+            "icon": "book-open",
+            "groups": [
+              {
+                "group": "Get Started",
+                "pages": [
+                  "v2.x/introduction",
+                  "v2.x/component-statuses",
+                  "v2.x/incident-statuses",
+                  "v2.x/client-libraries",
+                  "v2.x/faq"
+                ]
+              },
+              {
+                "group": "Installation",
+                "pages": [
+                  "v2.x/installation/guide",
+                  "v2.x/installation/docker",
+                  "v2.x/installation/windows",
+                  "v2.x/installation/upgrading",
+                  "v2.x/installation/beacons"
+                ]
+              },
+              {
+                "group": "Configuration",
+                "pages": [
+                  "v2.x/configuration/prerequisites",
+                  "v2.x/configuration/github-oauth-token",
+                  "v2.x/configuration/cors",
+                  "v2.x/configuration/mail",
+                  "v2.x/configuration/queue",
+                  "v2.x/configuration/subscribers"
+                ]
+              },
+              {
+                "group": "Other",
+                "pages": [
+                  "credits",
+                  "trademarks"
+                ]
+              }
+            ]
+          },
+          {
+            "anchor": "Blog",
+            "href": "https://blog.cachethq.io",
+            "icon": "newspaper"
+          },
+          {
+            "anchor": "API Reference",
+            "openapi": {
+              "source": "/api-reference/openapi.json",
+              "directory": "api-reference"
+            },
+            "icon": "square-terminal"
+          }
+        ]
+      }
+    ]
+  },
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  },
+  "api": {
+    "mdx": {
+      "server": "https://v3.cachethq.io/api"
+    }
+  },
+  "background": {
+    "decoration": "grid"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Sponsor Cachet",
+        "href": "https://github.com/cachethq/cachet?sponsor=1"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Demo",
+      "href": "https://v3.cachethq.io"
+    }
+  },
+  "footer": {
+    "socials": {
+      "x": "https://x.com/cachethq",
+      "github": "https://github.com/cachethq",
+      "linkedin": "https://linkedin.com/company/cachethq"
+    },
+    "links": [
+      {
+        "header": "Cachet",
+        "items": [
+          {
+            "label": "Cachet",
+            "href": "https://cachethq.io"
+          },
+          {
+            "label": "Blog",
+            "href": "https://blog.cachethq.io"
+          },
+          {
+            "label": "Sponsor Cachet",
+            "href": "https://github.com/sponsors/cachethq"
+          }
+        ]
+      },
+      {
+        "header": "Open Source",
+        "items": [
+          {
+            "label": "Cachet",
+            "href": "https://github.com/cachethq/cachet"
+          },
+          {
+            "label": "Cachet Core",
+            "href": "https://github.com/cachethq/core"
+          }
+        ]
+      },
+      {
+        "header": "Demo",
+        "items": [
+          {
+            "label": "Cachet v3.x",
+            "href": "https://dev.cachethq.io"
+          },
+          {
+            "label": "Cachet v2.4",
+            "href": "https://demo.cachethq.io"
+          }
+        ]
+      }
+    ]
+  },
+  "integrations": {
+    "fathom": {
+      "siteId": "FDSKQOXU"
+    }
+  },
+  "fonts": {
+    "heading": {
+      "family": "Lexend"
+    }
+  },
+  "redirects": [
+    {
+      "source": "/v3.x/change-log",
+      "destination": "/v3.x/changelog"
+    },
+    {
+      "source": "/v3.x/credits",
+      "destination": "/credits"
+    },
+    {
+      "source": "/v3.x/trademarks",
+      "destination": "/trademarks"
+    }
+  ]
+}
