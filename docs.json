@@ -72,6 +72,11 @@
             "icon": "newspaper"
           },
           {
+            "anchor": "Sponsor Cachet",
+            "href": "https://cachethq.io/sponsor",
+            "icon": "heart"
+          },
+          {
             "anchor": "API Reference",
             "openapi": {
               "source": "/api-reference/openapi.json",
@@ -159,7 +164,8 @@
   },
   "logo": {
     "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "dark": "/logo/dark.svg",
+    "href": "https://cachethq.io"
   },
   "api": {
     "mdx": {
@@ -170,12 +176,6 @@
     "decoration": "grid"
   },
   "navbar": {
-    "links": [
-      {
-        "label": "Sponsor Cachet",
-        "href": "https://github.com/cachethq/cachet?sponsor=1"
-      }
-    ],
     "primary": {
       "type": "button",
       "label": "Demo",
@@ -187,52 +187,7 @@
       "x": "https://x.com/cachethq",
       "github": "https://github.com/cachethq",
       "linkedin": "https://linkedin.com/company/cachethq"
-    },
-    "links": [
-      {
-        "header": "Cachet",
-        "items": [
-          {
-            "label": "Cachet",
-            "href": "https://cachethq.io"
-          },
-          {
-            "label": "Blog",
-            "href": "https://blog.cachethq.io"
-          },
-          {
-            "label": "Sponsor Cachet",
-            "href": "https://github.com/sponsors/cachethq"
-          }
-        ]
-      },
-      {
-        "header": "Open Source",
-        "items": [
-          {
-            "label": "Cachet",
-            "href": "https://github.com/cachethq/cachet"
-          },
-          {
-            "label": "Cachet Core",
-            "href": "https://github.com/cachethq/core"
-          }
-        ]
-      },
-      {
-        "header": "Demo",
-        "items": [
-          {
-            "label": "Cachet v3.x",
-            "href": "https://dev.cachethq.io"
-          },
-          {
-            "label": "Cachet v2.4",
-            "href": "https://demo.cachethq.io"
-          }
-        ]
-      }
-    ]
+    }
   },
   "integrations": {
     "fathom": {
@@ -257,5 +212,14 @@
       "source": "/v3.x/trademarks",
       "destination": "/trademarks"
     }
-  ]
+  ],
+  "contextual": {
+    "options": [
+      "copy",
+      "chatgpt",
+      "claude",
+      "cursor",
+      "vscode"
+    ]
+  }
 }
