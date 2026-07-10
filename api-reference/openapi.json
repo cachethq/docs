@@ -7,7 +7,7 @@
     },
     "servers": [
         {
-            "url": "http://localhost/api"
+            "url": "http://localhost:8001/api"
         },
         {
             "url": "https://v3.cachethq.io/api",
@@ -44,6 +44,9 @@
         },
         {
             "name": "Schedule Updates"
+        },
+        {
+            "name": "Subscribers"
         }
     ],
     "security": [
@@ -69,9 +72,7 @@
                                     "properties": {
                                         "data": {
                                             "type": "string",
-                                            "enum": [
-                                                "Pong!"
-                                            ]
+                                            "const": "Pong!"
                                         }
                                     },
                                     "required": [
@@ -105,9 +106,7 @@
                                             "properties": {
                                                 "version": {
                                                     "type": "string",
-                                                    "enum": [
-                                                        "'3.x-dev'"
-                                                    ]
+                                                    "const": "'3.x-dev'"
                                                 }
                                             },
                                             "required": [
@@ -135,22 +134,6 @@
                 ],
                 "parameters": [
                     {
-                        "name": "sort",
-                        "in": "query",
-                        "description": "Available sorts are `name`, `order`, `id`. You can sort by multiple options by separating them with a comma. To sort in descending order, use `-` sign in front of the sort, for example: `-name`.",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "include",
-                        "in": "query",
-                        "description": "Available includes are `group`, `groupCount`, `groupExists`, `incidents`, `incidentsCount`, `incidentsExists`. You can include multiple options by separating them with a comma.",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
                         "name": "per_page",
                         "in": "query",
                         "description": "How many items to show per page.",
@@ -168,6 +151,44 @@
                             "type": "integer"
                         },
                         "example": 2
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "name",
+                                    "-name",
+                                    "order",
+                                    "-order",
+                                    "id",
+                                    "-id"
+                                ]
+                            }
+                        },
+                        "explode": false
+                    },
+                    {
+                        "name": "include",
+                        "in": "query",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "group",
+                                    "groupCount",
+                                    "groupExists",
+                                    "incidents",
+                                    "incidentsCount",
+                                    "incidentsExists"
+                                ]
+                            }
+                        },
+                        "explode": false
                     },
                     {
                         "name": "filter[status]",
@@ -232,13 +253,15 @@
                                             "type": "object",
                                             "properties": {
                                                 "current_page": {
-                                                    "type": "integer"
+                                                    "type": "integer",
+                                                    "minimum": 1
                                                 },
                                                 "from": {
                                                     "type": [
                                                         "integer",
                                                         "null"
-                                                    ]
+                                                    ],
+                                                    "minimum": 1
                                                 },
                                                 "path": {
                                                     "type": [
@@ -249,14 +272,16 @@
                                                 },
                                                 "per_page": {
                                                     "type": "integer",
-                                                    "description": "Number of items shown per page."
+                                                    "description": "Number of items shown per page.",
+                                                    "minimum": 0
                                                 },
                                                 "to": {
                                                     "type": [
                                                         "integer",
                                                         "null"
                                                     ],
-                                                    "description": "Number of the last item in the slice."
+                                                    "description": "Number of the last item in the slice.",
+                                                    "minimum": 1
                                                 }
                                             },
                                             "required": [
@@ -320,6 +345,19 @@
                                     "properties": {
                                         "data": {
                                             "$ref": "#/components/schemas/Component"
+                                        },
+                                        "included": {
+                                            "type": "array",
+                                            "items": {
+                                                "anyOf": [
+                                                    {
+                                                        "$ref": "#/components/schemas/ComponentGroup"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/Incident"
+                                                    }
+                                                ]
+                                            }
                                         }
                                     },
                                     "required": [
@@ -361,10 +399,21 @@
                     {
                         "name": "include",
                         "in": "query",
-                        "description": "Available includes are `group`, `groupCount`, `groupExists`, `incidents`, `incidentsCount`, `incidentsExists`. You can include multiple options by separating them with a comma.",
                         "schema": {
-                            "type": "string"
-                        }
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "group",
+                                    "groupCount",
+                                    "groupExists",
+                                    "incidents",
+                                    "incidentsCount",
+                                    "incidentsExists"
+                                ]
+                            }
+                        },
+                        "explode": false
                     }
                 ],
                 "responses": {
@@ -377,6 +426,19 @@
                                     "properties": {
                                         "data": {
                                             "$ref": "#/components/schemas/Component"
+                                        },
+                                        "included": {
+                                            "type": "array",
+                                            "items": {
+                                                "anyOf": [
+                                                    {
+                                                        "$ref": "#/components/schemas/ComponentGroup"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/Incident"
+                                                    }
+                                                ]
+                                            }
                                         }
                                     },
                                     "required": [
@@ -429,6 +491,19 @@
                                     "properties": {
                                         "data": {
                                             "$ref": "#/components/schemas/Component"
+                                        },
+                                        "included": {
+                                            "type": "array",
+                                            "items": {
+                                                "anyOf": [
+                                                    {
+                                                        "$ref": "#/components/schemas/ComponentGroup"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/Incident"
+                                                    }
+                                                ]
+                                            }
                                         }
                                     },
                                     "required": [
@@ -494,22 +569,6 @@
                 ],
                 "parameters": [
                     {
-                        "name": "sort",
-                        "in": "query",
-                        "description": "Available sorts are `name`, `id`. You can sort by multiple options by separating them with a comma. To sort in descending order, use `-` sign in front of the sort, for example: `-name`.",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "include",
-                        "in": "query",
-                        "description": "Available includes are `components`, `componentsCount`, `componentsExists`. You can include multiple options by separating them with a comma.",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
                         "name": "per_page",
                         "in": "query",
                         "description": "How many items to show per page.",
@@ -527,6 +586,39 @@
                             "type": "integer"
                         },
                         "example": 2
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "name",
+                                    "-name",
+                                    "id",
+                                    "-id"
+                                ]
+                            }
+                        },
+                        "explode": false
+                    },
+                    {
+                        "name": "include",
+                        "in": "query",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "components",
+                                    "componentsCount",
+                                    "componentsExists"
+                                ]
+                            }
+                        },
+                        "explode": false
                     }
                 ],
                 "responses": {
@@ -564,13 +656,15 @@
                                             "type": "object",
                                             "properties": {
                                                 "current_page": {
-                                                    "type": "integer"
+                                                    "type": "integer",
+                                                    "minimum": 1
                                                 },
                                                 "from": {
                                                     "type": [
                                                         "integer",
                                                         "null"
-                                                    ]
+                                                    ],
+                                                    "minimum": 1
                                                 },
                                                 "path": {
                                                     "type": [
@@ -581,14 +675,16 @@
                                                 },
                                                 "per_page": {
                                                     "type": "integer",
-                                                    "description": "Number of items shown per page."
+                                                    "description": "Number of items shown per page.",
+                                                    "minimum": 0
                                                 },
                                                 "to": {
                                                     "type": [
                                                         "integer",
                                                         "null"
                                                     ],
-                                                    "description": "Number of the last item in the slice."
+                                                    "description": "Number of the last item in the slice.",
+                                                    "minimum": 1
                                                 }
                                             },
                                             "required": [
@@ -645,6 +741,12 @@
                                     "properties": {
                                         "data": {
                                             "$ref": "#/components/schemas/ComponentGroup"
+                                        },
+                                        "included": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Component"
+                                            }
                                         }
                                     },
                                     "required": [
@@ -686,10 +788,18 @@
                     {
                         "name": "include",
                         "in": "query",
-                        "description": "Available includes are `components`, `componentsCount`, `componentsExists`. You can include multiple options by separating them with a comma.",
                         "schema": {
-                            "type": "string"
-                        }
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "components",
+                                    "componentsCount",
+                                    "componentsExists"
+                                ]
+                            }
+                        },
+                        "explode": false
                     }
                 ],
                 "responses": {
@@ -702,6 +812,12 @@
                                     "properties": {
                                         "data": {
                                             "$ref": "#/components/schemas/ComponentGroup"
+                                        },
+                                        "included": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Component"
+                                            }
                                         }
                                     },
                                     "required": [
@@ -754,6 +870,12 @@
                                     "properties": {
                                         "data": {
                                             "$ref": "#/components/schemas/ComponentGroup"
+                                        },
+                                        "included": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Component"
+                                            }
                                         }
                                     },
                                     "required": [
@@ -819,23 +941,6 @@
                 ],
                 "parameters": [
                     {
-                        "name": "sort",
-                        "in": "query",
-                        "description": "Available sorts are `name`, `status`, `id`, `created_at`. You can sort by multiple options by separating them with a comma. To sort in descending order, use `-` sign in front of the sort, for example: `-name`.",
-                        "schema": {
-                            "type": "string",
-                            "default": "-created_at"
-                        }
-                    },
-                    {
-                        "name": "include",
-                        "in": "query",
-                        "description": "Available includes are `components`, `componentsCount`, `componentsExists`, `components.group`, `components.groupCount`, `components.groupExists`, `updates`, `updatesCount`, `updatesExists`, `user`, `userCount`, `userExists`. You can include multiple options by separating them with a comma.",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
                         "name": "per_page",
                         "in": "query",
                         "description": "How many items to show per page.",
@@ -888,6 +993,53 @@
                         "schema": {
                             "type": "string"
                         }
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "schema": {
+                            "type": "array",
+                            "default": [
+                                "-created_at"
+                            ],
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "name",
+                                    "-name",
+                                    "status",
+                                    "-status",
+                                    "id",
+                                    "-id",
+                                    "created_at",
+                                    "-created_at"
+                                ]
+                            }
+                        },
+                        "explode": false
+                    },
+                    {
+                        "name": "include",
+                        "in": "query",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "components",
+                                    "componentsCount",
+                                    "componentsExists",
+                                    "components.group",
+                                    "updates",
+                                    "updatesCount",
+                                    "updatesExists",
+                                    "user",
+                                    "userCount",
+                                    "userExists"
+                                ]
+                            }
+                        },
+                        "explode": false
                     }
                 ],
                 "responses": {
@@ -925,13 +1077,15 @@
                                             "type": "object",
                                             "properties": {
                                                 "current_page": {
-                                                    "type": "integer"
+                                                    "type": "integer",
+                                                    "minimum": 1
                                                 },
                                                 "from": {
                                                     "type": [
                                                         "integer",
                                                         "null"
-                                                    ]
+                                                    ],
+                                                    "minimum": 1
                                                 },
                                                 "path": {
                                                     "type": [
@@ -942,14 +1096,16 @@
                                                 },
                                                 "per_page": {
                                                     "type": "integer",
-                                                    "description": "Number of items shown per page."
+                                                    "description": "Number of items shown per page.",
+                                                    "minimum": 0
                                                 },
                                                 "to": {
                                                     "type": [
                                                         "integer",
                                                         "null"
                                                     ],
-                                                    "description": "Number of the last item in the slice."
+                                                    "description": "Number of the last item in the slice.",
+                                                    "minimum": 1
                                                 }
                                             },
                                             "required": [
@@ -1016,6 +1172,22 @@
                                     "properties": {
                                         "data": {
                                             "$ref": "#/components/schemas/Incident"
+                                        },
+                                        "included": {
+                                            "type": "array",
+                                            "items": {
+                                                "anyOf": [
+                                                    {
+                                                        "$ref": "#/components/schemas/Component"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/Update"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/User"
+                                                    }
+                                                ]
+                                            }
                                         }
                                     },
                                     "required": [
@@ -1057,10 +1229,25 @@
                     {
                         "name": "include",
                         "in": "query",
-                        "description": "Available includes are `components`, `componentsCount`, `componentsExists`, `components.group`, `components.groupCount`, `components.groupExists`, `updates`, `updatesCount`, `updatesExists`, `user`, `userCount`, `userExists`. You can include multiple options by separating them with a comma.",
                         "schema": {
-                            "type": "string"
-                        }
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "components",
+                                    "componentsCount",
+                                    "componentsExists",
+                                    "components.group",
+                                    "updates",
+                                    "updatesCount",
+                                    "updatesExists",
+                                    "user",
+                                    "userCount",
+                                    "userExists"
+                                ]
+                            }
+                        },
+                        "explode": false
                     }
                 ],
                 "responses": {
@@ -1073,6 +1260,22 @@
                                     "properties": {
                                         "data": {
                                             "$ref": "#/components/schemas/Incident"
+                                        },
+                                        "included": {
+                                            "type": "array",
+                                            "items": {
+                                                "anyOf": [
+                                                    {
+                                                        "$ref": "#/components/schemas/Component"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/Update"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/User"
+                                                    }
+                                                ]
+                                            }
                                         }
                                     },
                                     "required": [
@@ -1125,6 +1328,22 @@
                                     "properties": {
                                         "data": {
                                             "$ref": "#/components/schemas/Incident"
+                                        },
+                                        "included": {
+                                            "type": "array",
+                                            "items": {
+                                                "anyOf": [
+                                                    {
+                                                        "$ref": "#/components/schemas/Component"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/Update"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/User"
+                                                    }
+                                                ]
+                                            }
                                         }
                                     },
                                     "required": [
@@ -1199,22 +1418,6 @@
                         }
                     },
                     {
-                        "name": "sort",
-                        "in": "query",
-                        "description": "Available sorts are `status`, `created_at`. You can sort by multiple options by separating them with a comma. To sort in descending order, use `-` sign in front of the sort, for example: `-status`.",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "include",
-                        "in": "query",
-                        "description": "Available includes are `incident`, `incidentCount`, `incidentExists`. You can include multiple options by separating them with a comma.",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
                         "name": "per_page",
                         "in": "query",
                         "description": "How many items to show per page.",
@@ -1239,6 +1442,39 @@
                         "schema": {
                             "type": "string"
                         }
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "status",
+                                    "-status",
+                                    "created_at",
+                                    "-created_at"
+                                ]
+                            }
+                        },
+                        "explode": false
+                    },
+                    {
+                        "name": "include",
+                        "in": "query",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "incident",
+                                    "incidentCount",
+                                    "incidentExists"
+                                ]
+                            }
+                        },
+                        "explode": false
                     }
                 ],
                 "responses": {
@@ -1276,13 +1512,15 @@
                                             "type": "object",
                                             "properties": {
                                                 "current_page": {
-                                                    "type": "integer"
+                                                    "type": "integer",
+                                                    "minimum": 1
                                                 },
                                                 "from": {
                                                     "type": [
                                                         "integer",
                                                         "null"
-                                                    ]
+                                                    ],
+                                                    "minimum": 1
                                                 },
                                                 "path": {
                                                     "type": [
@@ -1293,14 +1531,16 @@
                                                 },
                                                 "per_page": {
                                                     "type": "integer",
-                                                    "description": "Number of items shown per page."
+                                                    "description": "Number of items shown per page.",
+                                                    "minimum": 0
                                                 },
                                                 "to": {
                                                     "type": [
                                                         "integer",
                                                         "null"
                                                     ],
-                                                    "description": "Number of the last item in the slice."
+                                                    "description": "Number of the last item in the slice.",
+                                                    "minimum": 1
                                                 }
                                             },
                                             "required": [
@@ -1310,6 +1550,19 @@
                                                 "per_page",
                                                 "to"
                                             ]
+                                        },
+                                        "included": {
+                                            "type": "array",
+                                            "items": {
+                                                "anyOf": [
+                                                    {
+                                                        "$ref": "#/components/schemas/Incident"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/Schedule"
+                                                    }
+                                                ]
+                                            }
                                         }
                                     },
                                     "required": [
@@ -1365,6 +1618,19 @@
                                     "properties": {
                                         "data": {
                                             "$ref": "#/components/schemas/Update"
+                                        },
+                                        "included": {
+                                            "type": "array",
+                                            "items": {
+                                                "anyOf": [
+                                                    {
+                                                        "$ref": "#/components/schemas/Incident"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/Schedule"
+                                                    }
+                                                ]
+                                            }
                                         }
                                     },
                                     "required": [
@@ -1418,10 +1684,18 @@
                     {
                         "name": "include",
                         "in": "query",
-                        "description": "Available includes are `incident`, `incidentCount`, `incidentExists`. You can include multiple options by separating them with a comma.",
                         "schema": {
-                            "type": "string"
-                        }
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "incident",
+                                    "incidentCount",
+                                    "incidentExists"
+                                ]
+                            }
+                        },
+                        "explode": false
                     }
                 ],
                 "responses": {
@@ -1434,6 +1708,19 @@
                                     "properties": {
                                         "data": {
                                             "$ref": "#/components/schemas/Update"
+                                        },
+                                        "included": {
+                                            "type": "array",
+                                            "items": {
+                                                "anyOf": [
+                                                    {
+                                                        "$ref": "#/components/schemas/Incident"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/Schedule"
+                                                    }
+                                                ]
+                                            }
                                         }
                                     },
                                     "required": [
@@ -1495,6 +1782,19 @@
                                     "properties": {
                                         "data": {
                                             "$ref": "#/components/schemas/Update"
+                                        },
+                                        "included": {
+                                            "type": "array",
+                                            "items": {
+                                                "anyOf": [
+                                                    {
+                                                        "$ref": "#/components/schemas/Incident"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/Schedule"
+                                                    }
+                                                ]
+                                            }
                                         }
                                     },
                                     "required": [
@@ -1569,14 +1869,6 @@
                 ],
                 "parameters": [
                     {
-                        "name": "sort",
-                        "in": "query",
-                        "description": "Available sorts are `name`, `slug`, `id`. You can sort by multiple options by separating them with a comma. To sort in descending order, use `-` sign in front of the sort, for example: `-name`.",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
                         "name": "per_page",
                         "in": "query",
                         "description": "How many items to show per page.",
@@ -1594,6 +1886,25 @@
                             "type": "integer"
                         },
                         "example": 2
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "name",
+                                    "-name",
+                                    "slug",
+                                    "-slug",
+                                    "id",
+                                    "-id"
+                                ]
+                            }
+                        },
+                        "explode": false
                     },
                     {
                         "name": "filter[name]",
@@ -1649,13 +1960,15 @@
                                             "type": "object",
                                             "properties": {
                                                 "current_page": {
-                                                    "type": "integer"
+                                                    "type": "integer",
+                                                    "minimum": 1
                                                 },
                                                 "from": {
                                                     "type": [
                                                         "integer",
                                                         "null"
-                                                    ]
+                                                    ],
+                                                    "minimum": 1
                                                 },
                                                 "path": {
                                                     "type": [
@@ -1666,14 +1979,16 @@
                                                 },
                                                 "per_page": {
                                                     "type": "integer",
-                                                    "description": "Number of items shown per page."
+                                                    "description": "Number of items shown per page.",
+                                                    "minimum": 0
                                                 },
                                                 "to": {
                                                     "type": [
                                                         "integer",
                                                         "null"
                                                     ],
-                                                    "description": "Number of the last item in the slice."
+                                                    "description": "Number of the last item in the slice.",
+                                                    "minimum": 1
                                                 }
                                             },
                                             "required": [
@@ -1890,22 +2205,6 @@
                 ],
                 "parameters": [
                     {
-                        "name": "sort",
-                        "in": "query",
-                        "description": "Available sorts are `name`, `order`, `id`. You can sort by multiple options by separating them with a comma. To sort in descending order, use `-` sign in front of the sort, for example: `-name`.",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "include",
-                        "in": "query",
-                        "description": "Available includes are `points`, `pointsCount`, `pointsExists`. You can include multiple options by separating them with a comma.",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
                         "name": "per_page",
                         "in": "query",
                         "description": "How many items to show per page.",
@@ -1923,6 +2222,41 @@
                             "type": "integer"
                         },
                         "example": 2
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "name",
+                                    "-name",
+                                    "order",
+                                    "-order",
+                                    "id",
+                                    "-id"
+                                ]
+                            }
+                        },
+                        "explode": false
+                    },
+                    {
+                        "name": "include",
+                        "in": "query",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "points",
+                                    "pointsCount",
+                                    "pointsExists"
+                                ]
+                            }
+                        },
+                        "explode": false
                     },
                     {
                         "name": "filter[name]",
@@ -1977,13 +2311,15 @@
                                             "type": "object",
                                             "properties": {
                                                 "current_page": {
-                                                    "type": "integer"
+                                                    "type": "integer",
+                                                    "minimum": 1
                                                 },
                                                 "from": {
                                                     "type": [
                                                         "integer",
                                                         "null"
-                                                    ]
+                                                    ],
+                                                    "minimum": 1
                                                 },
                                                 "path": {
                                                     "type": [
@@ -1994,14 +2330,16 @@
                                                 },
                                                 "per_page": {
                                                     "type": "integer",
-                                                    "description": "Number of items shown per page."
+                                                    "description": "Number of items shown per page.",
+                                                    "minimum": 0
                                                 },
                                                 "to": {
                                                     "type": [
                                                         "integer",
                                                         "null"
                                                     ],
-                                                    "description": "Number of the last item in the slice."
+                                                    "description": "Number of the last item in the slice.",
+                                                    "minimum": 1
                                                 }
                                             },
                                             "required": [
@@ -2058,6 +2396,12 @@
                                     "properties": {
                                         "data": {
                                             "$ref": "#/components/schemas/Metric"
+                                        },
+                                        "included": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/MetricPoint"
+                                            }
                                         }
                                     },
                                     "required": [
@@ -2099,10 +2443,18 @@
                     {
                         "name": "include",
                         "in": "query",
-                        "description": "Available includes are `points`, `pointsCount`, `pointsExists`. You can include multiple options by separating them with a comma.",
                         "schema": {
-                            "type": "string"
-                        }
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "points",
+                                    "pointsCount",
+                                    "pointsExists"
+                                ]
+                            }
+                        },
+                        "explode": false
                     }
                 ],
                 "responses": {
@@ -2115,6 +2467,12 @@
                                     "properties": {
                                         "data": {
                                             "$ref": "#/components/schemas/Metric"
+                                        },
+                                        "included": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/MetricPoint"
+                                            }
                                         }
                                     },
                                     "required": [
@@ -2149,7 +2507,6 @@
                 ],
                 "requestBody": {
                     "description": "`UpdateMetricRequestData`",
-                    "required": true,
                     "content": {
                         "application/json": {
                             "schema": {
@@ -2168,6 +2525,12 @@
                                     "properties": {
                                         "data": {
                                             "$ref": "#/components/schemas/Metric"
+                                        },
+                                        "included": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/MetricPoint"
+                                            }
                                         }
                                     },
                                     "required": [
@@ -2242,22 +2605,6 @@
                         }
                     },
                     {
-                        "name": "sort",
-                        "in": "query",
-                        "description": "Available sorts are `name`, `order`, `id`. You can sort by multiple options by separating them with a comma. To sort in descending order, use `-` sign in front of the sort, for example: `-name`.",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "include",
-                        "in": "query",
-                        "description": "Available includes are `metric`, `metricCount`, `metricExists`. You can include multiple options by separating them with a comma.",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
                         "name": "per_page",
                         "in": "query",
                         "description": "How many items to show per page.",
@@ -2275,6 +2622,41 @@
                             "type": "integer"
                         },
                         "example": 2
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "id",
+                                    "-id",
+                                    "value",
+                                    "-value",
+                                    "created_at",
+                                    "-created_at"
+                                ]
+                            }
+                        },
+                        "explode": false
+                    },
+                    {
+                        "name": "include",
+                        "in": "query",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "metric",
+                                    "metricCount",
+                                    "metricExists"
+                                ]
+                            }
+                        },
+                        "explode": false
                     }
                 ],
                 "responses": {
@@ -2312,13 +2694,15 @@
                                             "type": "object",
                                             "properties": {
                                                 "current_page": {
-                                                    "type": "integer"
+                                                    "type": "integer",
+                                                    "minimum": 1
                                                 },
                                                 "from": {
                                                     "type": [
                                                         "integer",
                                                         "null"
-                                                    ]
+                                                    ],
+                                                    "minimum": 1
                                                 },
                                                 "path": {
                                                     "type": [
@@ -2329,14 +2713,16 @@
                                                 },
                                                 "per_page": {
                                                     "type": "integer",
-                                                    "description": "Number of items shown per page."
+                                                    "description": "Number of items shown per page.",
+                                                    "minimum": 0
                                                 },
                                                 "to": {
                                                     "type": [
                                                         "integer",
                                                         "null"
                                                     ],
-                                                    "description": "Number of the last item in the slice."
+                                                    "description": "Number of the last item in the slice.",
+                                                    "minimum": 1
                                                 }
                                             },
                                             "required": [
@@ -2407,6 +2793,12 @@
                                     "properties": {
                                         "data": {
                                             "$ref": "#/components/schemas/MetricPoint"
+                                        },
+                                        "included": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Metric"
+                                            }
                                         }
                                     },
                                     "required": [
@@ -2460,10 +2852,18 @@
                     {
                         "name": "include",
                         "in": "query",
-                        "description": "Available includes are `metric`, `metricCount`, `metricExists`. You can include multiple options by separating them with a comma.",
                         "schema": {
-                            "type": "string"
-                        }
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "metric",
+                                    "metricCount",
+                                    "metricExists"
+                                ]
+                            }
+                        },
+                        "explode": false
                     }
                 ],
                 "responses": {
@@ -2476,6 +2876,12 @@
                                     "properties": {
                                         "data": {
                                             "$ref": "#/components/schemas/MetricPoint"
+                                        },
+                                        "included": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Metric"
+                                            }
                                         }
                                     },
                                     "required": [
@@ -2542,22 +2948,6 @@
                 ],
                 "parameters": [
                     {
-                        "name": "sort",
-                        "in": "query",
-                        "description": "Available sorts are `name`, `id`, `scheduled_at`, `completed_at`. You can sort by multiple options by separating them with a comma. To sort in descending order, use `-` sign in front of the sort, for example: `-name`.",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "include",
-                        "in": "query",
-                        "description": "Available includes are `components`, `componentsCount`, `componentsExists`, `components.group`, `components.groupCount`, `components.groupExists`, `updates`, `updatesCount`, `updatesExists`, `user`, `userCount`, `userExists`. You can include multiple options by separating them with a comma.",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
                         "name": "per_page",
                         "in": "query",
                         "description": "How many items to show per page.",
@@ -2575,6 +2965,50 @@
                             "type": "integer"
                         },
                         "example": 2
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "name",
+                                    "-name",
+                                    "id",
+                                    "-id",
+                                    "scheduled_at",
+                                    "-scheduled_at",
+                                    "completed_at",
+                                    "-completed_at"
+                                ]
+                            }
+                        },
+                        "explode": false
+                    },
+                    {
+                        "name": "include",
+                        "in": "query",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "components",
+                                    "componentsCount",
+                                    "componentsExists",
+                                    "components.group",
+                                    "updates",
+                                    "updatesCount",
+                                    "updatesExists",
+                                    "user",
+                                    "userCount",
+                                    "userExists"
+                                ]
+                            }
+                        },
+                        "explode": false
                     },
                     {
                         "name": "filter[name]",
@@ -2629,13 +3063,15 @@
                                             "type": "object",
                                             "properties": {
                                                 "current_page": {
-                                                    "type": "integer"
+                                                    "type": "integer",
+                                                    "minimum": 1
                                                 },
                                                 "from": {
                                                     "type": [
                                                         "integer",
                                                         "null"
-                                                    ]
+                                                    ],
+                                                    "minimum": 1
                                                 },
                                                 "path": {
                                                     "type": [
@@ -2646,14 +3082,16 @@
                                                 },
                                                 "per_page": {
                                                     "type": "integer",
-                                                    "description": "Number of items shown per page."
+                                                    "description": "Number of items shown per page.",
+                                                    "minimum": 0
                                                 },
                                                 "to": {
                                                     "type": [
                                                         "integer",
                                                         "null"
                                                     ],
-                                                    "description": "Number of the last item in the slice."
+                                                    "description": "Number of the last item in the slice.",
+                                                    "minimum": 1
                                                 }
                                             },
                                             "required": [
@@ -2717,6 +3155,19 @@
                                     "properties": {
                                         "data": {
                                             "$ref": "#/components/schemas/Schedule"
+                                        },
+                                        "included": {
+                                            "type": "array",
+                                            "items": {
+                                                "anyOf": [
+                                                    {
+                                                        "$ref": "#/components/schemas/Component"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/Update"
+                                                    }
+                                                ]
+                                            }
                                         }
                                     },
                                     "required": [
@@ -2758,10 +3209,25 @@
                     {
                         "name": "include",
                         "in": "query",
-                        "description": "Available includes are `components`, `componentsCount`, `componentsExists`, `components.group`, `components.groupCount`, `components.groupExists`, `updates`, `updatesCount`, `updatesExists`, `user`, `userCount`, `userExists`. You can include multiple options by separating them with a comma.",
                         "schema": {
-                            "type": "string"
-                        }
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "components",
+                                    "componentsCount",
+                                    "componentsExists",
+                                    "components.group",
+                                    "updates",
+                                    "updatesCount",
+                                    "updatesExists",
+                                    "user",
+                                    "userCount",
+                                    "userExists"
+                                ]
+                            }
+                        },
+                        "explode": false
                     }
                 ],
                 "responses": {
@@ -2774,6 +3240,19 @@
                                     "properties": {
                                         "data": {
                                             "$ref": "#/components/schemas/Schedule"
+                                        },
+                                        "included": {
+                                            "type": "array",
+                                            "items": {
+                                                "anyOf": [
+                                                    {
+                                                        "$ref": "#/components/schemas/Component"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/Update"
+                                                    }
+                                                ]
+                                            }
                                         }
                                     },
                                     "required": [
@@ -2826,6 +3305,19 @@
                                     "properties": {
                                         "data": {
                                             "$ref": "#/components/schemas/Schedule"
+                                        },
+                                        "included": {
+                                            "type": "array",
+                                            "items": {
+                                                "anyOf": [
+                                                    {
+                                                        "$ref": "#/components/schemas/Component"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/Update"
+                                                    }
+                                                ]
+                                            }
                                         }
                                     },
                                     "required": [
@@ -2900,22 +3392,6 @@
                         }
                     },
                     {
-                        "name": "sort",
-                        "in": "query",
-                        "description": "Available sorts are `created_at`. You can sort by multiple options by separating them with a comma. To sort in descending order, use `-` sign in front of the sort, for example: `-created_at`.",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "include",
-                        "in": "query",
-                        "description": "Available includes are `schedule`, `scheduleCount`, `scheduleExists`. You can include multiple options by separating them with a comma.",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
                         "name": "per_page",
                         "in": "query",
                         "description": "How many items to show per page.",
@@ -2933,6 +3409,37 @@
                             "type": "integer"
                         },
                         "example": 2
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "created_at",
+                                    "-created_at"
+                                ]
+                            }
+                        },
+                        "explode": false
+                    },
+                    {
+                        "name": "include",
+                        "in": "query",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "schedule",
+                                    "scheduleCount",
+                                    "scheduleExists"
+                                ]
+                            }
+                        },
+                        "explode": false
                     }
                 ],
                 "responses": {
@@ -2970,13 +3477,15 @@
                                             "type": "object",
                                             "properties": {
                                                 "current_page": {
-                                                    "type": "integer"
+                                                    "type": "integer",
+                                                    "minimum": 1
                                                 },
                                                 "from": {
                                                     "type": [
                                                         "integer",
                                                         "null"
-                                                    ]
+                                                    ],
+                                                    "minimum": 1
                                                 },
                                                 "path": {
                                                     "type": [
@@ -2987,14 +3496,16 @@
                                                 },
                                                 "per_page": {
                                                     "type": "integer",
-                                                    "description": "Number of items shown per page."
+                                                    "description": "Number of items shown per page.",
+                                                    "minimum": 0
                                                 },
                                                 "to": {
                                                     "type": [
                                                         "integer",
                                                         "null"
                                                     ],
-                                                    "description": "Number of the last item in the slice."
+                                                    "description": "Number of the last item in the slice.",
+                                                    "minimum": 1
                                                 }
                                             },
                                             "required": [
@@ -3004,6 +3515,19 @@
                                                 "per_page",
                                                 "to"
                                             ]
+                                        },
+                                        "included": {
+                                            "type": "array",
+                                            "items": {
+                                                "anyOf": [
+                                                    {
+                                                        "$ref": "#/components/schemas/Incident"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/Schedule"
+                                                    }
+                                                ]
+                                            }
                                         }
                                     },
                                     "required": [
@@ -3059,6 +3583,19 @@
                                     "properties": {
                                         "data": {
                                             "$ref": "#/components/schemas/Update"
+                                        },
+                                        "included": {
+                                            "type": "array",
+                                            "items": {
+                                                "anyOf": [
+                                                    {
+                                                        "$ref": "#/components/schemas/Incident"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/Schedule"
+                                                    }
+                                                ]
+                                            }
                                         }
                                     },
                                     "required": [
@@ -3112,10 +3649,18 @@
                     {
                         "name": "include",
                         "in": "query",
-                        "description": "Available includes are `schedule`, `scheduleCount`, `scheduleExists`. You can include multiple options by separating them with a comma.",
                         "schema": {
-                            "type": "string"
-                        }
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "schedule",
+                                    "scheduleCount",
+                                    "scheduleExists"
+                                ]
+                            }
+                        },
+                        "explode": false
                     }
                 ],
                 "responses": {
@@ -3128,6 +3673,19 @@
                                     "properties": {
                                         "data": {
                                             "$ref": "#/components/schemas/Update"
+                                        },
+                                        "included": {
+                                            "type": "array",
+                                            "items": {
+                                                "anyOf": [
+                                                    {
+                                                        "$ref": "#/components/schemas/Incident"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/Schedule"
+                                                    }
+                                                ]
+                                            }
                                         }
                                     },
                                     "required": [
@@ -3189,6 +3747,19 @@
                                     "properties": {
                                         "data": {
                                             "$ref": "#/components/schemas/Update"
+                                        },
+                                        "included": {
+                                            "type": "array",
+                                            "items": {
+                                                "anyOf": [
+                                                    {
+                                                        "$ref": "#/components/schemas/Incident"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/Schedule"
+                                                    }
+                                                ]
+                                            }
                                         }
                                     },
                                     "required": [
@@ -3254,6 +3825,406 @@
                 }
             }
         },
+        "/subscribers": {
+            "get": {
+                "operationId": "cachet.api.subscribers.index",
+                "summary": "List Subscribers",
+                "tags": [
+                    "Subscribers"
+                ],
+                "parameters": [
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "How many items to show per page.",
+                        "schema": {
+                            "type": "integer",
+                            "default": 15
+                        },
+                        "example": 20
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Which page to show.",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 2
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "email",
+                                    "-email",
+                                    "id",
+                                    "-id"
+                                ]
+                            }
+                        },
+                        "explode": false
+                    },
+                    {
+                        "name": "include",
+                        "in": "query",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "components",
+                                    "componentsCount",
+                                    "componentsExists"
+                                ]
+                            }
+                        },
+                        "explode": false
+                    },
+                    {
+                        "name": "filter[email]",
+                        "in": "query",
+                        "description": "Filter by email address.",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "john@example.com"
+                    },
+                    {
+                        "name": "filter[global]",
+                        "in": "query",
+                        "description": "Filter by global subscription status.",
+                        "schema": {
+                            "type": "boolean"
+                        },
+                        "example": "1"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Paginated set of `Subscriber`",
+                        "content": {
+                            "application/vnd.api+json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Subscriber"
+                                            }
+                                        },
+                                        "links": {
+                                            "type": "object",
+                                            "properties": {
+                                                "first": {
+                                                    "type": "string"
+                                                },
+                                                "last": {
+                                                    "type": "string"
+                                                },
+                                                "prev": {
+                                                    "type": "string"
+                                                },
+                                                "next": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "meta": {
+                                            "type": "object",
+                                            "properties": {
+                                                "current_page": {
+                                                    "type": "integer",
+                                                    "minimum": 1
+                                                },
+                                                "from": {
+                                                    "type": [
+                                                        "integer",
+                                                        "null"
+                                                    ],
+                                                    "minimum": 1
+                                                },
+                                                "path": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ],
+                                                    "description": "Base path for paginator generated URLs."
+                                                },
+                                                "per_page": {
+                                                    "type": "integer",
+                                                    "description": "Number of items shown per page.",
+                                                    "minimum": 0
+                                                },
+                                                "to": {
+                                                    "type": [
+                                                        "integer",
+                                                        "null"
+                                                    ],
+                                                    "description": "Number of the last item in the slice.",
+                                                    "minimum": 1
+                                                }
+                                            },
+                                            "required": [
+                                                "current_page",
+                                                "from",
+                                                "path",
+                                                "per_page",
+                                                "to"
+                                            ]
+                                        },
+                                        "included": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Component"
+                                            }
+                                        }
+                                    },
+                                    "required": [
+                                        "data",
+                                        "links",
+                                        "meta"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/MissingAbilityException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            },
+            "post": {
+                "operationId": "cachet.api.subscribers.store",
+                "summary": "Create Subscriber",
+                "tags": [
+                    "Subscribers"
+                ],
+                "requestBody": {
+                    "description": "`CreateSubscriberRequestData`",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateSubscriberRequestData"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "`Subscriber`",
+                        "content": {
+                            "application/vnd.api+json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Subscriber"
+                                        },
+                                        "included": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Component"
+                                            }
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/MissingAbilityException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    }
+                }
+            }
+        },
+        "/subscribers/{subscriber}": {
+            "get": {
+                "operationId": "cachet.api.subscribers.show",
+                "summary": "Get Subscriber",
+                "tags": [
+                    "Subscribers"
+                ],
+                "parameters": [
+                    {
+                        "name": "subscriber",
+                        "in": "path",
+                        "required": true,
+                        "description": "The subscriber ID",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "include",
+                        "in": "query",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "components",
+                                    "componentsCount",
+                                    "componentsExists"
+                                ]
+                            }
+                        },
+                        "explode": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "`Subscriber`",
+                        "content": {
+                            "application/vnd.api+json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Subscriber"
+                                        },
+                                        "included": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Component"
+                                            }
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/MissingAbilityException"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/ModelNotFoundException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            },
+            "put": {
+                "operationId": "cachet.api.subscribers.update",
+                "summary": "Update Subscriber",
+                "tags": [
+                    "Subscribers"
+                ],
+                "parameters": [
+                    {
+                        "name": "subscriber",
+                        "in": "path",
+                        "required": true,
+                        "description": "The subscriber ID",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "`UpdateSubscriberRequestData`",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateSubscriberRequestData"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "`Subscriber`",
+                        "content": {
+                            "application/vnd.api+json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Subscriber"
+                                        },
+                                        "included": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Component"
+                                            }
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/MissingAbilityException"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/ModelNotFoundException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    }
+                }
+            },
+            "delete": {
+                "operationId": "cachet.api.subscribers.destroy",
+                "summary": "Delete Subscriber",
+                "tags": [
+                    "Subscribers"
+                ],
+                "parameters": [
+                    {
+                        "name": "subscriber",
+                        "in": "path",
+                        "required": true,
+                        "description": "The subscriber ID",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No content"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/MissingAbilityException"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/ModelNotFoundException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
         "/status": {
             "get": {
                 "operationId": "cachet.api.status",
@@ -3280,6 +4251,12 @@
                                                 },
                                                 "message": {
                                                     "type": "string",
+                                                    "enum": [
+                                                        "All systems are operational.",
+                                                        "Some systems are experiencing issues.",
+                                                        "Some systems are experiencing major issues.",
+                                                        "Some systems are under maintenance."
+                                                    ],
                                                     "examples": [
                                                         "All Systems Operational"
                                                     ]
@@ -3354,10 +4331,25 @@
                                 "type": "object",
                                 "properties": {
                                     "human": {
-                                        "type": "string"
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ],
+                                        "enum": [
+                                            "Operational",
+                                            "Performance Issues",
+                                            "Partial Outage",
+                                            "Major Outage",
+                                            "Under maintenance",
+                                            "Unknown",
+                                            null
+                                        ]
                                     },
                                     "value": {
-                                        "type": "string"
+                                        "type": [
+                                            "integer",
+                                            "null"
+                                        ]
                                     }
                                 },
                                 "required": [
@@ -3379,10 +4371,16 @@
                                 "type": "object",
                                 "properties": {
                                     "human": {
-                                        "type": "string"
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
                                     },
                                     "string": {
-                                        "type": "string"
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
                                     }
                                 },
                                 "required": [
@@ -3394,10 +4392,16 @@
                                 "type": "object",
                                 "properties": {
                                     "human": {
-                                        "type": "string"
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
                                     },
                                     "string": {
-                                        "type": "string"
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
                                     }
                                 },
                                 "required": [
@@ -3412,10 +4416,16 @@
                                         "type": "object",
                                         "properties": {
                                             "human": {
-                                                "type": "string"
+                                                "type": [
+                                                    "string",
+                                                    "null"
+                                                ]
                                             },
                                             "value": {
-                                                "type": "string"
+                                                "type": [
+                                                    "string",
+                                                    "null"
+                                                ]
                                             }
                                         },
                                         "required": [
@@ -3540,10 +4550,16 @@
                                 "type": "object",
                                 "properties": {
                                     "human": {
-                                        "type": "string"
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
                                     },
                                     "string": {
-                                        "type": "string"
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
                                     }
                                 },
                                 "required": [
@@ -3555,10 +4571,16 @@
                                 "type": "object",
                                 "properties": {
                                     "human": {
-                                        "type": "string"
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
                                     },
                                     "string": {
-                                        "type": "string"
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
                                     }
                                 },
                                 "required": [
@@ -3679,43 +4701,43 @@
                         "minimum": 0
                     },
                     "visible": {
-                        "type": [
-                            "boolean",
-                            "null"
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/ResourceVisibilityEnum"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "collapsed": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "enum": [
-                            "0",
-                            "1",
-                            "2"
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/ComponentGroupVisibilityEnum"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "order_column": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "enum": [
-                            "id",
-                            "last_updated",
-                            "name",
-                            "manual",
-                            "status"
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/ResourceOrderColumnEnum"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "order_direction": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "enum": [
-                            "asc",
-                            "desc"
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/ResourceOrderDirectionEnum"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "components": {
@@ -3748,17 +4770,13 @@
                         ]
                     },
                     "status": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "enum": [
-                            "1",
-                            "2",
-                            "3",
-                            "4",
-                            "5",
-                            "6"
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/ComponentStatusEnum"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "link": {
@@ -3799,14 +4817,7 @@
                         "maxLength": 255
                     },
                     "status": {
-                        "type": "string",
-                        "enum": [
-                            "0",
-                            "1",
-                            "2",
-                            "3",
-                            "4"
-                        ]
+                        "$ref": "#/components/schemas/IncidentStatusEnum"
                     },
                     "message": {
                         "type": [
@@ -3836,7 +4847,8 @@
                         "type": [
                             "string",
                             "null"
-                        ]
+                        ],
+                        "format": "date-time"
                     },
                     "template_vars": {
                         "type": "array",
@@ -3852,17 +4864,13 @@
                         ]
                     },
                     "component_status": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "enum": [
-                            "1",
-                            "2",
-                            "3",
-                            "4",
-                            "5",
-                            "6"
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/ComponentStatusEnum"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "components": {
@@ -3892,13 +4900,13 @@
                         "type": "string"
                     },
                     "engine": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "enum": [
-                            "blade",
-                            "twig"
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/IncidentTemplateEngineEnum"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     }
                 },
@@ -3912,14 +4920,7 @@
                 "type": "object",
                 "properties": {
                     "status": {
-                        "type": "string",
-                        "enum": [
-                            "0",
-                            "1",
-                            "2",
-                            "3",
-                            "4"
-                        ]
+                        "$ref": "#/components/schemas/IncidentStatusEnum"
                     },
                     "message": {
                         "type": "string"
@@ -3936,6 +4937,12 @@
                 "properties": {
                     "value": {
                         "type": "number"
+                    },
+                    "timestamp": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
                     }
                 },
                 "required": [
@@ -3954,6 +4961,16 @@
                         "type": "string",
                         "maxLength": 255
                     },
+                    "calc_type": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/MetricTypeEnum"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
                     "description": {
                         "type": [
                             "string",
@@ -3966,6 +4983,12 @@
                             "null"
                         ]
                     },
+                    "display_chart": {
+                        "type": [
+                            "boolean",
+                            "null"
+                        ]
+                    },
                     "threshold": {
                         "type": [
                             "integer",
@@ -3973,6 +4996,12 @@
                         ],
                         "minimum": 0,
                         "maximum": 60
+                    },
+                    "places": {
+                        "type": [
+                            "integer",
+                            "null"
+                        ]
                     }
                 },
                 "required": [
@@ -4002,6 +5031,20 @@
                         ],
                         "format": "date-time"
                     },
+                    "status": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/ScheduleStatusEnum"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "notifications": {
+                        "type": "boolean",
+                        "default": false
+                    },
                     "components": {
                         "type": [
                             "array",
@@ -4024,6 +5067,13 @@
                 "properties": {
                     "message": {
                         "type": "string"
+                    },
+                    "completed_at": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "format": "date-time"
                     }
                 },
                 "required": [
@@ -4031,20 +5081,53 @@
                 ],
                 "title": "CreateScheduleUpdateRequestData"
             },
+            "CreateSubscriberRequestData": {
+                "type": "object",
+                "properties": {
+                    "email": {
+                        "type": "string",
+                        "format": "email",
+                        "maxLength": 255
+                    },
+                    "global": {
+                        "type": [
+                            "boolean",
+                            "null"
+                        ]
+                    },
+                    "verified": {
+                        "type": [
+                            "boolean",
+                            "null"
+                        ]
+                    },
+                    "components": {
+                        "type": [
+                            "array",
+                            "null"
+                        ],
+                        "items": {
+                            "type": "integer",
+                            "minimum": 0
+                        }
+                    }
+                },
+                "required": [
+                    "email"
+                ],
+                "title": "CreateSubscriberRequestData"
+            },
             "EditIncidentUpdateRequestData": {
                 "type": "object",
                 "properties": {
                     "status": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "enum": [
-                            "0",
-                            "1",
-                            "2",
-                            "3",
-                            "4"
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/IncidentStatusEnum"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "message": {
@@ -4111,10 +5194,16 @@
                                 "type": "object",
                                 "properties": {
                                     "human": {
-                                        "type": "string"
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
                                     },
                                     "value": {
-                                        "type": "string"
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
                                     }
                                 },
                                 "required": [
@@ -4126,10 +5215,16 @@
                                 "type": "object",
                                 "properties": {
                                     "human": {
-                                        "type": "string"
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
                                     },
                                     "string": {
-                                        "type": "string"
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
                                     }
                                 },
                                 "required": [
@@ -4141,10 +5236,16 @@
                                 "type": "object",
                                 "properties": {
                                     "human": {
-                                        "type": "string"
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
                                     },
                                     "string": {
-                                        "type": "string"
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
                                     }
                                 },
                                 "required": [
@@ -4156,10 +5257,16 @@
                                 "type": "object",
                                 "properties": {
                                     "human": {
-                                        "type": "string"
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
                                     },
                                     "string": {
-                                        "type": "string"
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
                                     }
                                 },
                                 "required": [
@@ -4247,15 +5354,7 @@
                         "type": "integer"
                     },
                     "status": {
-                        "type": "string",
-                        "enum": [
-                            "1",
-                            "2",
-                            "3",
-                            "4",
-                            "5",
-                            "6"
-                        ]
+                        "$ref": "#/components/schemas/ComponentStatusEnum"
                     }
                 },
                 "required": [
@@ -4328,10 +5427,16 @@
                                 "type": "object",
                                 "properties": {
                                     "human": {
-                                        "type": "string"
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
                                     },
                                     "string": {
-                                        "type": "string"
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
                                     }
                                 },
                                 "required": [
@@ -4343,10 +5448,16 @@
                                 "type": "object",
                                 "properties": {
                                     "human": {
-                                        "type": "string"
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
                                     },
                                     "string": {
-                                        "type": "string"
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
                                     }
                                 },
                                 "required": [
@@ -4441,10 +5552,16 @@
                                 "type": "object",
                                 "properties": {
                                     "human": {
-                                        "type": "string"
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
                                     },
                                     "string": {
-                                        "type": "string"
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
                                     }
                                 },
                                 "required": [
@@ -4456,10 +5573,16 @@
                                 "type": "object",
                                 "properties": {
                                     "human": {
-                                        "type": "string"
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
                                     },
                                     "string": {
-                                        "type": "string"
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
                                     }
                                 },
                                 "required": [
@@ -4564,10 +5687,10 @@
                                 "type": "object",
                                 "properties": {
                                     "human": {
-                                        "type": "string"
+                                        "type": "null"
                                     },
                                     "string": {
-                                        "type": "string"
+                                        "type": "null"
                                     }
                                 },
                                 "required": [
@@ -4579,10 +5702,16 @@
                                 "type": "object",
                                 "properties": {
                                     "human": {
-                                        "type": "string"
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
                                     },
                                     "string": {
-                                        "type": "string"
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
                                     }
                                 },
                                 "required": [
@@ -4757,10 +5886,16 @@
                                 "type": "object",
                                 "properties": {
                                     "human": {
-                                        "type": "string"
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
                                     },
                                     "string": {
-                                        "type": "string"
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
                                     }
                                 },
                                 "required": [
@@ -4772,10 +5907,16 @@
                                 "type": "object",
                                 "properties": {
                                     "human": {
-                                        "type": "string"
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
                                     },
                                     "string": {
-                                        "type": "string"
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
                                     }
                                 },
                                 "required": [
@@ -4787,10 +5928,16 @@
                                 "type": "object",
                                 "properties": {
                                     "human": {
-                                        "type": "string"
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
                                     },
                                     "string": {
-                                        "type": "string"
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
                                     }
                                 },
                                 "required": [
@@ -4857,15 +6004,7 @@
                         "type": "integer"
                     },
                     "status": {
-                        "type": "string",
-                        "enum": [
-                            "1",
-                            "2",
-                            "3",
-                            "4",
-                            "5",
-                            "6"
-                        ]
+                        "$ref": "#/components/schemas/ComponentStatusEnum"
                     }
                 },
                 "required": [
@@ -4873,6 +6012,25 @@
                     "status"
                 ],
                 "title": "ScheduleComponentRequestData"
+            },
+            "ScheduleIdentifier": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "schedules"
+                        ]
+                    },
+                    "id": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "type",
+                    "id"
+                ],
+                "title": "ScheduleIdentifier"
             },
             "ScheduleStatusEnum": {
                 "type": "integer",
@@ -4882,6 +6040,136 @@
                     2
                 ],
                 "title": "ScheduleStatusEnum"
+            },
+            "Subscriber": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "subscribers"
+                        ]
+                    },
+                    "attributes": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "integer"
+                            },
+                            "email": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            },
+                            "global": {
+                                "type": "boolean"
+                            },
+                            "verified": {
+                                "type": "boolean"
+                            },
+                            "verified_at": {
+                                "type": "object",
+                                "properties": {
+                                    "human": {
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
+                                    },
+                                    "string": {
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
+                                    }
+                                },
+                                "required": [
+                                    "human",
+                                    "string"
+                                ]
+                            },
+                            "created": {
+                                "type": "object",
+                                "properties": {
+                                    "human": {
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
+                                    },
+                                    "string": {
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
+                                    }
+                                },
+                                "required": [
+                                    "human",
+                                    "string"
+                                ]
+                            },
+                            "updated": {
+                                "type": "object",
+                                "properties": {
+                                    "human": {
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
+                                    },
+                                    "string": {
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
+                                    }
+                                },
+                                "required": [
+                                    "human",
+                                    "string"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "id",
+                            "email",
+                            "global",
+                            "verified",
+                            "verified_at",
+                            "created",
+                            "updated"
+                        ]
+                    },
+                    "relationships": {
+                        "type": "object",
+                        "properties": {
+                            "components": {
+                                "type": "object",
+                                "properties": {
+                                    "data": {
+                                        "type": "array",
+                                        "items": {
+                                            "$ref": "#/components/schemas/ComponentIdentifier"
+                                        }
+                                    }
+                                },
+                                "required": [
+                                    "data"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "required": [
+                    "id",
+                    "type"
+                ],
+                "title": "Subscriber"
             },
             "Update": {
                 "type": "object",
@@ -4914,10 +6202,24 @@
                                 "type": "object",
                                 "properties": {
                                     "human": {
-                                        "type": "string"
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ],
+                                        "enum": [
+                                            "Investigating",
+                                            "Identified",
+                                            "Watching",
+                                            "Fixed",
+                                            "Reported",
+                                            null
+                                        ]
                                     },
                                     "value": {
-                                        "type": "string"
+                                        "type": [
+                                            "integer",
+                                            "null"
+                                        ]
                                     }
                                 },
                                 "required": [
@@ -4929,10 +6231,16 @@
                                 "type": "object",
                                 "properties": {
                                     "human": {
-                                        "type": "string"
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
                                     },
                                     "string": {
-                                        "type": "string"
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
                                     }
                                 },
                                 "required": [
@@ -4944,10 +6252,16 @@
                                 "type": "object",
                                 "properties": {
                                     "human": {
-                                        "type": "string"
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
                                     },
                                     "string": {
-                                        "type": "string"
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
                                     }
                                 },
                                 "required": [
@@ -4964,6 +6278,47 @@
                             "created",
                             "updated"
                         ]
+                    },
+                    "relationships": {
+                        "type": "object",
+                        "properties": {
+                            "incident": {
+                                "type": "object",
+                                "properties": {
+                                    "data": {
+                                        "anyOf": [
+                                            {
+                                                "$ref": "#/components/schemas/IncidentIdentifier"
+                                            },
+                                            {
+                                                "type": "null"
+                                            }
+                                        ]
+                                    }
+                                },
+                                "required": [
+                                    "data"
+                                ]
+                            },
+                            "schedule": {
+                                "type": "object",
+                                "properties": {
+                                    "data": {
+                                        "anyOf": [
+                                            {
+                                                "$ref": "#/components/schemas/ScheduleIdentifier"
+                                            },
+                                            {
+                                                "type": "null"
+                                            }
+                                        ]
+                                    }
+                                },
+                                "required": [
+                                    "data"
+                                ]
+                            }
+                        }
                     }
                 },
                 "required": [
@@ -4996,37 +6351,33 @@
                         ]
                     },
                     "collapsed": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "enum": [
-                            "0",
-                            "1",
-                            "2"
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/ComponentGroupVisibilityEnum"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "order_column": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "enum": [
-                            "id",
-                            "last_updated",
-                            "name",
-                            "manual",
-                            "status"
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/ResourceOrderColumnEnum"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "order_direction": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "enum": [
-                            "asc",
-                            "desc"
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/ResourceOrderDirectionEnum"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "components": {
@@ -5059,17 +6410,13 @@
                         ]
                     },
                     "status": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "enum": [
-                            "1",
-                            "2",
-                            "3",
-                            "4",
-                            "5",
-                            "6"
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/ComponentStatusEnum"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "link": {
@@ -5086,8 +6433,10 @@
                         "minimum": 0
                     },
                     "enabled": {
-                        "type": "boolean",
-                        "default": true
+                        "type": [
+                            "boolean",
+                            "null"
+                        ]
                     },
                     "component_group_id": {
                         "type": [
@@ -5132,16 +6481,13 @@
                         ]
                     },
                     "status": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "enum": [
-                            "0",
-                            "1",
-                            "2",
-                            "3",
-                            "4"
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/IncidentStatusEnum"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "visible": {
@@ -5166,7 +6512,8 @@
                         "type": [
                             "string",
                             "null"
-                        ]
+                        ],
+                        "format": "date-time"
                     }
                 },
                 "title": "UpdateIncidentRequestData"
@@ -5188,13 +6535,13 @@
                         ]
                     },
                     "engine": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
-                        "enum": [
-                            "blade",
-                            "twig"
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/IncidentTemplateEngineEnum"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     }
                 },
@@ -5204,7 +6551,10 @@
                 "type": "object",
                 "properties": {
                     "name": {
-                        "type": "string",
+                        "type": [
+                            "string",
+                            "null"
+                        ],
                         "maxLength": 255
                     },
                     "suffix": {
@@ -5235,9 +6585,6 @@
                         "maximum": 60
                     }
                 },
-                "required": [
-                    "name"
-                ],
                 "title": "UpdateMetricRequestData"
             },
             "UpdateScheduleRequestData": {
@@ -5254,6 +6601,16 @@
                         "type": [
                             "string",
                             "null"
+                        ]
+                    },
+                    "status": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/ScheduleStatusEnum"
+                            },
+                            {
+                                "type": "null"
+                            }
                         ]
                     },
                     "scheduled_at": {
@@ -5282,6 +6639,36 @@
                 },
                 "title": "UpdateScheduleRequestData"
             },
+            "UpdateSubscriberRequestData": {
+                "type": "object",
+                "properties": {
+                    "email": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "format": "email",
+                        "maxLength": 255
+                    },
+                    "global": {
+                        "type": [
+                            "boolean",
+                            "null"
+                        ]
+                    },
+                    "components": {
+                        "type": [
+                            "array",
+                            "null"
+                        ],
+                        "items": {
+                            "type": "integer",
+                            "minimum": 0
+                        }
+                    }
+                },
+                "title": "UpdateSubscriberRequestData"
+            },
             "User": {
                 "type": "object",
                 "properties": {
@@ -5294,9 +6681,7 @@
                     "attributes": {
                         "type": "object",
                         "properties": {
-                            "id": {
-                                "type": "string"
-                            }
+                            "id": {}
                         },
                         "required": [
                             "id"
