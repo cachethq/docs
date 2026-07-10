@@ -8,6 +8,8 @@ description: 'Learn about the changes in Cachet.'
 
     - (Core) Subscribers and email notifications for incidents and scheduled maintenance [#372](https://github.com/cachethq/core/pull/372)
     - (Core) API endpoints to manage subscribers [#377](https://github.com/cachethq/core/pull/377)
+    - (Core) App-based two-factor authentication for dashboard users [#381](https://github.com/cachethq/core/pull/381)
+    - (Core) Dynamic status favicons [#379](https://github.com/cachethq/core/pull/379)
     - (Core) Settings to disable the API or require authentication for all API requests [#378](https://github.com/cachethq/core/pull/378)
     - (Core) Support for Laravel 13 [#368](https://github.com/cachethq/core/pull/368)
 
@@ -15,7 +17,20 @@ description: 'Learn about the changes in Cachet.'
 
     - (Core) Redesigned dashboard [#370](https://github.com/cachethq/core/pull/370)
     - (Core) Refined status page design with a unified components list and clearer incident timeline [`94a2b4`](https://github.com/cachethq/core/commit/94a2b4a10a772387c8dfc97ea804243687f253a4)
+    - (Core) Improved performance across the status page, API, and dashboard [#382](https://github.com/cachethq/core/pull/382)
     - (Core) Cachet API routes no longer inherit the host application's rate limiter [#375](https://github.com/cachethq/core/pull/375)
+    - (Core) Reading subscribers via the API now requires the `subscribers.manage` token ability [`2f984e`](https://github.com/cachethq/core/commit/2f984ea87bc7d9cb9e4f8babebf3ba5db0d2ee90)
+    - (Core) Metric thresholds are now editable [`9d58bc`](https://github.com/cachethq/core/commit/9d58bcc8336c511a5907b82996bc0785ddea33d5)
+    - (Core) The dashboard components widget now shows non-public component groups [`a8d0bc`](https://github.com/cachethq/core/commit/a8d0bc8778984ece8ca674d12f56f5c3cd13cd12)
+
+    # Fixed
+
+    - (Core) Cachet now sanitizes user-authored Markdown on the status page [`23adbb`](https://github.com/cachethq/core/commit/23adbb88ffa819f92be4a905ff1d812670d980a2)
+    - (Core) Incident messages no longer break the RSS feed [`8160b8`](https://github.com/cachethq/core/commit/8160b8e3d80158fdafe34cadf8517ca83dc7a5dd)
+    - (Core) Partial component updates via the API no longer re-enable disabled components [`5a91e9`](https://github.com/cachethq/core/commit/5a91e9979f4a2af17d76fda550ec524d78fdb30c)
+    - (Core) The incident overview no longer counts incidents once per update [`6e3652`](https://github.com/cachethq/core/commit/6e36520acf84d83fecac958590359494e1b35550)
+    - (Core) Updating an incident via the API no longer triggers matching webhooks twice [`5a1852`](https://github.com/cachethq/core/commit/5a185210e6e72c5869c11add79b0872252d681ef)
+    - (Core) Invalid API requests now return validation errors instead of a 500 response [`e70c82`](https://github.com/cachethq/core/commit/e70c82a977a583f03cef9f717f7f83e2a74cb13f)
 </Update>
 
 <Update label="June 2026">

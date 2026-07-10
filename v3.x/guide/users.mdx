@@ -19,13 +19,48 @@ Admin users may add and manage additional users. They are able to change the use
 
 Users may view and manage components, incidents, subscribers etc, but they are not able to manage other users.
 
+## Two-factor authentication
+
+Users may secure their account with app-based two-factor authentication. Once a user enables it, Cachet asks them
+for a code from their authenticator app when they sign in and before sensitive actions.
+
+### Enabling two-factor authentication
+
+To enable two-factor authentication, follow these steps:
+
+<Steps>
+    <Step title="Step 1">
+        Open your profile page in the Cachet dashboard.
+    </Step>
+    <Step title="Step 2">
+        Scan the QR code with an authenticator app such as Google Authenticator, 1Password, or Authy. If you can't
+        scan the code, enter the setup key manually.
+    </Step>
+    <Step title="Step 3">
+        Confirm the setup by entering the 6-digit code from your authenticator app.
+    </Step>
+    <Step title="Step 4">
+        Store the generated recovery codes in a secure location. You can use a recovery code in place of an
+        authenticator code if you lose access to your device.
+
+        <Warning>
+            If you lose your authenticator device and your recovery codes, an admin must reset your two-factor
+            authentication before you can sign in again.
+        </Warning>
+    </Step>
+</Steps>
+
+### Resetting two-factor authentication
+
+Admins may reset two-factor authentication for a user who has lost access to their authenticator device. On the
+users table, click the reset action next to the user and confirm. The user can then sign in with their password
+and set up two-factor authentication again.
+
 ## Limitations
 
-Cachet's user system is designed to be simple and easy to use. As such, there are some limitations:
-
-1. Cachet does not currently support two-factor authentication.
-2. There is no fine-grained control over user access to various resources.
+Cachet's user system is designed to be simple and easy to use. As such, there is no fine-grained control over user
+access to various resources.
 
 <Tip>
-    These limitations are temporary, and future versions of Cachet will address them.
+    This limitation is temporary, and future versions of Cachet will address it.
 </Tip>

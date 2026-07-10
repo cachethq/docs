@@ -10,9 +10,9 @@ description: 'Learn how to install Cachet on your server.'
 
 ## Prerequisites
 
-Cachet v3.x uses PHP with Laravel 11.x and requires:
+Cachet v3.x runs on Laravel 11.35+, 12.x, or 13.x and requires:
 
-- PHP 8.2, 8.3 or 8.4
+- PHP 8.3 or 8.4
 - [Composer](https://getcomposer.org)
 - SQLite, MySQL, MariaDB 10.7+, PostgreSQL, or SQL Server
 
@@ -91,6 +91,18 @@ If you are looking to migrate from Cachet v2.x, please refer to the [migration g
                 ```bash /etc/crontab
                 * * * * * php /path/to/cachet/artisan schedule:run >> /dev/null 2>&1
                 ```
+
+                Cachet uses the scheduler to send subscriber notifications for completed maintenance and long-running incidents.
+            </Step>
+            <Step title="Step 11">
+                Run a queue worker to deliver email notifications:
+                ```bash
+                php artisan queue:work
+                ```
+
+                <Note>
+                    Cachet queues all subscriber emails. The default `sync` queue connection delivers them inline, but we recommend a dedicated queue worker in production. See the [Laravel queue documentation](https://laravel.com/docs/queues) for running workers with a process supervisor.
+                </Note>
             </Step>
         </Steps>
     </Tab>

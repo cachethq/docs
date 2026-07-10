@@ -47,6 +47,21 @@ The "Automatically Refresh Page" setting controls whether your status page refre
 
 The provided number will be the number of seconds between each refresh.
 
+## API access
+
+Two settings control access to the [Cachet API](/api-reference):
+
+### Enable API
+
+The "Enable API" setting controls whether the API is available at all. When disabled, every API request responds
+with a 404. The API is enabled by default.
+
+### Require authentication
+
+When the "Require Authentication" setting is enabled, read-only API endpoints also require an
+[API key](/v3.x/configuration/api-keys). By default, read-only endpoints are public and only write endpoints
+require authentication.
+
 ## Other settings
 
 Cachet also provides additional settings to customize your status page.

@@ -4,9 +4,61 @@ description: 'Learn how to manage subscribers in Cachet.'
 icon: 'user-check'
 ---
 
-<Note>
-    Cachet v3.x does not currently support subscribers. Interested in contributing? Check out the
-    [GitHub issue](https://github.com/cachethq/core/issues/79).
-</Note>
+Subscribers are people who have opted in to receive email notifications about incidents and scheduled maintenance
+on your status page.
 
-Subscribers represent people who have opted to receive notifications about incidents and component changes.
+## Configuring mail
+
+Before Cachet can send notifications, you need to configure mail settings. Go to the "Manage Notifications" page in
+the Cachet dashboard, located under the "Settings" navigation group.
+
+You may configure an SMTP or Sendmail mailer along with the sender name and address, or leave the settings empty to
+use your host application's default mail configuration. Cachet encrypts mail credentials at rest.
+
+<Tip>
+    Use the "Send Test Email" action to verify your mail settings before saving them.
+</Tip>
+
+## Allowing subscriptions
+
+Subscriptions are disabled by default. Enable the "Allow Subscriptions" setting on the "Manage Notifications" page
+to allow visitors to subscribe.
+
+When enabled, the status page header links to a subscribe page. New subscribers receive a verification email and
+must confirm their address before Cachet sends them notifications.
+
+## Notifications
+
+The following events trigger an email to verified subscribers:
+
+- a new incident, when "Notify Subscribers?" is enabled on the incident
+- an update to an existing incident
+- scheduled maintenance that is created, rescheduled, updated, or completed, when notifications are enabled on the schedule
+
+Every email includes an unsubscribe link. Cachet queues all notifications, so we recommend running a
+[queue worker](/v3.x/installation#installing-cachet) for timely delivery.
+
+Cachet can also email dashboard users when an incident has seen no activity for a configurable number of hours.
+This feature is off by default; configure it on the "Manage Notifications" page.
+
+## Managing subscribers
+
+The "Subscribers" section of the dashboard lists every subscriber and their verification status. From here you may
+add subscribers manually, resend verification emails, verify a subscriber without email confirmation, or remove
+subscribers.
+
+## Subscriber API
+
+You may also manage subscribers through the [Cachet API](/api-reference). Because subscriber emails are personal
+data, every subscriber endpoint requires authentication, including read requests:
+
+| Method | URI | Required ability |
+| --- | --- | --- |
+| GET | `/api/subscribers` | `subscribers.manage` |
+| GET | `/api/subscribers/{subscriber}` | `subscribers.manage` |
+| POST | `/api/subscribers` | `subscribers.manage` |
+| PUT/PATCH | `/api/subscribers/{subscriber}` | `subscribers.manage` |
+| DELETE | `/api/subscribers/{subscriber}` | `subscribers.delete` |
+
+Creating a subscriber through the API sends a verification email unless you pass `verified: true`, which is useful
+when syncing subscribers from an external system.
