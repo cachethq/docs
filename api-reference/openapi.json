@@ -3,7 +3,7 @@
     "info": {
         "title": "Cachet",
         "version": "0.0.1",
-        "description": "API documentation for Cachet, the open-source, self-hosted status page system."
+        "description": "API documentation for Cachet, the open source, self-hosted status page system."
     },
     "servers": [
         {
@@ -4337,9 +4337,9 @@
                                         ],
                                         "enum": [
                                             "Operational",
-                                            "Performance Issues",
-                                            "Partial Outage",
-                                            "Major Outage",
+                                            "Performance issues",
+                                            "Partial outage",
+                                            "Major outage",
                                             "Under maintenance",
                                             "Unknown",
                                             null
