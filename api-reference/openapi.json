@@ -134,6 +134,13 @@
                 ],
                 "parameters": [
                     {
+                        "name": "filter[meta][key]",
+                        "in": "query",
+                        "description": "Filter by a metadata key/value pair.",
+                        "schema": {},
+                        "example": "eu-west"
+                    },
+                    {
                         "name": "per_page",
                         "in": "query",
                         "description": "How many items to show per page.",
@@ -153,6 +160,13 @@
                         "example": 2
                     },
                     {
+                        "name": "filter[meta]",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
                         "name": "sort",
                         "in": "query",
                         "schema": {
@@ -166,25 +180,6 @@
                                     "-order",
                                     "id",
                                     "-id"
-                                ]
-                            }
-                        },
-                        "explode": false
-                    },
-                    {
-                        "name": "include",
-                        "in": "query",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "type": "string",
-                                "enum": [
-                                    "group",
-                                    "groupCount",
-                                    "groupExists",
-                                    "incidents",
-                                    "incidentsCount",
-                                    "incidentsExists"
                                 ]
                             }
                         },
@@ -216,6 +211,30 @@
                             "type": "boolean"
                         },
                         "example": "1"
+                    },
+                    {
+                        "name": "include",
+                        "in": "query",
+                        "description": "Include related data (group, incidents, meta).",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "group",
+                                    "groupCount",
+                                    "groupExists",
+                                    "incidents",
+                                    "incidentsCount",
+                                    "incidentsExists",
+                                    "meta",
+                                    "metaCount",
+                                    "metaExists"
+                                ]
+                            }
+                        },
+                        "example": "meta",
+                        "explode": false
                     }
                 ],
                 "responses": {
@@ -399,6 +418,7 @@
                     {
                         "name": "include",
                         "in": "query",
+                        "description": "Include related data (group, incidents, meta).",
                         "schema": {
                             "type": "array",
                             "items": {
@@ -409,10 +429,14 @@
                                     "groupExists",
                                     "incidents",
                                     "incidentsCount",
-                                    "incidentsExists"
+                                    "incidentsExists",
+                                    "meta",
+                                    "metaCount",
+                                    "metaExists"
                                 ]
                             }
                         },
+                        "example": "meta",
                         "explode": false
                     }
                 ],
@@ -569,6 +593,13 @@
                 ],
                 "parameters": [
                     {
+                        "name": "filter[meta][key]",
+                        "in": "query",
+                        "description": "Filter by a metadata key/value pair.",
+                        "schema": {},
+                        "example": "eu-west"
+                    },
+                    {
                         "name": "per_page",
                         "in": "query",
                         "description": "How many items to show per page.",
@@ -586,6 +617,13 @@
                             "type": "integer"
                         },
                         "example": 2
+                    },
+                    {
+                        "name": "filter[meta]",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
                     },
                     {
                         "name": "sort",
@@ -607,6 +645,7 @@
                     {
                         "name": "include",
                         "in": "query",
+                        "description": "Include related data (components, meta).",
                         "schema": {
                             "type": "array",
                             "items": {
@@ -614,10 +653,14 @@
                                 "enum": [
                                     "components",
                                     "componentsCount",
-                                    "componentsExists"
+                                    "componentsExists",
+                                    "meta",
+                                    "metaCount",
+                                    "metaExists"
                                 ]
                             }
                         },
+                        "example": "meta",
                         "explode": false
                     }
                 ],
@@ -788,6 +831,7 @@
                     {
                         "name": "include",
                         "in": "query",
+                        "description": "Include related data (components, meta).",
                         "schema": {
                             "type": "array",
                             "items": {
@@ -795,10 +839,14 @@
                                 "enum": [
                                     "components",
                                     "componentsCount",
-                                    "componentsExists"
+                                    "componentsExists",
+                                    "meta",
+                                    "metaCount",
+                                    "metaExists"
                                 ]
                             }
                         },
+                        "example": "meta",
                         "explode": false
                     }
                 ],
@@ -941,6 +989,13 @@
                 ],
                 "parameters": [
                     {
+                        "name": "filter[meta][key]",
+                        "in": "query",
+                        "description": "Filter by a metadata key/value pair.",
+                        "schema": {},
+                        "example": "eu-west"
+                    },
+                    {
                         "name": "per_page",
                         "in": "query",
                         "description": "How many items to show per page.",
@@ -995,6 +1050,13 @@
                         }
                     },
                     {
+                        "name": "filter[meta]",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
                         "name": "sort",
                         "in": "query",
                         "schema": {
@@ -1021,6 +1083,7 @@
                     {
                         "name": "include",
                         "in": "query",
+                        "description": "Include related data (components, components.group, updates, user, meta).",
                         "schema": {
                             "type": "array",
                             "items": {
@@ -1035,10 +1098,14 @@
                                     "updatesExists",
                                     "user",
                                     "userCount",
-                                    "userExists"
+                                    "userExists",
+                                    "meta",
+                                    "metaCount",
+                                    "metaExists"
                                 ]
                             }
                         },
+                        "example": "meta",
                         "explode": false
                     }
                 ],
@@ -1229,6 +1296,7 @@
                     {
                         "name": "include",
                         "in": "query",
+                        "description": "Include related data (components, components.group, updates, user, meta).",
                         "schema": {
                             "type": "array",
                             "items": {
@@ -1243,10 +1311,14 @@
                                     "updatesExists",
                                     "user",
                                     "userCount",
-                                    "userExists"
+                                    "userExists",
+                                    "meta",
+                                    "metaCount",
+                                    "metaExists"
                                 ]
                             }
                         },
+                        "example": "meta",
                         "explode": false
                     }
                 ],
@@ -2948,6 +3020,13 @@
                 ],
                 "parameters": [
                     {
+                        "name": "filter[meta][key]",
+                        "in": "query",
+                        "description": "Filter by a metadata key/value pair.",
+                        "schema": {},
+                        "example": "eu-west"
+                    },
+                    {
                         "name": "per_page",
                         "in": "query",
                         "description": "How many items to show per page.",
@@ -2965,6 +3044,13 @@
                             "type": "integer"
                         },
                         "example": 2
+                    },
+                    {
+                        "name": "filter[meta]",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
                     },
                     {
                         "name": "sort",
@@ -2988,29 +3074,6 @@
                         "explode": false
                     },
                     {
-                        "name": "include",
-                        "in": "query",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "type": "string",
-                                "enum": [
-                                    "components",
-                                    "componentsCount",
-                                    "componentsExists",
-                                    "components.group",
-                                    "updates",
-                                    "updatesCount",
-                                    "updatesExists",
-                                    "user",
-                                    "userCount",
-                                    "userExists"
-                                ]
-                            }
-                        },
-                        "explode": false
-                    },
-                    {
                         "name": "filter[name]",
                         "in": "query",
                         "description": "Filter the resources by name.",
@@ -3026,6 +3089,34 @@
                         "schema": {
                             "$ref": "#/components/schemas/ScheduleStatusEnum"
                         }
+                    },
+                    {
+                        "name": "include",
+                        "in": "query",
+                        "description": "Include related data (components, components.group, updates, user, meta).",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "components",
+                                    "componentsCount",
+                                    "componentsExists",
+                                    "components.group",
+                                    "updates",
+                                    "updatesCount",
+                                    "updatesExists",
+                                    "user",
+                                    "userCount",
+                                    "userExists",
+                                    "meta",
+                                    "metaCount",
+                                    "metaExists"
+                                ]
+                            }
+                        },
+                        "example": "meta",
+                        "explode": false
                     }
                 ],
                 "responses": {
@@ -3209,6 +3300,7 @@
                     {
                         "name": "include",
                         "in": "query",
+                        "description": "Include related data (components, components.group, updates, user, meta).",
                         "schema": {
                             "type": "array",
                             "items": {
@@ -3223,10 +3315,14 @@
                                     "updatesExists",
                                     "user",
                                     "userCount",
-                                    "userExists"
+                                    "userExists",
+                                    "meta",
+                                    "metaCount",
+                                    "metaExists"
                                 ]
                             }
                         },
+                        "example": "meta",
                         "explode": false
                     }
                 ],
@@ -3834,6 +3930,13 @@
                 ],
                 "parameters": [
                     {
+                        "name": "filter[meta][key]",
+                        "in": "query",
+                        "description": "Filter by a metadata key/value pair.",
+                        "schema": {},
+                        "example": "eu-west"
+                    },
+                    {
                         "name": "per_page",
                         "in": "query",
                         "description": "How many items to show per page.",
@@ -3853,6 +3956,13 @@
                         "example": 2
                     },
                     {
+                        "name": "filter[meta]",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
                         "name": "sort",
                         "in": "query",
                         "schema": {
@@ -3864,22 +3974,6 @@
                                     "-email",
                                     "id",
                                     "-id"
-                                ]
-                            }
-                        },
-                        "explode": false
-                    },
-                    {
-                        "name": "include",
-                        "in": "query",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "type": "string",
-                                "enum": [
-                                    "components",
-                                    "componentsCount",
-                                    "componentsExists"
                                 ]
                             }
                         },
@@ -3902,6 +3996,27 @@
                             "type": "boolean"
                         },
                         "example": "1"
+                    },
+                    {
+                        "name": "include",
+                        "in": "query",
+                        "description": "Include related data (components, meta).",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "components",
+                                    "componentsCount",
+                                    "componentsExists",
+                                    "meta",
+                                    "metaCount",
+                                    "metaExists"
+                                ]
+                            }
+                        },
+                        "example": "meta",
+                        "explode": false
                     }
                 ],
                 "responses": {
@@ -4076,6 +4191,7 @@
                     {
                         "name": "include",
                         "in": "query",
+                        "description": "Include related data (components, meta).",
                         "schema": {
                             "type": "array",
                             "items": {
@@ -4083,10 +4199,14 @@
                                 "enum": [
                                     "components",
                                     "componentsCount",
-                                    "componentsExists"
+                                    "componentsExists",
+                                    "meta",
+                                    "metaCount",
+                                    "metaExists"
                                 ]
                             }
                         },
+                        "example": "meta",
                         "explode": false
                     }
                 ],
@@ -4361,10 +4481,7 @@
                                 "type": "boolean"
                             },
                             "meta": {
-                                "type": [
-                                    "array",
-                                    "null"
-                                ],
+                                "type": "array",
                                 "items": {}
                             },
                             "created": {
@@ -4447,7 +4564,6 @@
                             "order",
                             "status",
                             "enabled",
-                            "meta",
                             "created",
                             "updated"
                         ]
@@ -4545,6 +4661,10 @@
                             },
                             "visible": {
                                 "$ref": "#/components/schemas/ResourceVisibilityEnum"
+                            },
+                            "meta": {
+                                "type": "array",
+                                "items": {}
                             },
                             "created": {
                                 "type": "object",
@@ -4740,6 +4860,13 @@
                             }
                         ]
                     },
+                    "meta": {
+                        "type": [
+                            "object",
+                            "null"
+                        ],
+                        "additionalProperties": {}
+                    },
                     "components": {
                         "type": [
                             "array",
@@ -4802,6 +4929,13 @@
                             "null"
                         ],
                         "minimum": 0
+                    },
+                    "meta": {
+                        "type": [
+                            "object",
+                            "null"
+                        ],
+                        "additionalProperties": {}
                     }
                 },
                 "required": [
@@ -4881,6 +5015,13 @@
                         "items": {
                             "$ref": "#/components/schemas/IncidentComponentRequestData"
                         }
+                    },
+                    "meta": {
+                        "type": [
+                            "object",
+                            "null"
+                        ],
+                        "additionalProperties": {}
                     }
                 },
                 "required": [
@@ -5053,6 +5194,13 @@
                         "items": {
                             "$ref": "#/components/schemas/ScheduleComponentRequestData"
                         }
+                    },
+                    "meta": {
+                        "type": [
+                            "object",
+                            "null"
+                        ],
+                        "additionalProperties": {}
                     }
                 },
                 "required": [
@@ -5100,6 +5248,13 @@
                             "boolean",
                             "null"
                         ]
+                    },
+                    "meta": {
+                        "type": [
+                            "object",
+                            "null"
+                        ],
+                        "additionalProperties": {}
                     },
                     "components": {
                         "type": [
@@ -5186,6 +5341,10 @@
                             },
                             "notifications": {
                                 "type": "integer"
+                            },
+                            "meta": {
+                                "type": "array",
+                                "items": {}
                             },
                             "components_count": {
                                 "type": "string"
@@ -5852,6 +6011,10 @@
                                     "null"
                                 ]
                             },
+                            "meta": {
+                                "type": "array",
+                                "items": {}
+                            },
                             "status": {
                                 "type": "object",
                                 "properties": {
@@ -6091,6 +6254,10 @@
                                     "human",
                                     "string"
                                 ]
+                            },
+                            "meta": {
+                                "type": "array",
+                                "items": {}
                             },
                             "created": {
                                 "type": "object",
@@ -6380,6 +6547,13 @@
                             }
                         ]
                     },
+                    "meta": {
+                        "type": [
+                            "object",
+                            "null"
+                        ],
+                        "additionalProperties": {}
+                    },
                     "components": {
                         "type": [
                             "array",
@@ -6444,6 +6618,13 @@
                             "null"
                         ],
                         "minimum": 0
+                    },
+                    "meta": {
+                        "type": [
+                            "object",
+                            "null"
+                        ],
+                        "additionalProperties": {}
                     }
                 },
                 "title": "UpdateComponentRequestData"
@@ -6514,6 +6695,13 @@
                             "null"
                         ],
                         "format": "date-time"
+                    },
+                    "meta": {
+                        "type": [
+                            "object",
+                            "null"
+                        ],
+                        "additionalProperties": {}
                     }
                 },
                 "title": "UpdateIncidentRequestData"
@@ -6635,6 +6823,13 @@
                         "items": {
                             "$ref": "#/components/schemas/ScheduleComponentRequestData"
                         }
+                    },
+                    "meta": {
+                        "type": [
+                            "object",
+                            "null"
+                        ],
+                        "additionalProperties": {}
                     }
                 },
                 "title": "UpdateScheduleRequestData"
@@ -6655,6 +6850,13 @@
                             "boolean",
                             "null"
                         ]
+                    },
+                    "meta": {
+                        "type": [
+                            "object",
+                            "null"
+                        ],
+                        "additionalProperties": {}
                     },
                     "components": {
                         "type": [
