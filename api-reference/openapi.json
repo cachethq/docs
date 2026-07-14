@@ -225,8 +225,6 @@
                                     "groupCount",
                                     "groupExists",
                                     "incidents",
-                                    "incidentsCount",
-                                    "incidentsExists",
                                     "meta",
                                     "metaCount",
                                     "metaExists"
@@ -428,8 +426,6 @@
                                     "groupCount",
                                     "groupExists",
                                     "incidents",
-                                    "incidentsCount",
-                                    "incidentsExists",
                                     "meta",
                                     "metaCount",
                                     "metaExists"
@@ -652,8 +648,6 @@
                                 "type": "string",
                                 "enum": [
                                     "components",
-                                    "componentsCount",
-                                    "componentsExists",
                                     "meta",
                                     "metaCount",
                                     "metaExists"
@@ -838,8 +832,6 @@
                                 "type": "string",
                                 "enum": [
                                     "components",
-                                    "componentsCount",
-                                    "componentsExists",
                                     "meta",
                                     "metaCount",
                                     "metaExists"
@@ -4860,13 +4852,6 @@
                             }
                         ]
                     },
-                    "meta": {
-                        "type": [
-                            "object",
-                            "null"
-                        ],
-                        "additionalProperties": {}
-                    },
                     "components": {
                         "type": [
                             "array",
@@ -4876,6 +4861,13 @@
                             "type": "integer",
                             "minimum": 0
                         }
+                    },
+                    "meta": {
+                        "type": [
+                            "object",
+                            "null"
+                        ],
+                        "additionalProperties": {}
                     }
                 },
                 "required": [
@@ -5243,6 +5235,16 @@
                             "null"
                         ]
                     },
+                    "components": {
+                        "type": [
+                            "array",
+                            "null"
+                        ],
+                        "items": {
+                            "type": "integer",
+                            "minimum": 0
+                        }
+                    },
                     "verified": {
                         "type": [
                             "boolean",
@@ -5255,16 +5257,6 @@
                             "null"
                         ],
                         "additionalProperties": {}
-                    },
-                    "components": {
-                        "type": [
-                            "array",
-                            "null"
-                        ],
-                        "items": {
-                            "type": "integer",
-                            "minimum": 0
-                        }
                     }
                 },
                 "required": [
@@ -6547,13 +6539,6 @@
                             }
                         ]
                     },
-                    "meta": {
-                        "type": [
-                            "object",
-                            "null"
-                        ],
-                        "additionalProperties": {}
-                    },
                     "components": {
                         "type": [
                             "array",
@@ -6563,6 +6548,13 @@
                             "type": "integer",
                             "minimum": 0
                         }
+                    },
+                    "meta": {
+                        "type": [
+                            "object",
+                            "null"
+                        ],
+                        "additionalProperties": {}
                     }
                 },
                 "title": "UpdateComponentGroupRequestData"
@@ -6851,13 +6843,6 @@
                             "null"
                         ]
                     },
-                    "meta": {
-                        "type": [
-                            "object",
-                            "null"
-                        ],
-                        "additionalProperties": {}
-                    },
                     "components": {
                         "type": [
                             "array",
@@ -6867,6 +6852,13 @@
                             "type": "integer",
                             "minimum": 0
                         }
+                    },
+                    "meta": {
+                        "type": [
+                            "object",
+                            "null"
+                        ],
+                        "additionalProperties": {}
                     }
                 },
                 "title": "UpdateSubscriberRequestData"
