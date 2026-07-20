@@ -37,6 +37,7 @@
                   "v3.x/guide/metrics",
                   "v3.x/guide/subscribers",
                   "v3.x/guide/webhooks",
+                  "v3.x/guide/mcp",
                   "v3.x/guide/users",
                   "v3.x/guide/dashboard"
                 ]

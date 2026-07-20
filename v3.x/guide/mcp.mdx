@@ -1,0 +1,196 @@
+---
+title: 'MCP server'
+description: 'Connect AI agents to Cachet using the Model Context Protocol.'
+icon: 'robot'
+---
+
+Cachet includes a built-in [Model Context Protocol](https://modelcontextprotocol.io) (MCP) server that lets AI agents,
+such as Claude Code, Claude Desktop, and Cursor, operate your status page. Agents connected over MCP can manage
+[components](/v3.x/guide/components), [incidents](/v3.x/guide/incidents), incident templates,
+[schedules](/v3.x/guide/schedules), [metrics](/v3.x/guide/metrics), and [subscribers](/v3.x/guide/subscribers) — the
+same capabilities as the Cachet dashboard.
+
+## Enabling the MCP server
+
+The MCP server is disabled by default. To enable it, go to the "Settings" section of your Cachet dashboard and turn on
+the "Enable MCP Server" setting in the "MCP Server Settings" section. While the server is disabled, every MCP request
+responds with a 404.
+
+Once enabled, the MCP server is available over the streamable HTTP transport at the `/mcp` path of your Cachet
+installation:
+
+```text
+https://status.example.com/mcp
+```
+
+<Note>
+    Whenever the "Enable MCP Server" setting is changed, the "Require Authentication" setting is switched back on, so
+    the server is never exposed publicly by accident.
+</Note>
+
+## Authentication
+
+The MCP server uses the same [API keys](/v3.x/configuration/api-keys) as the Cachet API. Send the token as a bearer
+token in the `Authorization` header:
+
+```text
+Authorization: Bearer YOUR_KEY_HERE
+```
+
+The "Require Authentication" setting controls who may connect:
+
+- **Enabled (default)**: Every MCP connection requires an API key. Requests without a valid token receive a 401 response.
+- **Disabled**: Read-only tools are public, matching the status page and the API. Write tools always require an API key
+  with the matching permission.
+
+The permissions on an API key determine which tools an agent can use. Write tools are only advertised to sessions
+whose token holds the matching permission, so an agent connecting with a read-only key is only offered read-only tools.
+
+Unauthenticated sessions see exactly what a status page guest sees: components in hidden groups, disabled components,
+and invisible incidents and schedules are excluded from results. Authenticated sessions can see all resources,
+matching the Cachet API.
+
+<Tip>
+    Create a dedicated API key for each agent with only the permissions it needs. For example, an incident response
+    agent may only need the "Manage Incidents" and "Manage Incident Updates" permissions.
+</Tip>
+
+## Connecting an agent
+
+### Claude Code
+
+```shell
+claude mcp add --transport http cachet https://status.example.com/mcp --header "Authorization: Bearer YOUR_KEY_HERE"
+```
+
+### Other MCP clients
+
+Any MCP client that supports the streamable HTTP transport can connect with a configuration similar to:
+
+```json
+{
+  "mcpServers": {
+    "cachet": {
+      "type": "http",
+      "url": "https://status.example.com/mcp",
+      "headers": {
+        "Authorization": "Bearer YOUR_KEY_HERE"
+      }
+    }
+  }
+}
+```
+
+## Available tools
+
+Read-only tools require no permission. Write tools require an API key holding the permission listed next to them.
+
+### Status
+
+| Tool | Required permission |
+| ---- | ------------------- |
+| `get_status` | None |
+
+### Components
+
+| Tool | Required permission |
+| ---- | ------------------- |
+| `list_components` | None |
+| `get_component` | None |
+| `create_component` | `components.manage` |
+| `update_component` | `components.manage` |
+| `delete_component` | `components.delete` |
+
+### Component groups
+
+| Tool | Required permission |
+| ---- | ------------------- |
+| `list_component_groups` | None |
+| `create_component_group` | `component-groups.manage` |
+| `update_component_group` | `component-groups.manage` |
+| `delete_component_group` | `component-groups.delete` |
+
+### Incidents
+
+| Tool | Required permission |
+| ---- | ------------------- |
+| `list_incidents` | None |
+| `get_incident` | None |
+| `create_incident` | `incidents.manage` |
+| `update_incident` | `incidents.manage` |
+| `delete_incident` | `incidents.delete` |
+
+### Incident updates
+
+| Tool | Required permission |
+| ---- | ------------------- |
+| `record_incident_update` | `incident-updates.manage` |
+| `edit_incident_update` | `incident-updates.manage` |
+| `delete_incident_update` | `incident-updates.delete` |
+
+### Incident templates
+
+| Tool | Required permission |
+| ---- | ------------------- |
+| `list_incident_templates` | None |
+| `create_incident_template` | `incident-templates.manage` |
+| `update_incident_template` | `incident-templates.manage` |
+| `delete_incident_template` | `incident-templates.delete` |
+
+### Schedules
+
+| Tool | Required permission |
+| ---- | ------------------- |
+| `list_schedules` | None |
+| `get_schedule` | None |
+| `create_schedule` | `schedules.manage` |
+| `update_schedule` | `schedules.manage` |
+| `delete_schedule` | `schedules.delete` |
+
+### Schedule updates
+
+| Tool | Required permission |
+| ---- | ------------------- |
+| `record_schedule_update` | `schedule-updates.manage` |
+| `edit_schedule_update` | `schedule-updates.manage` |
+| `delete_schedule_update` | `schedule-updates.delete` |
+
+### Metrics
+
+| Tool | Required permission |
+| ---- | ------------------- |
+| `list_metrics` | None |
+| `get_metric` | None |
+| `create_metric` | `metrics.manage` |
+| `update_metric` | `metrics.manage` |
+| `delete_metric` | `metrics.delete` |
+
+### Metric points
+
+| Tool | Required permission |
+| ---- | ------------------- |
+| `add_metric_point` | `metric-points.manage` |
+| `delete_metric_point` | `metric-points.delete` |
+
+### Subscribers
+
+| Tool | Required permission |
+| ---- | ------------------- |
+| `list_subscribers` | `subscribers.manage` |
+| `create_subscriber` | `subscribers.manage` |
+| `update_subscriber` | `subscribers.manage` |
+| `unsubscribe_subscriber` | `subscribers.delete` |
+
+<Note>
+    Every subscriber tool requires a permission, including `list_subscribers`, because subscriber data contains email
+    addresses.
+</Note>
+
+## Rate limiting
+
+Cachet rate-limits the MCP server to 300 requests per minute per API key, or per IP address for unauthenticated
+sessions.
+
+<Tip>
+    You can override the default rate limit by setting the `CACHET_MCP_RATE_LIMIT` environment variable.
+</Tip>
