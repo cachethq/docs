@@ -26,6 +26,14 @@ information about your organization, services, or status page.
 The "Timezone" setting allows you to set the timezone for your status page. Cachet uses it to display the correct time
 for incidents and scheduled maintenance. The status page will always display timestamps in the user's local time.
 
+## Language
+
+Cachet can display your status page in a number of languages. The "Language" selector, along with the
+[Timezone](#timezone) settings, can be found on the "Manage Localization" page under the "Settings" navigation group.
+
+Cachet currently ships with the following locales: Deutsch (DE), Deutsch (AT), Deutsch (CH), English, English (UK),
+Spanish (ES), 한국어, Nederlands, Filipino, Português (BR), 简体中文, and 繁體中文.
+
 ## Incident days
 
 This setting allows you to specify the number of days to display incidents on your status page. Cachet pushes incidents
@@ -90,12 +98,13 @@ We’d really appreciate it if you could leave this enabled to help spread the w
 
 ### Display graphs
 
-Enable the "Display Graphs" setting to display graphs for metrics, such as uptime and response time, on your status
-page.
+Enable the "Display Graphs" setting to display [metric](/v3.x/guide/metrics) graphs, such as uptime and response time,
+on your status page. This setting is enabled by default.
 
-<Warning>
-    Metrics are not fully supported in Cachet v3.x. This setting will have no effect until metrics are implemented.
-</Warning>
+### Recent incidents only
+
+Enable the "Recent Incidents Only" setting to show only recent incidents on your status page. When enabled, you can
+set the number of days to include, and Cachet hides any incidents older than that window.
 
 ### Show timezone
 
@@ -105,6 +114,11 @@ When enabled, the "Show Timezone" setting displays your status page's timezone i
 
 Enable the "Only Show Disrupted Days" setting to show only the days with incidents on your status page. By default,
 the status page displays all days.
+
+### Dynamic favicon
+
+When the "Dynamic Favicon" setting is enabled, your status page's favicon reflects the current system status, so a
+browser tab shows at a glance whether everything is operational or there's an ongoing issue.
 
 ### Show dashboard link
 

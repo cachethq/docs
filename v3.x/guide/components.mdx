@@ -31,13 +31,14 @@ Cachet also provides a simple way of updating your component statuses directly f
 
 ### Component statuses
 
-Components can have one of five statuses:
+Components can have one of six statuses:
 
 - <Tooltip tip="Status ID: 1"><Icon icon="square-1"/></Tooltip> **Operational**: The component is working as expected.
 - <Tooltip tip="Status ID: 2"><Icon icon="square-2"/></Tooltip> **Performance Issues**: The component is experiencing performance issues.
 - <Tooltip tip="Status ID: 3"><Icon icon="square-3"/></Tooltip> **Partial Outage**: The component is experiencing partial outage.
 - <Tooltip tip="Status ID: 4"><Icon icon="square-4"/></Tooltip> **Major Outage**: The component is experiencing a major outage.
 - <Tooltip tip="Status ID: 5"><Icon icon="square-5"/></Tooltip> **Unknown**: The component status is unknown.
+- <Tooltip tip="Status ID: 6"><Icon icon="square-6"/></Tooltip> **Under Maintenance**: The component is undergoing maintenance. [Schedules](/v3.x/guide/schedules) can set this status automatically.
 
 ## Component groups
 
@@ -46,6 +47,29 @@ To help organize your components, you can group them together into component gro
 
 Cachet will automatically group any ungrouped components together. Cachet displays ungrouped components beneath any
 component groups on your status page.
+
+A component group has the following properties:
+
+- **Name**: The name of the group.
+- **Visibility**: Whether the group is visible to users, guests, or always hidden.
+- **Collapsed**: How the group behaves on the status page (see [Collapse behavior](#collapse-behavior)).
+- **Order by**: How components within the group are ordered (see [Ordering strategies](#ordering-strategies)).
+
+### Group visibility
+
+Like other resources, each component group has a visibility setting that controls who can see it:
+
+- **Authenticated**: Only visible to authenticated dashboard users.
+- **Guest**: Visible to everyone, including guests.
+- **Hidden**: Never displayed on the status page.
+
+### Collapse behavior
+
+You can control whether a group appears expanded or collapsed on your status page. Each group can be set to one of:
+
+- **Expanded**: The group is always expanded, showing all of its components.
+- **Collapsed**: The group is always collapsed.
+- **Collapsed unless a component is in an incident**: The group stays collapsed until one of its components is not operational, at which point Cachet expands it automatically. This keeps large status pages tidy while still drawing attention to problems.
 
 ## Reordering components
 
@@ -60,3 +84,16 @@ You can also reorder components when editing a component group. The order will r
     <img className="block dark:hidden" src="/v3.x/images/component-reordering-light.gif" alt="Reorder Components" />
     <img className="hidden dark:block" src="/v3.x/images/component-reordering-dark.gif" alt="Reorder Components" />
 </Frame>
+
+### Ordering strategies
+
+By default, components follow the manual drag-and-drop order described above. Component groups can also order their
+components automatically. When editing a group, set "Order by" to one of:
+
+- **Manual**: Respect the manual drag-and-drop order.
+- **Name**: Order alphabetically by name.
+- **Status**: Order by component status.
+- **Last updated**: Order by when the component was last updated.
+- **ID**: Order by the component's ID.
+
+For every strategy except manual, you can also choose the direction (ascending or descending).

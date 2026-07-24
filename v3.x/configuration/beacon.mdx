@@ -9,14 +9,15 @@ This data helps us understand how you use Cachet and how we can improve it.
 
 ## Configuration
 
-By default, Cachet's beacon is turned off. You can opt in by setting the `CACHET_BEACON` environment variable to `true`.
+Cachet's beacon is **enabled by default**. If you'd prefer not to send any usage data, you can opt out by setting the
+`CACHET_BEACON` environment variable to `false`.
 
 ```ini .env
-CACHET_BEACON=true
+CACHET_BEACON=false
 ```
 
 <Tip>
-    If you're limiting outbound requests on your server and you'd like to opt into the beacon, you'll need to allow outbound requests to `https://cachethq.io`.
+    If you're limiting outbound requests on your server and you'd like to keep the beacon enabled, you'll need to allow outbound requests to `https://cachethq.io`.
 </Tip>
 
 ### Configuring the scheduler

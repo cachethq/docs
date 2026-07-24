@@ -46,6 +46,7 @@
                 "group": "Configuration",
                 "pages": [
                   "v3.x/configuration/cachet",
+                  "v3.x/configuration/environment",
                   "v3.x/configuration/customization",
                   "v3.x/configuration/theme",
                   "v3.x/configuration/beacon",

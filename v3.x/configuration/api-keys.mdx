@@ -33,6 +33,28 @@ To create an API key, follow these steps:
     </Step>
 </Steps>
 
+## Permissions
+
+Each API key is granted a set of abilities. Leaving the permissions empty when creating a key grants full access.
+Otherwise, you can grant the `manage` and/or `delete` ability for each resource type:
+
+| Resource | Abilities |
+| --- | --- |
+| Components | `manage`, `delete` |
+| Component groups | `manage`, `delete` |
+| Incidents | `manage`, `delete` |
+| Incident updates | `manage`, `delete` |
+| Incident templates | `manage`, `delete` |
+| Metrics | `manage`, `delete` |
+| Metric points | `manage`, `delete` |
+| Schedules | `manage`, `delete` |
+| Schedule updates | `manage`, `delete` |
+| Subscribers | `manage`, `delete` |
+
+The `manage` ability allows creating and updating the resource, while `delete` allows deleting it. Read-only endpoints
+are available to any valid API key and, depending on your [API settings](/v3.x/configuration/cachet#api-access), may be
+public.
+
 ## Revoking tokens
 
 If you no longer need an API key, you can revoke it. To revoke an API key, click the "Revoke" button next to the key.
