@@ -13,6 +13,7 @@ A scheduled maintenance event consists of:
 - **Message**: A detailed description of the maintenance.
 - **Scheduled At**: The date and time when the maintenance will start.
 - **Completed At**: The date and time when the maintenance was completed.
+- **Published At**: An optional time to publish the maintenance. While set in the future, the maintenance is hidden from the status page and public API until that moment. Leave it empty to publish immediately.
 - **Components**: The [components](/v3.x/guide/components) affected by the maintenance, along with the status each should display while it's underway (typically **Under Maintenance**).
 - **Notify subscribers**: Whether to notify your [subscribers](/v3.x/guide/subscribers) about this maintenance, for example when it's rescheduled or completed.
 
@@ -23,6 +24,25 @@ Cachet automatically infers the status of a schedule based on the current date a
 - **Upcoming**: The maintenance is scheduled to start in the future.
 - **In Progress**: The maintenance is currently in progress.
 - **Complete**: The maintenance has been completed.
+
+## Scheduling publication
+
+You can prepare maintenance well in advance without revealing it straight away. By setting a **Published At** date in the
+future, the maintenance stays a draft and appears automatically once that time arrives.
+
+Until the published date passes:
+
+- The maintenance is hidden from the status page and from public reads of the [API](/api-reference/introduction) — for guests and read-only API tokens alike.
+- It stays fully visible and editable in the dashboard, over the [MCP server](/v3.x/guide/mcp), and to API tokens with the `schedules.manage` ability.
+- Any [subscriber notifications](/v3.x/guide/subscribers) are deferred until the maintenance is published.
+
+This is independent of **Scheduled At**, which controls when the maintenance window itself begins. Leave **Published At**
+empty to publish the maintenance immediately.
+
+<Note>
+    Subscriber notifications for published maintenance are dispatched by the scheduled `cachet:publish-scheduled`
+    command, so make sure Cachet's [scheduler](/v3.x/installation) is running.
+</Note>
 
 ## Schedule updates
 
