@@ -23,6 +23,12 @@ Cachet is an open source, self-hosted status page system used by thousands of or
 Teams often overlook status pages, but they're an essential part of any organization's communication strategy.
 They help you to keep your customers and stakeholders informed during downtime and maintenance. Cachet makes this process as simple as possible with its easy-to-use dashboard and customizable interface.
 
+<Warning>
+    **Host Cachet separately from your main application.** Your status page needs to stay online precisely when the rest of your infrastructure is not.
+
+    Run Cachet on infrastructure that is independent of the application, web service, or SaaS product it reports on — ideally a different server, provider, or region, with its own database and dependencies. If Cachet shares infrastructure with your product, the same outage that takes your product down will likely take your status page down with it, leaving customers with no way to find out what's happening.
+</Warning>
+
 <Frame caption="Screenshot of Cachet v3.x">
     <img className="block dark:hidden" src="/v3.x/images/screenshot-light.png" alt="Cachet in light mode" />
     <img className="hidden dark:block" src="/v3.x/images/screenshot-dark.png" alt="Cachet in dark mode" />
