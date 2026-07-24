@@ -36,8 +36,8 @@ prepare an incident ahead of time and have it appear automatically when that tim
 
 Until the published date passes, the incident is treated as a draft:
 
-- It is hidden from the status page and the public [API](/api-reference/introduction), regardless of whether the viewer is logged in.
-- It remains fully visible and editable in the dashboard and over the [MCP server](/v3.x/guide/mcp), so you can review and adjust what you've prepared.
+- It is hidden from the status page and from public reads of the [API](/api-reference/introduction) — for guests and read-only API tokens alike.
+- It remains fully visible and editable in the dashboard, over the [MCP server](/v3.x/guide/mcp), and to API tokens with the `incidents.manage` ability, so you can review and adjust what you've prepared.
 - Any [subscriber notifications](/v3.x/guide/subscribers) are deferred — they are sent when the incident is published, not when it is created.
 
 Leave **Published At** empty (the default) to publish the incident immediately, preserving the usual behaviour.

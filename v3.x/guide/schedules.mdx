@@ -32,8 +32,8 @@ future, the maintenance stays a draft and appears automatically once that time a
 
 Until the published date passes:
 
-- The maintenance is hidden from the status page and the public [API](/api-reference/introduction), whether or not the viewer is logged in.
-- It stays fully visible and editable in the dashboard and over the [MCP server](/v3.x/guide/mcp).
+- The maintenance is hidden from the status page and from public reads of the [API](/api-reference/introduction) — for guests and read-only API tokens alike.
+- It stays fully visible and editable in the dashboard, over the [MCP server](/v3.x/guide/mcp), and to API tokens with the `schedules.manage` ability.
 - Any [subscriber notifications](/v3.x/guide/subscribers) are deferred until the maintenance is published.
 
 This is independent of **Scheduled At**, which controls when the maintenance window itself begins. Leave **Published At**
