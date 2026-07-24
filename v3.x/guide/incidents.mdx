@@ -11,6 +11,7 @@ the dashboard. Incidents consist of:
 - **Status**: The current status of the incident.
 - **Message**: A detailed description of the incident.
 - **Occurred At**: The time the incident occurred. This can be left empty if the incident happened at the time of reporting.
+- **Published At**: An optional time to publish the incident. While set in the future, the incident is hidden from the status page and public API until that moment. Leave it empty to publish immediately.
 - **Visibility**: Whether the incident should be visible to users, guests or always be hidden.
 - **Stickied**: Whether the incident is pinned to the top of your status page. Stickied incidents remain prominently displayed until you unsticky them.
 
@@ -27,6 +28,25 @@ Incidents and updates in Cachet can have one of the following statuses:
 - <Tooltip tip="Status ID: 2"><Icon icon="square-2" /></Tooltip> **Identified**: The cause of the incident has been identified.
 - <Tooltip tip="Status ID: 3"><Icon icon="square-3" /></Tooltip> **Watching**: The incident or the resolution is being watched.
 - <Tooltip tip="Status ID: 4"><Icon icon="square-4" /></Tooltip> **Fixed**: The incident is fully resolved.
+
+## Scheduling publication
+
+Incidents don't have to go live the moment you create them. By setting a **Published At** date in the future, you can
+prepare an incident ahead of time and have it appear automatically when that time arrives.
+
+Until the published date passes, the incident is treated as a draft:
+
+- It is hidden from the status page and the public [API](/api-reference/introduction), regardless of whether the viewer is logged in.
+- It remains fully visible and editable in the dashboard and over the [MCP server](/v3.x/guide/mcp), so you can review and adjust what you've prepared.
+- Any [subscriber notifications](/v3.x/guide/subscribers) are deferred — they are sent when the incident is published, not when it is created.
+
+Leave **Published At** empty (the default) to publish the incident immediately, preserving the usual behaviour.
+
+<Note>
+    Publication is evaluated in real time, so an incident appears the moment its published date passes. Subscriber
+    notifications are dispatched by the scheduled `cachet:publish-scheduled` command, so make sure Cachet's
+    [scheduler](/v3.x/installation) is running.
+</Note>
 
 ## Incident components
 
