@@ -19,6 +19,7 @@ A metric consists of:
 - **Places**: The number of decimal places to display.
 - **Metric Type**: The type of calculation to perform on the metric, e.g. sum or average.
 - **Threshold**: The threshold determines when a new point should be created or the last point updated.
+- **Show when empty**: Whether Cachet displays the metric on your status page when it has no points. When disabled, the metric is hidden until it has data.
 - **Visible**: Whether the metric is visible to users, guests or always hidden.
 
 ## Metric points
@@ -29,3 +30,8 @@ A metric is made up of multiple points that you add over time. Each point consis
 - **Timestamp**: The time the metric was recorded.
 
 For performance, if you create a metric point within the threshold of an existing point, Cachet updates the existing point with the new value.
+
+## Reordering metrics
+
+You can reorder metrics to control the order they appear in on your status page, in the same way you
+[reorder components](/v3.x/guide/components#reordering-components).

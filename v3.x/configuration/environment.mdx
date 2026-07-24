@@ -1,0 +1,71 @@
+---
+title: 'Environment variables'
+description: 'Configure Cachet using environment variables.'
+icon: 'sliders'
+---
+
+Cachet reads a number of settings from your environment, defined in your `.env` file (or your server's environment).
+These sit alongside the dashboard [settings](/v3.x/configuration/cachet) and generally control how Cachet is installed
+and served, rather than the content of your status page.
+
+<Note>
+    Every variable has a sensible default, so you only need to set the ones you want to change.
+</Note>
+
+## Application
+
+| Variable | Default | Description |
+| --- | --- | --- |
+| `CACHET_PATH` | `/` | The URI path Cachet is served from. |
+| `CACHET_DOMAIN` | _(none)_ | The domain Cachet is served from. Leave unset to serve from the application's default domain. |
+| `CACHET_TITLE` | `"${APP_NAME} - Status"` | The title of your status page. |
+| `CACHET_TRUSTED_PROXIES` | _(empty)_ | Comma-separated list of trusted proxy IPs. See [Theme](/v3.x/configuration/theme) for details. |
+| `CACHET_DOCKER` | `false` | Whether Cachet is running inside a Docker container. Set automatically by the official Docker image. |
+| `CACHET_DEMO_MODE` | `false` | Runs Cachet in [demo](/v3.x/demo) mode, adjusting some defaults for a demo environment. |
+
+## API & MCP
+
+| Variable | Default | Description |
+| --- | --- | --- |
+| `CACHET_API_RATE_LIMIT` | `300` | Requests per minute allowed against the [API](/api-reference/rate-limiting). |
+| `CACHET_MCP_RATE_LIMIT` | `300` | Requests per minute allowed against the [MCP server](/v3.x/guide/mcp). |
+
+## Telemetry & performance
+
+| Variable | Default | Description |
+| --- | --- | --- |
+| `CACHET_BEACON` | `true` | Whether Cachet sends anonymous [telemetry](/v3.x/configuration/beacon). Set to `false` to opt out. |
+| `CACHET_SETTINGS_CACHE` | `true` | Cache Cachet's settings instead of reading them from the database on every request. |
+
+## Maintenance & retention
+
+| Variable | Default | Description |
+| --- | --- | --- |
+| `CACHET_PRUNE_CHECKS_AFTER_DAYS` | `30` | Number of days to keep component check results before they are pruned. |
+
+## Webhooks
+
+| Variable | Default | Description |
+| --- | --- | --- |
+| `CACHET_WEBHOOK_QUEUE_CONNECTION` | _(app default)_ | The queue connection used to dispatch [webhooks](/v3.x/guide/webhooks). |
+| `CACHET_WEBHOOK_QUEUE_NAME` | _(app default)_ | The queue name used to dispatch webhooks. |
+
+## Blog feed
+
+| Variable | Default | Description |
+| --- | --- | --- |
+| `CACHET_FEED_URI` | `https://blog.cachethq.io/rss` | The RSS feed used to display blog posts on your status page. |
+| `CACHET_FEED_CACHE` | `3600` | How long, in seconds, to cache the blog feed. |
+
+## Package integration
+
+When running Cachet as a package inside an existing Laravel application, the following variables control how it
+integrates with your host application:
+
+| Variable | Default | Description |
+| --- | --- | --- |
+| `CACHET_GUARD` | _(default guard)_ | The authentication guard Cachet uses. |
+| `CACHET_USER_MODEL` | `App\Models\User` | The user model Cachet authenticates against. |
+| `CACHET_USER_MIGRATIONS` | `true` | Whether Cachet loads the default user migrations. |
+| `CACHET_RUN_MIGRATIONS` | `true` | Whether Cachet loads its migrations. Disable if your application manages them itself. |
+| `CACHET_REGISTER_SCHEDULES` | `true` | Whether Cachet registers its scheduled tasks. Disable if your application schedules them itself. |
