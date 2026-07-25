@@ -4976,6 +4976,13 @@
                         ],
                         "format": "date-time"
                     },
+                    "published_at": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "format": "date-time"
+                    },
                     "template_vars": {
                         "type": "array",
                         "default": [],
@@ -5160,6 +5167,13 @@
                         "format": "date-time"
                     },
                     "completed_at": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "format": "date-time"
+                    },
+                    "published_at": {
                         "type": [
                             "string",
                             "null"
@@ -5385,6 +5399,27 @@
                                     "string"
                                 ]
                             },
+                            "published": {
+                                "type": "object",
+                                "properties": {
+                                    "human": {
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
+                                    },
+                                    "string": {
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
+                                    }
+                                },
+                                "required": [
+                                    "human",
+                                    "string"
+                                ]
+                            },
                             "created": {
                                 "type": "object",
                                 "properties": {
@@ -5438,6 +5473,7 @@
                             "notifications",
                             "status",
                             "occurred",
+                            "published",
                             "created",
                             "updated"
                         ]
@@ -6060,6 +6096,27 @@
                                     "string"
                                 ]
                             },
+                            "published": {
+                                "type": "object",
+                                "properties": {
+                                    "human": {
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
+                                    },
+                                    "string": {
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
+                                    }
+                                },
+                                "required": [
+                                    "human",
+                                    "string"
+                                ]
+                            },
                             "created": {
                                 "type": "object",
                                 "properties": {
@@ -6110,6 +6167,7 @@
                             "status",
                             "scheduled",
                             "completed",
+                            "published",
                             "created",
                             "updated"
                         ]
@@ -6690,6 +6748,13 @@
                         ],
                         "format": "date-time"
                     },
+                    "published_at": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "format": "date-time"
+                    },
                     "meta": {
                         "type": [
                             "object",
@@ -6803,6 +6868,13 @@
                         "format": "date-time"
                     },
                     "completed_at": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "format": "date-time"
+                    },
+                    "published_at": {
                         "type": [
                             "string",
                             "null"
