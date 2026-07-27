@@ -4443,25 +4443,41 @@
                                 "type": "object",
                                 "properties": {
                                     "human": {
-                                        "type": [
-                                            "string",
-                                            "null"
-                                        ],
+                                        "type": "string",
                                         "enum": [
                                             "Operational",
                                             "Performance issues",
                                             "Partial outage",
                                             "Major outage",
                                             "Under maintenance",
-                                            "Unknown",
-                                            null
+                                            "Unknown"
                                         ]
                                     },
                                     "value": {
-                                        "type": [
-                                            "integer",
-                                            "null"
+                                        "type": "integer"
+                                    }
+                                },
+                                "required": [
+                                    "human",
+                                    "value"
+                                ]
+                            },
+                            "latest_status": {
+                                "type": "object",
+                                "properties": {
+                                    "human": {
+                                        "type": "string",
+                                        "enum": [
+                                            "Operational",
+                                            "Performance issues",
+                                            "Partial outage",
+                                            "Major outage",
+                                            "Under maintenance",
+                                            "Unknown"
                                         ]
+                                    },
+                                    "value": {
+                                        "type": "integer"
                                     }
                                 },
                                 "required": [
@@ -4528,11 +4544,20 @@
                                                 "type": [
                                                     "string",
                                                     "null"
+                                                ],
+                                                "enum": [
+                                                    "Operational",
+                                                    "Performance issues",
+                                                    "Partial outage",
+                                                    "Major outage",
+                                                    "Under maintenance",
+                                                    "Unknown",
+                                                    null
                                                 ]
                                             },
                                             "value": {
                                                 "type": [
-                                                    "string",
+                                                    "integer",
                                                     "null"
                                                 ]
                                             }
@@ -4555,6 +4580,7 @@
                             "link",
                             "order",
                             "status",
+                            "latest_status",
                             "enabled",
                             "created",
                             "updated"
@@ -4889,14 +4915,8 @@
                         ]
                     },
                     "status": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/ComponentStatusEnum"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ]
+                        "default": 5,
+                        "$ref": "#/components/schemas/ComponentStatusEnum"
                     },
                     "link": {
                         "type": [
@@ -5712,7 +5732,7 @@
                             },
                             "default_value": {
                                 "type": [
-                                    "string",
+                                    "object",
                                     "null"
                                 ]
                             },
@@ -5720,7 +5740,7 @@
                                 "$ref": "#/components/schemas/MetricTypeEnum"
                             },
                             "display_chart": {
-                                "type": "boolean"
+                                "type": "integer"
                             },
                             "places": {
                                 "type": "integer"
@@ -5864,7 +5884,7 @@
                                 "type": "integer"
                             },
                             "calculated_value": {
-                                "type": "string"
+                                "type": "number"
                             },
                             "value": {
                                 "type": "number"
@@ -5876,10 +5896,16 @@
                                 "type": "object",
                                 "properties": {
                                     "human": {
-                                        "type": "null"
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
                                     },
                                     "string": {
-                                        "type": "null"
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
                                     }
                                 },
                                 "required": [
