@@ -4922,7 +4922,8 @@
                         "type": [
                             "string",
                             "null"
-                        ]
+                        ],
+                        "format": "uri"
                     },
                     "order": {
                         "type": [
@@ -6675,7 +6676,8 @@
                         "type": [
                             "string",
                             "null"
-                        ]
+                        ],
+                        "format": "uri"
                     },
                     "order": {
                         "type": [
