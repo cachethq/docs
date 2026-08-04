@@ -13,7 +13,7 @@ the dashboard. Incidents consist of:
 - **Occurred At**: The time the incident occurred. This can be left empty if the incident happened at the time of reporting.
 - **Published At**: An optional time to publish the incident. While set in the future, the incident is hidden from the status page and public API until that moment. Leave it empty to publish immediately.
 - **Visibility**: Whether the incident should be visible to users, guests or always be hidden.
-- **Stickied**: Whether the incident is pinned to the top of your status page. Stickied incidents remain prominently displayed until you unsticky them.
+- **Pinned**: Whether the incident is pinned to the top of your status page. Pinned incidents remain prominently displayed until you unpin them.
 
 The Cachet dashboard provides a simple interface to manage incidents. You can quickly record a new incident by clicking the
 "New Incident" link in the top navigation bar. You can also view and manage existing incidents by clicking the "Incidents"
@@ -21,13 +21,13 @@ link in the sidebar.
 
 ## Pinned incidents
 
-Enable **Stickied** when creating or editing an incident to pin it above the incident timeline on your status page. Pinned
+Enable **Pinned** when creating or editing an incident to pin it above the incident timeline on your status page. Pinned
 incidents remain at the top even when their **Occurred At** date falls outside the timeline's selected date range, making
 them useful for ongoing issues and important resolved incidents that need continued visibility.
 
 Pinned incidents are shown only once, in the pinned section; they are removed from their normal dated position in the
 timeline. You can pin more than one incident. Cachet orders pinned incidents from newest to oldest by their occurrence
-time. Disable **Stickied** to return an incident to its usual position in the timeline.
+time. Disable **Pinned** to return an incident to its usual position in the timeline.
 
 ### Incident statuses
 
