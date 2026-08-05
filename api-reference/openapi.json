@@ -5201,16 +5201,6 @@
                         ],
                         "format": "date-time"
                     },
-                    "status": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/ScheduleStatusEnum"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ]
-                    },
                     "notifications": {
                         "type": "boolean",
                         "default": false
@@ -6876,16 +6866,6 @@
                         "type": [
                             "string",
                             "null"
-                        ]
-                    },
-                    "status": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/ScheduleStatusEnum"
-                            },
-                            {
-                                "type": "null"
-                            }
                         ]
                     },
                     "scheduled_at": {
