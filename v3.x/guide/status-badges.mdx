@@ -1,0 +1,42 @@
+---
+title: 'Status badges'
+description: 'Embed the current Cachet system or component status in an SVG badge.'
+icon: 'badge-check'
+---
+
+Cachet can generate cacheable SVG badges that show the current overall status or the status of an individual component.
+Use these badges in a README, project page, or any other place that supports an image URL.
+
+## Overall status badge
+
+Append `/badge.svg` to your status page URL:
+
+```html
+<img src="https://status.example.com/badge.svg" alt="Current system status" />
+```
+
+If Cachet is installed below a path, include that path in the URL. For example, an installation served at
+`https://example.com/status` has its badge at `https://example.com/status/badge.svg`.
+
+## Component status badge
+
+Append `/components/{component}/badge.svg`, replacing `{component}` with the component ID:
+
+```html
+<img src="https://status.example.com/components/1/badge.svg" alt="API status" />
+```
+
+Only enabled components that are publicly visible have badges. A badge request for a disabled component or a component
+in a non-public group returns `404 Not Found`.
+
+## Badge styles
+
+Choose a style by passing the `style` query parameter. Cachet supports `flat-square` (the default), `plastic-flat`,
+`flat`, `plastic`, `social`, and `svg`.
+
+```html
+<img src="https://status.example.com/components/1/badge.svg?style=flat" alt="API status" />
+```
+
+Badge responses are cached for 60 seconds, so they remain current without requiring every visitor to trigger a new
+render.
