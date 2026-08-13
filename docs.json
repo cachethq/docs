@@ -39,7 +39,8 @@
                   "v3.x/guide/webhooks",
                   "v3.x/guide/mcp",
                   "v3.x/guide/users",
-                  "v3.x/guide/dashboard"
+                  "v3.x/guide/dashboard",
+                  "v3.x/guide/status-badges"
                 ]
               },
               {
