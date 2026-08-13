@@ -46,18 +46,22 @@ If you are looking to migrate from Cachet v2.x, please refer to the [migration g
                 </Note>
             </Step>
             <Step title="Step 4">
+                Ensure the user running your web server can write to Cachet's `storage` directory. Cachet uses this
+                directory for logs, cached files, sessions, and other runtime data.
+            </Step>
+            <Step title="Step 5">
                 Copy the `.env.example` file to `.env`:
                 ```bash
                 cp .env.example .env
                 ```
             </Step>
-            <Step title="Step 5">
+            <Step title="Step 6">
                 Generate an application key:
                 ```bash
                 php artisan key:generate
                 ```
             </Step>
-            <Step title="Step 6">
+            <Step title="Step 7">
                 Configure the `.env` file and set the values of your setup:
                 ```ini .env
                 DB_CONNECTION=mysql
@@ -68,25 +72,25 @@ If you are looking to migrate from Cachet v2.x, please refer to the [migration g
                 DB_PASSWORD=
                 ```
             </Step>
-            <Step title="Step 7">
+            <Step title="Step 8">
                 Publish Cachet's assets:
                 ```bash
                 php artisan vendor:publish --tag=cachet
                 ```
             </Step>
-            <Step title="Step 8">
+            <Step title="Step 9">
                 Run the database migrations:
                 ```bash
                 php artisan migrate
                 ```
             </Step>
-            <Step title="Step 9">
+            <Step title="Step 10">
                 Create the first user by following the prompts:
                 ```bash
                 php artisan cachet:make:user
                 ```
             </Step>
-            <Step title="Step 10">
+            <Step title="Step 11">
                 Enable the scheduler by adding the following cron entry:
                 ```bash /etc/crontab
                 * * * * * php /path/to/cachet/artisan schedule:run >> /dev/null 2>&1
@@ -94,7 +98,7 @@ If you are looking to migrate from Cachet v2.x, please refer to the [migration g
 
                 Cachet uses the scheduler to send subscriber notifications for completed maintenance and long-running incidents.
             </Step>
-            <Step title="Step 11">
+            <Step title="Step 12">
                 Run a queue worker to deliver email notifications:
                 ```bash
                 php artisan queue:work
