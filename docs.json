@@ -33,14 +33,14 @@
                 "pages": [
                   "v3.x/guide/incidents",
                   "v3.x/guide/components",
-                  "v3.x/guide/status-badges",
                   "v3.x/guide/schedules",
                   "v3.x/guide/metrics",
                   "v3.x/guide/subscribers",
                   "v3.x/guide/webhooks",
                   "v3.x/guide/mcp",
                   "v3.x/guide/users",
-                  "v3.x/guide/dashboard"
+                  "v3.x/guide/dashboard",
+                  "v3.x/guide/status-badges"
                 ]
               },
               {
