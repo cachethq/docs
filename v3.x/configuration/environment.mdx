@@ -37,6 +37,16 @@ and served, rather than the content of your status page.
 | `CACHET_BEACON` | `true` | Whether Cachet sends anonymous [telemetry](/v3.x/configuration/beacon). Set to `false` to opt out. |
 | `CACHET_SETTINGS_CACHE` | `true` | Cache Cachet's settings instead of reading them from the database on every request. |
 
+## Image uploads
+
+These variables control custom images uploaded from the Cachet dashboard:
+
+| Variable | Default | Description |
+| --- | --- | --- |
+| `CACHET_UPLOAD_DISK` | `public` | The Laravel filesystem disk used to store and load custom images. Existing images must be moved when changing disks. |
+| `CACHET_UPLOAD_MAX_SIZE` | `1024` | The maximum image upload size in kilobytes. |
+| `CACHET_UPLOAD_IMAGE_MIME_TYPES` | `image/jpeg,image/png,image/gif,image/webp` | Comma-separated list of accepted image MIME types. |
+
 ## Maintenance & retention
 
 | Variable | Default | Description |

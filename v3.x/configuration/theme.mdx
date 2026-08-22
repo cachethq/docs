@@ -20,6 +20,10 @@ To override the default banner image shown at the top of your status page, uploa
     We recommend using an image with a 16:9 aspect ratio for the best results.
 </Tip>
 
+The uploaded image is also embedded in outgoing Cachet emails as the application logo. Cachet accepts JPEG, PNG, GIF,
+and WebP images up to 1 MB by default. You can change the storage disk, maximum upload size, and accepted image types
+with the [image upload environment variables](/v3.x/configuration/environment#image-uploads).
+
 Once you've uploaded your image, click the "Save" button to apply the changes.
 By default, Cachet stores images in `/storage/app/public`. To make the image accessible to the public, you'll need to run the following command:
 
