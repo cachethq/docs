@@ -11,6 +11,24 @@ description: 'Learn how to interact with the Cachet API.'
 
 Cachet provides a RESTful JSON API that allows you to interact with the status page programmatically. The API is simple to use.
 
+## Deleting resources
+
+Every resource with a delete endpoint supports deleting one resource by ID:
+
+```http
+DELETE /api/components/123
+```
+
+Component groups, components, incidents, incident templates, metrics, and schedules also support atomic bulk deletion
+with a comma-separated `ids` query parameter:
+
+```http
+DELETE /api/components?ids=123,456
+```
+
+All requested IDs must be valid and exist before Cachet deletes anything. An unqualified collection `DELETE` is rejected,
+and `ids=all` is not supported. See the relevant endpoint reference for the required API-token ability.
+
 ### Example response
 
 ```json
