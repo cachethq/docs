@@ -213,6 +213,15 @@
                         "example": "1"
                     },
                     {
+                        "name": "filter[tags]",
+                        "in": "query",
+                        "description": "Filter by one or more comma-separated tags.",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "api,database"
+                    },
+                    {
                         "name": "include",
                         "in": "query",
                         "description": "Include related data (group, incidents, meta).",
@@ -227,7 +236,10 @@
                                     "incidents",
                                     "meta",
                                     "metaCount",
-                                    "metaExists"
+                                    "metaExists",
+                                    "tags",
+                                    "tagsCount",
+                                    "tagsExists"
                                 ]
                             }
                         },
@@ -318,6 +330,9 @@
                                                     },
                                                     {
                                                         "$ref": "#/components/schemas/Incident"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/Tag"
                                                     }
                                                 ]
                                             }
@@ -334,6 +349,36 @@
                     }
                 },
                 "security": []
+            },
+            "delete": {
+                "operationId": "component.destroyMany",
+                "summary": "Delete Components",
+                "tags": [
+                    "Components"
+                ],
+                "parameters": [
+                    {
+                        "name": "ids",
+                        "in": "query",
+                        "required": true,
+                        "description": "Comma-separated component IDs to delete.",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1,2,3"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No content"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/MissingAbilityException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
             },
             "post": {
                 "operationId": "cachet.api.components.store",
@@ -372,6 +417,9 @@
                                                     },
                                                     {
                                                         "$ref": "#/components/schemas/Incident"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/Tag"
                                                     }
                                                 ]
                                             }
@@ -428,7 +476,10 @@
                                     "incidents",
                                     "meta",
                                     "metaCount",
-                                    "metaExists"
+                                    "metaExists",
+                                    "tags",
+                                    "tagsCount",
+                                    "tagsExists"
                                 ]
                             }
                         },
@@ -456,6 +507,9 @@
                                                     },
                                                     {
                                                         "$ref": "#/components/schemas/Incident"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/Tag"
                                                     }
                                                 ]
                                             }
@@ -521,6 +575,9 @@
                                                     },
                                                     {
                                                         "$ref": "#/components/schemas/Incident"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/Tag"
                                                     }
                                                 ]
                                             }
@@ -750,6 +807,36 @@
                     }
                 },
                 "security": []
+            },
+            "delete": {
+                "operationId": "componentGroup.destroyMany",
+                "summary": "Delete Component Groups",
+                "tags": [
+                    "Component Groups"
+                ],
+                "parameters": [
+                    {
+                        "name": "ids",
+                        "in": "query",
+                        "required": true,
+                        "description": "Comma-separated component group IDs to delete.",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1,2,3"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No content"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/MissingAbilityException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
             },
             "post": {
                 "operationId": "cachet.api.component-groups.store",
@@ -1073,6 +1160,15 @@
                         "explode": false
                     },
                     {
+                        "name": "filter[tags]",
+                        "in": "query",
+                        "description": "Filter by one or more comma-separated tags.",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "api,database"
+                    },
+                    {
                         "name": "include",
                         "in": "query",
                         "description": "Include related data (components, components.group, updates, user, meta).",
@@ -1093,7 +1189,10 @@
                                     "userExists",
                                     "meta",
                                     "metaCount",
-                                    "metaExists"
+                                    "metaExists",
+                                    "tags",
+                                    "tagsCount",
+                                    "tagsExists"
                                 ]
                             }
                         },
@@ -1187,6 +1286,9 @@
                                                     },
                                                     {
                                                         "$ref": "#/components/schemas/User"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/Tag"
                                                     }
                                                 ]
                                             }
@@ -1203,6 +1305,36 @@
                     }
                 },
                 "security": []
+            },
+            "delete": {
+                "operationId": "incident.destroyMany",
+                "summary": "Delete Incidents",
+                "tags": [
+                    "Incidents"
+                ],
+                "parameters": [
+                    {
+                        "name": "ids",
+                        "in": "query",
+                        "required": true,
+                        "description": "Comma-separated incident IDs to delete.",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1,2,3"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No content"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/MissingAbilityException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
             },
             "post": {
                 "operationId": "cachet.api.incidents.store",
@@ -1244,6 +1376,9 @@
                                                     },
                                                     {
                                                         "$ref": "#/components/schemas/User"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/Tag"
                                                     }
                                                 ]
                                             }
@@ -1306,7 +1441,10 @@
                                     "userExists",
                                     "meta",
                                     "metaCount",
-                                    "metaExists"
+                                    "metaExists",
+                                    "tags",
+                                    "tagsCount",
+                                    "tagsExists"
                                 ]
                             }
                         },
@@ -1337,6 +1475,9 @@
                                                     },
                                                     {
                                                         "$ref": "#/components/schemas/User"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/Tag"
                                                     }
                                                 ]
                                             }
@@ -1405,6 +1546,9 @@
                                                     },
                                                     {
                                                         "$ref": "#/components/schemas/User"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/Tag"
                                                     }
                                                 ]
                                             }
@@ -2076,6 +2220,36 @@
                 },
                 "security": []
             },
+            "delete": {
+                "operationId": "incidentTemplate.destroyMany",
+                "summary": "Delete Incident Templates",
+                "tags": [
+                    "Incident Templates"
+                ],
+                "parameters": [
+                    {
+                        "name": "ids",
+                        "in": "query",
+                        "required": true,
+                        "description": "Comma-separated incident template IDs to delete.",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1,2,3"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No content"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/MissingAbilityException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            },
             "post": {
                 "operationId": "cachet.api.incident-templates.store",
                 "summary": "Create Incident Template",
@@ -2316,7 +2490,10 @@
                                 "enum": [
                                     "points",
                                     "pointsCount",
-                                    "pointsExists"
+                                    "pointsExists",
+                                    "tags",
+                                    "tagsCount",
+                                    "tagsExists"
                                 ]
                             }
                         },
@@ -2338,6 +2515,15 @@
                         "schema": {
                             "$ref": "#/components/schemas/MetricTypeEnum"
                         }
+                    },
+                    {
+                        "name": "filter[tags]",
+                        "in": "query",
+                        "description": "Filter by one or more comma-separated tags.",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "api,database"
                     }
                 ],
                 "responses": {
@@ -2417,7 +2603,14 @@
                                         "included": {
                                             "type": "array",
                                             "items": {
-                                                "$ref": "#/components/schemas/MetricPoint"
+                                                "anyOf": [
+                                                    {
+                                                        "$ref": "#/components/schemas/MetricPoint"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/Tag"
+                                                    }
+                                                ]
                                             }
                                         }
                                     },
@@ -2432,6 +2625,36 @@
                     }
                 },
                 "security": []
+            },
+            "delete": {
+                "operationId": "metric.destroyMany",
+                "summary": "Delete Metrics",
+                "tags": [
+                    "Metrics"
+                ],
+                "parameters": [
+                    {
+                        "name": "ids",
+                        "in": "query",
+                        "required": true,
+                        "description": "Comma-separated metric IDs to delete.",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1,2,3"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No content"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/MissingAbilityException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
             },
             "post": {
                 "operationId": "cachet.api.metrics.store",
@@ -2464,7 +2687,14 @@
                                         "included": {
                                             "type": "array",
                                             "items": {
-                                                "$ref": "#/components/schemas/MetricPoint"
+                                                "anyOf": [
+                                                    {
+                                                        "$ref": "#/components/schemas/MetricPoint"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/Tag"
+                                                    }
+                                                ]
                                             }
                                         }
                                     },
@@ -2514,7 +2744,10 @@
                                 "enum": [
                                     "points",
                                     "pointsCount",
-                                    "pointsExists"
+                                    "pointsExists",
+                                    "tags",
+                                    "tagsCount",
+                                    "tagsExists"
                                 ]
                             }
                         },
@@ -2535,7 +2768,14 @@
                                         "included": {
                                             "type": "array",
                                             "items": {
-                                                "$ref": "#/components/schemas/MetricPoint"
+                                                "anyOf": [
+                                                    {
+                                                        "$ref": "#/components/schemas/MetricPoint"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/Tag"
+                                                    }
+                                                ]
                                             }
                                         }
                                     },
@@ -2593,7 +2833,14 @@
                                         "included": {
                                             "type": "array",
                                             "items": {
-                                                "$ref": "#/components/schemas/MetricPoint"
+                                                "anyOf": [
+                                                    {
+                                                        "$ref": "#/components/schemas/MetricPoint"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/Tag"
+                                                    }
+                                                ]
                                             }
                                         }
                                     },
@@ -3083,6 +3330,15 @@
                         }
                     },
                     {
+                        "name": "filter[tags]",
+                        "in": "query",
+                        "description": "Filter by one or more comma-separated tags.",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "api,database"
+                    },
+                    {
                         "name": "include",
                         "in": "query",
                         "description": "Include related data (components, components.group, updates, user, meta).",
@@ -3103,7 +3359,10 @@
                                     "userExists",
                                     "meta",
                                     "metaCount",
-                                    "metaExists"
+                                    "metaExists",
+                                    "tags",
+                                    "tagsCount",
+                                    "tagsExists"
                                 ]
                             }
                         },
@@ -3194,6 +3453,9 @@
                                                     },
                                                     {
                                                         "$ref": "#/components/schemas/Update"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/Tag"
                                                     }
                                                 ]
                                             }
@@ -3210,6 +3472,36 @@
                     }
                 },
                 "security": []
+            },
+            "delete": {
+                "operationId": "schedule.destroyMany",
+                "summary": "Delete Schedules",
+                "tags": [
+                    "Schedules"
+                ],
+                "parameters": [
+                    {
+                        "name": "ids",
+                        "in": "query",
+                        "required": true,
+                        "description": "Comma-separated schedule IDs to delete.",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1,2,3"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No content"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/MissingAbilityException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
             },
             "post": {
                 "operationId": "cachet.api.schedules.store",
@@ -3248,6 +3540,9 @@
                                                     },
                                                     {
                                                         "$ref": "#/components/schemas/Update"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/Tag"
                                                     }
                                                 ]
                                             }
@@ -3310,7 +3605,10 @@
                                     "userExists",
                                     "meta",
                                     "metaCount",
-                                    "metaExists"
+                                    "metaExists",
+                                    "tags",
+                                    "tagsCount",
+                                    "tagsExists"
                                 ]
                             }
                         },
@@ -3338,6 +3636,9 @@
                                                     },
                                                     {
                                                         "$ref": "#/components/schemas/Update"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/Tag"
                                                     }
                                                 ]
                                             }
@@ -3403,6 +3704,9 @@
                                                     },
                                                     {
                                                         "$ref": "#/components/schemas/Update"
+                                                    },
+                                                    {
+                                                        "$ref": "#/components/schemas/Tag"
                                                     }
                                                 ]
                                             }
@@ -4620,6 +4924,20 @@
                                 "required": [
                                     "data"
                                 ]
+                            },
+                            "tags": {
+                                "type": "object",
+                                "properties": {
+                                    "data": {
+                                        "type": "array",
+                                        "items": {
+                                            "$ref": "#/components/schemas/TagIdentifier"
+                                        }
+                                    }
+                                },
+                                "required": [
+                                    "data"
+                                ]
                             }
                         }
                     }
@@ -4943,6 +5261,13 @@
                         ],
                         "minimum": 0
                     },
+                    "tags": {
+                        "type": "array",
+                        "default": [],
+                        "items": {
+                            "type": "string"
+                        }
+                    },
                     "meta": {
                         "type": [
                             "object",
@@ -5034,6 +5359,13 @@
                         ],
                         "items": {
                             "$ref": "#/components/schemas/IncidentComponentRequestData"
+                        }
+                    },
+                    "tags": {
+                        "type": "array",
+                        "default": [],
+                        "items": {
+                            "type": "string"
                         }
                     },
                     "meta": {
@@ -5166,6 +5498,13 @@
                         ],
                         "minimum": 0,
                         "maximum": 4
+                    },
+                    "tags": {
+                        "type": "array",
+                        "default": [],
+                        "items": {
+                            "type": "string"
+                        }
                     }
                 },
                 "required": [
@@ -5213,6 +5552,13 @@
                         ],
                         "items": {
                             "$ref": "#/components/schemas/ScheduleComponentRequestData"
+                        }
+                    },
+                    "tags": {
+                        "type": "array",
+                        "default": [],
+                        "items": {
+                            "type": "string"
                         }
                     },
                     "meta": {
@@ -5538,6 +5884,20 @@
                                 "required": [
                                     "data"
                                 ]
+                            },
+                            "tags": {
+                                "type": "object",
+                                "properties": {
+                                    "data": {
+                                        "type": "array",
+                                        "items": {
+                                            "$ref": "#/components/schemas/TagIdentifier"
+                                        }
+                                    }
+                                },
+                                "required": [
+                                    "data"
+                                ]
                             }
                         }
                     }
@@ -5819,6 +6179,20 @@
                                         "type": "array",
                                         "items": {
                                             "$ref": "#/components/schemas/MetricPointIdentifier"
+                                        }
+                                    }
+                                },
+                                "required": [
+                                    "data"
+                                ]
+                            },
+                            "tags": {
+                                "type": "object",
+                                "properties": {
+                                    "data": {
+                                        "type": "array",
+                                        "items": {
+                                            "$ref": "#/components/schemas/TagIdentifier"
                                         }
                                     }
                                 },
@@ -6220,6 +6594,20 @@
                                 "required": [
                                     "data"
                                 ]
+                            },
+                            "tags": {
+                                "type": "object",
+                                "properties": {
+                                    "data": {
+                                        "type": "array",
+                                        "items": {
+                                            "$ref": "#/components/schemas/TagIdentifier"
+                                        }
+                                    }
+                                },
+                                "required": [
+                                    "data"
+                                ]
                             }
                         }
                     }
@@ -6407,6 +6795,63 @@
                     "type"
                 ],
                 "title": "Subscriber"
+            },
+            "Tag": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "tags"
+                        ]
+                    },
+                    "attributes": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "integer"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "slug": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "id",
+                            "name",
+                            "slug"
+                        ]
+                    }
+                },
+                "required": [
+                    "id",
+                    "type"
+                ],
+                "title": "Tag"
+            },
+            "TagIdentifier": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "tags"
+                        ]
+                    },
+                    "id": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "type",
+                    "id"
+                ],
+                "title": "TagIdentifier"
             },
             "Update": {
                 "type": "object",
@@ -6690,6 +7135,15 @@
                         ],
                         "minimum": 0
                     },
+                    "tags": {
+                        "type": [
+                            "array",
+                            "null"
+                        ],
+                        "items": {
+                            "type": "string"
+                        }
+                    },
                     "meta": {
                         "type": [
                             "object",
@@ -6774,6 +7228,15 @@
                         ],
                         "format": "date-time"
                     },
+                    "tags": {
+                        "type": [
+                            "array",
+                            "null"
+                        ],
+                        "items": {
+                            "type": "string"
+                        }
+                    },
                     "meta": {
                         "type": [
                             "object",
@@ -6849,6 +7312,15 @@
                         ],
                         "minimum": 0,
                         "maximum": 60
+                    },
+                    "tags": {
+                        "type": [
+                            "array",
+                            "null"
+                        ],
+                        "items": {
+                            "type": "string"
+                        }
                     }
                 },
                 "title": "UpdateMetricRequestData"
@@ -6897,6 +7369,15 @@
                         ],
                         "items": {
                             "$ref": "#/components/schemas/ScheduleComponentRequestData"
+                        }
+                    },
+                    "tags": {
+                        "type": [
+                            "array",
+                            "null"
+                        ],
+                        "items": {
+                            "type": "string"
                         }
                     },
                     "meta": {
