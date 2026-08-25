@@ -1,0 +1,170 @@
+---
+title: 'Theme hooks'
+description: 'Theme Cachet with stable CSS selectors and render hooks.'
+icon: 'code'
+---
+
+Cachet exposes stable HTML data attributes and PHP render hooks for status page themes. Use these public hooks instead
+of CSS framework utilities, generated classes, or the current HTML nesting. Implementation classes may change between
+releases; the documented data attributes are the theming contract.
+
+Add CSS in **Settings → Manage Customization → Custom CSS**. See [Customization](/v3.x/configuration/customization)
+for CSS variables and the other customization fields.
+
+## CSS hooks
+
+Use `data-page` to scope an entire page, `data-component` to select a reusable component, and `data-slot` to select a
+semantic part within that component.
+
+```css Custom CSS
+/* Change only the main status page summary. */
+[data-page='status'] [data-component='status-summary'] {
+    border-radius: 1rem;
+}
+
+/* Style component names without depending on heading tags or classes. */
+[data-component='component'] [data-slot='title'] {
+    letter-spacing: 0.01em;
+}
+
+/* Use the nearest component to disambiguate a repeated slot name. */
+[data-component='schedule'] [data-slot='status'] {
+    justify-content: flex-start;
+}
+```
+
+<Tip>
+    Scope `data-slot` selectors through a `data-component` or `data-page`. Slot names such as `title`, `content`, and
+    `status` are intentionally reused by different components.
+</Tip>
+
+### Pages
+
+The `<body>` element has one of these `data-page` values:
+
+| Value | Page | Page-level slots |
+| --- | --- | --- |
+| `status` | Main status page | `main` |
+| `incident` | Incident detail | `main` |
+| `schedule` | Scheduled maintenance detail | `main` |
+| `subscribe` | Subscriber form and result states | `main` |
+| `unsubscribe` | Unsubscribe confirmation | `main` |
+
+### Components and slots
+
+Components may be absent when their feature is disabled or they have no content.
+
+| `data-component` | Stable `data-slot` values |
+| --- | --- |
+| `about` | `title`, `description` |
+| `affected-components` | `title`, `list` |
+| `badge` | No named slots |
+| `component-list` | `list` |
+| `component-group` | `trigger`, `indicator`, `title`, `status`, `content`, `list` |
+| `component` | `content`, `title`, `description`, `tags`, `status` |
+| `footer` | `content`, `support`, `timezone` |
+| `header` | `content`, `brand`, `navigation`, `subscribe`, `dashboard`, `logout` |
+| `incident-timeline` | `header`, `title`, `filters`, `list`, `empty`, `navigation` |
+| `incident-day` | `date`, `empty` |
+| `incident` | `header`, `title`, `timestamp`, `status`, `affected-components`, `updates` |
+| `incident-update` | `message` |
+| `incident-update-status` | `indicator` |
+| `logo`, `logomark` | No named slots |
+| `metrics` | No named slots |
+| `metric` | `content`, `header`, `title`, `description`, `suffix`, `periods`, `period`, `chart` |
+| `page-navigation` | No named slots |
+| `schedules` | `title`, `content`, `list` |
+| `schedule` | `content`, `header`, `title`, `timestamp`, `status`, `message`, `affected-components`, `updates` |
+| `schedule-update` | `message` |
+| `status-overview` | `masthead`, `title` |
+| `status-summary` | `content`, `status`, `indicator`, `title`, `last-updated` |
+| `subscribe` | `content`, `state`, `form`, `navigation` |
+| `timestamp` | `value`, `tooltip` |
+| `unsubscribe` | `content`, `form`, `navigation` |
+
+Repeated records also expose their database key separately through `data-component-id`, `data-component-group-id`,
+`data-incident-id`, `data-metric-id`, `data-schedule-id`, or `data-update-id`. Use those attributes only when a theme
+must target one configured record.
+
+Incident-day components expose their ISO date through `data-date`.
+
+The subscribe component exposes `data-state="form"`, `subscribed`, `unsubscribed`, or `verified` on its `state` slot.
+
+## Render hooks
+
+Render hooks insert custom HTML without overriding Cachet views. Register hooks in the `boot` method of an application
+service provider:
+
+```php app/Providers/AppServiceProvider.php
+<?php
+
+namespace App\Providers;
+
+use Cachet\Facades\CachetView;
+use Cachet\View\RenderHook;
+use Illuminate\Contracts\View\View;
+use Illuminate\Support\ServiceProvider;
+
+class AppServiceProvider extends ServiceProvider
+{
+    public function boot(): void
+    {
+        CachetView::registerRenderHook(
+            RenderHook::STATUS_PAGE_BANNER,
+            fn (): View => view('status.banner'),
+        );
+    }
+}
+```
+
+The callback may return a string, an `Htmlable` object, or a view. Cachet renders hook output as HTML, so escape any
+untrusted data before returning it.
+
+### Available render hooks
+
+| Constant | Position |
+| --- | --- |
+| `STATUS_PAGE_BODY_BEFORE` | At the start of the status page `<body>` |
+| `STATUS_PAGE_BODY_AFTER` | At the end of the status page `<body>` |
+| `STATUS_PAGE_NAVIGATION_BEFORE` | Before the header |
+| `STATUS_PAGE_NAVIGATION_AFTER` | After the header |
+| `STATUS_PAGE_BANNER` | After the header and navigation hooks |
+| `STATUS_PAGE_STATUS_SUMMARY_BEFORE` | Before each status summary |
+| `STATUS_PAGE_STATUS_SUMMARY_AFTER` | After each status summary |
+| `STATUS_PAGE_ABOUT_BEFORE` | Before the about component |
+| `STATUS_PAGE_ABOUT_AFTER` | After the about component |
+| `STATUS_PAGE_COMPONENT_GROUPS_BEFORE` | Before each component group |
+| `STATUS_PAGE_COMPONENT_GROUPS_AFTER` | After each component group |
+| `STATUS_PAGE_COMPONENTS_BEFORE` | Before each component |
+| `STATUS_PAGE_COMPONENTS_AFTER` | After each component |
+| `STATUS_PAGE_METRICS_BEFORE` | Before the metrics list |
+| `STATUS_PAGE_METRICS_AFTER` | After the metrics list |
+| `STATUS_PAGE_SCHEDULES_BEFORE` | Before each scheduled maintenance item |
+| `STATUS_PAGE_SCHEDULES_AFTER` | After each scheduled maintenance item |
+| `STATUS_PAGE_INCIDENT_TIMELINE_BEFORE` | Before the complete incident timeline |
+| `STATUS_PAGE_INCIDENT_TIMELINE_AFTER` | After the complete incident timeline |
+| `STATUS_PAGE_INCIDENTS_BEFORE` | Before each incident-day block |
+| `STATUS_PAGE_INCIDENTS_AFTER` | After each incident-day block |
+| `STATUS_PAGE_SUBSCRIBE_BEFORE` | Before subscribe content |
+| `STATUS_PAGE_SUBSCRIBE_AFTER` | After subscribe content |
+| `STATUS_PAGE_UNSUBSCRIBE_BEFORE` | Before unsubscribe confirmation content |
+| `STATUS_PAGE_UNSUBSCRIBE_AFTER` | After unsubscribe confirmation content |
+| `FOOTER` | At the end of the footer content |
+
+Item-level hooks can run more than once on a page. Component, component-group, and schedule hooks are adjacent to list
+items; return a valid `<li>` when inserting visible content there.
+
+Render hooks for optional sections run only when Cachet renders that section. For example, metrics hooks are unavailable
+when metric graphs are disabled. Registering `FOOTER` creates the footer boundary even when Cachet's built-in support
+and timezone content are disabled.
+
+## Compatibility
+
+Treat the documented attribute values and render-hook constants as public APIs. Avoid selectors based on:
+
+- Utility classes or generated framework classes
+- Element depth, child position, or heading level
+- Alpine attributes such as `x-data`
+- Filament-specific markup
+
+These implementation details may change without a theming compatibility guarantee.

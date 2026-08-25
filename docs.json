@@ -50,6 +50,7 @@
                   "v3.x/configuration/environment",
                   "v3.x/configuration/customization",
                   "v3.x/configuration/theme",
+                  "v3.x/configuration/theme-hooks",
                   "v3.x/configuration/beacon",
                   "v3.x/configuration/api-keys"
                 ]
