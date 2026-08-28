@@ -5159,6 +5159,7 @@
                     "visible": {
                         "anyOf": [
                             {
+                                "default": 1,
                                 "$ref": "#/components/schemas/ResourceVisibilityEnum"
                             },
                             {
