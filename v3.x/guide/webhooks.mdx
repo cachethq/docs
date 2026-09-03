@@ -50,34 +50,61 @@ Cachet will send a `User-Agent` header with the request. The value of the `User-
 Cachet/3.0 Webhook (+https://cachethq.io/docs)
 ```
 
-### Payload
+### Payload contract
 
-The payload Cachet sends contains information about the event that triggered the webhook. The payload is a JSON
-object with the following structure:
+Every delivery uses the same envelope. Cachet treats the field names and value types in this contract as
+backwards-compatible public API. New fields may be added, so receivers should ignore fields they do not recognise.
+Timestamps are ISO 8601 UTC strings or `null`.
 
 ```json
 {
+  "id": "f9dd4a99-80a5-4d6c-981b-3239c5192379",
   "event": "incident_updated",
-  "body": {
+  "created_at": "2026-09-03T13:49:54.000000Z",
+  "data": {
+    "resource": "incident",
     "id": 3,
-    "component_id": null,
-    "name": "Test",
-    "status": 2,
-    "message": "We have identified the issue and are working on a fix.",
-    "created_at": "2025-01-09T13:44:30.000000Z",
-    "updated_at": "2025-01-09T13:49:54.000000Z",
-    "deleted_at": null,
-    "visible": 1,
-    "stickied": false,
-    "occurred_at": null,
-    "user_id": 1,
-    "notifications": false,
-    "guid": "19801cb7-883c-490e-8569-e552b013b2cc",
-    "external_provider": null,
-    "external_id": null
+    "attributes": {
+      "guid": "19801cb7-883c-490e-8569-e552b013b2cc",
+      "name": "API errors",
+      "message": "We have identified the issue and are working on a fix.",
+      "status": 2,
+      "visibility": 1,
+      "stickied": false,
+      "notifications": true,
+      "user_id": 1,
+      "external_provider": null,
+      "external_id": null,
+      "occurred_at": "2026-09-03T13:44:30.000000Z",
+      "published_at": "2026-09-03T13:44:30.000000Z",
+      "created_at": "2026-09-03T13:44:30.000000Z",
+      "updated_at": "2026-09-03T13:49:54.000000Z"
+    }
   }
 }
 ```
+
+The envelope fields are:
+
+- `id`: a unique identifier for this delivery.
+- `event`: one of the supported event names above.
+- `created_at`: when Cachet created the delivery.
+- `data.resource`: `component`, `incident`, `metric`, `metric_point`, or `subscriber`.
+- `data.id`: the numeric Cachet resource ID.
+- `data.attributes`: a stable snapshot of the resource when the event occurred.
+- `data.changes`: present for `component_status_changed`, with `old_status`, `new_status`, and `source`.
+
+Resource snapshots contain these fields:
+
+- Components: `name`, `description`, `link`, `order`, `status`, `group_id`, `enabled`, `checked`, `checked_at`,
+  `created_at`, and `updated_at`.
+- Incidents: `guid`, `name`, `message`, `status`, `visibility`, `stickied`, `notifications`, `user_id`,
+  `external_provider`, `external_id`, `occurred_at`, `published_at`, `created_at`, and `updated_at`.
+- Metrics: `name`, `suffix`, `description`, `default_value`, `calculation_type`, `display_chart`,
+  `show_when_empty`, `decimal_places`, `default_view`, `threshold`, `order`, `visibility`, `created_at`, and
+  `updated_at`.
+- Metric points: `metric_id`, `value`, `counter`, `calculated_value`, `created_at`, and `updated_at`.
+- Subscribers: `email`, `global`, `verified_at`, `created_at`, and `updated_at`.
 
 ## Signature verification
 
@@ -92,7 +119,7 @@ $configuredSigningSecret = 'your-signing-secret';
 
 $computedSignature = hash_hmac('sha256', $request->getContent(), $configuredSigningSecret);
 
-if ($computedSignature !== $request->header('Signature')) {
+if (! hash_equals($computedSignature, (string) $request->header('Signature'))) {
     abort(500);
 }
 ```
