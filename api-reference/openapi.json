@@ -6442,10 +6442,15 @@
                                 "type": "object",
                                 "properties": {
                                     "human": {
-                                        "type": "string"
+                                        "type": "string",
+                                        "enum": [
+                                            "Upcoming",
+                                            "In progress",
+                                            "Complete"
+                                        ]
                                     },
                                     "value": {
-                                        "type": "string"
+                                        "type": "integer"
                                     }
                                 },
                                 "required": [
