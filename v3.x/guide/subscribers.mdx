@@ -41,6 +41,41 @@ Every email includes an unsubscribe link. Cachet queues all notifications, so we
 Cachet can also email dashboard users when an incident has seen no activity for a configurable number of hours.
 This feature is off by default; configure it on the "Manage Notifications" page.
 
+## Slack subscriptions
+
+Subscribe a Slack channel to public incident events using Cachet's Slack RSS feed. Slack manages this subscription;
+it does not create a Cachet email subscriber.
+
+Append `/slack.rss` to the public status page URL:
+
+```text
+https://status.example.com/slack.rss
+```
+
+Include `CACHET_PATH` when Cachet is served from a path, for example `https://example.com/status/slack.rss`.
+
+In the channel you want to receive updates to, run:
+
+```text
+/feed subscribe https://status.example.com/slack.rss
+```
+
+Each incident report and update is a separate feed item containing its status, message, affected components, and a
+link to the event. The feed only includes published incidents with **Guests** visibility. It excludes
+authenticated-only, hidden, and future incidents.
+
+<Note>
+    `/rss` groups an incident and its update history into one item. `/slack.rss` publishes each report and update as
+    a separate item.
+</Note>
+
+Slack records the newest item when a feed is added and does not post older items. Cachet caches the feed for up to 60
+seconds, and Slack polls it on its own schedule. Use `/feed list` to view a channel's subscriptions and
+`/feed remove ID` to remove one.
+
+See [Slack's RSS documentation](https://slack.com/help/articles/218688467-Add-RSS-feeds-to-Slack) for feed management
+commands and troubleshooting.
+
 ## Managing subscribers
 
 The "Subscribers" section of the dashboard lists every subscriber and their verification status. From here you may
