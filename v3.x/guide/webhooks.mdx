@@ -13,10 +13,9 @@ with a JSON payload containing information about the event. Webhooks consist of:
   and not a third party.
 - **Events**: The events that will trigger the webhook.
 
-The Cachet dashboard provides a user-friendly interface for managing webhooks. You can add, edit, and delete webhooks
-from the "Manage Webhooks" page.
+To add, edit, or delete webhooks, open **Manage Webhooks** in the dashboard.
 
-### Supported events
+## Supported events
 
 Cachet currently supports the following events:
 
@@ -36,15 +35,11 @@ Cachet currently supports the following events:
 - `subscriber_unsubscribed`
 - `subscriber_verified`
 
-<Tip>
-    Cachet may add more events in the future. Check the latest documentation for the most up-to-date list of supported events.
-</Tip>
-
 ## Receiving webhooks
 
 ### User agent
 
-Cachet will send a `User-Agent` header with the request. The value of the `User-Agent` header will be:
+Cachet sends this `User-Agent` header with each request:
 
 ```text
 Cachet/3.0 Webhook (+https://cachethq.io/docs)

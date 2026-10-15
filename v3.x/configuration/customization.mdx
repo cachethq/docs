@@ -1,23 +1,20 @@
 ---
 title: 'Customization'
-description: 'Learn how to customize Cachet.'
+description: 'Add custom HTML, scripts, and CSS to your status page.'
 icon: 'palette'
 ---
 
-Cachet provides the ability to customize your status page with custom HTML and CSS. To customize your status page,
-navigate to the "Manage Customization" section which is found under "Settings" in your Cachet dashboard.
+To add custom HTML and CSS to your status page, open **Settings**, then **Manage Customization** in the Cachet dashboard.
 
 ## Custom header HTML
 
-From here, you can add custom HTML including scripts and styles into the header of your status page. This is an ideal
-section to add custom analytics scripts.
-
-Cachet adds HTML or scripts placed in this section to the `<head>` of your status page.
+Add scripts, styles, or other HTML to this field. Cachet inserts the content into the `<head>` of your status page.
+For example, you can add an analytics script here.
 
 ### Fathom Analytics
 
-We recommend [Fathom Analytics](https://usefathom.com/james) for privacy-focused analytics. To add Fathom Analytics to
-your status page, you can use the following script:
+To add [Fathom Analytics](https://usefathom.com/james), paste this script into the custom header field.
+Replace `YOUR_SITE_ID` with your Fathom site ID:
 
 ```html
 <script src="https://cdn.usefathom.com/script.js" data-site="YOUR_SITE_ID" defer></script>
@@ -30,21 +27,17 @@ your status page, you can use the following script:
 
 ## Custom footer HTML
 
-Add custom HTML to the footer of your status page to personalize scripts or styles.
-
-Cachet adds HTML or scripts placed in this section to the end of the `<body>` of your status page.
+Add scripts, styles, or other HTML to this field. Cachet inserts the content at the end of the `<body>` of your status page.
 
 ## Custom CSS
 
-Add custom CSS to your status page to personalize the design. You do not need to include `<style>` tags as Cachet wraps the CSS in them automatically.
-
-Cachet appends CSS placed in this section to its own styles.
+Add CSS without `<style>` tags. Cachet wraps your CSS in those tags and appends it to its own styles.
 
 ### CSS variables
 
-As part of Cachet's [accent colors](/v3.x/configuration/theme#accents) system, you can use
-[CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) to customize the colors
-of your status page. The following CSS variables are available:
+Cachet's [accent colors](/v3.x/configuration/theme#accents) use
+[CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties).
+You can override these variables:
 
 | Variable              | Description                                                       |
 |-----------------------|-------------------------------------------------------------------|
@@ -53,8 +46,7 @@ of your status page. The following CSS variables are available:
 | `--accent-foreground` | The color of text content on top of an accented background.       |
 | `--accent-background` | The background color of the status page.                          |
 
-Cachet will automatically generate a light and dark version of the accent color. When overriding colors, ensure you
-override both versions to maintain a consistent design:
+Cachet generates light and dark versions of the accent color. Override both versions when you set custom colors:
 
 ```css Custom CSS
 /* Light mode */
@@ -77,6 +69,5 @@ override both versions to maintain a consistent design:
 ```
 
 <Warning>
-    Cachet's status page will do its best to adapt its design to configured colors. However, some colors may not be
-    visible or may clash with the design. Please ensure you test your colors in both light and dark mode.
+    Test your colors in both light and dark mode. Check that text, buttons, and links remain readable against their backgrounds.
 </Warning>

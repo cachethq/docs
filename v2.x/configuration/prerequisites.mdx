@@ -4,30 +4,30 @@ description: 'Prerequisites for installing Cachet.'
 icon: 'list-check'
 ---
 
-## Cachet Prerequisites
+## Cachet prerequisites
 
-You'll need at least the following installed on your server:
+Install the following on your server:
 
-- PHP 7.3, you'll also need `ext-gd`, `ext-simplexml`, `mcrypt` and `ext-xml` installed.
-- [Composer](https://getcomposer.org/) and `ext-mbstring`,`ext-tokenizer`
+- PHP 7.3 with `ext-gd`, `ext-simplexml`, `mcrypt`, and `ext-xml`.
+- [Composer](https://getcomposer.org/), `ext-mbstring`, and `ext-tokenizer`.
 - APC or Redis for caching.
-- A database driver for your DB, such as MySQL, PostgreSQL or SQLite.
+- A driver for your database, such as MySQL, PostgreSQL, or SQLite.
 - [Git](https://git-scm.com)
 
 
 ## SQLite
 
-Whilst we support SQLite, we advise not using it for status pages with a high amount of traffic.
+Cachet supports SQLite, but we recommend another database for status pages with high traffic.
  
-## MySQL Timezone Info
+## MySQL timezone info
 
-Ensure your MySQL database has been updated with the correct timezone information. This will ensure that metrics are shown correctly: https://dev.mysql.com/doc/refman/5.7/en/time-zone-support.html
+Update your MySQL database with the correct timezone information so that metrics display correctly. See [MySQL time zone support](https://dev.mysql.com/doc/refman/5.7/en/time-zone-support.html).
 
-## Developer Prerequisites
+## Developer prerequisites
 
-If you're looking to contribute to Cachet you may need some extra dependencies; depending on what you're looking for.
+If you contribute to Cachet, you may need extra dependencies for the parts you change.
 
-Our CSS is compiled from SCSS, so to compile this you'll need the following:
+To compile Cachet's CSS from SCSS, install the following:
 
 - Node.js
 - NPM

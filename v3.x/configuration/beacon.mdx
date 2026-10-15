@@ -1,44 +1,41 @@
 ---
 title: 'Beacon'
-description: "Learn how to configure Cachet's beacon."
+description: "Configure Cachet's anonymous usage reporting."
 icon: 'lighthouse'
 ---
 
-Cachet's "beacon" system is an optional telemetry system that allows you to send anonymous usage data to Cachet.
-This data helps us understand how you use Cachet and how we can improve it.
+Cachet's beacon sends anonymous usage data to the Cachet team. The data helps us understand which features people use.
 
 ## Configuration
 
-Cachet's beacon is **enabled by default**. If you'd prefer not to send any usage data, you can opt out by setting the
-`CACHET_BEACON` environment variable to `false`.
+The beacon is enabled by default. To opt out, set `CACHET_BEACON` to `false` in your environment:
 
 ```ini .env
 CACHET_BEACON=false
 ```
 
 <Tip>
-    If you're limiting outbound requests on your server and you'd like to keep the beacon enabled, you'll need to allow outbound requests to `https://cachethq.io`.
+    If your server restricts outbound requests, allow requests to `https://cachethq.io` to keep the beacon working.
 </Tip>
 
 ### Configuring the scheduler
 
-Cachet automatically registers the `cachet:beacon` command to run daily at `00:00`. You will need to configure your server
-to run the scheduler every minute using a cron job. To do so, add the following cron entry:
+Cachet registers `cachet:beacon` to run daily at `00:00`. To run the scheduler every minute, add this cron entry:
 
 ```bash /etc/crontab
 * * * * * php /path/to/cachet/artisan schedule:run >> /dev/null 2>&1
 ```
 
 <Note>
-    Be sure to replace `/path/to/cachet` with the actual path to your Cachet installation.
+    Replace `/path/to/cachet` with the path to your Cachet installation.
 </Note>
 
 ## What data does Cachet collect?
 
 The beacon collects the following data:
 
-- **Install ID**: An anonymous identifier for your Cachet installation.
-- **Cachet Version**: The version of Cachet you're running.
-- **Docker**: Whether you're running Cachet in a Docker container.
-- **Database**: The type of database you're using.
-- **Usage Data**: How you're using Cachet, such as the number of incidents, components, subscribers, etc.
+- An anonymous identifier for your installation
+- Your Cachet version
+- Whether Cachet runs in a Docker container
+- Your database type
+- Usage counts, such as the number of incidents, components, and subscribers

@@ -13,24 +13,23 @@
 
 # Cachet documentation
 
-[Cachet](https://cachethq.io) is an open source status page system. Cachet allows you to effectively communicate downtime and
-system outages to your customers and stakeholders.
+[Cachet](https://cachethq.io) is an open source status page system. Use it to keep your customers and stakeholders informed about downtime and system outages.
 
 This repository contains the source code for the Cachet documentation, built with [Mintlify](https://mintlify.com).
 
 ## Running locally
 
-Mintlify kindly hosts the documentation. To run it locally:
+Mintlify hosts the documentation. To run it locally:
 
-1. **Clone the repository:**
+1. Clone the repository:
     ```bash
     git clone git@github.com:cachethq/docs.git cachet-docs
     ```
-2. **Install Mintlify:**
+2. Install Mintlify:
     ```bash
     npm install -g mintlify@latest
     ```
-3. **Run the documentation:**
+3. Run the documentation:
     ```bash
     cd cachet-docs
     mintlify dev
@@ -38,4 +37,4 @@ Mintlify kindly hosts the documentation. To run it locally:
    
 ## Contributing
 
-Check out the [Mintlify guide](https://mintlify.com/docs/) to learn more.
+Read the [Mintlify guide](https://mintlify.com/docs/) for documentation syntax and local preview instructions.

@@ -6,7 +6,7 @@ icon: 'windows'
 
 ## Overview
 
-Cachet is constantly evolving, therefore we advise you to download and checkout the latest tagged release. Using a branch such as `master` could result in a broken or unstable environment.
+Download and check out the latest tagged v2 release. A branch such as `master` may be broken or unstable.
 
 ## Download with Git
 
@@ -25,11 +25,11 @@ git checkout v1.1.0
 
 ### Configuring a database
 
-By default, Cachet comes with a `.env.example` file. You'll need to rename this file to just `.env` **regardless** of what environment you're working on. This is how Laravel 5 deals with configurations.
+Rename Cachet's `.env.example` file to `.env` in every environment. Laravel 5 reads configuration from this file.
 
-It's now just a case of editing this new `.env` file and setting the values of your setup.
+Edit `.env` with the values for your installation.
 
-Here is an example Windows  file with a MySQL database:
+Here is an example `.env` file for Windows with a MySQL database:
 
 ```text .env
 APP_ENV=production
@@ -66,28 +66,28 @@ GITHUB_TOKEN=null
 ```
 
 <Tip>
-    If you're using SQLite then your `.env` file should not contain a `DB_HOST` key. You'll also need to `touch ./database/database.sqlite` and give it the required permissions.
+    If you use SQLite, remove the `DB_HOST` key from `.env`. Run `touch ./database/database.sqlite` and give the file the required permissions.
 </Tip>
 
-After installation, don't forget to set `APP_DEBUG` to `false` to avoid other people to see your application info!
+After installation, set `APP_DEBUG` to `false` to prevent other people from seeing your application's debug information.
 
-Now, in your Command Prompt, navigate to your Cachet install and run:
+In Command Prompt, navigate to your Cachet installation and run:
 
 ```shell
 composer install --no-dev -o
 ```
 
-Once you have decided on the database driver you'll be using, you now need to run the migrations to create the tables.
+After choosing your database driver, run the migrations to create the tables:
 
 ```shell
 php artisan migrate --force
 ```
 
-You should see the output of the current project migration files being migrated to your database.
+The output lists the migrations applied to your database.
 
-### Security Key
+### Security key
 
-Before going any further, we need to set the `APP_KEY` config. This is used for all encryption used in Cachet.
+Generate the `APP_KEY` that Cachet uses for encryption:
 
 ```shell
 php artisan key:generate
@@ -95,7 +95,7 @@ php artisan key:generate
 
 ## Installing Cachet
 
-Cachet comes with an installation command that will:
+Run the installation command to perform the following tasks:
 
 - Run migrations
 - Run seeders (of which there are none)
@@ -105,12 +105,12 @@ php artisan app:install
 ```
 
 <Warning>
-    Never change the `APP_KEY` after installation on production environment. This will result in all encrypted/hashed data being lost.
+    Never change `APP_KEY` after installation in a production environment. Doing so causes all encrypted and hashed data to be lost.
 </Warning>
 
-## `php.ini` Config
+## `php.ini` config
 
-Some extensions need to be uncommented in your `php.ini` file.
+Uncomment the required extensions in your `php.ini` file, using this configuration as a reference:
 
 ```ini
 extension=php_apcu.dll
@@ -162,9 +162,9 @@ extension=php_xsl.dll
 
 ## Apache vHosts
 
-Apache is one of the easier installations. We simply need to create a new Virtual Host and add it to our `HOSTS` file.
+Create an Apache virtual host and add its hostname to your `HOSTS` file.
 
-To do this, we simply add the following Virtual Host to our `httpd-vhosts.conf` file. Do change this to suit your setup:
+Add the following virtual host to `httpd-vhosts.conf`. Adjust the values for your installation:
 
 ```text httpd-vhosts.conf
 <VirtualHost *:80>
@@ -174,13 +174,13 @@ To do this, we simply add the following Virtual Host to our `httpd-vhosts.conf` 
 </VirtualHost>
 ```
 
-> ❗️ You Need to Enable `mod_rewrite` for Apache.
+> Enable `mod_rewrite` for Apache.
 >
-> You can do this by finding your `httpd.conf` file and uncommenting the following line:
+> In `httpd.conf`, uncomment the following line:
 >
 > `#LoadModule rewrite_module modules/mod_rewrite.so`
 
-The rest of the contents of my `httpd.conf` file are as follows:
+The rest of this example `httpd.conf` file is shown below:
 
 ```text
 LoadModule access_compat_module modules/mod_access_compat.so

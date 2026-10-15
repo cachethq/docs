@@ -8,26 +8,24 @@ If you're new to Laravel, you can learn more about it on the [Laravel website](h
 
 <Steps>
     <Step title="Install Laravel Herd">
-        We recommend installing [Laravel Herd](https://herd.laravel.com), a **free** local development environment for
-        PHP Laravel. It's a great way to get started with Laravel development and is the perfect environment for
-        contributing to Cachet.
+        Install [Laravel Herd](https://herd.laravel.com), a free local development environment for PHP and Laravel.
 
-        Herd will install PHP, Composer and NPM for you. You can manage each version through the Herd UI.
+        Herd installs PHP, Composer, and npm. You can manage their versions through the Herd UI.
     </Step>
 
-    <Step title="Clone Cachet's Core">
-        The majority of development is done in the [`cachethq/core`](https://github.com/cachethq/core) repository.
-        You'll need to clone this repository to your local machine.
+    <Step title="Clone Cachet's core">
+        Most Cachet development happens in the [`cachethq/core`](https://github.com/cachethq/core) repository.
+        Clone it to your local machine:
 
         ```bash
         git clone git@github.com:cachethq/core.git cachet-core
         ```
 
-        We recommend cloning the repository into a directory named `cachet-core` to keep things organized.
+        This command creates a directory named `cachet-core`.
     </Step>
 
     <Step title="Install dependencies">
-        Once you've cloned the repository, you'll need to install the dependencies.
+        Install the dependencies:
 
         ```bash
         cd cachet-core
@@ -37,19 +35,19 @@ If you're new to Laravel, you can learn more about it on the [Laravel website](h
     </Step>
 
     <Step title="Running Cachet">
-        With dependencies installed, you can now run Cachet using SQLite.
+        Run Cachet using SQLite:
 
         ```bash
         composer start
         ```
 
-        Your local Cachet instance will now be accessible on `127.0.0.1:8000`. The terminal will include output for:
+        Open your local Cachet instance at `127.0.0.1:8000`. The terminal shows output for:
 
         - Vite assets
         - Laravel logs
         - Laravel queue
 
-        You can stop the server at any time by pressing <kbd>Ctrl + C</kbd>.
+        To stop the server, press <kbd>Ctrl + C</kbd>.
     </Step>
 </Steps>
 

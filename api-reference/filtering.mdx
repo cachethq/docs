@@ -1,37 +1,35 @@
 ---
 title: 'Filtering and sorting'
-description: 'Learn how to filter and sort data in the Cachet API.'
+description: 'Query parameters for filters, related resources, and sort order.'
 ---
 
 ## Filtering
 
-Several endpoints support filtering to allow you to retrieve only the data you need.  For example, you can filter incidents by status:
+The `filter` parameter limits results to matching resources. This request filters incidents by status:
 
 ```http
 GET /api/incidents?filter[status]=1
 ```
 
 <Note>
-Each endpoint may support different fields for filtering. Check the documentation for the specific endpoint you are working with.
+    Supported filter fields vary by endpoint. Each endpoint reference lists its supported fields.
 </Note>
 
 ## Including related resources
 
-Many endpoints can embed related resources in the response using the `include` parameter. Pass a comma-separated list
-of the relationships you want to include:
+The `include` parameter embeds related resources in the response. Its value is a comma-separated list of relationships:
 
 ```http
 GET /api/incidents?include=components,updates
 ```
 
 <Note>
-    Each endpoint supports a different set of includes. Check the documentation for the specific endpoint you are
-    working with.
+    Supported relationships vary by endpoint. Each endpoint reference lists its supported relationships.
 </Note>
 
 ## Filtering by metadata
 
-Resources that support metadata can be filtered by their metadata keys using the `filter[meta][key]` syntax:
+For resources with metadata, `filter[meta][key]` filters by a metadata value:
 
 ```http
 GET /api/incidents?filter[meta][region]=us-east-1
@@ -39,18 +37,18 @@ GET /api/incidents?filter[meta][region]=us-east-1
 
 ## Sorting
 
-You can sort the results of an endpoint by passing the `sort` parameter. The `sort` parameter should be a comma-separated list of fields to sort by. You can also specify the sort order by appending `asc` or `desc` to the field name.
+The `sort` parameter accepts a comma-separated list of field names. Fields sort in ascending order by default:
 
 ```http
 GET /api/incidents?sort=id
 ```
 
-To reverse the sort order, you can prefix the field name with a hyphen.
+A hyphen before a field name selects descending order:
 
 ```http
 GET /api/incidents?sort=-id
 ```
 
 <Note>
-    Each endpoint may support different fields for sorting. Check the documentation for the specific endpoint you are working with.
+    Supported sort fields vary by endpoint. Each endpoint reference lists its supported fields.
 </Note>

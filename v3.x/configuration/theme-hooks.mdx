@@ -4,17 +4,15 @@ description: 'Theme Cachet with stable CSS selectors and render hooks.'
 icon: 'code'
 ---
 
-Cachet exposes stable HTML data attributes and PHP render hooks for status page themes. Use these public hooks instead
-of CSS framework utilities, generated classes, or the current HTML nesting. Implementation classes may change between
-releases; the documented data attributes are the theming contract.
+Cachet provides stable HTML data attributes and PHP render hooks for status page themes.
+The documented attributes remain compatible between releases. Framework classes and HTML nesting may change.
 
-Add CSS in **Settings → Manage Customization → Custom CSS**. See [Customization](/v3.x/configuration/customization)
+The **Custom CSS** field is in **Settings**, then **Manage Customization**. See [Customization](/v3.x/configuration/customization)
 for CSS variables and the other customization fields.
 
 ## CSS hooks
 
-Use `data-page` to scope an entire page, `data-component` to select a reusable component, and `data-slot` to select a
-semantic part within that component.
+`data-page` identifies a page, `data-component` identifies a reusable component, and `data-slot` identifies a part of that component.
 
 ```css Custom CSS
 /* Change only the main status page summary. */
@@ -34,8 +32,8 @@ semantic part within that component.
 ```
 
 <Tip>
-    Scope `data-slot` selectors through a `data-component` or `data-page`. Slot names such as `title`, `content`, and
-    `status` are intentionally reused by different components.
+    Different components reuse slot names such as `title`, `content`, and `status`.
+    A `data-component` or `data-page` selector limits a `data-slot` selector to the intended component or page.
 </Tip>
 
 ### Pages
@@ -92,8 +90,8 @@ The subscribe component exposes `data-state="form"`, `subscribed`, `unsubscribed
 
 ## Render hooks
 
-Render hooks insert custom HTML without overriding Cachet views. Register hooks in the `boot` method of an application
-service provider:
+Render hooks insert custom HTML without overriding Cachet views. This example registers a hook in an application
+service provider's `boot` method:
 
 ```php app/Providers/AppServiceProvider.php
 <?php
@@ -117,8 +115,8 @@ class AppServiceProvider extends ServiceProvider
 }
 ```
 
-The callback may return a string, an `Htmlable` object, or a view. Cachet renders hook output as HTML, so escape any
-untrusted data before returning it.
+The callback can return a string, an `Htmlable` object, or a view.
+Cachet renders hook output as HTML. Untrusted data needs escaping before the callback returns it.
 
 ### Available render hooks
 
@@ -151,8 +149,8 @@ untrusted data before returning it.
 | `STATUS_PAGE_UNSUBSCRIBE_AFTER` | After unsubscribe confirmation content |
 | `FOOTER` | At the end of the footer content |
 
-Item-level hooks can run more than once on a page. Component, component-group, and schedule hooks are adjacent to list
-items; return a valid `<li>` when inserting visible content there.
+Item-level hooks can run more than once on a page. Component, component-group, and schedule hooks insert content next to list items.
+Visible content at these positions requires a valid `<li>` element.
 
 Render hooks for optional sections run only when Cachet renders that section. For example, metrics hooks are unavailable
 when metric graphs are disabled. Registering `FOOTER` creates the footer boundary even when Cachet's built-in support
@@ -160,11 +158,11 @@ and timezone content are disabled.
 
 ## Compatibility
 
-Treat the documented attribute values and render-hook constants as public APIs. Avoid selectors based on:
+The documented attribute values and render-hook constants are public APIs. Compatibility guarantees do not cover selectors based on:
 
 - Utility classes or generated framework classes
 - Element depth, child position, or heading level
 - Alpine attributes such as `x-data`
 - Filament-specific markup
 
-These implementation details may change without a theming compatibility guarantee.
+These implementation details may change between releases.

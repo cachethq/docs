@@ -9,8 +9,7 @@ on your status page.
 
 ## Configuring mail
 
-Before Cachet can send notifications, you need to configure mail settings. Go to the "Manage Notifications" page in
-the Cachet dashboard, located under the "Settings" navigation group.
+Before Cachet can send notifications, configure mail settings. In the dashboard, open **Manage Notifications** under **Settings**.
 
 You may configure an SMTP or Sendmail mailer along with the sender name and address, or leave the settings empty to
 use your host application's default mail configuration. Cachet encrypts mail credentials at rest.
@@ -35,11 +34,11 @@ The following events trigger an email to verified subscribers:
 - an update to an existing incident
 - scheduled maintenance that is created, rescheduled, updated, or completed, when notifications are enabled on the schedule
 
-Every email includes an unsubscribe link. Cachet queues all notifications, so we recommend running a
-[queue worker](/v3.x/installation#installing-cachet) for timely delivery.
+Every email includes an unsubscribe link. Cachet queues all notifications. Run a
+[queue worker](/v3.x/installation#installing-cachet) to deliver them.
 
 Cachet can also email dashboard users when an incident has seen no activity for a configurable number of hours.
-This feature is off by default; configure it on the "Manage Notifications" page.
+This feature is off by default. Configure it on the **Manage Notifications** page.
 
 ## Slack subscriptions
 
@@ -54,7 +53,7 @@ https://status.example.com/slack.rss
 
 Include `CACHET_PATH` when Cachet is served from a path, for example `https://example.com/status/slack.rss`.
 
-In the channel you want to receive updates to, run:
+In the Slack channel where you want to receive updates, run:
 
 ```text
 /feed subscribe https://status.example.com/slack.rss

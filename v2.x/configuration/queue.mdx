@@ -6,13 +6,13 @@ icon: 'gears'
 
 ## Overview
 
-Cachet uses a queue to send [Configuring Mail](doc:configuring-mail) and [Beacons](doc:beacons) without slowing down the rest of the application. This can be setup in a variety of ways.
+Cachet uses a queue to send [mail](/v2.x/configuration/mail) and [beacons](/v2.x/installation/beacons) without slowing down the rest of the application.
 
 ## Supervisor
 
-The recommended setup for the queue is to use [Supervisor](https://www.digitalocean.com/community/tutorials/how-to-install-and-manage-supervisor-on-ubuntu-and-debian-vps).
+We recommend [Supervisor](https://www.digitalocean.com/community/tutorials/how-to-install-and-manage-supervisor-on-ubuntu-and-debian-vps) to manage the queue worker.
 
-> Supervisor is a process manager which makes managing a number of long-running programs a trivial task by providing a consistent interface through which they can be monitored and controlled.
+Supervisor monitors and controls long-running programs through a consistent interface.
 
 ## Cachet v2.4
 
@@ -28,7 +28,7 @@ user=cachet
 
 ## Cachet v2.3
 
-You should create a Supervisor configuration file named `/etc/supervisor.d/conf/cachet.conf`
+Create a Supervisor configuration file named `/etc/supervisor.d/conf/cachet.conf`:
 
 ```ini /etc/supervisor.d/conf/cachet.conf
 [program:cachet-queue]
@@ -40,27 +40,27 @@ autorestart=true
 user=cachet
 ```
 
-## Queues Using The Scheduler
+## Queues using the scheduler
 
-The default installation of Cachet sets the queue type to `database` which means that all jobs are stored within your database and is then processed by a cron job which calls an artisan command from within the project directory.
+The default installation sets the queue type to `database`. Cachet stores jobs in your database, and a cron job calls an Artisan command to process them.
 
-You'll need to create a new cron job, in Ubuntu it's a case of running `crontab -e` and adding this line:
+Create a cron job. On Ubuntu, run `crontab -e` and add this line:
 
 ```bash /etc/crontab
 * * * * * php /path/to/artisan schedule:run >> /dev/null 2>&1
 ```
 
-Close the file and the cron job will now begin running, processing any confirmation and incident emails.
+Save and close the file. The cron job starts processing confirmation and incident emails.
 
-## Synchronous Queue
+## Synchronous queue
 
-If you cannot add a queue job, another alternative is to process all of the *jobs* immediately after they are created.
+If you cannot add a cron job, you can process jobs immediately after they are created.
 
 <Warning>
-    This setup is not ideal for larger installs with hundreds of subscribers as each email can take a few seconds to send and would slow down your interaction with the system.
+    Avoid this setup for larger installations with hundreds of subscribers. Each email can take a few seconds to send, which slows down your interaction with Cachet.
 </Warning>
 
-To set this up change the `.env` file with the following setting:
+Set the following value in your `.env` file:
 
 ```ini .env
 QUEUE_DRIVER=sync
