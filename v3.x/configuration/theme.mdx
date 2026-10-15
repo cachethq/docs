@@ -1,17 +1,16 @@
 ---
 title: 'Theme'
-description: 'Learn how to configure and theme Cachet.'
+description: 'Set a banner image and choose colors for your status page.'
 icon: 'swatchbook'
 ---
 
-Cachet provides the ability to configure and theme the status page to match your brand. To customize your status page,
-navigate to the "Manage Theme" section found under "Settings" in your Cachet dashboard.
+To change your status page's banner and colors, open **Settings**, then **Manage Theme** in the Cachet dashboard.
 
 For custom CSS selectors and programmatic content insertion, see [Theme hooks](/v3.x/configuration/theme-hooks).
 
 ## Banner image
 
-To override the default banner image shown at the top of your status page, upload a custom image by dragging and dropping the file into the "Banner Image" field. Alternatively, you can click to select a file.
+To replace the banner at the top of your status page, drag an image into **Banner Image** or click the field to select a file.
 
 <Frame caption="Cachet's 'Manage Theme' Dashboard">
     <img className="block dark:hidden" src="/v3.x/images/manage-theme-light.png" alt="Manage Theme" />
@@ -19,28 +18,27 @@ To override the default banner image shown at the top of your status page, uploa
 </Frame>
 
 <Tip>
-    We recommend using an image with a 16:9 aspect ratio for the best results.
+    Use an image with a 16:9 aspect ratio.
 </Tip>
 
-The uploaded image is also embedded in outgoing Cachet emails as the application logo. Cachet accepts JPEG, PNG, GIF,
+Cachet also uses the image as the logo in outgoing emails. Cachet accepts JPEG, PNG, GIF,
 and WebP images up to 1 MB by default. You can change the storage disk, maximum upload size, and accepted image types
 with the [image upload environment variables](/v3.x/configuration/environment#image-uploads).
 
-Once you've uploaded your image, click the "Save" button to apply the changes.
-By default, Cachet stores images in `/storage/app/public`. To make the image accessible to the public, you'll need to run the following command:
+Click **Save** to apply your changes.
+By default, Cachet stores images in `storage/app/public`. To make the image publicly accessible, run this command from your Cachet directory:
 
 ```bash
 php artisan storage:link
 ```
 
-To use the default banner image, click the "X" button.
+To restore the default banner image, click **X**.
 
 ### Common issues
 
 #### Uploading images returns a `401 Unauthorized`
 
-You often see this error when running Cachet behind a reverse proxy. To resolve this, you'll need to add your trusted
-proxy IPs to Cachet's `.env` file.
+If uploads return this error behind a reverse proxy, add the proxy's trusted IP addresses to Cachet's `.env` file:
 
 ```dotenv
 # Replace with your reverse proxy IPs
@@ -49,10 +47,7 @@ CACHET_TRUSTED_PROXIES="192.168.1.1,192.168.1.2"
 
 ## Accents
 
-Cachet provides a simple way to customize the colors of your status page through the use of accents. Accent colors
-highlight important elements on the page, such as buttons and links.
-
-By default, Cachet provides common Tailwind colors as accent options. You may choose from the following options:
+Accent colors apply to elements such as buttons and links. Choose one of these colors:
 
 - <div className="inline-block rounded-full size-4 bg-primary"></div> Cachet
 - <div className="inline-block rounded-full size-4" style={{backgroundColor: "rgb(239, 68, 68)"}}></div> Red
@@ -73,10 +68,9 @@ By default, Cachet provides common Tailwind colors as accent options. You may ch
 - <div className="inline-block rounded-full size-4" style={{backgroundColor: "rgb(236, 72, 153)"}}></div> Pink
 - <div className="inline-block rounded-full size-4" style={{backgroundColor: "rgb(244, 63, 94)"}}></div> Rose
 
-By default, Cachet pairs your chosen accent color with a base color used for the status page background.
-You can disable "Accent Pairing" and select your own background color from a list of Tailwind grays.
+By default, Cachet pairs your accent color with a background color.
+To choose a different background, disable **Accent Pairing** and select a Tailwind gray.
 
 ### Custom colors
 
-To customize Cachet to your liking, we recommend using the [Customization](/v3.x/configuration/customization) panel and
-configuring your own colors with CSS.
+To set colors with CSS, use the [Customization](/v3.x/configuration/customization) panel.

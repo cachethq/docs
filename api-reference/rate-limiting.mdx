@@ -1,12 +1,12 @@
 ---
 title: 'Rate limiting'
-description: 'Learn how rate limits work in the Cachet API.'
+description: 'Request limits, response headers, and configuration.'
 ---
 
-Cachet rate-limits the API to prevent abuse. The rate limit is 300 requests per minute per IP address.
+The default API rate limit is 300 requests per minute per IP address.
 
-Cachet will return the `X-RateLimit-Limit`, `X-RateLimit-Remaining`, and `X-RateLimit-Reset` headers in the response to provide information about the rate limit.
+The `X-RateLimit-Limit`, `X-RateLimit-Remaining`, and `X-RateLimit-Reset` response headers report the limit, remaining requests, and reset time.
 
 <Tip>
-    You can override the default rate limit by setting the `CACHET_API_RATE_LIMIT` environment variable.
+    The `CACHET_API_RATE_LIMIT` environment variable overrides the default limit.
 </Tip>

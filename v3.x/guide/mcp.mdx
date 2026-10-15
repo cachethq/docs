@@ -7,14 +7,13 @@ icon: 'robot'
 Cachet includes a built-in [Model Context Protocol](https://modelcontextprotocol.io) (MCP) server that lets AI agents,
 such as Claude Code, Claude Desktop, and Cursor, operate your status page. Agents connected over MCP can manage
 [components](/v3.x/guide/components), [incidents](/v3.x/guide/incidents), incident templates,
-[schedules](/v3.x/guide/schedules), [metrics](/v3.x/guide/metrics), and [subscribers](/v3.x/guide/subscribers) — the
-same capabilities as the Cachet dashboard.
+[schedules](/v3.x/guide/schedules), [metrics](/v3.x/guide/metrics), and [subscribers](/v3.x/guide/subscribers).
 
 ## Enabling the MCP server
 
-The MCP server is disabled by default. To enable it, go to the "Settings" section of your Cachet dashboard and turn on
-the "Enable MCP Server" setting in the "MCP Server Settings" section. While the server is disabled, every MCP request
-responds with a 404.
+The MCP server is disabled by default. To enable it, open **Settings** in your Cachet dashboard.
+Under **MCP Server Settings**, turn on **Enable MCP Server**. While the server is disabled, every MCP request
+receives a 404 response.
 
 Once enabled, the MCP server is available over the streamable HTTP transport at the `/mcp` path of your Cachet
 installation:
@@ -24,8 +23,7 @@ https://status.example.com/mcp
 ```
 
 <Note>
-    Whenever the "Enable MCP Server" setting is changed, the "Require Authentication" setting is switched back on, so
-    the server is never exposed publicly by accident.
+    When you change **Enable MCP Server**, Cachet turns **Require Authentication** back on to prevent accidental public access.
 </Note>
 
 ## Authentication
@@ -83,7 +81,7 @@ Any MCP client that supports the streamable HTTP transport can connect with a co
 
 ## Available tools
 
-Read-only tools require no permission. Write tools require an API key holding the permission listed next to them.
+Most read-only tools require no permission. Subscriber tools and write tools require an API key with the permission listed below.
 
 ### Status
 

@@ -15,9 +15,8 @@ the dashboard. Incidents consist of:
 - **Visibility**: Whether the incident should be visible to users, guests or always be hidden.
 - **Pinned**: Whether the incident is pinned to the top of your status page. Pinned incidents remain prominently displayed until you unpin them.
 
-The Cachet dashboard provides a simple interface to manage incidents. You can quickly record a new incident by clicking the
-"New Incident" link in the top navigation bar. You can also view and manage existing incidents by clicking the "Incidents"
-link in the sidebar.
+To record an incident, click **New Incident** in the dashboard's top navigation bar. To view and manage existing incidents,
+click **Incidents** in the sidebar.
 
 ## Pinned incidents
 
@@ -25,8 +24,8 @@ Enable **Pinned** when creating or editing an incident to pin it above the incid
 incidents remain at the top even when their **Occurred At** date falls outside the timeline's selected date range, making
 them useful for ongoing issues and important resolved incidents that need continued visibility.
 
-Pinned incidents are shown only once, in the pinned section; they are removed from their normal dated position in the
-timeline. You can pin more than one incident. Cachet orders pinned incidents from newest to oldest by their occurrence
+Pinned incidents appear only in the pinned section, not in their normal dated position in the timeline.
+You can pin more than one incident. Cachet orders pinned incidents from newest to oldest by their occurrence
 time. Disable **Pinned** to return an incident to its usual position in the timeline.
 
 ### Incident statuses
@@ -41,16 +40,16 @@ Incidents and updates in Cachet can have one of the following statuses:
 
 ## Scheduling publication
 
-Incidents don't have to go live the moment you create them. By setting a **Published At** date in the future, you can
-prepare an incident ahead of time and have it appear automatically when that time arrives.
+To prepare an incident before publishing it, set **Published At** to a future date and time. The incident appears
+automatically at that time.
 
 Until the published date passes, the incident is treated as a draft:
 
-- It is hidden from the status page and from public reads of the [API](/api-reference/introduction) — for guests and read-only API tokens alike.
+- It is hidden from the status page and from public reads of the [API](/api-reference/introduction), including requests from guests and read-only API tokens.
 - It remains fully visible and editable in the dashboard, over the [MCP server](/v3.x/guide/mcp), and to API tokens with the `incidents.manage` ability, so you can review and adjust what you've prepared.
-- Any [subscriber notifications](/v3.x/guide/subscribers) are deferred — they are sent when the incident is published, not when it is created.
+- Cachet sends [subscriber notifications](/v3.x/guide/subscribers) when the incident is published, not when it is created.
 
-Leave **Published At** empty (the default) to publish the incident immediately, preserving the usual behaviour.
+Leave **Published At** empty to publish the incident immediately. This is the default.
 
 <Note>
     Publication is evaluated in real time, so an incident appears the moment its published date passes. Subscriber
@@ -60,21 +59,19 @@ Leave **Published At** empty (the default) to publish the incident immediately, 
 
 ## Incident components
 
-Incidents don't typically occur in isolation. They often affect one or more [components](/v3.x/guide/components) of the service. Cachet allows you
-to link incidents to components to provide more context about the incident.
+Link an incident to the [components](/v3.x/guide/components) it affects to show which parts of your service have a problem.
 
-Once you’ve created an incident, you can link it to a component by editing the incident and clicking "Attach" in the "Components"
-panel on the incident page. When attaching a component, you may also select what status to update the component to.
+After creating an incident, edit it and click **Attach** in the **Components** panel. When attaching a component,
+you can also select a new status for that component.
 
 ## Incident updates
 
-Typically, incidents are ongoing events that require updates to keep users informed. You can add updates to an
-incident to provide more information. Incident updates consist of:
+Add updates to an incident to keep users informed as the issue develops. Incident updates consist of:
 
 - **Message**: A detailed description of the update.
 - **Status**: The [status](#incident-statuses) of the incident after the update.
 
-To update an incident, head to the "Incidents" panel in the dashboard and click "Record Update" on the incident you want to update.
+To update an incident, open **Incidents** in the dashboard and click **Record Update** on the incident.
 
 <Note>
     You cannot add updates to "Fixed" incidents.
@@ -82,20 +79,17 @@ To update an incident, head to the "Incidents" panel in the dashboard and click 
 
 ## Incident templates
 
-Cachet allows you to build incident templates so you can create incidents quickly. Cachet supports creating incident
-templates with two templating languages:
+Incident templates let you reuse content when creating incidents. Cachet supports two templating languages:
 
 <CardGroup>
     <Card icon="symfony" title="Twig" defaultOpen={true} href="https://twig.symfony.com" horizontal img="https://twig.symfony.com/images/logo.png">
-        Twig is a fast, secure template engine for PHP.\
-        Click to learn about Twig.
+        Twig is a template engine for PHP.
     </Card>
 
     <Card icon="laravel" title="Laravel Blade" href="https://laravel.com/docs/blade" horizontal img="https://laravel.com/img/og-image.jpg">
-        Laravel Blade is the templating engine used in Laravel.\
-        Click to learn about Blade.
+        Blade is Laravel's templating engine.
     </Card>
 </CardGroup>
 
-Incident templates are particularly powerful when combined with the API as they allow you to create a new incident by passing
-a template and variables. Cachet creates the incident from the template, filled in with the variables you provide.
+To create an incident from a template through the API, pass the template and its variables. Cachet fills in the
+template with the values you provide.

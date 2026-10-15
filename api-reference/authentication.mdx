@@ -1,20 +1,26 @@
 ---
 title: 'Authentication'
-description: 'Learn how to authenticate with the Cachet API'
+description: 'API keys, request headers, and authentication requirements.'
 ---
 
-<Tip>
-    Cachet believes your service status should be open and transparent, so all `GET` requests are public and require no authentication.
-</Tip>
+Most `GET` requests are public by default. If **Require Authentication** is enabled in
+[API settings](/v3.x/configuration/cachet#api-access), read requests also require an API key.
+Subscriber endpoints always require authentication and the `subscribers.manage` ability for read requests.
 
-Authenticated requests (those that `POST`, `PUT` or `DELETE`) require an **API token**.
+Write requests require an API key with the matching resource ability.
 
-### API token
+## API token
 
-API tokens are the preferred method of authentication.
-
-Once you have your token you'll need to add a new request header of `Authorization: Bearer $TOKEN`:
+An [API key](/v3.x/configuration/api-keys) is a bearer token sent in the `Authorization` header.
+This example creates a component with an authenticated request:
 
 ```shell
-curl -H "Content-Type: application/json;" -H "Authorization: Bearer YOUR_KEY_HERE" -d '{"name":"API","description":"An example description","status":1}' https://v3.cachethq.io/api/components
+curl https://v3.cachethq.io/api/components \
+	-H "Content-Type: application/json;" \
+	-H "Authorization: Bearer YOUR_KEY_HERE" \
+	-d '{
+		"name": "API",
+		"description": "An example description",
+		"status": 1
+	}'
 ```

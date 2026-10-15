@@ -1,19 +1,19 @@
 ---
 title: 'Introduction'
-description: 'Learn how to interact with the Cachet API.'
+description: 'Manage your status page with the Cachet v3 JSON API.'
 ---
 
 <Warning>
-    This documentation refers to the Cachet v3 API. If you are looking for the Cachet v2 API, please refer to the previous [Cachet API documentation](https://github.com/cachethq/docs/tree/2.x).
+    This reference covers the Cachet v3 API. For v2, see the [Cachet v2 API documentation](https://github.com/cachethq/docs/tree/2.x).
 </Warning>
 
 ## JSON API
 
-Cachet provides a RESTful JSON API that allows you to interact with the status page programmatically. The API is simple to use.
+The Cachet API reads and updates status page resources through HTTP requests. Responses use JSON.
 
 ## Deleting resources
 
-Every resource with a delete endpoint supports deleting one resource by ID:
+Resource deletion endpoints accept a resource ID:
 
 ```http
 DELETE /api/components/123
@@ -29,7 +29,9 @@ DELETE /api/components?ids=123,456
 All requested IDs must be valid and exist before Cachet deletes anything. An unqualified collection `DELETE` is rejected,
 and `ids=all` is not supported. See the relevant endpoint reference for the required API-token ability.
 
-### Example response
+## Example response
+
+The incident list endpoint returns resources, pagination links, and metadata:
 
 ```json
 {

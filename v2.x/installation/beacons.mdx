@@ -4,24 +4,24 @@ description: "Learn about Cachet's beacon system."
 icon: 'bell'
 ---
 
-Cachet can optionally periodically communicate with our remote server. This is done so that we're able to gather information about the current version of Cachet and will later be used for system announcements.
+Cachet can periodically send information about your installation to our remote server. This optional feature collects version information and is intended for future system announcements.
 
 <Tip>
     Beacons are only available in Cachet v2.4 and above.
 </Tip>
 
-## What's Reported?
+## What's reported?
 
 We report the following information to our server:
 
 - A unique installation ID
 - The current version of Cachet
 - A support contact email (the first enabled administrator's email address)
-- Anonymous statistics (the number of users, incidents, components and metrics)
+- Anonymous statistics (the number of users, incidents, components, and metrics)
 
-## Disabling Beacons
+## Disabling beacons
 
-To disable the beacon, you may modify your `.env` file:
+To disable beacons, set the following value in your `.env` file:
 
 ```ini
 CACHET_BEACON=false

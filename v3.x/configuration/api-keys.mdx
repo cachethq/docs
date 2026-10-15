@@ -1,42 +1,38 @@
 ---
 title: 'API keys'
-description: 'Learn how to create and manage API keys in Cachet.'
+description: 'Create API keys and choose their permissions.'
 icon: 'key'
 ---
 
-API keys authenticate requests to the [Cachet API](/api-reference). You can create multiple API keys with different
-permissions to control access to the API. This is particularly useful if you want to give third-party services
-access to your Cachet data without granting them full access to your status page.
+API keys authenticate requests to the [Cachet API](/api-reference). Create a separate key for each service and grant
+only the permissions that service needs.
 
 ## Creating an API key
 
-To create an API key, follow these steps:
 <Steps>
-    <Step title="Step 1">
-        Go to the "Manage API Keys" page in the Cachet dashboard. This is located under the "Settings" navigation group.
+    <Step title="Open API key settings">
+        In the Cachet dashboard, open **Settings**, then **Manage API Keys**.
     </Step>
-    <Step title="Step 2">
-        Click the "New API Key" button. You will need to provide a name for the API key. This can be any name that helps
-        you identify the key.
+    <Step title="Create a key">
+        Click **New API Key**. Enter a name that helps you identify the service that uses the key.
 
-        You may select an expiration date for the token. This provides an extra layer of security as tokens will no longer
-        work after the expiration date. You may choose to leave this blank to create a token that never expires.
+        Select an expiration date, or leave it blank for a key that never expires.
 
-        Finally, select the permissions for the API key. You may leave the permissions empty to give the key full permissions.
+        Select the permissions the service needs. Leaving permissions empty grants full access.
     </Step>
-    <Step title="Step 3">
-        Cachet will display the token in plain text. Make sure to copy the token and store it in a secure location.
-
+    <Step title="Save the token">
         <Warning>
-            Cachet will not display the token again. If you lose the token, you will need to create a new API key.
+            Cachet displays the token only once. If you lose it, you must create a new API key.
         </Warning>
+
+        Copy the token and store it securely.
     </Step>
 </Steps>
 
 ## Permissions
 
-Each API key is granted a set of abilities. Leaving the permissions empty when creating a key grants full access.
-Otherwise, you can grant the `manage` and/or `delete` ability for each resource type:
+API key permissions are called abilities. Leaving permissions empty grants full access.
+The available abilities for each resource are:
 
 | Resource | Abilities |
 | --- | --- |
@@ -51,15 +47,14 @@ Otherwise, you can grant the `manage` and/or `delete` ability for each resource 
 | Schedule updates | `manage`, `delete` |
 | Subscribers | `manage`, `delete` |
 
-The `manage` ability allows creating and updating the resource, while `delete` allows deleting it. Read-only endpoints
-are available to any valid API key and, depending on your [API settings](/v3.x/configuration/cachet#api-access), may be
-public.
+The `manage` ability permits creation and updates. The `delete` ability permits deletion.
+Most read-only endpoints are public unless your [API settings](/v3.x/configuration/cachet#api-access) require authentication.
+Subscriber read endpoints always require the `subscribers.manage` ability.
 
 ## Revoking tokens
 
-If you no longer need an API key, you can revoke it. To revoke an API key, click the "Revoke" button next to the key.
-
 <Warning>
-    Revoking an API key is irreversible. Once you revoke a key, you can no longer use it to authenticate requests to
-    the Cachet API.
+    Revoking an API key is irreversible. Services that use the key can no longer authenticate with it.
 </Warning>
+
+To revoke a key you no longer need, click **Revoke** next to the key.

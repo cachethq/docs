@@ -4,8 +4,7 @@ description: 'Learn how to manage scheduled maintenance in Cachet.'
 icon: 'clock'
 ---
 
-Not all incidents are unexpected. Sometimes, you need to perform maintenance on your services which can cause downtime.
-Scheduled maintenance allows you to inform your users about upcoming maintenance and its impact.
+Use scheduled maintenance to tell users when you plan to work on your services and how the work may affect them.
 
 A scheduled maintenance event consists of:
 
@@ -17,9 +16,9 @@ A scheduled maintenance event consists of:
 - **Components**: The [components](/v3.x/guide/components) affected by the maintenance, along with the status each should display while it's underway (typically **Under Maintenance**).
 - **Notify subscribers**: Whether to notify your [subscribers](/v3.x/guide/subscribers) about this maintenance, for example when it's rescheduled or completed.
 
-### Schedule statuses
+## Schedule statuses
 
-Cachet automatically infers the status of a schedule based on the current date and time. The possible statuses are:
+Cachet determines a schedule's status from the current date and time. The possible statuses are:
 
 - **Upcoming**: The maintenance is scheduled to start in the future.
 - **In Progress**: The maintenance is currently in progress.
@@ -27,12 +26,12 @@ Cachet automatically infers the status of a schedule based on the current date a
 
 ## Scheduling publication
 
-You can prepare maintenance well in advance without revealing it straight away. By setting a **Published At** date in the
-future, the maintenance stays a draft and appears automatically once that time arrives.
+To prepare maintenance before publishing it, set **Published At** to a future date and time. The maintenance stays a
+draft until that time, then appears automatically.
 
 Until the published date passes:
 
-- The maintenance is hidden from the status page and from public reads of the [API](/api-reference/introduction) — for guests and read-only API tokens alike.
+- The maintenance is hidden from the status page and from public reads of the [API](/api-reference/introduction), including requests from guests and read-only API tokens.
 - It stays fully visible and editable in the dashboard, over the [MCP server](/v3.x/guide/mcp), and to API tokens with the `schedules.manage` ability.
 - Any [subscriber notifications](/v3.x/guide/subscribers) are deferred until the maintenance is published.
 
@@ -46,15 +45,14 @@ empty to publish the maintenance immediately.
 
 ## Schedule updates
 
-You may need to provide an update on scheduled maintenance, for example if the maintenance is taking longer than expected, or
-you need to provide more information.
+Add an update when maintenance takes longer than expected or when you have more information to share.
 
 A scheduled update consists of:
 
 - **Message**: A detailed description of the update.
 - **Completed At**: The date and time that the maintenance was completed.
 
-To update a schedule, head to the "Schedules" panel in the dashboard and click "Record Update" on the schedule you want to update.
+To update a schedule, open **Schedules** in the dashboard and click **Record Update** on the schedule.
 
 <Note>
     You cannot add updates to "Completed" schedules.

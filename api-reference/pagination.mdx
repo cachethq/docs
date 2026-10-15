@@ -1,11 +1,10 @@
 ---
 title: Pagination
-description: 'Learn how to paginate through the results of a query.'
+description: 'Page numbers and page sizes for API list responses.'
 ---
 
-All API endpoints that return multiple items support pagination. By default, the API returns 15 items per page.
-You can specify the number of items to return per page by passing the `per_page` parameter.
-To navigate between pages, use the `page` parameter.
+List endpoints return 15 items per page by default. The `per_page` parameter sets the page size.
+The `page` parameter selects a page:
 
 ```http
 GET /api/incidents?page=2&per_page=10

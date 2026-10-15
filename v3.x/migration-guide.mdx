@@ -1,43 +1,16 @@
 ---
 title: 'Migration guide'
-description: 'Learn how to migrate from Cachet v2.x to v3.x.'
+description: 'Current limitations of migrating from Cachet v2.4 to v3.x.'
 ---
 
 <Warning>
-    The upgrade process from Cachet v2.4 to v3.x is still in development.
+    The migration path from Cachet v2.4 to v3.x is incomplete. This page does not provide a complete upgrade procedure. Do not run migrations against your v2.4 database based on these instructions.
 </Warning>
 
-Our goal is to make the upgrade from v2.4 to v3.x as simple as possible. We will provide detailed instructions on how
-to upgrade from v2.4 to v3.x once we finalize the upgrade process. For now, you’ll need to install Cachet v3.x from
-scratch or be comfortable with a manual upgrade process.
+To try Cachet v3.x, follow the [installation guide](/v3.x/installation) in a separate directory with a separate database. A fresh installation does not transfer your v2.4 data.
 
-An important change in Cachet 3.x is that it now relies more on Laravel's own features and best practices. This means
-that some configuration options have been removed or changed.
+The `php artisan migrate` command runs database schema migrations on the configured database. It does not import data from a v2.x instance into a separate v3.x installation.
 
-<Steps>
-    <Step title="Backup your data">
-        Before you start the upgrade process, make sure to backup your database and files. This will allow you to restore your Cachet instance in case something goes wrong.
-    </Step>
-    <Step title="Install Cachet v3.x">
-        We recommend installing Cachet v3.x into a new directory.
+Before attempting any upgrade, back up your database and files. Verify that you can restore your v2.4 instance from those backups. A backup does not make the incomplete migration path safe to use.
 
-        Follow the [installation guide](/v3.x/installation) to install Cachet v3.x on your server.
-    </Step>
-    <Step title="Migrate your data">
-        Once you have installed Cachet v3.x, you can migrate your data from your v2.x instance to the new v3.x instance.
-        Run the following command to migrate your data:
-
-        ```bash
-        php artisan migrate
-        ```
-
-        <Warning>
-            The migration path from 2.4 to 3.x is incomplete. Do not run this command without ensuring you have a working backup.
-        </Warning>
-    </Step>
-    <Step title="Update your configuration">
-        Cachet v3.x has made some changes to its configuration options. You will need to update your `.env` file with the new configuration options.
-
-        We will provide a detailed list of changes in the upgrade guide.
-    </Step>
-</Steps>
+Cachet v3.x uses more of Laravel's built-in features. Some configuration options have changed or been removed. A complete list of configuration changes and data migration instructions is not yet available in this guide.

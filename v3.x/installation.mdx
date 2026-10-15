@@ -4,8 +4,7 @@ description: 'Learn how to install Cachet on your server.'
 ---
 
 <Warning>
-    Cachet v3.x is currently in development and not yet released. The following instructions cover development
-    use only and are subject to change.
+    Cachet v3.x is in development and not yet released. These instructions are for development use only and may change.
 </Warning>
 
 ## Prerequisites
@@ -18,25 +17,25 @@ Cachet v3.x runs on Laravel 12.41.1+ or 13.x and requires:
 
 ## Installing Cachet
 
-If you are looking to migrate from Cachet v2.x, please refer to the [migration guide](/v3.x/migration-guide).
+To migrate from Cachet v2.x, read the [migration guide](/v3.x/migration-guide) first. The migration path is incomplete.
 
 <Tabs>
     <Tab title="Manual setup">
         <Steps>
-            <Step title="Step 1">
+            <Step title="Clone Cachet">
                 Clone the Cachet repository:
                 ```bash
                 git clone -b 3.x https://github.com/cachethq/cachet.git
                 cd cachet
                 ```
             </Step>
-            <Step title="Step 2">
+            <Step title="Install dependencies">
                 Install the dependencies:
                 ```bash
                 composer install --no-dev -o
                 ```
             </Step>
-            <Step title="Step 3">
+            <Step title="Update the core package">
                 Update the `cachethq/core` dependency:
                 ```bash
                 composer update cachethq/core
@@ -45,24 +44,24 @@ If you are looking to migrate from Cachet v2.x, please refer to the [migration g
                     This is a temporary step until Cachet v3.x is released.
                 </Note>
             </Step>
-            <Step title="Step 4">
-                Ensure the user running your web server can write to Cachet's `storage` directory. Cachet uses this
+            <Step title="Set storage permissions">
+                Give the user running your web server write access to Cachet's `storage` directory. Cachet uses this
                 directory for logs, cached files, sessions, and other runtime data.
             </Step>
-            <Step title="Step 5">
+            <Step title="Create the environment file">
                 Copy the `.env.example` file to `.env`:
                 ```bash
                 cp .env.example .env
                 ```
             </Step>
-            <Step title="Step 6">
+            <Step title="Generate an application key">
                 Generate an application key:
                 ```bash
                 php artisan key:generate
                 ```
             </Step>
-            <Step title="Step 7">
-                Configure the `.env` file and set the values of your setup:
+            <Step title="Configure the database">
+                Set the database connection values in `.env` to match your setup:
                 ```ini .env
                 DB_CONNECTION=mysql
                 DB_HOST=127.0.0.1
@@ -72,25 +71,25 @@ If you are looking to migrate from Cachet v2.x, please refer to the [migration g
                 DB_PASSWORD=
                 ```
             </Step>
-            <Step title="Step 8">
+            <Step title="Publish assets">
                 Publish Cachet's assets:
                 ```bash
                 php artisan vendor:publish --tag=cachet
                 ```
             </Step>
-            <Step title="Step 9">
+            <Step title="Run migrations">
                 Run the database migrations:
                 ```bash
                 php artisan migrate
                 ```
             </Step>
-            <Step title="Step 10">
-                Create the first user by following the prompts:
+            <Step title="Create your first user">
+                Run this command, then follow the prompts to create the first user:
                 ```bash
                 php artisan cachet:make:user
                 ```
             </Step>
-            <Step title="Step 11">
+            <Step title="Enable the scheduler">
                 Enable the scheduler by adding the following cron entry:
                 ```bash /etc/crontab
                 * * * * * php /path/to/cachet/artisan schedule:run >> /dev/null 2>&1
@@ -98,14 +97,14 @@ If you are looking to migrate from Cachet v2.x, please refer to the [migration g
 
                 Cachet uses the scheduler to send subscriber notifications for completed maintenance and long-running incidents.
             </Step>
-            <Step title="Step 12">
+            <Step title="Run a queue worker">
                 Run a queue worker to deliver email notifications:
                 ```bash
                 php artisan queue:work
                 ```
 
                 <Note>
-                    Cachet queues all subscriber emails. The default `sync` queue connection delivers them inline, but we recommend a dedicated queue worker in production. See the [Laravel queue documentation](https://laravel.com/docs/queues) for running workers with a process supervisor.
+                    Cachet queues all subscriber emails. The default `sync` queue connection delivers them during the request. For production, use a dedicated queue worker. See the [Laravel queue documentation](https://laravel.com/docs/queues) to run workers with a process supervisor.
                 </Note>
             </Step>
         </Steps>

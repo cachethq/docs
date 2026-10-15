@@ -1,35 +1,35 @@
 ---
-title: 'GitHub OAuth Token'
-description: 'How to enable GitHub Emoji support in Cachet.'
+title: 'GitHub OAuth token'
+description: 'How to enable GitHub emoji support in Cachet.'
 icon: 'face-smile'
 ---
 
 ## Overview
 
-Cachet's Markdown support also allows you to enable GitHub's Emoji support. This is done by using the `CACHET_EMOJI` environment variable.
+Cachet's Markdown support can display GitHub emoji when the `CACHET_EMOJI` environment variable is enabled.
 
-Supporting Emoji codes such as `:smile:` and `:beers:`, is made possible by GitHub's public API.
+Cachet uses GitHub's public API to support emoji codes such as `:smile:` and `:beers:`.
 
-Under some circumstances it's possible to hit GitHub's API rate limit quickly. This would render your status page inaccessible.
+If Cachet reaches GitHub's API rate limit, your status page can become inaccessible.
 
-To get around this you can create a GitHub oAuth Token and set it in your `.env` file. Follow these instructions to create and setup Cachet with your token.
+To avoid this limit, create a GitHub OAuth token and set it in your `.env` file as described below.
 
-## Enabling Emoji
+## Enabling emoji
 
-Cachet's Emoji support is disabled by default. To enable Emoji you'll need to modify your `.env` file
+Emoji support is disabled by default. To enable it, set the following value in your `.env` file:
 
 ```ini
 CACHET_EMOJI=true
 ```
 
-## Generate a GitHub Token
+## Generate a GitHub token
 
-1. Create a new [Personal Access Token](https://github.com/settings/tokens/new?description=Cachet&scopes=user). Make sure you give the token a name and select the `user` scopes.
-2. Click "Generate token" and copy and update your `.env` file:
+1. Create a new [personal access token](https://github.com/settings/tokens/new?description=Cachet&scopes=user). Give the token a name and select the `user` scopes.
+2. Click **Generate token**. Copy the token into your `.env` file:
   ```ini
     GITHUB_TOKEN=my-new-token
   ```
-3. After changing the configuration you'll now need to run the following:
+3. Cache the updated configuration:
   ```shell
   php artisan config:cache
   ```

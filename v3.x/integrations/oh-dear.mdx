@@ -4,14 +4,13 @@ icon: 'plug'
 description: 'Import your Oh Dear data into Cachet.'
 ---
 
-Oh Dear is a monitoring service that checks your websites for downtime, broken links, and various other issues.
-While Oh Dear features its own status page system, it is limited, and you may find that you'd prefer to
-use Cachet instead.
+Oh Dear monitors websites for downtime, broken links, and other issues. You can import its sites and incidents into
+Cachet to display them on your status page.
 
-To import your Oh Dear data into Cachet, head to the "Oh Dear" page in the integrations section of your Cachet dashboard.
+To import your data, open **Oh Dear** in the integrations section of your Cachet dashboard.
 
-To get started, you only need to provide the status page URL. For example, you could use `https://status.ohdear.app`.
-Cachet will automatically fetch the data from the `/json` endpoint.
+Enter your Oh Dear status page URL, such as `https://status.ohdear.app`.
+Cachet fetches the data from the `/json` endpoint.
 
 <Frame caption="Oh Dear dashboard">
     <img className="block dark:hidden" src="/v3.x/images/oh-dear-light.png" alt="Oh Dear Dashboard" />
@@ -19,22 +18,22 @@ Cachet will automatically fetch the data from the `/json` endpoint.
 </Frame>
 
 <Tip>
-    Running the import multiple times is safe; Cachet only creates components and incidents that do not already exist.
+    You can repeat the import. Cachet creates only components and incidents that do not already exist.
 </Tip>
 
 ## Importing sites
 
-To import your Oh Dear sites into Cachet as [components](/v3.x/guide/components), click the "Import Sites" toggle. You'll then be able to select one
-[component group](/v3.x/guide/components#component-groups) to assign to all imported sites.
+To import your Oh Dear sites as [components](/v3.x/guide/components), enable **Import Sites**. Then select a
+[component group](/v3.x/guide/components#component-groups) for all imported sites.
 
 You can also choose to create a new component group for the imported sites. If you do not select a component group, the
-sites will be imported as ungrouped.
+sites are imported as ungrouped.
 
 ## Importing incidents
 
-To import your Oh Dear incidents into Cachet, click the "Import Incidents" toggle. Cachet will do its best to match
-Oh Dear's status codes to Cachet's incident types.
+To import your Oh Dear incidents, enable **Import Incidents**. Cachet attempts to match Oh Dear's status codes to
+Cachet's incident types.
 
 <Note>
-    The Oh Dear integration will only import the last 7 days of incidents.
+    The Oh Dear integration imports only the last 7 days of incidents.
 </Note>

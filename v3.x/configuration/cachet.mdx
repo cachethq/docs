@@ -1,59 +1,48 @@
 ---
 title: 'Cachet'
-description: 'Learn how to manage Cachet.'
+description: 'Status page, API, and MCP settings in the Cachet dashboard.'
 icon: 'circle-check'
 ---
 
-Cachet provides the ability to customize various settings to suit your needs. To manage Cachet, navigate to the
-"Settings" section found in your Cachet dashboard.
+The **Settings** section of the Cachet dashboard contains the settings described below.
 
 ## Site name
 
-You may change the name of your status page by updating the "Site Name" field. Cachet displays this name in the title
-and header of your status page.
+**Site Name** is the name Cachet displays in the title and header of your status page.
 
 ## About section
 
-The "About" section allows you to provide a brief description of your status page. This is an ideal section to provide
-information about your organization, services, or status page.
+The **About** section describes your organization, services, or status page.
 
 <Tip>
-    The "About This Site" section supports Markdown formatting.
+    **About This Site** supports Markdown formatting.
 </Tip>
 
 ## Timezone
 
-The "Timezone" setting allows you to set the timezone for your status page. Cachet uses it to display the correct time
-for incidents and scheduled maintenance. The status page will always display timestamps in the user's local time.
+**Timezone** sets the timezone for incidents and scheduled maintenance.
+The status page displays timestamps in the visitor's local time.
 
 ## Language
 
-Cachet can display your status page in a number of languages. The "Language" selector, along with the
-[Timezone](#timezone) settings, can be found on the "Manage Localization" page under the "Settings" navigation group.
+**Language** sets the language of your status page. This setting and [Timezone](#timezone) are on
+**Settings**, then **Manage Localization**.
 
 Cachet currently ships with the following locales: Deutsch (DE), Deutsch (AT), Deutsch (CH), English, English (UK),
 Spanish (ES), 한국어, Nederlands, Filipino, Português (BR), 简体中文, and 繁體中文.
 
 ## Incident days
 
-This setting allows you to specify the number of days to display incidents on your status page. Cachet pushes incidents
-older than the specified number of days onto separate pages.
-
-We recommend that you set this value to a reasonable number of days to ensure that your status page remains performant
-and does not overload users with too much information.
+This setting controls how many days of incidents appear on each page. Older incidents appear on separate pages.
 
 ## Major outage threshold
 
-The "Major Outage Threshold" setting allows you to configure how many components (as a percentage of your total
-components) must be down before Cachet marks the system status as "Major Outage."
-
-When the number of down components exceeds the specified threshold, the status page will display a "Major Outage" banner.
+**Major Outage Threshold** is the percentage of components that must be down before Cachet displays a **Major Outage** banner.
 
 ## Automatically refresh page
 
-The "Automatically Refresh Page" setting controls whether your status page refreshes automatically. When enabled, the status page refreshes at the specified interval.
-
-The provided number will be the number of seconds between each refresh.
+**Automatically Refresh Page** controls whether your status page refreshes automatically.
+The refresh interval is in seconds.
 
 ## API access
 
@@ -61,14 +50,13 @@ Two settings control access to the [Cachet API](/api-reference):
 
 ### Enable API
 
-The "Enable API" setting controls whether the API is available at all. When disabled, every API request responds
-with a 404. The API is enabled by default.
+**Enable API** controls whether the API is available. When disabled, every API request returns a `404` response.
+The API is enabled by default.
 
 ### Require authentication
 
-When the "Require Authentication" setting is enabled, read-only API endpoints also require an
-[API key](/v3.x/configuration/api-keys). By default, read-only endpoints are public and only write endpoints
-require authentication.
+**Require Authentication** makes read-only API endpoints require an [API key](/v3.x/configuration/api-keys).
+By default, most read-only endpoints are public. Write endpoints and subscriber endpoints always require authentication.
 
 ## MCP server
 
@@ -77,49 +65,46 @@ Model Context Protocol:
 
 ### Enable MCP server
 
-The "Enable MCP Server" setting controls whether the MCP server is available at all. When disabled, every MCP request
-responds with a 404. The MCP server is disabled by default.
+**Enable MCP Server** controls whether the MCP server is available. When disabled, every MCP request returns a `404` response.
+The MCP server is disabled by default.
 
 ### Require authentication
 
-When the "Require Authentication" setting is enabled, every MCP connection requires an
-[API key](/v3.x/configuration/api-keys). When disabled, read-only tools are public and write tools still require an
-API key with the matching permission. Authentication is required by default.
+**Require Authentication** makes every MCP connection require an [API key](/v3.x/configuration/api-keys).
+When disabled, read-only tools are public. Write tools still require a key with the matching permission.
+Authentication is required by default.
 
 ## Other settings
 
-Cachet also provides additional settings to customize your status page.
+These settings control other parts of your status page.
 
 ### Support Cachet
 
-The "Support Cachet" setting toggles the "Powered by Cachet" link in the footer of your status page.
+**Support Cachet** controls the **Powered by Cachet** link in the footer of your status page.
 
-We’d really appreciate it if you could leave this enabled to help spread the word about Cachet 💚
+Leaving the link enabled helps others find Cachet. Thank you for supporting the project.
 
 ### Display graphs
 
-Enable the "Display Graphs" setting to display [metric](/v3.x/guide/metrics) graphs, such as uptime and response time,
-on your status page. This setting is enabled by default.
+**Display Graphs** shows [metric](/v3.x/guide/metrics) graphs, such as uptime and response time, on your status page.
+This setting is enabled by default.
 
 ### Recent incidents only
 
-Enable the "Recent Incidents Only" setting to show only recent incidents on your status page. When enabled, you can
-set the number of days to include, and Cachet hides any incidents older than that window.
+**Recent Incidents Only** limits the incident history to a specified number of days. Cachet hides older incidents.
 
 ### Show timezone
 
-When enabled, the "Show Timezone" setting displays your status page's timezone in the footer.
+**Show Timezone** displays your status page's timezone in the footer.
 
 ### Only show disrupted days
 
-Enable the "Only Show Disrupted Days" setting to show only the days with incidents on your status page. By default,
-the status page displays all days.
+**Only Show Disrupted Days** hides days without incidents. By default, the status page displays all days.
 
 ### Dynamic favicon
 
-When the "Dynamic Favicon" setting is enabled, your status page's favicon reflects the current system status, so a
-browser tab shows at a glance whether everything is operational or there's an ongoing issue.
+**Dynamic Favicon** changes the browser tab icon to match the current system status.
 
 ### Show dashboard link
 
-The "Show Dashboard Link" setting controls the "Dashboard" link in the header of your status page. When enabled, the status page displays a link to the Cachet dashboard.
+**Show Dashboard Link** displays a **Dashboard** link in the status page header.

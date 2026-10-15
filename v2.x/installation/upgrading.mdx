@@ -6,13 +6,13 @@ icon: 'square-plus'
 
 ## Overview
 
-If you've installed Cachet using Git, the upgrade process should be straightforward, usually taking just a few minutes.
+Follow these steps to upgrade a Cachet installation managed with Git.
 
 ## Maintenance mode
 
-It's good practise to put your status page into maintenance mode. This changes your status page to show a "Maintenance Mode" message until the upgrade has completed.
+Put your status page into maintenance mode to display a "Maintenance Mode" message during the upgrade.
 
-Run the snippet from your Cachet's root directory (where an `artisan` file exists):
+Run this command from your Cachet installation's root directory, which contains the `artisan` file:
 
 ```bash
 php artisan down
@@ -20,7 +20,7 @@ php artisan down
 
 ## Fetch latest code
 
-Upgrading with Git is as easy as:
+Fetch the code and check out the release tag. Replace `LATEST_TAG` with the tag for the v2 release you want to install:
 
 ```bash
 git fetch origin
@@ -30,9 +30,7 @@ git checkout LATEST_TAG
 
 ## Upgrading dependencies
 
-Next, we need to upgrade our dependencies. These usually contain bug fixes, performance enhancements and new features.
-
-Run the snippet from your Cachet's root directory (where an `artisan` file exists):
+Install the release's dependencies from your Cachet installation's root directory:
 
 ```bash
 composer install --no-dev -o
@@ -40,7 +38,7 @@ composer install --no-dev -o
 
 ## Update Cachet
 
-We now need to instruct Cachet to run any pending updates:
+Run Cachet's pending updates:
 
 ```bash
 php artisan app:update
@@ -48,7 +46,7 @@ php artisan app:update
 
 ## Turn off maintenance mode
 
-Finally, we can turn off maintenance mode:
+Turn off maintenance mode:
 
 ```bash
 php artisan up
