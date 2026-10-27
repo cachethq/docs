@@ -4661,6 +4661,12 @@
                                             "properties": {
                                                 "status": {
                                                     "type": "string",
+                                                    "enum": [
+                                                        "partial_outage",
+                                                        "operational",
+                                                        "under_maintenance",
+                                                        "major_outage"
+                                                    ],
                                                     "examples": [
                                                         "operational"
                                                     ]
@@ -4668,10 +4674,10 @@
                                                 "message": {
                                                     "type": "string",
                                                     "enum": [
-                                                        "All systems are operational.",
                                                         "Some systems are experiencing issues.",
-                                                        "Some systems are experiencing major issues.",
-                                                        "Some systems are under maintenance."
+                                                        "All systems are operational.",
+                                                        "Some systems are under maintenance.",
+                                                        "Some systems are experiencing major issues."
                                                     ],
                                                     "examples": [
                                                         "All Systems Operational"
@@ -4758,7 +4764,15 @@
                                         ]
                                     },
                                     "value": {
-                                        "type": "integer"
+                                        "type": "integer",
+                                        "enum": [
+                                            1,
+                                            2,
+                                            3,
+                                            4,
+                                            5,
+                                            6
+                                        ]
                                     }
                                 },
                                 "required": [
@@ -4781,7 +4795,15 @@
                                         ]
                                     },
                                     "value": {
-                                        "type": "integer"
+                                        "type": "integer",
+                                        "enum": [
+                                            1,
+                                            2,
+                                            3,
+                                            4,
+                                            5,
+                                            6
+                                        ]
                                     }
                                 },
                                 "required": [
@@ -4863,6 +4885,15 @@
                                                 "type": [
                                                     "integer",
                                                     "null"
+                                                ],
+                                                "enum": [
+                                                    1,
+                                                    2,
+                                                    3,
+                                                    4,
+                                                    5,
+                                                    6,
+                                                    null
                                                 ]
                                             }
                                         },
@@ -6450,7 +6481,12 @@
                                         ]
                                     },
                                     "value": {
-                                        "type": "integer"
+                                        "type": "integer",
+                                        "enum": [
+                                            0,
+                                            1,
+                                            2
+                                        ]
                                     }
                                 },
                                 "required": [
@@ -6907,6 +6943,14 @@
                                         "type": [
                                             "integer",
                                             "null"
+                                        ],
+                                        "enum": [
+                                            0,
+                                            1,
+                                            2,
+                                            3,
+                                            4,
+                                            null
                                         ]
                                     }
                                 },
